@@ -1,0 +1,40 @@
+name: Python Coverage Workflow
+on:
+  push:
+jobs:
+  codecov:
+    name: Codecov Workflow
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Python
+        uses: actions/setup-python@master
+        with:
+          python-version: 3.8
+      - name: Generate coverage report
+        run: |
+          pip install -r requirements.txt
+          pip install pytest
+          pip install pytest-cov
+          pytest tests --cov=./ --cov-report=xml
+          ls -al
+          ls -al tests/
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.codecov_token }}
+          file: ./coverage.xml
+          flags: unittests
+
+  sonarCloudTrigger:
+    name: SonarCloud Trigger
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+    - name: SonarCloud Scan
+      uses: sonarsource/sonarcloud-github-action@master
+#      with:
+#        projectBaseDir: ical
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
