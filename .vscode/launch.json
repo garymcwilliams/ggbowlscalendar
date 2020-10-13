@@ -1,0 +1,201 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Competitions",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "competitions",
+                "--year", "2019-20"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
+            "name": "FallsBelfast",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "fallsbelfast",
+                "--year", "2019-20"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
+            "name": "FallsCompAnnette",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "fallscompannette",
+                "--year", "2019"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
+            "name": "FallsIndoor",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "fallsindoor",
+                "--year", "2019-20"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
+            "name": "FallsMidweekA",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "fallsmidweeka",
+                "--year", "2019"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
+            "name": "OutdoorComp",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "outdoorcomp",
+                "--year", "2019"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
+            "name": "FallsOutdoorA",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "fallsoutdoora",
+                "--year", "2019"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
+            "name": "FallsOutdoorB",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "fallsoutdoorb",
+                "--year", "2019"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
+            "name": "StColmans",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "stcolmans",
+                "--year", "2019-20"
+            ],
+            "cwd": "${workspaceFolder}",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
+            "name": "StColmansEnv",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "ICAL_TEAM":"stcolmans",
+                "ICAL_YEAR":"2018-19"
+            },
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}"
+        },
+        {
+            "name": "PyTest",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${command:python.interpreterPath}",
+            "module": "pytest",
+            "args": [
+                "-sv"
+            ],
+            "cwd": "${workspaceFolder}",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
+            "name": "PyTest Coverage",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${command:python.interpreterPath}",
+            "module": "pytest",
+            "args": [
+                "--verbose",
+                "--cov=ggbowlscalendar"
+            ],
+            "cwd": "${workspaceFolder}",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env"
+        },
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "python.formatting.provider": "black",
+    "python.poetryPath": "poetry",
+    "python.linting.pylintEnabled": false,
+    "python.linting.pylamaEnabled": true,
+    "python.linting.enabled": true,
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestArgs": [
+        "-v",
+        "-p",
+        "--cov=ggbowlscalendar",
+        "test*.py"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.languageServer": "Pylance",
+    "python.pythonPath": "C:\\\\Users\\\\gmcwilliams\\\\AppData\\\\Local\\\\pypoetry\\\\Cache\\\\virtualenvs\\\\ggbowlscalendar-PuvjbH0J-py3.8"
+}

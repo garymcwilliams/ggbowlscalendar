@@ -1,0 +1,23 @@
+language: python
+python:
+  - 3.6
+  - 3.7
+  - 3.8
+  - 3.9-dev
+
+install:
+  - pip install pipenv --upgrade
+  - pipenv install --dev --skip-lock
+
+script:
+#  - coverage run --source=slumber setup.py test
+  - pytest tests --junitxml=test_reports/ggbowlscalendar.xml
+
+#after_success:
+#  - coveralls
+
+notifications:
+  email:
+    - garymcwilliams@gmail.com
+  webhooks:
+    - https://www.travisbuddy.com/

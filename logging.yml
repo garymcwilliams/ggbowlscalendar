@@ -1,0 +1,31 @@
+---
+
+version: 1
+formatters:
+  simple:
+    format: '%(asctime)s: %(name)-10s - %(levelname)-5s %(message)s'
+  brief:
+    format: '%(message)s'
+  default:
+    format: '%(asctime)s:%(levelname)-8s:%(name)-15s:%(message)s'
+    datefmt: '%Y-%m-%d_%H:%M:%S'
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: brief
+    stream: ext://sys.stdout
+  gary:
+    class: logging.handlers.RotatingFileHandler
+    formatter: default
+    filename: logs/gary.log
+    maxBytes: 1024
+    backupCount: 3
+loggers:
+  __main__:
+    level: DEBUG
+    handlers: [console,gary]
+    propagate: no
+root:
+  level: DEBUG
+  handlers: [console]
