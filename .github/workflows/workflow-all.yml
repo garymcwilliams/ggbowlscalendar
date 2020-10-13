@@ -13,9 +13,8 @@ jobs:
           python-version: 3.8
       - name: Generate coverage report
         run: |
-          pip install -r requirements.txt
-          pip install pytest
-          pip install pytest-cov
+          poetry install
+          poetry install pytest-cov
           pytest tests --cov=./ --cov-report=xml
           ls -al
           ls -al tests/
