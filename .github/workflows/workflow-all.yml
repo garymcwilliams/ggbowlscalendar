@@ -34,11 +34,9 @@ jobs:
         poetry-version: ${{ matrix.poetry-version }}
     - name: poetry in motion
       run: |
-        poetry install
-        poetry add pytest-cov
-        ls -al
-        ls -al tests/
-        pytest tests --cov=./ --cov-report=xml
+        python -m poetry install
+        python -m poetry add pytest-cov
+        python -m poetry run python -m pytest tests --cov=./ --cov-report=xml
 
   codecov:
     name: Codecov Workflow
@@ -56,8 +54,6 @@ jobs:
       run: |
         poetry install
         poetry add pytest-cov
-        ls -al
-        ls -al tests/
         pytest tests --cov=./ --cov-report=xml
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
