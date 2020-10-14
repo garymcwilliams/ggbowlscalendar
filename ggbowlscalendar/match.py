@@ -6,7 +6,7 @@ Created on 19 Jun 2018
 from datetime import timedelta, datetime
 
 
-def _format_date_time(date, time) -> str:
+def _format_date_time(date, time) -> datetime:
     date_fmt_in = "%Y-%m-%d_%H:%M"
     return datetime.strptime(f"{date}_{time}", date_fmt_in)
 
