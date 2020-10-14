@@ -1,32 +1,38 @@
 name: Python Coverage Workflow
 on:
+  # Trigger analysis when pushing in master or pull requests, and when creating
+  # a pull request. 
   push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened]
 jobs:
   codecov:
     name: Codecov Workflow
     runs-on: ubuntu-18.04
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@master
-        with:
-          python-version: 3.8
-      - name: Set up Poetry
-        uses: dschep/install-poetry-action@v1.3
-      - name: Generate coverage report
-        run: |
-          poetry install
-          poetry install pytest-cov
-          pytest tests --cov=./ --cov-report=xml
-          ls -al
-          ls -al tests/
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage.xml
-          flags: unittests
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@master
+      with:
+        python-version: 3.8
+    - name: Set up Poetry
+      uses: dschep/install-poetry-action@v1.3
+    - name: Generate coverage report
+      run: |
+        poetry install
+        poetry install pytest-cov
+        pytest tests --cov=./ --cov-report=xml
+        ls -al
+        ls -al tests/
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: ./coverage.xml
+        flags: unittests
 
   sonarCloud:
     name: SonarCloud
