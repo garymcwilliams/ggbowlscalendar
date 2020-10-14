@@ -35,9 +35,8 @@ jobs:
     - name: poetry in motion
       run: |
         poetry install
+        poetry add pytest
         poetry add pytest-cov
-        ls -al
-        ls -al tests/
         pytest tests --cov=./ --cov-report=xml
 
   codecov:
@@ -56,8 +55,6 @@ jobs:
       run: |
         poetry install
         poetry add pytest-cov
-        ls -al
-        ls -al tests/
         pytest tests --cov=./ --cov-report=xml
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
