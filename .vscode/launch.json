@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
-            "pythonPath": "${command:python.interpreterPath}",
+            "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "competitions",
@@ -25,7 +25,7 @@
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
-            "pythonPath": "${command:python.interpreterPath}",
+            "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsbelfast",
@@ -41,7 +41,7 @@
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
-            "pythonPath": "${command:python.interpreterPath}",
+            "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallscompannette",
@@ -57,7 +57,7 @@
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
-            "pythonPath": "${command:python.interpreterPath}",
+            "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsindoor",
@@ -73,7 +73,7 @@
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
-            "pythonPath": "${command:python.interpreterPath}",
+            "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsmidweeka",
@@ -89,7 +89,7 @@
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
-            "pythonPath": "${command:python.interpreterPath}",
+            "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "outdoorcomp",
@@ -105,7 +105,7 @@
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
-            "pythonPath": "${command:python.interpreterPath}",
+            "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsoutdoora",
@@ -121,7 +121,7 @@
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
-            "pythonPath": "${command:python.interpreterPath}",
+            "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsoutdoorb",
@@ -137,7 +137,7 @@
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
-            "pythonPath": "${command:python.interpreterPath}",
+            "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "stcolmans",
@@ -152,7 +152,7 @@
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
-            "pythonPath": "${command:python.interpreterPath}",
+            "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [],
             "cwd": "${workspaceFolder}",
@@ -173,7 +173,7 @@
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
-            "pythonPath": "${command:python.interpreterPath}",
+            "python": "${command:python.interpreterPath}",
             "module": "pytest",
             "args": [
                 "-sv"
@@ -187,7 +187,7 @@
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
-            "pythonPath": "${command:python.interpreterPath}",
+            "python": "${command:python.interpreterPath}",
             "module": "pytest",
             "args": [
                 "--verbose",
