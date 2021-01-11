@@ -28,9 +28,9 @@ jobs:
       id: full-python-version
       shell: bash
       run: echo ::set-output name=version::$(python -c "import sys; print('-'.join(str(v) for v in sys.version_info))")
-    - name: Run image
-      uses: ./
-#      uses: abatilo/actions-poetry@v2.0.0
+    - name: Install poetry
+#      uses: ./
+      uses: abatilo/actions-poetry@v2.0.0
       with:
         poetry-version: ${{ matrix.poetry-version }}
     - name: poetry in motion
