@@ -29,7 +29,6 @@ jobs:
       shell: bash
       run: echo ::set-output name=version::$(python -c "import sys; print('-'.join(str(v) for v in sys.version_info))")
     - name: Install poetry
-#      uses: ./
       uses: abatilo/actions-poetry@v2.0.0
       with:
         poetry-version: ${{ matrix.poetry-version }}
@@ -38,6 +37,7 @@ jobs:
         python -m poetry install
         python -m poetry run python -m pytest tests --cov=./ --cov-report=xml
 
+# Use a separate flow, as we only want to upload one set of codecov results
   codecov:
     name: Codecov Workflow
     runs-on: ubuntu-18.04
@@ -47,9 +47,11 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@master
       with:
-        python-version: 3.8
-    - name: Set up Poetry
-      uses: dschep/install-poetry-action@v1.3
+        python-version: 3.9
+    - name: Install poetry
+      uses: abatilo/actions-poetry@v2.0.0
+      with:
+        poetry-version: ${{ matrix.poetry-version }}
     - name: Generate coverage report
       run: |
         poetry install
