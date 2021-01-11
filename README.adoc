@@ -1,4 +1,4 @@
-= ICS Calendar image:https://travis-ci.org/garymcwilliams/ggbowlscalendar.svg?branch=master["Build Status", link="https://travis-ci.org/garymcwilliams/ggbowlscalendar"] image:https://circleci.com/gh/garymcwilliams/ggbowlscalendar.svg?style=svg["CircleCI", link="https://circleci.com/gh/garymcwilliams/ggbowlscalendar"] image:https://github.com/garymcwilliams/ggbowlscalendar/workflows/Python%20Coverage%20Workflow/badge.svg?branch=master[]
+= Bowls Calendar image:https://github.com/garymcwilliams/ggbowlscalendar/workflows/Python%20Coverage%20Workflow/badge.svg["Coverage", link="https://github.com/garymcwilliams/ggbowlscalendar/actions"]
 
 == Running
 
