@@ -93,7 +93,7 @@
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "outdoorcomp",
-                "--year", "2019"
+                "--year", "2021"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
