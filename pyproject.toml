@@ -5,7 +5,7 @@ description = ""
 authors = ["Gary McWilliams <gary.mcwilliams@verint.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 envparse = "^0.2.0"
 PyYAML = "^5.4.1"
 icalendar = "^4.0.7"
