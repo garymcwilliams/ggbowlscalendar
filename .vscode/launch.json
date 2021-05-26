@@ -75,13 +75,12 @@
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
-            "args": [
-                "--team", "fallsmidweeka",
-                "--year", "2019"
-            ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
-            "env": {},
+            "env": {
+                "ICAL_TEAM": "fallsmidweeka",
+                "ICAL_YEAR": "2021"
+            },
             "envFile": "${workspaceFolder}/.env",
         },
         {
