@@ -20,5 +20,17 @@ see link: ![icalendar-data](https://github.com/garymcwilliams/icalendar-data)
 ## Managing python poetry dependencies
 
 ```bash
-poetry upgrade
+poetry update
+```
+
+To update depd in `pyproject.yaml`, for each listed package run
+
+```bash
+poetry add pylint@latest
+```
+
+for `dev` dependencies use
+
+```bash
+poetry add --dev pytest@latest
 ```
