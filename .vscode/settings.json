@@ -17,5 +17,4 @@
     "python.testing.nosetestsEnabled": false,
     "python.testing.pytestEnabled": true,
     "python.languageServer": "Pylance",
-    "python.pythonPath": "C:\\Users\\gmcwilliams\\AppData\\Local\\pypoetry\\Cache\\virtualenvs\\ggbowlscalendar-PuvjbH0J-py3.8\\Scripts\\python.exe"
 }
