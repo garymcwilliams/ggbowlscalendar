@@ -124,7 +124,7 @@
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsoutdoora",
-                "--year", "2019"
+                "--year", "2022"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
