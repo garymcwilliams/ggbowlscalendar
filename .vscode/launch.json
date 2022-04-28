@@ -100,6 +100,21 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
+            "name": "FallsMidweekB",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "python": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {
+                "ICAL_TEAM": "fallsmidweekb",
+                "ICAL_YEAR": "2022"
+            },
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
             "name": "OutdoorComp",
             "type": "python",
             "request": "launch",
