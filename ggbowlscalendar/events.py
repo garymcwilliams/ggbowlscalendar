@@ -56,7 +56,7 @@ class Events:
         self.duration = float(matchdata["duration"])
         self.matches = matchdata["matches"]
 
-        teamfile = get_team_file(clubdata)   # TODO #2 Need to parameterise the clubname for shared team data
+        teamfile = get_team_file(clubdata)
         teamdata = self._load_data(teamfile, None)
         self.team_data = teamdata["teams"]
 
