@@ -122,7 +122,7 @@
             "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
-                "--team", "outdoorcomp",
+                "--team", "fallsoutdoorcomp",
                 "--year", "2021"
             ],
             "cwd": "${workspaceFolder}",
