@@ -37,6 +37,10 @@ class Events:
         self.savedir = savedir()
 
         self.club = club
+        if self.club.startswith("fallsoutdoor"):
+            clubdata = "fallsoutdoor"
+        else:
+            clubdata = club
         self.year = year
 
         self.cal = Calendar()
@@ -47,14 +51,14 @@ class Events:
 
         matchfile = get_match_file(club, year)
         matchdata = self._load_data(matchfile)
+        self.myclub = matchdata["me"]
+        self.default_start_time = matchdata["start_time"]
         self.duration = float(matchdata["duration"])
         self.matches = matchdata["matches"]
 
-        teamfile = get_team_file(club)
+        teamfile = get_team_file(clubdata)   # TODO #2 Need to parameterise the clubname for shared team data
         teamdata = self._load_data(teamfile, None)
         self.team_data = teamdata["teams"]
-        self.myclub = teamdata["me"]
-        self.default_start_time = teamdata["start_time"]
 
     def add_events(self):
         """Add all events for this team / season to the calendar"""
