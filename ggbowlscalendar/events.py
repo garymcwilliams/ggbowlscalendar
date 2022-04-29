@@ -37,7 +37,7 @@ class Events:
         self.savedir = savedir()
 
         self.club = club
-        if self.club.startswith("fallsoutdoor"):
+        if self.club.startswith("fallsoutdoor") or self.club.startswith("fallsmidweek"):
             clubdata = "fallsoutdoor"
         else:
             clubdata = club
@@ -119,13 +119,21 @@ class Events:
             if "newdate" in match:
                 new_date = match["newdate"]
 
+            home_team_name = home_team_name.data
+            away_team_name = away_team_name.data
+            if "team" in match:
+                if home_id != self.myclub:
+                    home_team_name = f"{home_team_name} {match['team']}"
+                else:
+                    away_team_name = f"{away_team_name} {match['team']}"
+
             match = Match(
                 myclub=self.myclub.data,
                 home_team_id=home_id.data,
-                home_team_name=home_team_name.data,
+                home_team_name=home_team_name,
                 home_score=home_score.data,
                 away_team_id=away_id.data,
-                away_team_name=away_team_name.data,
+                away_team_name=away_team_name,
                 away_score=away_score.data,
                 date=match_date,
                 time=start_time,
