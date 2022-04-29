@@ -37,7 +37,8 @@ class Events:
         self.savedir = savedir()
 
         self.club = club
-        if self.club.startswith("fallsoutdoor") or self.club.startswith("fallsmidweek"):
+        if self.club.startswith("fallsoutdoor") \
+                or self.club.startswith("fallsmidweek"):
             clubdata = "fallsoutdoor"
         else:
             clubdata = club
