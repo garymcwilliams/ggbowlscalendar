@@ -70,7 +70,7 @@ class Match:
         self.match_date = _format_date_time(date, time)
         # for consistency, always use the original date for id, even if match
         # time moves
-        self.id_time = self.match_date.strftime("%Y-%m-%d")
+        self.id_time = self.match_date.strftime("%Y%m%d%H%M")
         if new_date is not None and new_date != "":
             if new_time is not None:
                 self.match_date = _format_date_time(new_date, new_time)
@@ -133,19 +133,19 @@ class Match:
         ).strip()
 
     def id(self) -> str:
-        """Define a Unique ID for the match."""
+        """
+        Define a Unique ID for the match.
+        The unique ID will be formed from "my" team, plus the orginal
+        match date/time. We use the original date/time to allow for matches
+        being rearranged. Using time is optional, but would allow for any crazy
+        setup where the team would be asked to play twice in a day.
+        #31 we removed the opposition name from ID to allow for Cup opponents
+        being changed
+        """
 
-        # if we move match times, e.g. a cup game, then we cannot use simply
-        # the time, otherwise both the original and the new game will have same
-        # ID, so need to add the clubname
-        id_team = self.home_id
-        if self.home_id == self.myclub:
-            id_team = self.away_id
-        id_team = id_team.replace(" ", "")
         return (
             f"{self.myclub.replace(' ','')}-"
-            f"{self.id_time}-"
-            f"{id_team}"
+            f"{self.id_time}"
             f"@mc-williams.co.uk"
         )
 
