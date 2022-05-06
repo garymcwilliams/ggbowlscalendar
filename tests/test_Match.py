@@ -38,7 +38,7 @@ class TestMatch:
         )
 
     def test_home_match_id(self, home_match):
-        assert home_match.id() == "FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
+        assert home_match.id() == "FALLSA-201806051830@mc-williams.co.uk"
 
     ###########################################################################
     #  H O M E   A W A Y   N O T   K N O W N
@@ -101,7 +101,7 @@ class TestMatch:
         )
 
     def test_home_match_newdate_id(self, home_match_newdate):
-        assert home_match_newdate.id() == 'FALLSA-2018-06-05-OLDLA@' \
+        assert home_match_newdate.id() == 'FALLSA-201806051830@' \
             'mc-williams.co.uk'
 
     ###########################################################################
@@ -139,7 +139,7 @@ class TestMatch:
         )
 
     def test_home_match_newdatetime_id(self, home_newdatetime):
-        assert home_newdatetime.id() == "FALLSA-2018-06-05-OLDLA@" \
+        assert home_newdatetime.id() == "FALLSA-201806051830@" \
             "mc-williams.co.uk"
 
     ###########################################################################
@@ -177,7 +177,7 @@ class TestMatch:
         )
 
     def test_home_newdateunknwon_id(self, home_newdateunknwon):
-        assert home_newdateunknwon.id() == "FALLSA-2018-06-05-OLDLA@" \
+        assert home_newdateunknwon.id() == "FALLSA-201806051830@" \
             "mc-williams.co.uk"
 
     ###########################################################################
@@ -206,7 +206,7 @@ class TestMatch:
         )
 
     def test_at_away_id(self, away_match):
-        assert away_match.id() == "FALLSA-2018-05-29-DUNBA@mc-williams.co.uk"
+        assert away_match.id() == "FALLSA-201805291400@mc-williams.co.uk"
 
     def test_at_away_print_description(self, away_match):
         assert (
