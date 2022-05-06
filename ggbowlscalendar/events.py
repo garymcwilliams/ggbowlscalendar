@@ -161,8 +161,6 @@ class Events:
         with open(filename, "r") as data_file:
             ymldata = data_file.read()
             data = strictyaml.load(ymldata, schema)
-        # print(json.dumps(json_data, indent=2))
-        # print(json_data['matches'])
         return data
 
     def _create_event(self, match):

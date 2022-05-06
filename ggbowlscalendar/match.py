@@ -97,7 +97,6 @@ class Match:
         )
 
     def _display_date(self):
-        # display_date = self.match_start.strftime(self.date_fmt_in)
         return self.match_date.strftime("%Y-%m-%d@%H:%M")
 
     def description(self):
@@ -115,7 +114,8 @@ class Match:
             f"{self.label}"
         )
 
-    # TODO #56 print_description should return csv and let caller do the formatting
+    # TODO #56 print_description should return csv and let caller do the
+    # formatting
     def print_description(self):
         """
         Return a well-formatted, aligned, description of the match, suitable

@@ -1,7 +1,9 @@
 from .context import Match
 
-# from ical.match import Match
 import pytest
+
+FALLS_A = "Falls A"
+OLD_BLEACH_A = "Old Bleach A"
 
 
 class TestMatch:
@@ -13,10 +15,10 @@ class TestMatch:
         return Match(
             myclub="FALLSA",
             home_team_id="FALLSA",
-            home_team_name="Falls A",
+            home_team_name=FALLS_A,
             home_score=6,
             away_team_id="OLDLA",
-            away_team_name="Old Bleach A",
+            away_team_name=OLD_BLEACH_A,
             away_score=1,
             date="2018-06-05",
             time="18:30",
@@ -48,10 +50,10 @@ class TestMatch:
         return Match(
             myclub="FALLSA",
             home_team_id="FALLSA",
-            home_team_name="Falls A",
+            home_team_name=FALLS_A,
             home_score=6,
             away_team_id="OLDLA",
-            away_team_name="Old Bleach A",
+            away_team_name=OLD_BLEACH_A,
             away_score=1,
             date="2018-06-05",
             time="18:30",
@@ -75,10 +77,10 @@ class TestMatch:
         return Match(
             myclub="FALLSA",
             home_team_id="FALLSA",
-            home_team_name="Falls A",
+            home_team_name=FALLS_A,
             home_score=6,
             away_team_id="OLDLA",
-            away_team_name="Old Bleach A",
+            away_team_name=OLD_BLEACH_A,
             away_score=1,
             date="2018-06-05",
             time="18:30",
@@ -112,10 +114,10 @@ class TestMatch:
         return Match(
             myclub="FALLSA",
             home_team_id="FALLSA",
-            home_team_name="Falls A",
+            home_team_name=FALLS_A,
             home_score=6,
             away_team_id="OLDLA",
-            away_team_name="Old Bleach A",
+            away_team_name=OLD_BLEACH_A,
             away_score=1,
             date="2018-06-05",
             time="18:30",
@@ -150,10 +152,10 @@ class TestMatch:
         return Match(
             myclub="FALLSA",
             home_team_id="FALLSA",
-            home_team_name="Falls A",
+            home_team_name=FALLS_A,
             home_score=6,
             away_team_id="OLDLA",
-            away_team_name="Old Bleach A",
+            away_team_name=OLD_BLEACH_A,
             away_score=1,
             date="2018-06-05",
             time="18:30",
@@ -191,7 +193,7 @@ class TestMatch:
             home_team_name="Dunbarton",
             home_score=7,
             away_team_id="FALLSA",
-            away_team_name="Falls A",
+            away_team_name=FALLS_A,
             away_score=0,
             date="2018-05-29",
             time="14:00",
@@ -223,7 +225,7 @@ class TestMatch:
         return Match(
             myclub="FALLSA",
             home_team_id="FALLSA",
-            home_team_name="Falls A",
+            home_team_name=FALLS_A,
             home_score=96,
             away_team_id="Limavady",
             away_team_name="Limavady",
@@ -257,7 +259,7 @@ class TestMatch:
         return Match(
             myclub="FALLSA",
             home_team_id="FALLSA",
-            home_team_name="Falls A",
+            home_team_name=FALLS_A,
             home_score=0,
             away_team_id="Limavady",
             away_team_name="Limavady",
