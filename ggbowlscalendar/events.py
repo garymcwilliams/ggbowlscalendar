@@ -120,6 +120,10 @@ class Events:
             if "newdate" in match:
                 new_date = match["newdate"]
 
+            new_time = None
+            if "newtime" in match:
+                new_time = match["newtime"]
+
             home_team_name = home_team_name.data
             away_team_name = away_team_name.data
             if "team" in match:
@@ -143,6 +147,7 @@ class Events:
                 duration=duration,
                 label=label,
                 new_date=new_date,
+                new_time=new_time,
             )
 
             # 32: If new_date is "" then don't add event, but still print
