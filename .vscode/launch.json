@@ -123,7 +123,7 @@
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsoutdoorcomp",
-                "--year", "2021"
+                "--year", "2022"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
