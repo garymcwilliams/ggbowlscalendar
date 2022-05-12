@@ -244,6 +244,12 @@ class TestMatch:
             == "W Falls A (96) v (71) Limavady 2018-06-02@14:00 Irish Cup"
         )
 
+    def test_cup_home_id(self, cup_home_match):
+        assert (
+            cup_home_match.id()
+            == "FALLSA-201806021400IrishCup@mc-williams.co.uk"
+        )
+
     def test_cup_home_match_print_description(self, cup_home_match):
         assert (
             cup_home_match.print_description()

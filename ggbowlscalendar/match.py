@@ -81,9 +81,11 @@ class Match:
         # expect to arrive 10 mins early
         self.match_start = self.match_date - timedelta(minutes=10)
 
+        self.match_label = ""  # save label for id() calculcation
         self.label = ""
         if label is not None:
             self.label = f" {label}"
+            self.match_label = f"{label}"
         if new_date == "":
             self.label = " ****-TBD-****"
 
@@ -141,11 +143,18 @@ class Match:
         setup where the team would be asked to play twice in a day.
         #31 we removed the opposition name from ID to allow for Cup opponents
         being changed
+        #35 using simply the date is not unique enough. We also need to account
+        for any label used in the match.
         """
+
+        label = ""
+        if self.match_label is not None:
+            label = f"{self.match_label.replace(' ','')}"
 
         return (
             f"{self.myclub.replace(' ','')}-"
             f"{self.id_time}"
+            f"{label}"
             f"@mc-williams.co.uk"
         )
 
