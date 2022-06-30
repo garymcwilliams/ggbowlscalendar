@@ -16,6 +16,7 @@
 *.json       text
 *.jsp        text
 *.java       text
+*.lock       text
 *.md         text
 *.php        text
 *.properties text
