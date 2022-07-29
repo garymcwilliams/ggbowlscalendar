@@ -98,7 +98,7 @@ class Match:
             f"{self.label}"
         )
 
-    def _display_date(self):
+    def display_date(self):
         return self.match_date.strftime("%Y-%m-%d@%H:%M")
 
     def description(self):
@@ -112,7 +112,7 @@ class Match:
             "v "
             f"({self.away_score}) "
             f"{self.away_team_name} "
-            f"{self._display_date()}"
+            f"{self.display_date()}"
             f"{self.label}"
         )
 
@@ -129,7 +129,7 @@ class Match:
             # #56 don't return the v, let caller do all formatting
             f" v "
             f"({self.away_score:3}) {self.away_team_name:15s} "
-            f"{self._display_date()}"
+            f"{self.display_date()}"
             f"{self.label} "
             f"{self.warning}"
         ).strip()
