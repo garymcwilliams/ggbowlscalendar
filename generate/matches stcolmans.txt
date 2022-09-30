@@ -1,0 +1,21 @@
+STCOL
+stcolmans_matches_2022-23
+3
+2022, 10, 13
+19:30
+home PRIES 0
+home DERRI 7
+away ANNAH 6
+away EGLAN 7
+home SLOAN 8
+home BALLI 21
+away HILDE 7
+home SOLDI 7
+away PRIES 26
+home ANNAH 9
+away DERRI 8
+home EGLAN 6
+away SLOAN 14
+away BALLI 13
+home HILDE 8
+away SOLDI 6

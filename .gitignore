@@ -4,3 +4,4 @@ __pycache__/
 logs/
 test_reports/
 *.swp
+generate/matches.txt
