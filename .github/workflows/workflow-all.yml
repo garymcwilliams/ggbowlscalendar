@@ -1,4 +1,4 @@
-name: Python Test
+name: GitHub CI
 on:
   push:
 #on:
@@ -13,49 +13,58 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: [3.8, 3.9]
-        poetry-version: [1.1.4]
-        os: [ubuntu-18.04, macos-latest, windows-latest]
+        python-version: ["3.9", "3.10"]
+        poetry-version: [1.1.13]
+        os: [ubuntu-18.04, macos-latest]
+#        os: [ubuntu-18.04, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
       with:
-        python-version: ${{ matrix.python-version }}
-    - name: Get full Python version
-      id: full-python-version
-      shell: bash
-      run: echo ::set-output name=version::$(python -c "import sys; print('-'.join(str(v) for v in sys.version_info))")
-    - name: Install poetry
-      uses: abatilo/actions-poetry@v2.0.0
+        python-version: "${{ matrix.python-version }}"
+    - uses: actions/cache@v2
       with:
-        poetry-version: ${{ matrix.poetry-version }}
+        path: ~/.local
+        key: poetry-${{ matrix.poetry-version }}-${{ matrix.os }}-0
+    - uses: snok/install-poetry@v1
+      with:
+        version: ${{ matrix.poetry-version }}
     - name: poetry in motion
       run: |
-        python -m poetry install
-        python -m poetry run python -m pytest tests --cov=./ --cov-report=xml
+        poetry install
+        poetry run pytest
 
 # Use a separate flow, as we only want to upload one set of codecov results
   codecov:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10"]
+        poetry-version: [1.1.13]
+        os: [ubuntu-18.04]
     name: Codecov Workflow
-    runs-on: ubuntu-18.04
+    runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Set up Python
-      uses: actions/setup-python@master
+      uses: actions/setup-python@v4
       with:
-        python-version: 3.9
+        python-version: "${{ matrix.python-version }}"
+    - uses: actions/cache@v2
+      with:
+        path: ~/.local
+        key: poetry-${{ matrix.poetry-version }}-${{ matrix.os }}-0
     - name: Install poetry
-      uses: abatilo/actions-poetry@v2.0.0
+      uses: snok/install-poetry@v1
       with:
-        poetry-version: 1.1.4
+        poetry-version: 1.1.13
     - name: Generate coverage report
+#      run: poetry run pytest tests --cov=./ --cov-report=xml
       run: |
         poetry install
-        poetry run pytest tests --cov=./ --cov-report=xml
+        poetry run pytest
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v1
       with:
