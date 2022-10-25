@@ -25,6 +25,9 @@ jobs:
     - uses: snok/install-poetry@v1
       with:
         version: ${{ matrix.poetry-version }}
+    - name: poetry test
+      run: |
+        poetry --help
     - name: poetry in motion
       run: |
         poetry run pytest tests --cov=./ --cov-report=xml
