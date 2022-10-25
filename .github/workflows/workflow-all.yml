@@ -18,12 +18,11 @@ jobs:
         os: [ubuntu-18.04, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
-    - name: setup
-      uses: actions/checkout@v3
-      uses: actions/setup-python@v4
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
-      uses: snok/install-poetry@v1
+    - uses: snok/install-poetry@v1
       with:
         version: ${{ matrix.poetry-version }}
     - name: poetry in motion
