@@ -5,6 +5,7 @@ Created on 11 Oct 2017
 """
 from datetime import datetime, timedelta
 from pathlib import Path
+from .match_printer import print_header, print_matches, add_match
 
 import strictyaml
 from icalendar import Alarm, Calendar
@@ -63,6 +64,8 @@ class Events:
 
     def add_events(self):
         """Add all events for this team / season to the calendar"""
+
+        print_header()
 
         for match in self.matches:
             match_date = match["date"]
@@ -155,9 +158,9 @@ class Events:
             if new_date != "":
                 self.cal.add_component(self._create_event(match))
 
-            # TODO #56 look at PrettyTable for formatting
-            print(match.print_description())
+            add_match(match)
 
+        print_matches()
         # self._print_cal()
         self._write_file()
 
