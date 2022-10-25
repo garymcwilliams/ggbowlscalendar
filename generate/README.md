@@ -3,11 +3,13 @@
 ## Ruunning
 
 Simplest way to run this is to do
-```
+
+``` bash
 poetry shell
 cd generate
 python generate.py
 ```
+
 ## Configuration
 
 Create a file called `matches.txt`, from one of the samples. This is a simple line based file, with the following structure:
