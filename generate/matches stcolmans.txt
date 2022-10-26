@@ -2,7 +2,7 @@ STCOL
 stcolmans_matches_2022-23
 3
 2022, 10, 13
-19:30
+20:00
 home PRIES 0
 home DERRI 7
 away ANNAH 6
