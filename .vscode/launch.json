@@ -93,7 +93,19 @@
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsindoor",
-                "--year", "2019-20"
+                "--year", "2022-23"
+            ],
+        },
+        {
+            "name": "FallsIndoorB",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "python": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "fallsindoorb",
+                "--year", "2022-23"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
