@@ -1,0 +1,20 @@
+FALLA
+fallsindoor_matches_2022-23
+3
+2022, 10, 16
+19:30
+home HANNA 4
+home STANN 7
+away WOODB 11 
+home WOODB 10
+home STANN 7
+home FALLB 7
+away HOLYC 5
+away HANNA 7
+home FALLB 30
+home HOLYC 7
+away HANNA 5
+home WOODB 9
+away STANN 3
+home HOLYC 11
+away FALLB 7
