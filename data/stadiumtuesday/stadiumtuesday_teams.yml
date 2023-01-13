@@ -1,0 +1,45 @@
+location: Belfast Indoor Bowls Club, 115 Milltown Rd, Belfast BT8 7XP, UK
+teams:
+  BRENN:
+    name: K Brennan
+    location: Belfast Indoor Bowls Club, 115 Milltown Rd, Belfast BT8 7XP, UK
+  BELL:
+    name: B Bell
+  CAMPB:
+    name: J H Campbell
+  DOWNY:
+    name: G Downey
+  DUFFI:
+    name: J Duffin
+  FAWCU:
+    name: J Fawcus
+  FISHE:
+    name: P Fisher
+  HEDLE:
+    name: M Hedley
+  HENDE:
+    name: J Henderson
+  HUNTE:
+    name: B Hunter
+  LEDGE:
+    name: C Ledgerwood
+  MCBRI:
+    name: P McBrinn
+  MCINT:
+    name: I McIntyre
+  ORORK:
+    name: I O'Rorke
+  OROUR:
+    name: A O'Rourke
+  PORTE:
+    name: G Porter
+  REID:
+    name: M Reid
+  SIMPS:
+    name: M Simpson
+  THOMP:
+    name: E Thompson
+  TRAIN:
+    name: L Trainor
+  WATTR:
+    name: L Watters

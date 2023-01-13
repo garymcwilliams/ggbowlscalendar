@@ -1,0 +1,37 @@
+teams:
+  AFM:
+    location: unknown
+    name: AFM
+  BELMO:
+    location: 16 Belmont Park, Belfast, BT4 3DU
+    name: Belmont
+  CARAV:
+    location: 20 N Circular Rd, Belfast BT15 5HB
+    name: Caravanners
+  CLIFT:
+    location: 23 Knutsford Dr, Belfast BT14 6LZ
+    name: Cliftonville
+  EWART:
+    location: 15 Somerdale Park, Belfast, BT14 7HD
+    name: Ewarts
+  FALLS1:
+    location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
+    name: Falls1
+  FALLS2:
+    location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
+    name: Falls2
+  KINGH:
+    location: unknown
+    name: Kinghan
+  SALIS:
+    location: 47 Beechmount Avenue, Belfast BT12, UK
+    name: Salisbury
+  STBRI:
+    location: unknown
+    name: St Brigids
+  SYDEN:
+    location: unknown
+    name: Sydenham
+  YORKR:
+    location: unknown
+    name: York Road

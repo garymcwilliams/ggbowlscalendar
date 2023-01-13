@@ -1,0 +1,79 @@
+me: STCOL
+start_time: '19:30'
+duration: 3
+matches:
+- home: STMAR
+  date: '2019-10-10'
+  our_score: 7
+  opp_score: 0
+- home: STCLA
+  date: '2019-10-17'
+  our_score: 6
+  opp_score: 1
+- away: SLOAN
+  date: '2019-10-24'
+  label: Charity Cup
+  our_score: 0
+  opp_score: 1
+- away: BROOM
+  date: '2019-10-28'
+  our_score: 7
+  opp_score: 0
+- away: ROCK
+  date: '2019-11-04'
+  our_score: 7
+  opp_score: 0
+- home: DERRI
+  date: '2019-11-21'
+  newdate: '2020-02-20'
+  our_score: 0
+  opp_score: 0
+- away: HILLP
+  date: '2019-11-27'
+  label: Charity Shield
+  our_score: 1
+  opp_score: 0
+- away: SUFFO
+  date: '2019-12-12'
+  our_score: 6
+  opp_score: 1
+- away: STMAR
+  date: '2020-01-09'
+  our_score: 5
+  opp_score: 2
+- away: STCLA
+  date: '2020-01-15'
+  our_score: 0
+  opp_score: 0
+- away: HILDE
+  label: Zone Mixed Pairs
+  date: '2020-01-20'
+  our_score: 0
+  opp_score: 0
+- away: AGHAG
+  label: Zone Singles
+  date: '2020-01-23'
+  our_score: 0
+  opp_score: 0
+- home: STMAR
+  date: '2020-01-27'
+  label: Charity Shield
+  our_score: 0
+  opp_score: 0
+- home: BROOM
+  date: '2020-01-30'
+  our_score: 0
+  opp_score: 0
+- home: ROCK
+  date: '2020-02-06'
+  our_score: 0
+  opp_score: 0
+- away: DERRI
+  date: '2020-02-19'
+  newdate: '2019-11-20'
+  our_score: 6
+  opp_score: 1
+- home: SUFFO
+  date: '2020-03-12'
+  our_score: 0
+  opp_score: 0

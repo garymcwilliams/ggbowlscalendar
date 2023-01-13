@@ -1,0 +1,43 @@
+me: COMP
+start_time: '19:30'
+teams:
+  COMP:
+    location: somewhere
+    name: Me
+  BZONE:
+    location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11
+      9AH, United Kingdom
+    name: Belfast Zone
+    start_time: '13:00'
+  FOYLE:
+    location: XPGG+H7 Londonderry
+    name: Foyle
+    start_time: '13:30'
+  MIDDN:
+    location: F8G6+3M Balloo, Newtownards
+    name: Mid Down
+    start_time: '14:00'
+  NWEST:
+    location: TBD
+    name: North West
+    start_time: '14:00'
+  PRIES:
+    location: 78 Kesh Rd, Lisburn, BT27 5RR
+    name: Priesthill
+  TOUR:
+    name: Short Mat Tour
+    location: Belfast Indoor Bowls Club, 115 Milltown Rd, Belfast BT8 7XP, UK
+    start_time: '09:00'
+  WDOWN:
+    location: Holm Park, Lurgan Road, Dromore
+    name: West Down
+    start_time: '14:00'
+  WDOWNL:
+    location: 80 Ballynanny Rd, Banbridge BT32 4LB
+    name: West Down Ladies
+    start_time: '13:30'
+  ZONE:
+    location: Magheragall Presbyterian Church, 8 School Ln, Upper Ballinderry, Lisburn,
+      BT28 2NT
+    name: Lisburn Zone
+    start_time: '14:00'

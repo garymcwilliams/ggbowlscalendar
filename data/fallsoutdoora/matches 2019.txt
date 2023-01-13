@@ -1,0 +1,20 @@
+2019, 4, 20
+fallsoutdoora_matches_2019
+away BALLB 7
+home DUNBA 7
+away SALIS 7
+away OLDBL 7
+home EWARA 7
+away BALLA 7
+home PICKA 7
+away LARNA 7
+home BELMA 7
+home BALLB 7
+away DUNBA 7
+home SALIS 14
+home OLDBL 7
+away EWARA 14
+home BALLA 7
+away PICKA 7
+home LARNA 7
+away BELMA 7

@@ -1,0 +1,41 @@
+duration: 3
+matches:
+- home: Shiela Murray
+  date: '2019-04-22'
+  start_time: '20:00'
+  our_score: 14
+  opp_score: 3
+- home: Brendan Griffin
+  date: '2019-04-24'
+  our_score: 4
+  opp_score: 10
+- home: Annette McWilliams
+  date: '2019-04-24'
+  start_time: '20:00'
+  our_score: 7
+  opp_score: 8
+- home: Gerry McCloskey
+  date: '2019-04-26'
+  start_time: '20:00'
+  our_score: 11
+  opp_score: 4
+- home: DJ Wilson
+  date: '2019-04-29'
+  label: Fours
+  our_score: 24
+  opp_score: 4
+- home: Larne
+  date: '2019-05-07'
+  label: Senior Fours (L King)
+  our_score: 0
+  opp_score: 1
+- home: M Gannon
+  date: '2019-05-23'
+  label: Junior Singles
+  our_score: 0
+  opp_score: 0
+- home: K O'Neill
+  date: '2019-05-27'
+  label: PG Singles
+  our_score: 0
+  opp_score: 0

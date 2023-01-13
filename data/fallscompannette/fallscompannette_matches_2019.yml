@@ -1,0 +1,20 @@
+duration: 1
+matches:
+- home: Gerry McCloskey
+  date: '2019-04-23'
+  start_time: '18:30'
+  our_score: 0
+  opp_score: 0
+- home: Shiela Murray
+  date: '2019-04-24'
+  start_time: '18:30'
+  our_score: 0
+  opp_score: 0
+- home: Gary McWilliams
+  date: '2019-04-24'
+  our_score: 0
+  opp_score: 0
+- home: Brendan Griffen
+  date: '2019-04-26'
+  our_score: 0
+  opp_score: 0

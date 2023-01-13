@@ -1,0 +1,28 @@
+duration: 3
+matches:
+- away: MIDDN
+  label: Lisburn Zone
+  date: '2018-11-24'
+  our_score: 0
+  opp_score: 1
+- away: BZONE
+  label: Belfast Zone
+  date: '2018-12-01'
+  our_score: 0
+  opp_score: 1
+- away: FOYLE
+  label: Lisburn Zone Ladies
+  date: '2019-01-12'
+  our_score: 0
+  opp_score: 1
+- away: WDOWN
+  label: Lisburn Zone
+  date: '2019-01-19'
+  our_score: 0
+  opp_score: 1
+- away: TOUR
+  label: World Masters
+  date: '2019-04-06'
+  start_time: 09:30
+  our_score: 0
+  opp_score: 0

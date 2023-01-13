@@ -1,0 +1,36 @@
+teams:
+  CLONA:
+    location: Musgrave Park, 7JB, Stockmans Ln, Belfast BT9, UK
+    name: Clonard
+  FALLB:
+    location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11
+      9AH, United Kingdom
+    name: Falls B
+  FALLA:
+    location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11
+      9AH, United Kingdom
+    name: Falls A
+  HANNA:
+    location: Musgrave Park, 7JB, Stockmans Ln, Belfast BT9, UK
+    name: Hannahstown
+  HOLYC:
+    location: 40 Herbert St, Belfast BT14 7FH
+    name: Holy Cross
+  RIVER:
+    location: St. Michaels chapel, 327 Finaghy Rd N, Belfast BT11 9EH, UK
+    name: Riverdale
+  SALIS:
+    location: 32 Salisbury Ave, Belfast BT15 5DZ
+    name: Salisbury
+  STANN:
+    location: St Anne's Presbytery, Kingsway, Belfast BT10 0LF
+    name: St Anne's
+  STMIC:
+    location: St. Michaels chapel, 327 Finaghy Rd N, Belfast BT11 9EH, UK
+    name: St Michael's
+  STPAU:
+    location: 47 Beechmount Avenue, Belfast BT12, UK
+    name: St Paul's
+  WOODB:
+    location: Horn Drive Community Centre, 44A Horn Dr, Belfast BT11 9GS, UK
+    name: Woodbourne

@@ -1,0 +1,227 @@
+{
+	"duration": 2,
+	"matches": [
+		{
+			"home": "CAMPB",
+			"home_score": 13,
+			"away": "DUFFI",
+			"away_score": 12,
+			"date": "2017-09-12_19:15"
+		},
+		{
+			"home": "CAMPB",
+			"home_score": 8,
+			"away": "HENDE",
+			"away_score": 10,
+			"date": "2017-09-19_19:15"
+		}
+		,
+		{
+			"home": "OROUR",
+			"home_score": 20,
+			"away": "CAMPB",
+			"away_score": 10,
+			"date": "2017-09-26_19:15"
+		}
+		,
+		{
+			"home": "CAMPB",
+			"home_score": 7,
+			"away": "MCBRI",
+			"away_score": 15,
+			"date": "2017-10-03_19:15"
+		}
+		,
+		{
+			"home": "CAMPB",
+			"home_score": 9,
+			"away": "EDMON",
+			"away_score": 10,
+			"date": "2017-10-10_19:15"
+		}
+		,
+		{
+			"home": "TRAIN",
+			"home_score": 11,
+			"away": "CAMPB",
+			"away_score": 10,
+			"date": "2017-10-17_19:15"
+		}
+		,
+		{
+			"home": "BELL",
+			"home_score": 21,
+			"away": "CAMPB",
+			"away_score": 9,
+			"date": "2017-10-24_19:15"
+		}
+		,
+		{
+			"home": "CAMPB",
+			"home_score": 25,
+			"away": "SIMPS",
+			"away_score": 8,
+			"date": "2017-10-31_19:15"
+		}
+        ,
+        {
+            "home": "CAMPB",
+            "home_score": 9,
+            "away": "ORORK",
+            "away_score": 9,
+            "date": "2017-11-07_19:15"
+        }
+        ,
+        {
+            "home": "MCINT",
+            "home_score": 13,
+            "away": "CAMPB",
+            "away_score": 12,
+            "date": "2017-11-14_19:15"
+        }
+        ,
+        {
+            "home": "CAMPB",
+            "home_score": 20,
+            "away": "THOMP",
+            "away_score": 15,
+            "date": "2017-11-21_19:15"
+        }
+        ,
+        {
+            "home": "HUNTE",
+            "home_score": 19,
+            "away": "CAMPB",
+            "away_score": 8,
+            "date": "2017-11-28_19:15"
+        }
+        ,
+        {
+            "home": "HEDLE",
+            "home_score": 13,
+            "away": "CAMPB",
+            "away_score": 8,
+            "date": "2017-12-05_19:15"
+        }
+        ,
+        {
+            "home": "CAMPB",
+            "home_score": 7,
+            "away": "DUFFI",
+            "away_score": 13,
+            "date": "2017-12-12_19:15"
+        }
+        ,
+        {
+            "home": "CAMPB",
+            "home_score": 15,
+            "away": "HENDE",
+            "away_score": 7,
+            "date": "2017-12-19_19:15"
+        }
+        ,
+        {
+            "home": "OROUR",
+            "home_score": 21,
+            "away": "CAMPB",
+            "away_score": 7,
+            "date": "2018-01-02_19:15"
+        }
+        ,
+        {
+            "home": "CAMPB",
+            "home_score": 17,
+            "away": "MCBRI",
+            "away_score": 15,
+            "date": "2018-01-09_19:15"
+        }
+        ,
+        {
+            "home": "CAMPB",
+            "home_score": 9,
+            "away": "EDMON",
+            "away_score": 13,
+            "date": "2018-01-16_19:15"
+        }
+        ,
+        {
+            "home": "TRAIN",
+            "home_score": 6,
+            "away": "CAMPB",
+            "away_score": 17,
+            "date": "2018-01-23_19:15"
+        }
+        ,
+        {
+            "home": "BELL",
+            "home_score": 14,
+            "away": "CAMPB",
+            "away_score": 11,
+            "date": "2018-01-30_19:15"
+        }
+        ,
+        {
+            "home": "CAMPB",
+            "home_score": 12,
+            "away": "SIMPS",
+            "away_score": 6,
+            "date": "2018-02-06_19:15"
+        }
+        ,
+        {
+            "home": "CAMPB",
+            "home_score": 8,
+            "away": "ORORK",
+            "away_score": 15,
+            "date": "2018-02-13_19:15"
+        }
+        ,
+        {
+            "home": "MCINT",
+            "home_score": 16,
+            "away": "CAMPB",
+            "away_score": 11,
+            "date": "2018-02-20_19:15"
+        }
+        ,
+        {
+            "home": "CAMPB",
+            "home_score": 19,
+            "away": "THOMP",
+            "away_score": 7,
+            "date": "2018-02-27_19:15"
+        }
+        ,
+        {
+            "home": "HUNTE",
+            "home_score": 0,
+            "away": "CAMPB",
+            "away_score": 0,
+            "date": "2018-03-06_19:15"
+        }
+        ,
+        {
+            "home": "HEDLE",
+            "home_score": 0,
+            "away": "CAMPB",
+            "away_score": 0,
+            "date": "2018-03-13_19:15"
+        }
+        ,
+        {
+            "home": "CAMPB",
+            "home_score": 0,
+            "away": "DUFFI",
+            "away_score": 0,
+            "date": "2018-03-20_19:15"
+        }
+        ,
+        {
+            "home": "CAMPB",
+            "home_score": 0,
+            "away": "HENDE",
+            "away_score": 0,
+            "date": "2018-03-27_19:15"
+        }
+	]
+}

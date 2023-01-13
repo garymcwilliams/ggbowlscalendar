@@ -1,0 +1,25 @@
+duration: 3
+matches:
+- home: NWEST
+  label: Lisburn Zone
+  date: '2019-11-23'
+  start_time: 14:00
+  our_score: 0
+  opp_score: 0
+- away: PRIES
+  label: Lisburn Over 55s
+  date: '2019-11-12'
+  start_time: 20:00
+  our_score: 0
+  opp_score: 0
+- away: WDOWNL
+  label: Lisburn Zone Ladies
+  date: '2020-01-11'
+  our_score: 0
+  opp_score: 0
+- away: TOUR
+  label: World Masters
+  date: '2020-04-18'
+  start_time: 09:30
+  our_score: 0
+  opp_score: 0

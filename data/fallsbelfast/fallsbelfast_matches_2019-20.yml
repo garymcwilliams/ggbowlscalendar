@@ -1,0 +1,68 @@
+---
+me: FALLSIA
+start_time: '19:30'
+duration: 3
+matches:
+- away: EWART
+  date: '2019-10-09'
+  our_score: 0
+  opp_score: 0
+- home: CLIFT
+  date: '2019-10-16'
+  newdate: 
+  our_score: 0
+  opp_score: 0
+- home: KINGH
+  date: '2019-10-23'
+  our_score: 0
+  opp_score: 0
+- home: STBRI
+  date: '2019-11-06'
+  our_score: 0
+  opp_score: 0
+- away: SALIS
+  date: '2019-11-13'
+  our_score: 0
+  opp_score: 0
+- home: YORKR
+  date: '2019-12-04'
+  our_score: 0
+  opp_score: 0
+- away: SYDEN
+  date: '2019-12-12'
+  our_score: 0
+  opp_score: 0
+- home: BELMO
+  date: '2020-01-08'
+  our_score: 0
+  opp_score: 7
+- away: AFM
+  date: '2020-01-15'
+  newdate: 
+  our_score: 0
+  opp_score: 0
+- away: CARAV
+  date: '2020-01-23'
+  our_score: 0
+  opp_score: 0
+- away: STBRI
+  date: '2020-01-30'
+  newdate: 
+  our_score: 0
+  opp_score: 0
+- home: AFM
+  date: '2020-02-05'
+  our_score: 0
+  opp_score: 0
+- home: CARAV
+  date: '2020-02-12'
+  our_score: 0
+  opp_score: 0
+- away: CLIFT
+  date: '2020-02-26'
+  our_score: 0
+  opp_score: 0
+- home: SYDEN
+  date: '2020-03-11'
+  our_score: 0
+  opp_score: 0

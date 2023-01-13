@@ -1,0 +1,70 @@
+me: FALLB
+start_time: '19:30'
+duration: 3
+matches:
+- away: STANN
+  date: '2022-10-16'
+  our_score: 0
+  opp_score: 0
+- away: WOODB
+  date: '2022-10-25'
+  label: Devine Cup
+  our_score: 0
+  opp_score: 0
+- home: HANNA
+  date: '2022-11-10'
+  our_score: 0
+  opp_score: 0
+- home: HOLYC
+  date: '2022-11-17'
+  newdate: '2022-11-29'
+  label: Devine Cup
+  our_score: 0
+  opp_score: 0
+- away: HOLYC
+  date: '2022-11-22'
+  our_score: 0
+  opp_score: 0
+- away: FALLA
+  date: '2022-12-01'
+  label: Devine Cup
+  our_score: 0
+  opp_score: 0
+- home: WOODB
+  date: '2022-12-08'
+  our_score: 0
+  opp_score: 0
+- home: STANN
+  date: '2022-12-15'
+  label: Devine Cup
+  our_score: 0
+  opp_score: 0
+- home: FALLA
+  date: '2023-01-12'
+  our_score: 0
+  opp_score: 0
+- away: HANNA
+  date: '2023-01-19'
+  label: Devine Cup
+  our_score: 0
+  opp_score: 0
+- home: STANN
+  date: '2023-01-26'
+  our_score: 0
+  opp_score: 0
+- away: HANNA
+  date: '2023-01-31'
+  our_score: 0
+  opp_score: 0
+- home: HOLYC
+  date: '2023-02-09'
+  our_score: 0
+  opp_score: 0
+- away: WOODB
+  date: '2023-02-13'
+  our_score: 0
+  opp_score: 0
+- home: FALLA
+  date: '2023-02-23'
+  our_score: 0
+  opp_score: 0

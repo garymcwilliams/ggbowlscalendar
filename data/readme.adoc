@@ -1,0 +1,72 @@
+= Data Formats
+
+The Data for the app has 2 requirements, defined as follows
+
+== Teams
+
+There should be a specific `team` file for each team being used. This file should be in the specfic `team` folder, e.g. `stcolmans`
+NOTE: all `fallsoutdoor` teams share one single `fallsoutdoor` teams file.
+
+The teams format is:
+[source,yaml,indent=0]
+----
+me: FALLSIA
+start_time: '19:30'
+teams:
+  SLOAN:
+    name: Sloan Street
+    location: 37 Sloan St, Lisburn BT27 5AN
+    start_time: '20:15'
+----
+
+[horizontal]
+`me`:: refers to which is "my team" from the list of teams included.
+`start_time`:: is the default start time for matches in this league
+- optional, if not provided, every match must include a start time
+
+each `team` entry then has the following values
+
+[horizontal]
+`KEY`:: is the keyname used to select this team in the matches list. Under each KEY are the full team details +
+`name`:: Full Name of the team +
+`location`:: Address in google maps for the team
+`start_time`:: If this team starts home matches at a time that is different the normal league start time, then add that. For home matches for this team this time will be used
+
+If a team exists a league, then EDIT the `teams` file. Backup the current team, and replace the `name` and `location` with `Bye`
+e.g.
+
+[source,yaml,indent=0]
+----
+  CLIFT:
+    location: none
+    name: Bye
+  CLIFTbackup:
+    location: 23 Knutsford Dr, Belfast BT14 6LZ
+    name: Cliftonville
+----
+
+== Matches
+
+[source,yaml,indent=0]
+----
+duration: 3
+matches:
+- away: BROOM
+  date: '2018-10-01'
+  our_score: 2
+  opp_score: 5
+----
+
+Fairly simple structure
+
+[horizontal]
+`home` or `away`:: againt which team. Team is a KEY to data within the Team data.
+`date`:: date of match
+`score`:: our score and opponents score
+
+There are additional optional entries available: +
+[horizontal]
+`label`:: An optional label for the match description, e.g. "Devine Cup" +
+`newdate`:: If a match date is changed, then add the new date. Keeping the original date means that the `ICS` unique key remains the same and the match is moved within the calendar rather than duplicated.
+- Additionally, if a match is to be re-arranged, but no date has been set then `newdate` can be left empty. In this case, the match will not be added to the calendar.
+`newtime`:: If a match time is changed, then add the new time.  NOTE that `newtime` will only be used if `newdate` is also used.
