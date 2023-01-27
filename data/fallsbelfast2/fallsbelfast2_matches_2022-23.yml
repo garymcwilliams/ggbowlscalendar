@@ -20,6 +20,7 @@ matches:
   opp_score: 0
 - away: KINGH
   date: '2022-11-17'
+  newdate:
   our_score: 0
   opp_score: 0
 - away: EWART
@@ -28,6 +29,7 @@ matches:
   opp_score: 0
 - home: BELMO
   date: '2022-11-30'
+  newdate: '2023-02-01'
   our_score: 0
   opp_score: 0
 - home: CARAV
