@@ -31,10 +31,12 @@ matches:
   opp_score: 0
 - away: HOLYC
   date: '2022-12-06'
+  newdate: '2023-02-07'
   our_score: 0
   opp_score: 0
 - away: HANNA
   date: '2022-12-13'
+  newdate: '2023-03-07'
   label: Devine Cup
   our_score: 0
   opp_score: 0
@@ -65,5 +67,6 @@ matches:
   opp_score: 0
 - away: FALLB
   date: '2023-02-23'
+  newdate: '2023-03-09'
   our_score: 0
   opp_score: 0

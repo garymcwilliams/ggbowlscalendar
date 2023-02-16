@@ -46,7 +46,7 @@ matches:
   opp_score: 0
 - away: HANNA
   date: '2023-01-17'
-  label: Devine Cup
+  newdate: '2023-02-22'
   our_score: 0
   opp_score: 0
 - home: STANN
@@ -55,6 +55,7 @@ matches:
   opp_score: 0
 - away: HANNA
   date: '2023-01-31'
+  label: Devine Cup
   our_score: 0
   opp_score: 0
 - home: HOLYC
@@ -67,5 +68,6 @@ matches:
   opp_score: 0
 - home: FALLA
   date: '2023-02-23'
+  newdate: '2023-03-09'
   our_score: 0
   opp_score: 0
