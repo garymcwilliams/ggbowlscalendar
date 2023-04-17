@@ -1,0 +1,63 @@
+me: FALLSMB
+start_time: '18:30'
+duration: 3
+matches:
+- home: SHAFT
+  date: '2023-05-10'
+  our_score: 0
+  opp_score: 0
+- away: UTRAN
+  team: 'B'
+  date: '2023-05-17'
+  our_score: 0
+  opp_score: 0
+- home: BELFA
+  date: '2023-05-24'
+  our_score: 0
+  opp_score: 0
+- away: KNOCK
+  date: '2023-05-31'
+  our_score: 0
+  opp_score: 0
+- home: NICS
+  date: '2023-06-07'
+  our_score: 0
+  opp_score: 0
+- away: FORTH
+  date: '2023-06-14'
+  our_score: 0
+  opp_score: 0
+- home: CAVEH
+  date: '2023-06-21'
+  our_score: 0
+  opp_score: 0
+- away: BELMO
+  team: 'B'
+  date: '2023-06-28'
+  our_score: 0
+  opp_score: 0
+- home: MAGHD
+  date: '2023-07-05'
+  our_score: 0
+  opp_score: 0
+- home: EWART
+  label: 'PG Cup'
+  date: '2023-07-06'
+  our_score: 0
+  opp_score: 0
+- away: WILLO
+  date: '2023-07-26'
+  our_score: 0
+  opp_score: 0
+- away: DOWNP
+  date: '2023-08-02'
+  our_score: 0
+  opp_score: 0
+- home: ARDS
+  date: '2023-08-09'
+  our_score: 0
+  opp_score: 0
+- away: OWENB
+  date: '2023-08-16'
+  our_score: 0
+  opp_score: 0
