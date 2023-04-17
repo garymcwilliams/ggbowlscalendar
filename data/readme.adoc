@@ -32,7 +32,7 @@ each `team` entry then has the following values
 `location`:: Address in google maps for the team
 `start_time`:: If this team starts home matches at a time that is different the normal league start time, then add that. For home matches for this team this time will be used
 
-If a team exists a league, then EDIT the `teams` file. Backup the current team, and replace the `name` and `location` with `Bye`
+If a team exits a league, then EDIT the `teams` file. Backup the current team, and replace the `name` and `location` with `Bye`
 e.g.
 
 [source,yaml,indent=0]
@@ -62,6 +62,7 @@ Fairly simple structure
 [horizontal]
 `home` or `away`:: againt which team. Team is a KEY to data within the Team data.
 `date`:: date of match
+`start_time`:: OPTIONAL entry that can be used if a specific match starts at a non-standard time
 `score`:: our score and opponents score
 
 There are additional optional entries available: +
