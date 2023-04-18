@@ -55,40 +55,40 @@ matches:
   start_time: '18:30'
   our_score: 0
   opp_score: 0
-- away: BELMO
+- home: BELMO
   team: 'C'
   date: '2023-07-01'
   our_score: 0
   opp_score: 0
-- home: EWART
+- away: EWART
   team: 'B'
   date: '2023-07-08'
   our_score: 0
   opp_score: 0
-- away: UTRAN
+- home: UTRAN
   team: 'B'
   date: '2023-07-22'
   our_score: 0
   opp_score: 0
-- home: SHAFT
+- away: SHAFT
   date: '2023-07-29'
   our_score: 0
   opp_score: 0
-- away: CAVEH
+- home: CAVEH
   team: 'A'
   date: '2023-08-12'
   our_score: 0
   opp_score: 0
-- home: ALBER
+- away: ALBER
   date: '2023-08-19'
   our_score: 0
   opp_score: 0
-- away: HILDE
+- home: HILDE
   team: 'B'
   date: '2023-08-26'
   our_score: 0
   opp_score: 0
-- home: MOSSL
+- away: MOSSL
   date: '2023-09-02'
   our_score: 0
   opp_score: 0
