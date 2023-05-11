@@ -4,12 +4,12 @@ duration: 3
 matches:
 - home: HILDE
   date: '2023-05-03'
-  our_score: 0
-  opp_score: 0
+  our_score: 6
+  opp_score: 1
 - away: OLDBL
   date: '2023-05-10'
-  our_score: 0
-  opp_score: 0
+  our_score: 2
+  opp_score: 5
 - home: EWART
   date: '2023-05-17'
   our_score: 0
