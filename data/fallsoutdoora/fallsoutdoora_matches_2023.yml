@@ -4,18 +4,18 @@ duration: 3
 matches:
 - away: CLIFT
   date: '2023-04-22'
-  our_score: 0
-  opp_score: 0
+  our_score: 0.5
+  opp_score: 6.5
 - home: PICKI
   team: A
   date: '2023-04-29'
-  our_score: 0
-  opp_score: 0
+  our_score: 4.5
+  opp_score: 2.5
 - away: DUNBA
   team: B
   date: '2023-05-06'
-  our_score: 0
-  opp_score: 0
+  our_score: 5
+  opp_score: 2
 - home: LARNE
   team: B
   date: '2023-05-13'
