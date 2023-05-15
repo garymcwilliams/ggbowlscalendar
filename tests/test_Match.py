@@ -83,10 +83,11 @@ class TestMatch:
             away_team_name=OLD_BLEACH_A,
             away_score=1,
             date="2018-06-05",
-            time="18:30",
+            time="14:00",
             location="location",
             duration=3,
             new_date="2018-06-06",
+            new_time="18:30"
         )
 
     def test_home_match_newdate_description(self, home_match_newdate):
@@ -103,7 +104,7 @@ class TestMatch:
         )
 
     def test_home_match_newdate_id(self, home_match_newdate):
-        assert home_match_newdate.id() == 'FALLSA-201806051830@' \
+        assert home_match_newdate.id() == 'FALLSA-201806051400@' \
             'mc-williams.co.uk'
 
     ###########################################################################
