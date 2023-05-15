@@ -64,8 +64,8 @@ jobs:
         path: ~/.local
         key: poetry-${{ matrix.poetry-version }}-${{ matrix.os }}-0
     - name: Install dependencies
-        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root
+      if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+      run: poetry install --no-interaction --no-root
     - name: poetry in motion tests
       run: |
         poetry run pytest
