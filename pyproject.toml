@@ -21,5 +21,5 @@ black = "^21.5b1"
 pytest-cov = "^2.12.0"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core>=1.4.0"]
 build-backend = "poetry.core.masonry.api"
