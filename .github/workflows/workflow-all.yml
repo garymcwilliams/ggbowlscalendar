@@ -19,18 +19,21 @@ jobs:
 #        os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-python@v4
+    - nam: Checkout
+      uses: actions/checkout@v3
+    - name: Setup python
+      uses: actions/setup-python@v4
       with:
         python-version: "${{ matrix.python-version }}"
     - name: Install Poetry
       uses: snok/install-poetry@v1
       with:
         version: ${{ matrix.poetry-version }}
-    - uses: actions/cache@v3
+    - name: Get cache
+      uses: actions/cache@v3
       with:
         path: ~/.local
-        key: poetry-${{ matrix.poetry-version }}-${{ matrix.os }}-0
+        key: poetry-${{ matrix.poetry-version }}-${{ matrix.os }}-v3
     - name: Install dependencies
       if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
       run: poetry install --no-interaction --no-root
@@ -59,10 +62,11 @@ jobs:
       uses: snok/install-poetry@v1
       with:
         version: ${{ matrix.poetry-version }}
-    - uses: actions/cache@v3
+    - name: Get cache
+      uses: actions/cache@v3
       with:
         path: ~/.local
-        key: poetry-${{ matrix.poetry-version }}-${{ matrix.os }}-0
+        key: poetry-${{ matrix.poetry-version }}-${{ matrix.os }}-v3
     - name: Install dependencies
       if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
       run: poetry install --no-interaction --no-root
