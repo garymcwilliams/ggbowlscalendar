@@ -50,12 +50,18 @@ class ResultsTablePrinter:
 
     def add_match_to_table(self, result: LeagueResult, me: Team, opp: Team) -> None:
         """format this result as a line in the table"""
+
+        opp_name = (
+            f"{opp['name']} {result.sub_team}" if result.sub_team
+            else opp['name']
+        )
+
         self.table.add_row(
             result.result,
             result.venue,
             str(result.our_score),
             str(result.opp_score),
-            opp.get('name'),
+            opp_name,
             result.match_date().strftime('%Y-%m-%d %H:%M'),
             result.notes(),
         )

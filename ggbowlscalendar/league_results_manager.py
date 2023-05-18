@@ -23,6 +23,7 @@ class LeagueResult:
         opp_score: int,
         newdate: str = None,
         new_time: str = None,
+        sub_team: str = None,
         label: str = None,
     ):
         """
@@ -37,10 +38,12 @@ class LeagueResult:
             opp_score (int): The score of the opponent team.
             newdate (str, optional): The new date of the match (if available).
             new_time (str, optional): The new time of the match (if available).
+            sub_team (str, optional): Defines if this is A/B/C team of club we are playing
             label (str, optional): a bunch of text that helps define the match.
         """
         self.venue = venue
         self.opp_id = opp_id
+        self.sub_team = sub_team
         self.date = date
         self.time = time
         self.our_score = float(our_score)
@@ -126,6 +129,7 @@ class LeagueResultsManager:
             new_time = result_data.get("newtime")
             our_score = result_data.get("our_score", 0)
             opp_score = result_data.get("opp_score", 0)
+            sub_team = result_data.get("team", None)
             label = result_data.get("label", "")
             start_time = (
                 result_data["start_time"]
@@ -134,7 +138,8 @@ class LeagueResultsManager:
             )
 
             result = LeagueResult(venue, opp_id, date, start_time, our_score,
-                                  opp_score, newdate, new_time, label)
+                                  opp_score, newdate, new_time, sub_team,
+                                  label)
             matches.append(result)
 
         return cls(me, duration, matches)
