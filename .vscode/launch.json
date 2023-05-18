@@ -159,6 +159,22 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
+            "name": "FallsOutdoorA-New",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "python": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "fallsoutdoora",
+                "--year", "2022"
+            ],
+            "cwd": "${workspaceFolder}/ggbowlscalendar",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
             "name": "FallsOutdoorA",
             "type": "python",
             "request": "launch",

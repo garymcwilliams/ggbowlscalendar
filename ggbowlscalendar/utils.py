@@ -41,8 +41,19 @@ def get_match_file(club, year) -> Path:
     return _get_file(club, f"{club}_matches_{year}.yml")
 
 
+def get_games_file(club, year) -> Path:
+    """
+    Get the matches file for a given club/year.
+    """
+    return _get_file(club, f"{club}_games_{year}.yml")
+
+
 def get_team_file(club) -> Path:
     return _get_file(club, f"{club}_teams.yml")
+
+
+def get_teams_file() -> Path:
+    return _get_file("teams.yml", None)
 
 
 def _get_file(club, filename) -> Path:
@@ -56,7 +67,11 @@ def _get_file(club, filename) -> Path:
     env.read_envfile()
 
     dataPath = Path(env.str("ICAL_DATAPATH"), club)
-    file = Path(dataPath, filename)
+    if filename is None:
+        file = Path(dataPath)
+    else:
+        file = Path(dataPath, filename)
+
     if not file.exists():
         print(f"Cannot find file: {file}")
         sys.exit(1)
