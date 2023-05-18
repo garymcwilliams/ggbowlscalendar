@@ -44,11 +44,9 @@ import argparse
 
 import yaml
 from envparse import env
-from match_printer import (
-    print_table_header,
-    print_match_table,
-    add_match_to_table
-)
+
+from rich.console import Console
+from rich.table import Table
 
 
 class LeagueResult:
@@ -113,8 +111,8 @@ class LeagueResult:
 class LeagueResultsManager:
     """Manages a team league results."""
 
-    def __init__(self, me: str, duration: int, results: List[LeagueResult]) -> None:
-        self.me = me
+    def __init__(self, myTeam: str, duration: int, results: List[LeagueResult]) -> None:
+        self.myTeam = myTeam
         self.duration = duration
         """
         Initialize a LeagueResultsManager instance.
@@ -166,42 +164,6 @@ class LeagueResultsManager:
             results.append(result)
 
         return cls(me, duration, results)
-
-    def display_results(self, team_manager: "TeamManager") -> None:
-        """
-        Display the league results.
-
-        Args:
-            team_manager (TeamManager): The team manager containing the team details.
-        """
-
-        print_table_header()
-
-        for result in self.results:
-            me_team_details = team_manager.get_team_details(self.me)
-            opp_team_details = team_manager.get_team_details(result.opp_id)
-
-            address = (
-                me_team_details.get("address")
-                if result.venue == "home"
-                else opp_team_details.get("address")
-            )
-
-            add_match_to_table(
-                result.result,
-                result.venue,
-                result.match_date(),
-                me_team_details.get("name"),
-                result.our_score,
-                result.opp_score,
-                opp_team_details.get("name"),
-                result.notes(),
-            )
-
-        print_match_table()
-
-        if not self.results:
-            print("No results found.")
 
 
 class Team:
@@ -271,6 +233,75 @@ class TeamManager:
         return {}
 
 
+class ResultsTablePrinter:
+    """Print results in a Table"""
+
+    def __init__(self, results_manager: LeagueResultsManager,
+                 team_manager: TeamManager) -> None:
+        self.results_manager = results_manager
+        self.team_manager = team_manager
+        self.console = Console()
+        self.table = Table(show_header=True, header_style="bold magenta")
+
+    def print(self) -> None:
+        """
+        Display the league results.
+
+        Args:
+            results_manager (LeagueResultsManager): The manager containing the
+            results.
+            team_manager (TeamManager): The team manager containing the team
+            details.
+        """
+
+        self._print_table_header()
+
+        for result in self.results_manager.results:
+            my_team_details = self.team_manager.get_team_details(
+                self.results_manager.myTeam)
+            opp_team_details = self.team_manager.get_team_details(
+                result.opp_id)
+
+            address = (
+                my_team_details.get("address")
+                if result.venue == "home"
+                else opp_team_details.get("address")
+            )
+
+            self.add_match_to_table(result, my_team_details, opp_team_details)
+
+        self.print_match_table()
+
+        if not self.results_manager.results:
+            print("No results found.")
+
+    def _print_table_header(self) -> None:
+        """print the header row"""
+        self.table.add_column("R")
+        self.table.add_column("venue")
+        self.table.add_column("Us")
+        self.table.add_column("Op")
+        self.table.add_column("opp")
+        self.table.add_column("date")
+        self.table.add_column("note")
+
+    def add_match_to_table(self, result: LeagueResult, me: Team, opp: Team) -> None:
+        """format this result as a line in the table"""
+        self.table.add_row(
+                result.result,
+                result.venue,
+                result.match_date().strftime('%Y-%m-%d %H:%M'),
+                me.get('name'),
+                str(result.our_score),
+                str(result.opp_score),
+                opp.get('name'),
+                result.notes(),
+        )
+
+    def print_match_table(self) -> None:
+        self.console.print(self.table)
+
+
 def main() -> None:
     """
     Main entry point of the script.
@@ -288,7 +319,8 @@ def main() -> None:
     results_manager = LeagueResultsManager.from_yaml(results_filename)
     teams_manager = TeamManager.from_yaml(teams_filename)
 
-    results_manager.display_results(teams_manager)
+    printer = ResultsTablePrinter(results_manager, teams_manager)
+    printer.print()
 
 
 if __name__ == "__main__":
