@@ -1,26 +1,33 @@
 from rich.console import Console
 from rich.table import Table
-from .match import Match
 
 
 console = Console()
 table = Table(show_header=True, header_style="bold magenta")
 
 
-def add_match(match: Match):
-    table.add_row(match.result, match.home_team_name, match.home_score, match.away_score,
-        match.away_team_name, match.display_date(), f"{match.label} {match.warning}")
+def add_match_to_table(
+                result,
+                venue,
+                match_date,
+                me,
+                our_score,
+                opp_score,
+                opp
+        ):
+    table.add_row(result, venue, str(our_score), str(opp_score),
+        opp, match_date.strftime('%Y-%m-%d'), "")
 
 
-def print_header():
+def print_table_header():
     table.add_column("R")
-    table.add_column("home")
-    table.add_column("S")
-    table.add_column("S")
-    table.add_column("away")
+    table.add_column("venue")
+    table.add_column("U")
+    table.add_column("O")
+    table.add_column("opp")
     table.add_column("date")
     table.add_column("note")
 
 
-def print_matches():
+def print_match_table():
     console.print(table)

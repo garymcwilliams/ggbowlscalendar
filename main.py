@@ -1,4 +1,4 @@
-from ggbowlscalendar.events import Events
+from ggbowlscalendar.bowlscalendar import bowlscalendar
 
 import argparse
 from envparse import env
