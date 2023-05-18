@@ -61,6 +61,7 @@ class LeagueResult:
         our_score: int,
         opp_score: int,
         newdate: str = None,
+        label: str = None,
     ):
         """
         Initialize a LeagueResult instance.
@@ -79,7 +80,10 @@ class LeagueResult:
         self.our_score = our_score
         self.opp_score = opp_score
         self.newdate = newdate
+        self.label = label
+
         self.result = (
+            "-" if our_score == 0 & opp_score == 0 else
             "W" if our_score > opp_score else
             "L" if our_score < opp_score else
             "D"
@@ -91,6 +95,11 @@ class LeagueResult:
         that has been provided.
         """
         return self.newdate if self.newdate else self.date
+
+    def notes(self) -> str:
+        """ return any special notes for printing """
+        notes = self.label
+        return notes
 
 
 class LeagueResultsManager:
@@ -141,9 +150,10 @@ class LeagueResultsManager:
             newdate = result_data.get("newdate")
             our_score = result_data.get("our_score", 0)
             opp_score = result_data.get("opp_score", 0)
+            label = result_data.get("label", "")
 
             result = LeagueResult(venue, opp_id, date, our_score, opp_score,
-                                  newdate)
+                                  newdate, label)
             results.append(result)
 
         return cls(me, duration, results)
@@ -176,6 +186,7 @@ class LeagueResultsManager:
                 result.our_score,
                 result.opp_score,
                 opp_team_details.get("name"),
+                result.notes(),
             )
 
         print_match_table()
@@ -188,7 +199,7 @@ class Team:
     """Represents a team."""
 
     def __init__(self, id: str, name: str, address: str) -> None:
-                """
+        """
         Initialize a Team instance.
 
         Args:
@@ -205,7 +216,7 @@ class TeamManager:
     """Manages the team details."""
 
     def __init__(self, teams: List[Team]) -> None:
-                """
+        """
         Initialize a TeamManager instance.
 
         Args:

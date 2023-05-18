@@ -1,12 +1,18 @@
-me: teama
+me: fallsa
 duration: 3
 results:
   - home: teamb
     date: 2023-05-01
-    our_score: 2
-    opp_score: 5
-  - away: teamc
-    date: 2023-05-02
     newdate: 2023-05-03
-    our_score: 6
-    opp_score: 1
+    our_score: 5
+    opp_score: 2
+  - away: teamc
+    label: 'PG Cup'
+    date: 2023-06-01
+    start_time: '18:30'
+    our_score: 1
+    opp_score: 6
+  - home: teamb
+    date: 2023-06-09
+    our_score: 0
+    opp_score: 0

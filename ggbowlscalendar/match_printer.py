@@ -13,17 +13,18 @@ def add_match_to_table(
                 me,
                 our_score,
                 opp_score,
-                opp
+                opp,
+                notes: str = "",
         ):
     table.add_row(result, venue, str(our_score), str(opp_score),
-        opp, match_date.strftime('%Y-%m-%d'), "")
+                  opp, match_date.strftime('%Y-%m-%d'), notes)
 
 
 def print_table_header():
     table.add_column("R")
     table.add_column("venue")
-    table.add_column("U")
-    table.add_column("O")
+    table.add_column("Us")
+    table.add_column("Op")
     table.add_column("opp")
     table.add_column("date")
     table.add_column("note")
