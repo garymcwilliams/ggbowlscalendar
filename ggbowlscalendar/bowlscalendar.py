@@ -38,7 +38,8 @@ Opponent C:
   address: Address C
 """
 
-from typing import List, Optional
+import datetime
+from typing import List
 import argparse
 
 import yaml
@@ -57,7 +58,8 @@ class LeagueResult:
         self,
         venue: str,
         opp_id: str,
-        date: str,
+        date: datetime,
+        time: str,
         our_score: int,
         opp_score: int,
         newdate: str = None,
@@ -69,7 +71,8 @@ class LeagueResult:
         Args:
             venue (str): The venue associated with the result.
             opp_id (str): The ID of the opponent team.
-            date (str): The original date of the match.
+            date (datetime): The original date of the match.
+            time (str): The original time of the match.
             our_score (int): The score of our team.
             opp_score (int): The score of the opponent team.
             newdate (str, optional): The new date of the match (if available).
@@ -77,6 +80,7 @@ class LeagueResult:
         self.venue = venue
         self.opp_id = opp_id
         self.date = date
+        self.time = time
         self.our_score = our_score
         self.opp_score = opp_score
         self.newdate = newdate
@@ -89,12 +93,16 @@ class LeagueResult:
             "D"
         )
 
-    def match_date(self) -> str:
+    def match_date(self) -> datetime:
         """
         return the match date, allowing newdate to overide the default if
         that has been provided.
         """
-        return self.newdate if self.newdate else self.date
+        match_date = self.newdate if self.newdate else self.date
+        match_time = datetime.datetime.strptime(self.time, '%H:%M').time()
+        match_date_time = datetime.datetime.combine(match_date, match_time)
+
+        return match_date_time
 
     def notes(self) -> str:
         """ return any special notes for printing """
@@ -133,6 +141,7 @@ class LeagueResultsManager:
 
         me = data.get("me")
         duration = data.get("duration")
+        default_time = data.get("start_time")
 
         results_data = data.get("results", [])
         results = []
@@ -152,8 +161,8 @@ class LeagueResultsManager:
             opp_score = result_data.get("opp_score", 0)
             label = result_data.get("label", "")
 
-            result = LeagueResult(venue, opp_id, date, our_score, opp_score,
-                                  newdate, label)
+            result = LeagueResult(venue, opp_id, date, default_time, our_score,
+                                  opp_score, newdate, label)
             results.append(result)
 
         return cls(me, duration, results)

@@ -17,7 +17,7 @@ def add_match_to_table(
                 notes: str = "",
         ):
     table.add_row(result, venue, str(our_score), str(opp_score),
-                  opp, match_date.strftime('%Y-%m-%d'), notes)
+                  opp, match_date.strftime('%Y-%m-%d %H:%M'), notes)
 
 
 def print_table_header():
