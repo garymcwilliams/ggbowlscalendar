@@ -158,8 +158,13 @@ class LeagueResultsManager:
             our_score = result_data.get("our_score", 0)
             opp_score = result_data.get("opp_score", 0)
             label = result_data.get("label", "")
+            start_time = (
+                result_data["start_time"]
+                if "start_time" in result_data
+                else default_time
+            )
 
-            result = LeagueResult(venue, opp_id, date, default_time, our_score,
+            result = LeagueResult(venue, opp_id, date, start_time, our_score,
                                   opp_score, newdate, label)
             matches.append(result)
 
