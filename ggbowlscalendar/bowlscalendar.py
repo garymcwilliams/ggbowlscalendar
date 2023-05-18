@@ -15,7 +15,7 @@ The YAML file containing the results should be formatted as follows:
 ---
 me: team
 duration: 3
-results:
+matches:
   - home: Opponent B
     date: 2023-05-01
     our_score: 3
@@ -31,11 +31,11 @@ The YAML file containing the team details should be formatted as follows:
 ---
 Opponent B:
   name: Team B
-  address: Address B
+  location: location B
 
 Opponent C:
   name: Team C
-  address: Address C
+  location: location C
 """
 
 import datetime
@@ -79,13 +79,13 @@ class LeagueResult:
         self.opp_id = opp_id
         self.date = date
         self.time = time
-        self.our_score = our_score
-        self.opp_score = opp_score
+        self.our_score = float(our_score)
+        self.opp_score = float(opp_score)
         self.newdate = newdate
         self.label = label
 
         self.result = (
-            "-" if our_score == 0 & opp_score == 0 else
+            "-" if self.our_score == 0.0 and self.opp_score == 0.0 else
             "W" if our_score > opp_score else
             "L" if our_score < opp_score else
             "D"
@@ -141,9 +141,9 @@ class LeagueResultsManager:
         duration = data.get("duration")
         default_time = data.get("start_time")
 
-        results_data = data.get("results", [])
-        results = []
-        for result_data in results_data:
+        matches_data = data.get("matches", [])
+        matches = []
+        for result_data in matches_data:
             if "home" in result_data:
                 venue = "home"
                 opp_id = result_data["home"]
@@ -161,26 +161,26 @@ class LeagueResultsManager:
 
             result = LeagueResult(venue, opp_id, date, default_time, our_score,
                                   opp_score, newdate, label)
-            results.append(result)
+            matches.append(result)
 
-        return cls(me, duration, results)
+        return cls(me, duration, matches)
 
 
 class Team:
     """Represents a team."""
 
-    def __init__(self, id: str, name: str, address: str) -> None:
+    def __init__(self, id: str, name: str, location: str) -> None:
         """
         Initialize a Team instance.
 
         Args:
             id (str): The ID of the team.
             name (str): The name of the team.
-            address (str): The address of the team.
+            location (str): The location of the team.
         """
         self.id = id
         self.name = name
-        self.address = address
+        self.location = location
 
 
 class TeamManager:
@@ -212,7 +212,7 @@ class TeamManager:
         teams = []
         for team_id, team_data in data.items():
             team = Team(id=team_id, name=team_data["name"],
-                        address=team_data["address"])
+                        location=team_data["location"])
             teams.append(team)
 
         return cls(teams)
@@ -229,7 +229,7 @@ class TeamManager:
         """
         team = next((team for team in self.teams if team.id == team_id), None)
         if team:
-            return {"name": team.name, "address": team.address}
+            return {"name": team.name, "location": team.location}
         return {}
 
 
@@ -262,10 +262,10 @@ class ResultsTablePrinter:
             opp_team_details = self.team_manager.get_team_details(
                 result.opp_id)
 
-            address = (
-                my_team_details.get("address")
+            location = (
+                my_team_details.get("location")
                 if result.venue == "home"
-                else opp_team_details.get("address")
+                else opp_team_details.get("location")
             )
 
             self.add_match_to_table(result, my_team_details, opp_team_details)
@@ -290,11 +290,10 @@ class ResultsTablePrinter:
         self.table.add_row(
                 result.result,
                 result.venue,
-                result.match_date().strftime('%Y-%m-%d %H:%M'),
-                me.get('name'),
                 str(result.our_score),
                 str(result.opp_score),
                 opp.get('name'),
+                result.match_date().strftime('%Y-%m-%d %H:%M'),
                 result.notes(),
         )
 
