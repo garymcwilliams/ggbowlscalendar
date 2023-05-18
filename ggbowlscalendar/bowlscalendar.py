@@ -38,11 +38,16 @@ Opponent C:
   address: Address C
 """
 
-import yaml
-from typing import Any, List
-from envparse import env
+from typing import List, Optional
 import argparse
-from match_printer import print_table_header, print_match_table, add_match_to_table
+
+import yaml
+from envparse import env
+from match_printer import (
+    print_table_header,
+    print_match_table,
+    add_match_to_table
+)
 
 
 class LeagueResult:
@@ -74,14 +79,16 @@ class LeagueResult:
         self.our_score = our_score
         self.opp_score = opp_score
         self.newdate = newdate
-        self.result = "W" if our_score > opp_score else "L" if our_score < opp_score else "D"
+        self.result = (
+            "W" if our_score > opp_score else
+            "L" if our_score < opp_score else
+            "D"
+        )
 
     def match_date(self) -> str:
         """
-        Get the match date of the result.
-
-        Returns:
-            str: The match date.
+        return the match date, allowing newdate to overide the default if
+        that has been provided.
         """
         return self.newdate if self.newdate else self.date
 
@@ -89,16 +96,16 @@ class LeagueResult:
 class LeagueResultsManager:
     """Manages a team league results."""
 
-    me = None
-    duration = None
-
-    def __init__(self, results: List[LeagueResult]):
+    def __init__(self, me: str, duration: int, results: List[LeagueResult]) -> None:
+        self.me = me
+        self.duration = duration
         """
         Initialize a LeagueResultsManager instance.
 
         Args:
             results (List[LeagueResult]): The list of league results.
         """
+
         self.results = results
 
     @classmethod
@@ -115,8 +122,9 @@ class LeagueResultsManager:
         with open(filename, "r", encoding="utf-8") as file:
             data = yaml.safe_load(file)
 
-        LeagueResultsManager.me = data.get("me", None)
-        LeagueResultsManager.duration = data.get("duration", None)
+        me = data.get("me")
+        duration = data.get("duration")
+
         results_data = data.get("results", [])
         results = []
         for result_data in results_data:
@@ -134,10 +142,11 @@ class LeagueResultsManager:
             our_score = result_data.get("our_score", 0)
             opp_score = result_data.get("opp_score", 0)
 
-            result = LeagueResult(venue, opp_id, date, our_score, opp_score, newdate)
+            result = LeagueResult(venue, opp_id, date, our_score, opp_score,
+                                  newdate)
             results.append(result)
 
-        return cls(results)
+        return cls(me, duration, results)
 
     def display_results(self, team_manager: "TeamManager") -> None:
         """
@@ -150,19 +159,23 @@ class LeagueResultsManager:
         print_table_header()
 
         for result in self.results:
-            me_team_details = team_manager.get_team_details(LeagueResultsManager.me)
+            me_team_details = team_manager.get_team_details(self.me)
             opp_team_details = team_manager.get_team_details(result.opp_id)
 
-            address = me_team_details.get('address') if result.venue == "home" else opp_team_details.get('address')
+            address = (
+                me_team_details.get("address")
+                if result.venue == "home"
+                else opp_team_details.get("address")
+            )
 
             add_match_to_table(
                 result.result,
                 result.venue,
                 result.match_date(),
-                me_team_details.get('name'),
+                me_team_details.get("name"),
                 result.our_score,
                 result.opp_score,
-                opp_team_details.get('name'),
+                opp_team_details.get("name"),
             )
 
         print_match_table()
@@ -174,8 +187,8 @@ class LeagueResultsManager:
 class Team:
     """Represents a team."""
 
-    def __init__(self, id: str, name: str, address: str):
-        """
+    def __init__(self, id: str, name: str, address: str) -> None:
+                """
         Initialize a Team instance.
 
         Args:
@@ -191,8 +204,8 @@ class Team:
 class TeamManager:
     """Manages the team details."""
 
-    def __init__(self, teams: List[Team]):
-        """
+    def __init__(self, teams: List[Team]) -> None:
+                """
         Initialize a TeamManager instance.
 
         Args:
@@ -216,7 +229,8 @@ class TeamManager:
 
         teams = []
         for team_id, team_data in data.items():
-            team = Team(id=team_id, name=team_data["name"], address=team_data["address"])
+            team = Team(id=team_id, name=team_data["name"],
+                        address=team_data["address"])
             teams.append(team)
 
         return cls(teams)
@@ -237,13 +251,15 @@ class TeamManager:
         return {}
 
 
-def main():
+def main() -> None:
     """
     Main entry point of the script.
     """
     parser = argparse.ArgumentParser(description="Team League Results Manager")
-    parser.add_argument("--results-file", help="YAML file containing the results")
-    parser.add_argument("--teams-file", help="YAML file containing the team details")
+    parser.add_argument("--results-file",
+                        help="YAML file containing the results")
+    parser.add_argument("--teams-file",
+                        help="YAML file containing the team details")
     args = parser.parse_args()
 
     results_filename = args.results_file or env.str("RESULTS_FILE")
