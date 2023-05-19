@@ -67,4 +67,5 @@ class ResultsTablePrinter:
         )
 
     def print_match_table(self) -> None:
+        """Print the table once it has been generated"""
         self.console.print(self.table)
