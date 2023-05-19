@@ -46,7 +46,8 @@ class LeagueResult:
             opp_score (int): The score of the opponent team.
             newdate (str, optional): The new date of the match (if available).
             new_time (str, optional): The new time of the match (if available).
-            sub_team (str, optional): Defines if this is A/B/C team of club we are playing
+            sub_team (str, optional): Defines if this is A/B/C team of club we
+            are playing
             label (str, optional): a bunch of text that helps define the match.
         """
         self.venue = venue
@@ -88,16 +89,22 @@ class LeagueResult:
 class LeagueResultsManager:
     """Manages a team league results."""
 
-    def __init__(self, myTeam: str, duration: int, results: List[LeagueResult]) -> None:
-        self.myTeam = myTeam
-        self.duration = duration
+    def __init__(self,
+                 my_team_id: str,
+                 duration: int,
+                 results: List[LeagueResult]) -> None:
         """
         Initialize a LeagueResultsManager instance.
 
         Args:
+            my_team_id (str): what id represents my team in this league.
+            duration: (int): the default duration in hours of a match in this
+            league.
             results (List[LeagueResult]): The list of league results.
         """
 
+        self.my_team_id = my_team_id
+        self.duration = duration
         self.results = results
 
     @classmethod
@@ -106,7 +113,9 @@ class LeagueResultsManager:
         Create a LeagueResultsManager instance from a YAML file.
 
         Args:
-            filename (str): The filename of the YAML file.
+            team (str): The team that is used for this league. This will
+            indicate which folder to look into the games.
+            year (str): The team year that is used for this league.
 
         Returns:
             LeagueResultsManager: The created LeagueResultsManager instance.
@@ -116,7 +125,7 @@ class LeagueResultsManager:
         with open(file, "r", encoding="utf-8") as file:
             data = yaml.safe_load(file)
 
-        me = data.get("me")
+        my_team_id = data.get("me")
         duration = data.get("duration")
         default_time = data.get("start_time")
 
@@ -150,4 +159,4 @@ class LeagueResultsManager:
                                   label)
             matches.append(result)
 
-        return cls(me, duration, matches)
+        return cls(my_team_id, duration, matches)

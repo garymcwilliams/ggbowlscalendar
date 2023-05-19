@@ -8,28 +8,39 @@ from .team_manager import TeamManager, Team
 class ResultsTablePrinter:
     """Print results in a Table"""
 
-    def __init__(self, results_manager: LeagueResultsManager, team_manager: TeamManager) -> None:
+    def __init__(self,
+                 results_manager: LeagueResultsManager,
+                 team_manager: TeamManager) -> None:
+        """
+        Setup data for printing the results
+
+        Args:
+            results_manager (LeagueResultsManager): The manager containing the
+            results.
+            team_manager (TeamManager): The team manager containing the team
+            details.
+        """
         self.results_manager = results_manager
         self.team_manager = team_manager
         self.console = Console()
         self.table = Table(show_header=True, header_style="bold magenta")
 
     def print(self) -> None:
-        """
-        Display the league results.
-
-        Args:
-            results_manager (LeagueResultsManager): The manager containing the results.
-            team_manager (TeamManager): The team manager containing the team details.
-        """
+        """ Display the league results.  """
 
         self._print_table_header()
 
         for result in self.results_manager.results:
-            my_team_details = self.team_manager.get_team_details(self.results_manager.myTeam)
-            opp_team_details = self.team_manager.get_team_details(result.opp_id)
+            my_team_details = self.team_manager.get_team_details(
+                self.results_manager.my_team_id
+            )
+            opp_team_details = self.team_manager.get_team_details(
+                result.opp_id
+            )
 
-            location = my_team_details.get("location") if result.venue == "home" else opp_team_details.get("location")
+            location = my_team_details.get("location") \
+                if result.venue == "home" \
+                else opp_team_details.get("location")
 
             self.add_match_to_table(result, my_team_details, opp_team_details)
 
@@ -48,7 +59,10 @@ class ResultsTablePrinter:
         self.table.add_column("date")
         self.table.add_column("note")
 
-    def add_match_to_table(self, result: LeagueResult, me: Team, opp: Team) -> None:
+    def add_match_to_table(self,
+                           result: LeagueResult,
+                           me: Team,
+                           opp: Team) -> None:
         """format this result as a line in the table"""
 
         opp_name = (

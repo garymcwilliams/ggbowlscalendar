@@ -1,7 +1,8 @@
 """
 Team League Results Management System
 
-This script allows you to manage team league results by reading data from YAML files
+This script allows you to manage team league results by reading data from YAML
+files
 containing the results and team details.
 
 Usage:
@@ -38,7 +39,7 @@ def main() -> None:
     year = args.year if args.year is not None else env('ICAL_YEAR')
 
     results_manager = LeagueResultsManager.from_yaml(team, year)
-    teams_manager = TeamManager.from_yaml("teams")
+    teams_manager = TeamManager.from_yaml()
 
     printer = ResultsTablePrinter(results_manager, teams_manager)
     printer.print()

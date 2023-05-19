@@ -48,7 +48,7 @@ class TeamManager:
         self.teams = teams
 
     @classmethod
-    def from_yaml(cls, filename: str) -> "TeamManager":
+    def from_yaml(cls) -> "TeamManager":
         """
         Create a TeamManager instance from a YAML file.
 
@@ -80,7 +80,8 @@ class TeamManager:
         Returns:
             dict: The team details.
         """
-        team = next((team for team in self.teams if team.team_id == team_id), None)
+        team = next((team for team in self.teams if team.team_id == team_id),
+                    None)
         if team:
             return {"name": team.name, "location": team.location}
         return {}
