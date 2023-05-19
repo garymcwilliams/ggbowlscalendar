@@ -3,11 +3,19 @@ Team League Results Management System
 """
 
 import datetime
+from pathlib import Path
 from typing import List
 
 import yaml
 
-from utils import get_games_file
+from .utils import find_file
+
+
+def get_games_file(club, year) -> Path:
+    """
+    Get the matches file for a given club/year.
+    """
+    return find_file(club, f"{club}_games_{year}.yml")
 
 
 class LeagueResult:

@@ -167,9 +167,9 @@
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsoutdoora",
-                "--year", "2022"
+                "--year", "2023"
             ],
-            "cwd": "${workspaceFolder}/ggbowlscalendar",
+            "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "env": {},
             "envFile": "${workspaceFolder}/.env",

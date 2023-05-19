@@ -7,8 +7,8 @@ import json
 import os
 import sys
 
-from envparse import env
 from pathlib import Path
+from envparse import env
 
 
 def savedir() -> Path:
@@ -34,64 +34,22 @@ def savedir() -> Path:
         print("info.json NotFound")
 
 
-def get_match_file(club, year) -> Path:
-    """
-    Get the matches file for a given club/year.
-    """
-    return _get_file(club, f"{club}_matches_{year}.yml")
-
-
-def get_games_file(club, year) -> Path:
-    """
-    Get the matches file for a given club/year.
-    """
-    return _get_file(club, f"{club}_games_{year}.yml")
-
-
-def get_team_file(club) -> Path:
-    return _get_file(club, f"{club}_teams.yml")
-
-
-def get_teams_file() -> Path:
-    return _get_file("teams.yml", None)
-
-
-def _get_file(club, filename) -> Path:
+def find_file(folder: str, filename: str) -> Path:
     """
     Get a file. The base dir will be read from env var ICAL_DATAPATH.
     If ICAL_DATAPATH is not set then the value from the .env file will be used.
+    If folder is provided it will be added to the Path.
     """
-    # env = Env(
-    #    ICAL_DATAPATH=str,
-    # )
     env.read_envfile()
 
-    dataPath = Path(env.str("ICAL_DATAPATH"), club)
-    if filename is None:
-        file = Path(dataPath)
+    if folder is None:
+        data_path = Path(env.str("ICAL_DATAPATH"))
     else:
-        file = Path(dataPath, filename)
+        data_path = Path(env.str("ICAL_DATAPATH"), folder)
+
+    file = Path(data_path, filename)
 
     if not file.exists():
         print(f"Cannot find file: {file}")
         sys.exit(1)
     return file
-
-
-def _get_match_schema(self):
-    return strictyaml.Map(
-        {
-            "duration": strictyaml.Int(),
-            "matches": strictyaml.Seq(
-                strictyaml.Map(
-                    {
-                        "away": strictyaml.Str(),
-                        "date": strictyaml.Str(),
-                        "newdate": strictyaml.Str(),
-                        "our_score": strictyaml.Int(),
-                        "opp_score": strictyaml.Int(),
-                    }
-                )
-            ),
-        }
-    )

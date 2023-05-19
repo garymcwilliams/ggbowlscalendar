@@ -3,17 +3,25 @@ Team League Results Management System
 
 """
 
+from pathlib import Path
 from typing import List
 
 import yaml
 
-from utils import get_teams_file
+from .utils import find_file
+
+
+def get_teams_file() -> Path:
+    """
+    Get the teams file
+    """
+    return find_file(None, "teams.yml")
 
 
 class Team:
     """Represents a team."""
 
-    def __init__(self, id: str, name: str, location: str) -> None:
+    def __init__(self, team_id: str, name: str, location: str) -> None:
         """
         Initialize a Team instance.
 
@@ -22,7 +30,7 @@ class Team:
             name (str): The name of the team.
             location (str): The location of the team.
         """
-        self.id = id
+        self.team_id = team_id
         self.name = name
         self.location = location
 
@@ -56,7 +64,7 @@ class TeamManager:
 
         teams = []
         for team_id, team_data in data.items():
-            team = Team(id=team_id, name=team_data["name"],
+            team = Team(team_id=team_id, name=team_data["name"],
                         location=team_data["location"])
             teams.append(team)
 
@@ -72,7 +80,7 @@ class TeamManager:
         Returns:
             dict: The team details.
         """
-        team = next((team for team in self.teams if team.id == team_id), None)
+        team = next((team for team in self.teams if team.team_id == team_id), None)
         if team:
             return {"name": team.name, "location": team.location}
         return {}

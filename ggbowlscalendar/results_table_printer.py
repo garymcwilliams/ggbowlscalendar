@@ -1,8 +1,8 @@
 from rich.console import Console
 from rich.table import Table
 
-from league_results_manager import LeagueResultsManager, LeagueResult
-from team_manager import TeamManager, Team
+from .league_results_manager import LeagueResultsManager, LeagueResult
+from .team_manager import TeamManager, Team
 
 
 class ResultsTablePrinter:
