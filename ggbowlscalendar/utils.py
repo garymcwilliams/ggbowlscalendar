@@ -27,8 +27,8 @@ def savedir() -> Path:
         else:
             print("Could not find dropbox path")
 
-        with open(str(path)) as f:
-            j = json.load(f)
+        with open(str(path), "r", encoding="utf-8") as file_content:
+            j = json.load(file_content)
         return Path(j["personal"]["path"]).absolute()
     except FileNotFoundError:
         print("info.json NotFound")
@@ -44,6 +44,7 @@ def _mk_save_dir() -> Path:
 
 
 def write_file(club: str, year: str, content: bytes) -> None:
+    """Write the ics content to the created file."""
     filename = f"{club}_{year}.ics"
     newfile = _mk_save_dir() / filename
     newfile.write_bytes(content)
