@@ -36,23 +36,19 @@ class ResultsTableIcal:
     def summary(self, result: LeagueResult, opp_team_details: dict) -> str:
         """Return match summary in pre-defined format"""
         return (
-            f"{result.result} "
-            f"{result.match_date().strftime('%Y-%m-%d %H:%M')} "
+            f"{self.my_team_details['name']} ({str(result.our_score)})"
+            f" {result.result} "
+            f"({str(result.opp_score)}) {opp_team_details['name']} "
             f"{result.venue} "
-            f"{str(result.our_score)} v "
-            f"{str(result.opp_score)} {opp_team_details['name']} "
-            f"{result.notes()}"
+            f"{result.label}"
         )
 
     def match_desc(self, result: LeagueResult, opp_team_details: dict) -> str:
-        """Return match header description."""
+        """Return match calendar description."""
         return (
             f"{result.result} "
-            f"{result.match_date().strftime('%Y-%m-%d %H:%M')} "
             f"{result.venue} "
-            f"{str(result.our_score)} v "
-            f"{str(result.opp_score)} {opp_team_details['name']} "
-            f"{result.notes()}"
+            f"{opp_team_details['name']} "
         )
 
     def generate_ical(self) -> None:
