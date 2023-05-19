@@ -52,7 +52,7 @@ class ResultsTableIcal:
         )
 
     def generate_ical(self) -> None:
-        """ generate the ical entries.  """
+        """ generate the ical content.  """
 
         self._create_header()
 
