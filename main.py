@@ -23,6 +23,7 @@ from envparse import env
 from ggbowlscalendar.league_results_manager import LeagueResultsManager
 from ggbowlscalendar.team_manager import TeamManager
 from ggbowlscalendar.results_table_printer import ResultsTablePrinter
+from ggbowlscalendar.results_table_ical import ResultsTableIcal
 
 
 def main() -> None:
@@ -43,6 +44,9 @@ def main() -> None:
 
     printer = ResultsTablePrinter(results_manager, teams_manager)
     printer.print()
+
+    ical_generator = ResultsTableIcal(results_manager, teams_manager)
+    ical_generator.generate_ical()
 
 
 if __name__ == "__main__":

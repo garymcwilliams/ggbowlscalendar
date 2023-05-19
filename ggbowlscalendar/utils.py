@@ -34,6 +34,22 @@ def savedir() -> Path:
         print("info.json NotFound")
 
 
+def _mk_save_dir() -> Path:
+    newdir = Path(savedir() / "Apps" / "icalendar")
+
+    if not newdir.exists():
+        newdir.mkdir(parents=True)
+
+    return newdir
+
+
+def write_file(club: str, year: str, content: bytes) -> None:
+    filename = f"{club}_{year}.ics"
+    newfile = _mk_save_dir() / filename
+    newfile.write_bytes(content)
+    print(f"saved:{newfile}")
+
+
 def find_file(folder: str, filename: str) -> Path:
     """
     Get a file. The base dir will be read from env var ICAL_DATAPATH.

@@ -74,6 +74,8 @@ class LeagueResult:
         that has been provided.
         """
         match_date = self.newdate if self.newdate else self.date
+        if self.newdate == "":
+            self.label += " ****-TBD-****"
         time = self.new_time if self.new_time else self.time
         match_time = datetime.datetime.strptime(time, '%H:%M').time()
         match_date_time = datetime.datetime.combine(match_date, match_time)
@@ -85,6 +87,14 @@ class LeagueResult:
         notes = self.label
         return notes
 
+    def summary(self) -> str:
+        """Return match summary in pre-defined format"""
+        return (
+            f"{self.home_team_name} ({self.home_score})"
+            f" v "
+            f"({self.away_score}) {self.away_team_name}"
+            f"{self.label}"
+        )
 
 class LeagueResultsManager:
     """Manages a team league results."""
