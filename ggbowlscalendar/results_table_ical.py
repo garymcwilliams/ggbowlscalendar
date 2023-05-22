@@ -35,10 +35,14 @@ class ResultsTableIcal:
 
     def summary(self, result: LeagueResult, opp_team_details: dict) -> str:
         """Return match summary in pre-defined format"""
+        opp_name = (
+            f"{opp_team_details['name']} {result.sub_team}" if result.sub_team
+            else opp_team_details['name']
+        )
         return (
             f"{self.my_team_details['name']} ({str(result.our_score)})"
             f" {result.result} "
-            f"({str(result.opp_score)}) {opp_team_details['name']} "
+            f"({str(result.opp_score)}) {opp_name} "
             f"{result.venue} "
             f"{result.label}"
         )
