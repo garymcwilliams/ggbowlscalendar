@@ -24,8 +24,8 @@ matches:
 - away: EWART
   team: A
   date: '2023-05-20'
-  our_score: 0
-  opp_score: 0
+  our_score: 5
+  opp_score: 2
 - home: BALLW
   date: '2023-05-27'
   our_score: 0
