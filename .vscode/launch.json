@@ -221,6 +221,22 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
+            "name": "FallsOutdoorL1",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "python": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "fallsoutdoorl1",
+                "--year", "2023"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
