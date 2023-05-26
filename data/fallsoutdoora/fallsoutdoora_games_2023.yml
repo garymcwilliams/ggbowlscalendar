@@ -1,5 +1,6 @@
 me: FALLSA
 start_time: '14:00'
+day: 'Sat'
 duration: 3
 matches:
 - away: CLIFT
@@ -24,8 +25,8 @@ matches:
 - away: EWART
   team: A
   date: 2023-05-20
-  our_score: 0
-  opp_score: 0
+  our_score: 5
+  opp_score: 2
 - home: BALWA
   date: 2023-05-27
   our_score: 0
@@ -41,6 +42,7 @@ matches:
   label: 'Irish Cup'
   date: 2023-06-03
   start_time: '13:00'
+  newtime: '11:00'
   our_score: 0
   opp_score: 0
 - away: UTRAN

@@ -22,6 +22,7 @@ class ResultsTablePrinter:
         """
         self.results_manager = results_manager
         self.team_manager = team_manager
+        self.default_day = results_manager.default_day
         self.console = Console()
         self.table = Table(show_header=True, header_style="bold magenta")
 
@@ -70,13 +71,18 @@ class ResultsTablePrinter:
             else opp['name']
         )
 
+        day_pattern = (
+            "%a" if result.match_date().strftime('%a') != self.default_day
+            else "   "
+        )
+        date_pattern = f'{day_pattern} %d-%b %H:%M'
         self.table.add_row(
             result.result,
             result.venue,
             str(result.our_score),
             str(result.opp_score),
             opp_name,
-            result.match_date().strftime('%Y-%m-%d %H:%M'),
+            result.match_date().strftime(date_pattern),
             result.notes(),
         )
 

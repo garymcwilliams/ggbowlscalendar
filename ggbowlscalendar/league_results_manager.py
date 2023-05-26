@@ -102,6 +102,7 @@ class LeagueResultsManager:
     def __init__(self,
                  my_team_id: str,
                  duration: int,
+                 default_day: str,
                  results: List[LeagueResult]) -> None:
         """
         Initialize a LeagueResultsManager instance.
@@ -115,6 +116,7 @@ class LeagueResultsManager:
 
         self.my_team_id = my_team_id
         self.duration = duration
+        self.default_day = default_day
         self.results = results
 
     @classmethod
@@ -138,6 +140,7 @@ class LeagueResultsManager:
         my_team_id = data.get("me")
         duration = data.get("duration")
         default_time = data.get("start_time")
+        default_day = data.get("day")
 
         matches_data = data.get("matches", [])
         matches = []
@@ -169,4 +172,4 @@ class LeagueResultsManager:
                                   label)
             matches.append(result)
 
-        return cls(my_team_id, duration, matches)
+        return cls(my_team_id, duration, default_day, matches)
