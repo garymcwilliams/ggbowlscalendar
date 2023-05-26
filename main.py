@@ -39,7 +39,7 @@ def main() -> None:
     team = args.team if args.team is not None else env('ICAL_TEAM')
     year = args.year if args.year is not None else env('ICAL_YEAR')
 
-    results_manager = LeagueResultsManager.from_yaml(team, year)
+    results_manager = LeagueResultsManager.from_yaml_file(team, year)
     teams_manager = TeamManager.from_yaml()
 
     printer = ResultsTablePrinter(results_manager, teams_manager)

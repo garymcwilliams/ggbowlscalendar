@@ -4,7 +4,7 @@ Team League Results Management System
 
 import datetime
 from pathlib import Path
-from typing import List
+from typing import Any, List
 
 import yaml
 
@@ -68,10 +68,10 @@ class LeagueResult:
             "D"
         )
 
-    def match_date(self) -> datetime:
+    def match_date_time(self) -> datetime:
         """
-        return the match date, allowing newdate to overide the default if
-        that has been provided.
+        return the match date & time, allowing newdate to overide the default
+        if that has been provided.
         """
         match_date = self.newdate if self.newdate else self.date
         if self.newdate == "":
@@ -87,14 +87,13 @@ class LeagueResult:
         notes = self.label
         return notes
 
-    def summary(self) -> str:
-        """Return match summary in pre-defined format"""
-        return (
-            f"{self.home_team_name} ({self.home_score})"
-            f" v "
-            f"({self.away_score}) {self.away_team_name}"
-            f"{self.label}"
-        )
+    def is_home(self) -> bool:
+        """is match played at home?"""
+        return self.venue == "home"
+
+    def is_away(self) -> bool:
+        """is match played away?"""
+        return self.venue == "away"
 
 class LeagueResultsManager:
     """Manages a team league results."""
@@ -120,7 +119,7 @@ class LeagueResultsManager:
         self.results = results
 
     @classmethod
-    def from_yaml(cls, team: str, year: str) -> "LeagueResultsManager":
+    def from_yaml_file(cls, team: str, year: str) -> "LeagueResultsManager":
         """
         Create a LeagueResultsManager instance from a YAML file.
 
@@ -137,6 +136,19 @@ class LeagueResultsManager:
         with open(file, "r", encoding="utf-8") as file:
             data = yaml.safe_load(file)
 
+        return LeagueResultsManager.from_dict(data)
+
+    @classmethod
+    def from_dict(cls, data: dict) -> "LeagueResultsManager":
+        """
+        Create a LeagueResultsManager instance from YAML data.
+
+        Args:
+            date: the YAML data
+
+        Returns:
+            LeagueResultsManager: The created LeagueResultsManager instance.
+        """
         my_team_id = data.get("me")
         duration = data.get("duration")
         default_time = data.get("start_time")

@@ -121,11 +121,11 @@ class ResultsTableIcal:
             return
 
         location = self.my_team_details.get("location") \
-            if result.venue == "home" \
+            if result.is_home() \
             else opp_team_details.get("location")
 
-        match_start = result.match_date() - timedelta(minutes=10)
-        match_end = result.match_date() + timedelta(hours=self.results_manager.duration)
+        match_start = result.match_date_time() - timedelta(minutes=10)
+        match_end = result.match_date_time() + timedelta(hours=self.results_manager.duration)
 
         event = Event()
         event["uid"] = self._calendar_id(result)

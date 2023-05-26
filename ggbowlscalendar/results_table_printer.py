@@ -40,7 +40,7 @@ class ResultsTablePrinter:
             )
 
             location = my_team_details.get("location") \
-                if result.venue == "home" \
+                if result.is_home \
                 else opp_team_details.get("location")
 
             self.add_match_to_table(result, my_team_details, opp_team_details)
@@ -72,7 +72,7 @@ class ResultsTablePrinter:
         )
 
         day_pattern = (
-            "%a" if result.match_date().strftime('%a') != self.default_day
+            "%a" if result.match_date_time().strftime('%a') != self.default_day
             else "   "
         )
         date_pattern = f'{day_pattern} %d-%b %H:%M'
@@ -82,7 +82,7 @@ class ResultsTablePrinter:
             str(result.our_score),
             str(result.opp_score),
             opp_name,
-            result.match_date().strftime(date_pattern),
+            result.match_date_time().strftime(date_pattern),
             result.notes(),
         )
 
