@@ -35,6 +35,8 @@ matches:
   label: 'Irish Cup'
   date: '2023-06-03'
   start_time: '17:30'
+  newdate: '2023-05-29'
+  newtime: '18:30'
   our_score: 0
   opp_score: 0
 - home: ALBER
