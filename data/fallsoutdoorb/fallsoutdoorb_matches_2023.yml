@@ -23,13 +23,13 @@ matches:
   date: '2023-05-20'
   newdate: '2023-05-23'
   newtime: '18:30'
-  our_score: 0
+  our_score: 7
   opp_score: 0
 - away: CAVEH
   team: 'A'
   date: '2023-05-27'
-  our_score: 0
-  opp_score: 0
+  our_score: 2
+  opp_score: 5
 - home: MOSSL
   team: B
   label: 'Irish Cup'
