@@ -4,7 +4,7 @@ Team League Results Management System
 
 import datetime
 from pathlib import Path
-from typing import Any, List
+from typing import List
 
 import yaml
 
@@ -94,6 +94,7 @@ class LeagueResult:
     def is_away(self) -> bool:
         """is match played away?"""
         return self.venue == "away"
+
 
 class LeagueResultsManager:
     """Manages a team league results."""
