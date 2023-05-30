@@ -37,7 +37,7 @@ matches:
   start_time: '17:30'
   newdate: '2023-05-29'
   newtime: '18:30'
-  our_score: 0
+  our_score: 1
   opp_score: 0
 - home: ALBER
   date: '2023-06-03'
