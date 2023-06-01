@@ -42,7 +42,7 @@ matches:
   date: '2023-06-03'
   start_time: '13:00'
   newdate: '2023-06-03'
-  newtime: '11:00'
+  newtime: '12:00'
   our_score: 0
   opp_score: 0
 - away: UTRAN
