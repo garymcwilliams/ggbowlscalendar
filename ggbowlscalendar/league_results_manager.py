@@ -62,7 +62,7 @@ class LeagueResult:
         self.label = label
 
         self.result = (
-            "-" if self.not_played_yet() else
+            " " if self.not_played_yet() else
             "W" if our_score > opp_score else
             "L" if our_score < opp_score else
             "D"
