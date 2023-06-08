@@ -43,23 +43,32 @@ matches:
   date: 2023-06-03
   start_time: '13:00'
   newtime: '12:00'
-  our_score: 0
+  our_score: 1
   opp_score: 0
 - away: UTRAN
   team: A
   date: 2023-06-03
   newdate: 2023-06-06
   newtime: '18:30'
-  our_score: 0
-  opp_score: 0
+  our_score: 1
+  opp_score: 6
 - home: HILDE
   team: A
   date: 2023-06-10
   our_score: 0
   opp_score: 0
+- away: LARNE
+  team: B
+  label: 'Irish Cup'
+  date: 2023-06-17
+  start_time: '16:30'
+  our_score: 0
+  opp_score: 0
 - away: OLDBL
   team: B
   date: 2023-06-17
+  newdate: 2023-06-20
+  newtime: '18:30'
   our_score: 0
   opp_score: 0
 - home: CLIFT
