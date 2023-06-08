@@ -68,6 +68,8 @@ class TestLeagueResultsManager:
         assert match.is_home
         assert match.result == 'L'
         assert match.notes() == ""
+        assert match.format_our_score() == "0.5"
+        assert match.format_opp_score() == "5.5"
         assert match.match_date_time() == combine_date_time(DATE1, "14:00")
 
     def test_match_away(self):
@@ -120,6 +122,8 @@ class TestLeagueResultsManager:
         results_manager = LeagueResultsManager.from_dict(match_dict)
         match = results_manager.results[0]
         assert match.result == '-'
+        assert match.format_our_score() == "0"
+        assert match.format_opp_score() == "0"
 
     def test_match_label(self):
         """
@@ -136,8 +140,8 @@ class TestLeagueResultsManager:
                     {'away': 'CLIFT',
                      'date': datetime.datetime.strptime(DATE1, '%Y-%m-%d'),
                      'label': 'LABELDATA',
-                     'our_score': 5.5,
-                     'opp_score': 1.5,
+                     'our_score': 5.0,
+                     'opp_score': 2.0,
                     },
                 ]
         }
@@ -147,6 +151,8 @@ class TestLeagueResultsManager:
         assert match.result == 'W'
         assert match.label == "LABELDATA"
         assert match.notes() == "LABELDATA"
+        assert match.format_our_score() == "5"
+        assert match.format_opp_score() == "2"
 
     def test_match_starttime(self):
         """

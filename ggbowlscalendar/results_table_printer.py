@@ -39,10 +39,6 @@ class ResultsTablePrinter:
                 result.opp_id
             )
 
-            location = my_team_details.get("location") \
-                if result.is_home \
-                else opp_team_details.get("location")
-
             self.add_match_to_table(result, my_team_details, opp_team_details)
 
         self.print_match_table()
@@ -76,11 +72,17 @@ class ResultsTablePrinter:
             else "   "
         )
         date_pattern = f'{day_pattern} %d-%b %H:%M'
+        result_display = (
+            f"[bold green]{result.result} :heavy_check_mark:"
+            if result.result == "W"
+            else f"[bold red]{result.result}" if result.result == "L"
+            else result.result
+        )
         self.table.add_row(
-            result.result,
+            result_display,
             result.venue,
-            str(result.our_score),
-            str(result.opp_score),
+            result.format_our_score(),
+            result.format_opp_score(),
             opp_name,
             result.match_date_time().strftime(date_pattern),
             result.notes(),

@@ -95,6 +95,18 @@ class LeagueResult:
         """is match played away?"""
         return self.venue == "away"
 
+    def _format_score(self, score: float) -> str:
+        """convert float to str, strip .0 if we have integer"""
+        return f"{score:.1f}".rstrip('0').rstrip('.')
+
+    def format_our_score(self) -> str:
+        """convert our_score to output format"""
+        return self._format_score(self.our_score)
+
+    def format_opp_score(self) -> str:
+        """convert opp_score to output format"""
+        return self._format_score(self.opp_score)
+
 
 class LeagueResultsManager:
     """Manages a team league results."""

@@ -40,9 +40,10 @@ class ResultsTableIcal:
             else opp_team_details['name']
         )
         return (
-            f"{self.my_team_details['name']} ({str(result.our_score)})"
+            f"{self.my_team_details['name']} "
             f" {result.result} "
-            f"({str(result.opp_score)}) {opp_name} "
+            f"({result.format_our_score()})"
+            f"({result.format_opp_score()}) {opp_name} "
             f"{result.venue} "
             f"{result.label}"
         )
@@ -125,7 +126,8 @@ class ResultsTableIcal:
             else opp_team_details.get("location")
 
         match_start = result.match_date_time() - timedelta(minutes=10)
-        match_end = result.match_date_time() + timedelta(hours=self.results_manager.duration)
+        match_end = result.match_date_time() + timedelta(
+            hours=self.results_manager.duration)
 
         event = Event()
         event["uid"] = self._calendar_id(result)
