@@ -62,10 +62,17 @@ class LeagueResult:
         self.label = label
 
         self.result = (
-            "-" if self.our_score == 0.0 and self.opp_score == 0.0 else
+            "-" if self.not_played_yet() else
             "W" if our_score > opp_score else
             "L" if our_score < opp_score else
             "D"
+        )
+
+    def not_played_yet(self) -> bool:
+        """determine whether the match has already been played or not"""
+        return (
+                True if self.our_score == 0.0 and self.opp_score == 0.0
+                else False
         )
 
     def match_date_time(self) -> datetime:
@@ -97,7 +104,10 @@ class LeagueResult:
 
     def _format_score(self, score: float) -> str:
         """convert float to str, strip .0 if we have integer"""
-        return f"{score:.1f}".rstrip('0').rstrip('.')
+        return (
+                " " if self.not_played_yet()
+                else f"{score:.1f}".rstrip('0').rstrip('.')
+        )
 
     def format_our_score(self) -> str:
         """convert our_score to output format"""

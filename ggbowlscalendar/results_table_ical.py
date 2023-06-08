@@ -33,27 +33,39 @@ class ResultsTableIcal:
         )
         self.cal = Calendar()
 
-    def summary(self, result: LeagueResult, opp_team_details: dict) -> str:
-        """Return match summary in pre-defined format"""
-        opp_name = (
+    def _opp_name(self, result: LeagueResult, opp_team_details: dict) -> str:
+        return (
             f"{opp_team_details['name']} {result.sub_team}" if result.sub_team
             else opp_team_details['name']
         )
-        return (
-            f"{self.my_team_details['name']} "
-            f" {result.result} "
-            f"({result.format_our_score()})"
-            f"({result.format_opp_score()}) {opp_name} "
-            f"{result.venue} "
-            f"{result.label}"
-        )
+
+    def summary(self, result: LeagueResult, opp_team_details: dict) -> str:
+        """Return match summary in pre-defined format"""
+        opp_name = self._opp_name(result, opp_team_details)
+        if result.not_played_yet():
+            return (
+                f"{self.my_team_details['name']} "
+                f"({opp_name}) "
+                f"{result.venue} "
+                f"{result.label}"
+            )
+        else:
+            return (
+                f"{self.my_team_details['name']} "
+                f" {result.result} "
+                f"({result.format_our_score()})"
+                f"({result.format_opp_score()}) {opp_name} "
+                f"{result.venue} "
+                f"{result.label}"
+            )
 
     def match_desc(self, result: LeagueResult, opp_team_details: dict) -> str:
         """Return match calendar description."""
+        opp_name = self._opp_name(result, opp_team_details)
         return (
             f"{result.result} "
             f"{result.venue} "
-            f"{opp_team_details['name']} "
+            f"({opp_name})"
         )
 
     def generate_ical(self) -> None:
