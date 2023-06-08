@@ -105,7 +105,7 @@ class LeagueResult:
     def _format_score(self, score: float) -> str:
         """convert float to str, strip .0 if we have integer"""
         return (
-                " " if self.not_played_yet()
+                None if self.not_played_yet()
                 else f"{score:.1f}".rstrip('0').rstrip('.')
         )
 

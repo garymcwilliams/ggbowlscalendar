@@ -121,9 +121,9 @@ class TestLeagueResultsManager:
 
         results_manager = LeagueResultsManager.from_dict(match_dict)
         match = results_manager.results[0]
-        assert match.result == '-'
-        assert match.format_our_score() == "0"
-        assert match.format_opp_score() == "0"
+        assert match.result == ' '
+        assert match.format_our_score() is None
+        assert match.format_opp_score() is None
 
     def test_match_label(self):
         """
