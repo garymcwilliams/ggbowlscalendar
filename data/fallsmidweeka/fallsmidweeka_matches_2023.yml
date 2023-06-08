@@ -24,8 +24,8 @@ matches:
   opp_score: 0
 - away: MOSSL
   date: '2023-06-07'
-  our_score: 0
-  opp_score: 0
+  our_score: 0.5
+  opp_score: 6.5
 - home: HILDE
   label: 'PG Cup'
   date: '2023-06-08'
