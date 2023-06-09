@@ -7,10 +7,12 @@ from ggbowlscalendar.league_results_manager import LeagueResultsManager
 DATE1 = '2023-04-22'
 DATE2 = '2023-04-30'
 
+
 def combine_date_time(date: datetime, time: str):
-        calc_date = datetime.datetime.strptime(date, '%Y-%m-%d')
-        calc_time = datetime.datetime.strptime(time, '%H:%M').time()
-        return datetime.datetime.combine(calc_date, calc_time)
+    """combine date and time"""
+    calc_date = datetime.datetime.strptime(date, '%Y-%m-%d')
+    calc_time = datetime.datetime.strptime(time, '%H:%M').time()
+    return datetime.datetime.combine(calc_date, calc_time)
 
 
 class TestLeagueResultsManager:

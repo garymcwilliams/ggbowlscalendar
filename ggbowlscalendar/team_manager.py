@@ -62,6 +62,21 @@ class TeamManager:
         with open(file, "r", encoding="utf-8") as file:
             data = yaml.safe_load(file)
 
+        print(data)
+
+        return TeamManager.from_dict(data)
+
+    @classmethod
+    def from_dict(cls, data: dict) -> "TeamManager":
+        """
+        Create a TeamManager instance from YAML data.
+
+        Args:
+            date: the YAML data
+
+        Returns:
+            TeamManager: The created TeamManager instance.
+        """
         teams = []
         for team_id, team_data in data.items():
             team = Team(team_id=team_id, name=team_data["name"],

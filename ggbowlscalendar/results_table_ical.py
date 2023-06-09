@@ -11,6 +11,13 @@ def _print_cal(self):
     print(self.cal.to_ical())
 
 
+def combine_date_time(date: datetime, time: str) -> str:
+    """combine date and time, into a predefine text fotmat"""
+    calc_time = datetime.strptime(time, '%H:%M').time()
+    id_time = datetime.combine(date, calc_time)
+    return datetime.strftime(id_time, "%Y%m%d%H%M")
+
+
 class ResultsTableIcal:
     """generate ical entries for results"""
 
@@ -104,7 +111,7 @@ class ResultsTableIcal:
             else ""
         )
 
-        id_time = result.date.strftime("%Y%m%d%H%M")
+        id_time = combine_date_time(result.date, result.time)
 
         return (
             f"{self.results_manager.my_team_id.replace(' ','')}-"
@@ -120,26 +127,15 @@ class ResultsTableIcal:
         self.cal.add("calscale", "GREGORIAN")
         self.cal.add("X-WR-TIMEZONE", "Europe/London")
 
-    def _add_event(self, result: LeagueResult, opp_team_details: dict) -> None:
-        """
-        Creates a calendar event for the given match
-
-        :param match: A Match object holding the match data
-        """
-        #    print(self.team_data)
-        #    print(team_data)
-
-        # 32: If new_date is "" then don't add event
-        if result.newdate == "":
-            return
+    def _create_event(self, result: LeagueResult, opp_team_details: dict) \
+            -> Event:
+        match_start = result.match_date_time() - timedelta(minutes=10)
+        match_end = result.match_date_time() + timedelta(
+            hours=self.results_manager.duration)
 
         location = self.my_team_details.get("location") \
             if result.is_home() \
             else opp_team_details.get("location")
-
-        match_start = result.match_date_time() - timedelta(minutes=10)
-        match_end = result.match_date_time() + timedelta(
-            hours=self.results_manager.duration)
 
         event = Event()
         event["uid"] = self._calendar_id(result)
@@ -157,5 +153,22 @@ class ResultsTableIcal:
         alarm.add("description", "Reminder")
         alarm.add("trigger", timedelta(hours=-1))
         event.add_component(alarm)
+
+        return event
+
+    def _add_event(self, result: LeagueResult, opp_team_details: dict) -> None:
+        """
+        Creates a calendar event for the given match
+
+        :param match: A Match object holding the match data
+        """
+        #    print(self.team_data)
+        #    print(team_data)
+
+        # 32: If new_date is "" then don't add event
+        if result.newdate == "":
+            return
+
+        event = self._create_event(result, opp_team_details)
 
         self.cal.add_component(event)
