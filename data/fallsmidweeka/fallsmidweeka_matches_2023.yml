@@ -30,7 +30,7 @@ matches:
   label: 'PG Cup'
   date: '2023-06-08'
   our_score: 0
-  opp_score: 0
+  opp_score: 1
 - home: PICKI
   date: '2023-06-14'
   our_score: 0
