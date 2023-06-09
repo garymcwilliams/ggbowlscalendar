@@ -32,14 +32,11 @@ class ResultsTablePrinter:
         self._print_table_header()
 
         for result in self.results_manager.results:
-            my_team_details = self.team_manager.get_team_details(
-                self.results_manager.my_team_id
-            )
             opp_team_details = self.team_manager.get_team_details(
                 result.opp_id
             )
 
-            self.add_match_to_table(result, my_team_details, opp_team_details)
+            self.add_match_to_table(result, opp_team_details)
 
         self.print_match_table()
 
@@ -58,7 +55,6 @@ class ResultsTablePrinter:
 
     def add_match_to_table(self,
                            result: LeagueResult,
-                           me: Team,
                            opp: Team) -> None:
         """format this result as a line in the table"""
 
@@ -73,14 +69,16 @@ class ResultsTablePrinter:
         )
         date_pattern = f'{day_pattern} %d-%b %H:%M'
         result_display = (
-            f"[bold green]{result.result} :heavy_check_mark:"
+            f"[green]{result.result} :heavy_check_mark:"
             if result.result == "W"
-            else f"[bold red]{result.result}" if result.result == "L"
+            else f"[red]{result.result}" if result.result == "L"
             else result.result
         )
+        colours = {'home': 'red', 'away': 'blue'}
+        venue = f"[{colours[result.venue]}]{result.venue}[/]"
         self.table.add_row(
             result_display,
-            result.venue,
+            venue,
             result.format_our_score(),
             result.format_opp_score(),
             opp_name,
