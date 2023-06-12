@@ -55,8 +55,8 @@ matches:
 - home: HILDE
   team: A
   date: 2023-06-10
-  our_score: 0
-  opp_score: 0
+  our_score: 6
+  opp_score: 1
 - away: LARNE
   team: B
   label: 'Irish Cup'
