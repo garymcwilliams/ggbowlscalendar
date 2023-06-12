@@ -48,8 +48,8 @@ matches:
 - away: HILDE
   team: 'B'
   date: '2023-06-10'
-  our_score: 0
-  opp_score: 0
+  our_score: 1
+  opp_score: 6
 - home: MALON
   label: 'Irish Cup'
   date: '2023-06-17'
