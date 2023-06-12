@@ -71,6 +71,13 @@ matches:
   newtime: '18:30'
   our_score: 0
   opp_score: 0
+- home: BELMO
+  team: B
+  label: 'PG Cup'
+  date: 2023-06-22
+  start_time: '18:30'
+  our_score: 0
+  opp_score: 0
 - home: CLIFT
   date: '2023-06-24'
   our_score: 0
