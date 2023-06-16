@@ -3,7 +3,8 @@
 version: 1
 formatters:
   simple:
-    format: '%(asctime)s: %(name)-10s - %(levelname)-5s %(message)s'
+    format: '%(asctime)s:%(levelname)-5s %(message)s'
+    datefmt: '%Y-%m-%d_%H:%M:%S'
   brief:
     format: '%(message)s'
   default:
@@ -12,17 +13,29 @@ formatters:
 handlers:
   console:
     class: logging.StreamHandler
-    level: DEBUG
+    level: INFO
     formatter: brief
     stream: ext://sys.stdout
   gary:
     class: logging.handlers.RotatingFileHandler
-    formatter: default
+    formatter: simple
     filename: logs/gary.log
-    maxBytes: 1024
+    maxBytes: 16384
     backupCount: 3
 loggers:
   __main__:
+    level: DEBUG
+    handlers: [console,gary]
+    propagate: no
+  ggbowlscalendar.utils:
+    level: DEBUG
+    handlers: [console,gary]
+    propagate: no
+  ggbowlscalendar.results_table_ical:
+    level: DEBUG
+    handlers: [console,gary]
+    propagate: no
+  results_table_ical:
     level: DEBUG
     handlers: [console,gary]
     propagate: no

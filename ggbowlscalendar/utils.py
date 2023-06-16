@@ -6,6 +6,7 @@ Created on 13 Feb 2019
 import json
 import os
 import sys
+import logging
 
 from pathlib import Path
 from envparse import env
@@ -48,7 +49,8 @@ def write_file(club: str, year: str, content: bytes) -> None:
     filename = f"{club}_{year}.ics"
     newfile = _mk_save_dir() / filename
     newfile.write_bytes(content)
-    print(f"saved:{newfile}")
+    logger = logging.getLogger(__name__)
+    logger.info("saved:%s", newfile)
 
 
 def find_file(folder: str, filename: str) -> Path:

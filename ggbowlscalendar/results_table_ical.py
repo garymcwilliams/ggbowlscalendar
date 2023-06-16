@@ -1,3 +1,8 @@
+"""
+Generate ical for all matches
+"""
+
+import logging
 from datetime import datetime, timedelta
 from icalendar import Alarm, Calendar
 from icalendar.cal import Event
@@ -39,6 +44,7 @@ class ResultsTableIcal:
             self.results_manager.my_team_id
         )
         self.cal = Calendar()
+        self.logger = logging.getLogger(__name__)
 
     def _opp_name(self, result: LeagueResult, opp_team_details: dict) -> str:
         return (
@@ -49,31 +55,37 @@ class ResultsTableIcal:
     def summary(self, result: LeagueResult, opp_team_details: dict) -> str:
         """Return match summary in pre-defined format"""
         opp_name = self._opp_name(result, opp_team_details)
+        summary = None
         if result.not_played_yet():
-            return (
-                f"{self.my_team_details['name']} "
+            summary = (
+                f"{self.my_team_details['name']} v "
                 f"({opp_name}) "
                 f"{result.venue} "
                 f"{result.label}"
-            )
+            ).rstrip()
         else:
-            return (
+            summary = (
                 f"{self.my_team_details['name']} "
-                f" {result.result} "
+                f"{result.result} "
                 f"({result.format_our_score()})"
-                f"({result.format_opp_score()}) {opp_name} "
+                f"({result.format_opp_score()}) v {opp_name} "
                 f"{result.venue} "
                 f"{result.label}"
-            )
+            ).rstrip()
+        self.logger.debug("summary='(%s)'", summary)
+        return summary
 
     def match_desc(self, result: LeagueResult, opp_team_details: dict) -> str:
         """Return match calendar description."""
         opp_name = self._opp_name(result, opp_team_details)
-        return (
+        desc = (
             f"{result.result} "
             f"{result.venue} "
             f"({opp_name})"
         )
+        if desc != desc.strip():
+            self.logger.debug("desc='%s' from='%s'", desc.strip(), desc)
+        return desc.strip()
 
     def generate_ical(self) -> None:
         """ generate the ical content.  """
@@ -113,12 +125,14 @@ class ResultsTableIcal:
 
         id_time = combine_date_time(result.date, result.time)
 
-        return (
+        unique = (
             f"{self.results_manager.my_team_id.replace(' ','')}-"
             f"{id_time}"
             f"{label}"
             f"@mc-williams.co.uk"
         )
+        self.logger.debug("uniqueid='%s'", unique)
+        return unique
 
     def _create_header(self) -> None:
         """create the calendar header content."""
@@ -147,6 +161,10 @@ class ResultsTableIcal:
         event.add("dtstart", match_start)
         event.add("dtend", match_end)
         event.add("dtstamp", datetime.utcnow())
+        self.logger.debug(
+            "event=%s:%s:'%s':'%s'", match_start, match_end,
+            event.get("summary"), event.get("description")
+        )
 
         alarm = Alarm()
         alarm.add("action", "DISPLAY")
