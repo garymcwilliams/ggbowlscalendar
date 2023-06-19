@@ -4,7 +4,8 @@ on:
   # a pull request. 
   push:
     branches:
-      - main, garymcwilliams/issue43-github-actions
+      - main
+      - garymcwilliams/issue43-github-actions
 #  pull_request:
 #    types: [opened, synchronize, reopened]
 
