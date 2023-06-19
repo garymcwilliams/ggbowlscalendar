@@ -4,7 +4,7 @@ on:
   # a pull request. 
   push:
     branches:
-      - garymcwilliams/issue43-github-actions # only kep for future reference
+      - DUMMY # SQ is configured for auto-analysis, we don't need to kick it off via CI
 #  pull_request:
 #    types: [opened, synchronize, reopened]
 
