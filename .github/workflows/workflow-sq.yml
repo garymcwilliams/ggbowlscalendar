@@ -4,7 +4,7 @@ on:
   # a pull request. 
   push:
     branches:
-      - DUMMY # SQ is configured for auto-analysis, we don't need to kick it off via CI
+      - main, garymcwilliams/issue43-github-actions
 #  pull_request:
 #    types: [opened, synchronize, reopened]
 
