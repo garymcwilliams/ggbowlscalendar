@@ -1,4 +1,4 @@
-# Bowls Calendar ![Python Test](https://github.com/garymcwilliams/ggbowlscalendar/workflows/Python%20Test/badge.svg) [![codecov](https://codecov.io/github/garymcwilliams/ggbowlscalendar/branch/main/graph/badge.svg?token=EGNK0HBDQK)](https://codecov.io/github/garymcwilliams/ggbowlscalendar) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=garymcwilliams_ggbowlscalendar&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=garymcwilliams_ggbowlscalendar)
+# Bowls Calendar [![GitHub CI](https://github.com/garymcwilliams/ggbowlscalendar/actions/workflows/workflow-all.yml/badge.svg?branch=main)](https://github.com/garymcwilliams/ggbowlscalendar/actions/workflows/workflow-all.yml) [![codecov](https://codecov.io/github/garymcwilliams/ggbowlscalendar/branch/main/graph/badge.svg?token=EGNK0HBDQK)](https://codecov.io/github/garymcwilliams/ggbowlscalendar) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=garymcwilliams_ggbowlscalendar&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=garymcwilliams_ggbowlscalendar)
 
 ## Running
 
