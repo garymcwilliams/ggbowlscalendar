@@ -50,12 +50,11 @@ jobs:
     - name: poetry in motion tests
       run: |
         poetry run coverage run -m pytest
-        ls -alrt
-        poetry run pytest --cov 
-        ls -alrt
+        poetry run coverage xml
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1
+      uses: codecov/codecov-action@v3
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        file: .coverage
+        files: ./coverage.xml
         flags: unittests
+        fail_ci_if_error: true
