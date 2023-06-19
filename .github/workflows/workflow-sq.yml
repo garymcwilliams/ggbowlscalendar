@@ -1,4 +1,4 @@
-name: Python Coverage Workflow
+name: Python Sonarqube Workflow
 on:
   # Trigger analysis when pushing in main or pull requests, and when creating
   # a pull request. 

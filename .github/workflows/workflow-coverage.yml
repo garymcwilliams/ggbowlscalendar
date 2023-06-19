@@ -1,4 +1,4 @@
-name: GitHub CI
+name: CodeQL Code Coverage
 on:
   push:
 #on:
@@ -9,19 +9,19 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  ci:
+  codecov:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.9", "3.10", "3.11"]
+        python-version: ["3.10"]
         poetry-version: [1.4.2]
         os: [ubuntu-latest]
-#        os: [ubuntu-latest, macos-latest, windows-latest]
+    name: Codecov Workflow
     runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    - name: Setup python
+    - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: "${{ matrix.python-version }}"
@@ -48,4 +48,14 @@ jobs:
     - name: Install project dependencies
       run: poetry install --no-interaction
     - name: poetry in motion tests
-      run: poetry run pytest
+      run: |
+        poetry run coverage run -m pytest
+        ls -alrt
+        poetry run pytest --cov 
+        ls -alrt
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: ./coverage
+        flags: unittests
