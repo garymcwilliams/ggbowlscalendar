@@ -99,4 +99,4 @@ class TeamManager:
                     None)
         if team:
             return {"name": team.name, "location": team.location}
-        return {}
+        return {"name": f"***{team_id}***", "location": "TBD"}

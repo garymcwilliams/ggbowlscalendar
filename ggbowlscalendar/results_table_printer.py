@@ -59,8 +59,12 @@ class ResultsTablePrinter:
         """format this result as a line in the table"""
 
         opp_name = (
-            f"{opp['name']} {result.sub_team}" if result.sub_team
+            f"[red]{opp['name']}[/red]" if opp['name'].startswith("***")
             else opp['name']
+        )
+        opp_name = (
+            f"{opp_name} {result.sub_team}" if result.sub_team
+            else opp_name
         )
 
         day_pattern = (
