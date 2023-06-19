@@ -4,7 +4,7 @@ on:
   # a pull request. 
   push:
     branches:
-      - mainDUMMY # only kep for future reference
+      - garymcwilliams/issue43-github-actions # only kep for future reference
 #  pull_request:
 #    types: [opened, synchronize, reopened]
 
@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
