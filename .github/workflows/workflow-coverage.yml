@@ -1,4 +1,4 @@
-name: CodeQL Code Coverage
+name: CodeCov Code Coverage
 on:
   push:
 #on:
