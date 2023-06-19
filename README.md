@@ -1,4 +1,4 @@
-# Bowls Calendar ![Python Test](https://github.com/garymcwilliams/ggbowlscalendar/workflows/Python%20Test/badge.svg) ![CodeQL](https://github.com/garymcwilliams/ggbowlscalendar/workflows/CodeQL/badge.svg) ![SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=garymcwilliams_ggbowlscalendar&metric=alert_status)
+# Bowls Calendar ![Python Test](https://github.com/garymcwilliams/ggbowlscalendar/workflows/Python%20Test/badge.svg) ![CodeQL](https://github.com/garymcwilliams/ggbowlscalendar/workflows/CodeQL/badge.svg) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=garymcwilliams_ggbowlscalendar&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=garymcwilliams_ggbowlscalendar)
 
 ## Running
 
