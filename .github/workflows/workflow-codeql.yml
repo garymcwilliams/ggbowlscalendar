@@ -1,9 +1,13 @@
 name: CodeQL
 on:
   push:
-    branches:
-      - main
-      - garymcwilliams/issue43
+    branches: [main, garymcwilliams/issue43]
+    paths:
+    - '**.py'
+  pull_request:
+    branches: [main, garymcwilliams/issue43]
+    paths:
+    - '**.py'
 
 jobs:
   analyse:
