@@ -5,11 +5,13 @@ on:
     paths:
     - '**.py'
     - '.coveragerc'
+    - '.github/workflows/**'
   pull_request:
     branches: [main, garymcwilliams/issue43]
     paths:
     - '**.py'
     - '.coveragerc'
+    - '.github/workflows/**'
 
 jobs:
   ci:
@@ -64,6 +66,21 @@ jobs:
       uses: sonarsource/sonarcloud-github-action@master
 #      with:
 #        projectBaseDir: ical
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
+
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        files: ./coverage.xml
+        fail_ci_if_error: true
+    - name: SonarCloud Scan
+      uses: sonarsource/sonarcloud-github-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}

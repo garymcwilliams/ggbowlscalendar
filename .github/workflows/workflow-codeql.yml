@@ -4,10 +4,12 @@ on:
     branches: [main, garymcwilliams/issue43]
     paths:
     - '**.py'
+    - '.github/workflows/**'
   pull_request:
     branches: [main, garymcwilliams/issue43]
     paths:
     - '**.py'
+    - '.github/workflows/**'
 
 jobs:
   analyse:
