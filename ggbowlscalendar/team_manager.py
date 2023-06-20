@@ -13,7 +13,7 @@ from .utils import find_file
 
 def get_teams_file() -> Path:
     """
-    Get the teams file
+    Get the teams Path
     """
     return find_file(None, "teams.yml")
 
@@ -58,8 +58,8 @@ class TeamManager:
         Returns:
             TeamManager: The created TeamManager instance.
         """
-        file = get_teams_file()
-        with open(file, "r", encoding="utf-8") as file:
+        file_path = get_teams_file()
+        with open(file_path, "r", encoding="utf-8") as file:
             data = yaml.safe_load(file)
 
         print(data)
