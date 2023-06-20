@@ -231,3 +231,47 @@ class TestResultsTableIcal:
             assert event.get('LOCATION') == 'AAA location'
             assert event.get('SUMMARY') == 'AAAA W (6)(1) v clift home Irish Cup'
             assert event.get('DESCRIPTION') == 'W home (clift)'
+
+    def test_not_played_yet(self):
+        """
+        tests
+        """
+
+        match_dict = {
+            'me': 'FALLSA',
+            'start_time': '14:00',
+            'day': 'Sat',
+            'duration': 3,
+            'matches':
+                [
+                    {
+                        'home': 'CLIFT',
+                        'label': 'Irish Cup',
+                        'date': DATE1,
+                        'our_score': 0,
+                        'opp_score': 0,
+                    },
+                ]
+        }
+
+        results_manager = LeagueResultsManager.from_dict(match_dict)
+
+        team_dict = {
+            'FALLSA': {'name': 'AAAA', 'location': 'AAA location'},
+            'CLIFT': {'name': 'clift', 'location': 'clift location'}
+        }
+
+        team_manager = TeamManager.from_dict(team_dict)
+
+        ical_generator = ResultsTableIcal(results_manager, team_manager)
+        for result in results_manager.results:
+            opp_team_details = team_manager.get_team_details(
+                result.opp_id
+            )
+
+            event = ical_generator._create_event(result,
+                                                 opp_team_details)
+            assert event.get('UID') == 'FALLSA-202304221400IrishCup@mc-williams.co.uk'
+            assert event.get('LOCATION') == 'AAA location'
+            assert event.get('SUMMARY') == 'AAAA v (clift) home Irish Cup'
+            assert event.get('DESCRIPTION') == 'home (clift)'
