@@ -55,7 +55,7 @@ def write_file(club: str, year: str, content: bytes) -> None:
 
 def find_file(folder: str, filename: str) -> Path:
     """
-    Get a file. The base dir will be read from env var ICAL_DATAPATH.
+    Get a file path. The base dir will be read from env var ICAL_DATAPATH.
     If ICAL_DATAPATH is not set then the value from the .env file will be used.
     If folder is provided it will be added to the Path.
     """
@@ -66,9 +66,9 @@ def find_file(folder: str, filename: str) -> Path:
     else:
         data_path = Path(env.str("ICAL_DATAPATH"), folder)
 
-    file = Path(data_path, filename)
+    file_path = Path(data_path, filename)
 
-    if not file.exists():
-        print(f"Cannot find file: {file}")
+    if not file_path.exists():
+        print(f"Cannot find file: {file_path}")
         sys.exit(1)
-    return file
+    return file_path

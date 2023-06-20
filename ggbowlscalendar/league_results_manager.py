@@ -13,7 +13,7 @@ from .utils import find_file
 
 def get_games_file(club, year) -> Path:
     """
-    Get the matches file for a given club/year.
+    Get the matches Path for a given club/year.
     """
     return find_file(club, f"{club}_games_{year}.yml")
 
@@ -61,12 +61,14 @@ class LeagueResult:
         self.new_time = new_time
         self.label = label
 
-        self.result = (
-            " " if self.not_played_yet() else
-            "W" if our_score > opp_score else
-            "L" if our_score < opp_score else
-            "D"
-        )
+        if self.not_played_yet():
+            self.result = " "
+        else:
+            self.result = (
+                "W" if our_score > opp_score else
+                "L" if our_score < opp_score else
+                "D"
+            )
 
     def not_played_yet(self) -> bool:
         """determine whether the match has already been played or not"""
@@ -154,9 +156,9 @@ class LeagueResultsManager:
         Returns:
             LeagueResultsManager: The created LeagueResultsManager instance.
         """
-        file = get_games_file(team, year)
+        file_path = get_games_file(team, year)
 
-        with open(file, "r", encoding="utf-8") as file:
+        with open(file_path, "r", encoding="utf-8") as file:
             data = yaml.safe_load(file)
 
         return LeagueResultsManager.from_dict(data)
