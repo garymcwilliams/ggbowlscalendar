@@ -1,4 +1,4 @@
-name: GitHub CI
+name: GitHub CI with CodeCov and SQ
 on:
   push:
     branches:
@@ -45,4 +45,19 @@ jobs:
     - name: Install project dependencies
       run: poetry install --no-interaction
     - name: poetry in motion tests
-      run: poetry run pytest
+      run: |
+        poetry run coverage run -m pytest --junitxml=coverage.xml
+        poetry run coverage xml -i
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        files: ./coverage.xml
+        fail_ci_if_error: true
+    - name: SonarCloud Scan
+      uses: sonarsource/sonarcloud-github-action@master
+#      with:
+#        projectBaseDir: ical
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
