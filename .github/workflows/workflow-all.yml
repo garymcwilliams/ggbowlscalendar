@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-      - garymcwilliams/issue43-github-actions
+      - garymcwilliams/issue43
 
 jobs:
   ci:
