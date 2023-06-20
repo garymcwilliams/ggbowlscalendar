@@ -55,13 +55,12 @@ class ResultsTablePrinter:
 
     def add_match_to_table(self,
                            result: LeagueResult,
-                           opp: Team) -> None:
+                           opp: dict) -> None:
         """format this result as a line in the table"""
 
-        opp_name = (
-            f"[red]{opp.name}[/red]" if opp.name.startswith("***")
-            else opp['name']
-        )
+        opp_name = opp['name']
+        if opp_name.startswith("***"):
+            opp_name = f"[red]{opp_name}[/red]"
         if result.sub_team:
             opp_name = f"{opp_name} {result.sub_team}"
 
