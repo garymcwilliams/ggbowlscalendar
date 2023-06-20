@@ -59,13 +59,11 @@ class ResultsTablePrinter:
         """format this result as a line in the table"""
 
         opp_name = (
-            f"[red]{opp['name']}[/red]" if opp['name'].startswith("***")
+            f"[red]{opp.name}[/red]" if opp.name.startswith("***")
             else opp['name']
         )
-        opp_name = (
-            f"{opp_name} {result.sub_team}" if result.sub_team
-            else opp_name
-        )
+        if result.sub_team:
+            opp_name = f"{opp_name} {result.sub_team}"
 
         day_pattern = (
             "%a" if result.match_date_time().strftime('%a') != self.default_day
