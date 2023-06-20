@@ -67,7 +67,7 @@ class TestLeagueResultsManager:
 
         results_manager = LeagueResultsManager.from_dict(match_dict)
         match = results_manager.results[0]
-        assert match.is_home
+        assert match.is_home()
         assert match.result == 'L'
         assert match.notes() == ""
         assert match.format_our_score() == "0.5"
@@ -96,7 +96,7 @@ class TestLeagueResultsManager:
 
         results_manager = LeagueResultsManager.from_dict(match_dict)
         match = results_manager.results[0]
-        assert match.is_away
+        assert match.is_away()
         assert match.result == 'L'
         assert match.notes() == ""
         assert match.match_date_time() == combine_date_time(DATE1, "14:00")
@@ -243,3 +243,33 @@ class TestLeagueResultsManager:
         assert match.label == ""
         assert match.notes() == ""
         assert match.match_date_time() == combine_date_time(DATE2, time)
+
+    def test_match_not_played_yet(self):
+        """
+        tests
+        """
+
+        match_dict = {
+            'me': 'FALLSA',
+            'start_time': '14:00',
+            'day': 'Sat',
+            'duration': 3,
+            'matches':
+                [
+                    {'home': 'CLIFT',
+                     'date': datetime.datetime.strptime(DATE1, '%Y-%m-%d'),
+                     'our_score': 0.0,
+                     'opp_score': 0.0,
+                    },
+                ]
+        }
+
+        results_manager = LeagueResultsManager.from_dict(match_dict)
+        match = results_manager.results[0]
+        assert match.is_home()
+        assert match.not_played_yet() is True
+        assert match.result == ' '
+        assert match.notes() == ""
+        assert match.format_our_score() is None
+        assert match.format_opp_score() is None
+        assert match.match_date_time() == combine_date_time(DATE1, "14:00")
