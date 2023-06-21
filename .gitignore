@@ -6,3 +6,5 @@ test_reports/
 *.swp
 generate/matches.txt
 generate/*.yml
+.coverage
+coverage.xml
