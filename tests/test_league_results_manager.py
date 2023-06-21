@@ -2,7 +2,11 @@
 test
 """
 import datetime
-from ggbowlscalendar.league_results_manager import LeagueResultsManager
+from ggbowlscalendar.league_results_manager import (
+    LeagueResultsManager,
+    TBD_DATA,
+    TBD_DISPLAY
+)
 
 DATE1 = '2023-04-22'
 DATE2 = '2023-04-30'
@@ -259,7 +263,7 @@ class TestLeagueResultsManager:
                 [
                     {'away': 'CLIFT',
                      'date': datetime.datetime.strptime(DATE1, '%Y-%m-%d'),
-                     'newdate': 'tbd',
+                     'newdate': TBD_DATA,
                      'newtime': time,
                      'our_score': 0.0,
                      'opp_score': 0.0,
@@ -273,8 +277,8 @@ class TestLeagueResultsManager:
         assert match.is_away()
         assert match.not_played_yet() is True
         assert match.result == ' '
-        assert match.label == "-date-TBD-"
-        assert match.notes() == "-date-TBD-"
+        assert match.label == TBD_DISPLAY
+        assert match.notes() == TBD_DISPLAY
         assert match.format_our_score() is None
         assert match.format_opp_score() is None
 

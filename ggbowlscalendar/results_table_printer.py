@@ -1,8 +1,12 @@
 from rich.console import Console
 from rich.table import Table
 
-from .league_results_manager import LeagueResultsManager, LeagueResult
-from .team_manager import TeamManager, Team
+from .league_results_manager import (
+    LeagueResultsManager,
+    LeagueResult,
+    TBD_DISPLAY
+)
+from .team_manager import TeamManager
 
 
 class ResultsTablePrinter:
@@ -74,7 +78,7 @@ class ResultsTablePrinter:
         if result.sub_team:
             opp_name = f"{opp_name} {result.sub_team}"
 
-        date_display = "**TBD**"
+        date_display = TBD_DISPLAY
         if result.match_date_time():
             # only show date if there is one in place, allows for as-yet
             # unscheduled games to be processed

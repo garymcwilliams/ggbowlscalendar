@@ -11,6 +11,10 @@ import yaml
 from .utils import find_file
 
 
+TBD_DATA = "tbd"  # data value the represents TBD match date
+TBD_DISPLAY = "-date-TBD-"  # value to display in outpu for TBD match date
+
+
 def get_games_file(club, year) -> Path:
     """
     Get the matches Path for a given club/year.
@@ -83,8 +87,8 @@ class LeagueResult:
         if that has been provided.
         """
         match_date = self.newdate if self.newdate else self.date
-        if self.newdate == "tbd":
-            self.label += "-date-TBD-"
+        if self.newdate == TBD_DATA:
+            self.label += TBD_DISPLAY
             return None
         time = self.new_time if self.new_time else self.time
         match_time = datetime.datetime.strptime(time, '%H:%M').time()
