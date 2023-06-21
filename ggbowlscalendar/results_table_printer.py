@@ -53,6 +53,16 @@ class ResultsTablePrinter:
         self.table.add_column("date")
         self.table.add_column("note")
 
+    def _not_normal_day(self, result: LeagueResult) -> bool:
+        """
+        work out if this match is being played on the regular/normal day for
+        this team
+        """
+        if result.match_date_time() and \
+                result.match_date_time().strftime('%a') != self.default_day:
+            return True
+        return False
+
     def add_match_to_table(self,
                            result: LeagueResult,
                            opp: dict) -> None:
@@ -64,11 +74,17 @@ class ResultsTablePrinter:
         if result.sub_team:
             opp_name = f"{opp_name} {result.sub_team}"
 
-        day_pattern = (
-            "%a" if result.match_date_time().strftime('%a') != self.default_day
-            else "   "
-        )
-        date_pattern = f'{day_pattern} %d-%b %H:%M'
+        date_display = "**TBD**"
+        if result.match_date_time():
+            # only show date if there is one in place, allows for as-yet
+            # unscheduled games to be processed
+            day_pattern = "   "
+            # only show day if it's not the 'normal' one
+            if self._not_normal_day(result):
+                day_pattern = "%a"
+            date_pattern = f'{day_pattern} %d-%b %H:%M'
+            date_display = result.match_date_time().strftime(date_pattern)
+
         result_display = (
             f"[green]{result.result} :heavy_check_mark:"
             if result.result == "W"
@@ -83,7 +99,7 @@ class ResultsTablePrinter:
             result.format_our_score(),
             result.format_opp_score(),
             opp_name,
-            result.match_date_time().strftime(date_pattern),
+            date_display,
             result.notes(),
         )
 

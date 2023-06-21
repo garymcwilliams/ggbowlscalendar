@@ -183,8 +183,8 @@ class ResultsTableIcal:
         #    print(self.team_data)
         #    print(team_data)
 
-        # 32: If new_date is "" then don't add event
-        if result.newdate == "":
+        # If match has no new date, then do not add to calendar
+        if result.match_date_time() is None:
             return
 
         event = self._create_event(result, opp_team_details)

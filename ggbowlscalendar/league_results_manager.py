@@ -83,8 +83,9 @@ class LeagueResult:
         if that has been provided.
         """
         match_date = self.newdate if self.newdate else self.date
-        if self.newdate == "":
-            self.label += " ****-TBD-****"
+        if self.newdate == "tbd":
+            self.label += "-date-TBD-"
+            return None
         time = self.new_time if self.new_time else self.time
         match_time = datetime.datetime.strptime(time, '%H:%M').time()
         match_date_time = datetime.datetime.combine(match_date, match_time)
