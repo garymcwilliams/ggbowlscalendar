@@ -9,6 +9,7 @@ on:
     - '**.py'
     - '.coveragerc'
     - '.github/workflows/**'
+    - README.md
   pull_request:
     branches: [main, garymcwilliams/issue43]
     paths:

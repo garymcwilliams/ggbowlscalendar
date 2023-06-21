@@ -15,7 +15,7 @@ Select a Debug runtime (from Debug side window), e.g. `fallsindoor`
 
 ## Data Formats
 
-see link: ![icalendar-data](https://github.com/garymcwilliams/icalendar-data)
+see link: [![icalendar-data](https://github.com/garymcwilliams/icalendar-data)]
 
 ## Managing python poetry dependencies
 

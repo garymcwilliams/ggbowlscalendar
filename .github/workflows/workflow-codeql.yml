@@ -8,6 +8,7 @@ on:
     paths:
     - '**.py'
     - '.github/workflows/**'
+    - README.md
   pull_request:
     branches: [main, garymcwilliams/issue43]
     paths:
