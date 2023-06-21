@@ -27,18 +27,6 @@ loggers:
     level: DEBUG
     handlers: [console,gary]
     propagate: no
-  ggbowlscalendar.utils:
-    level: DEBUG
-    handlers: [console,gary]
-    propagate: no
-  ggbowlscalendar.results_table_ical:
-    level: DEBUG
-    handlers: [console,gary]
-    propagate: no
-  results_table_ical:
-    level: DEBUG
-    handlers: [console,gary]
-    propagate: no
 root:
   level: DEBUG
   handlers: [console]

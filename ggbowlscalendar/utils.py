@@ -6,9 +6,10 @@ Created on 13 Feb 2019
 import json
 import os
 import sys
+import logging
 
-from envparse import env
 from pathlib import Path
+from envparse import env
 
 
 def savedir() -> Path:
@@ -27,56 +28,47 @@ def savedir() -> Path:
         else:
             print("Could not find dropbox path")
 
-        with open(str(path)) as f:
-            j = json.load(f)
+        with open(str(path), "r", encoding="utf-8") as file_content:
+            j = json.load(file_content)
         return Path(j["personal"]["path"]).absolute()
     except FileNotFoundError:
         print("info.json NotFound")
 
 
-def get_match_file(club, year) -> Path:
+def _mk_save_dir() -> Path:
+    newdir = Path(savedir() / "Apps" / "icalendar")
+
+    if not newdir.exists():
+        newdir.mkdir(parents=True)
+
+    return newdir
+
+
+def write_file(club: str, year: str, content: bytes) -> None:
+    """Write the ics content to the created file."""
+    filename = f"{club}_{year}.ics"
+    newfile = _mk_save_dir() / filename
+    newfile.write_bytes(content)
+    logger = logging.getLogger(__name__)
+    logger.info("saved:%s", newfile)
+
+
+def find_file(folder: str, filename: str) -> Path:
     """
-    Get the matches file for a given club/year.
-    """
-    return _get_file(club, f"{club}_matches_{year}.yml")
-
-
-def get_team_file(club) -> Path:
-    return _get_file(club, f"{club}_teams.yml")
-
-
-def _get_file(club, filename) -> Path:
-    """
-    Get a file. The base dir will be read from env var ICAL_DATAPATH.
+    Get a file path. The base dir will be read from env var ICAL_DATAPATH.
     If ICAL_DATAPATH is not set then the value from the .env file will be used.
+    If folder is provided it will be added to the Path.
     """
-    # env = Env(
-    #    ICAL_DATAPATH=str,
-    # )
     env.read_envfile()
 
-    dataPath = Path(env.str("ICAL_DATAPATH"), club)
-    file = Path(dataPath, filename)
-    if not file.exists():
-        print(f"Cannot find file: {file}")
+    if folder is None:
+        data_path = Path(env.str("ICAL_DATAPATH"))
+    else:
+        data_path = Path(env.str("ICAL_DATAPATH"), folder)
+
+    file_path = Path(data_path, filename)
+
+    if not file_path.exists():
+        print(f"Cannot find file: {file_path}")
         sys.exit(1)
-    return file
-
-
-def _get_match_schema(self):
-    return strictyaml.Map(
-        {
-            "duration": strictyaml.Int(),
-            "matches": strictyaml.Seq(
-                strictyaml.Map(
-                    {
-                        "away": strictyaml.Str(),
-                        "date": strictyaml.Str(),
-                        "newdate": strictyaml.Str(),
-                        "our_score": strictyaml.Int(),
-                        "opp_score": strictyaml.Int(),
-                    }
-                )
-            ),
-        }
-    )
+    return file_path

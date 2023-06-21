@@ -1,0 +1,126 @@
+FALLSA:
+  name: A
+  location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
+FALLSB:
+  name: B
+  location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
+FALLSMA:
+  name: Midweek A
+  location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
+FALLSMB:
+  name: Midweek B
+  location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
+GARY:
+  name: Gary
+  location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
+ALBERB: 
+  name: Albert Foundry
+  location: Paisley Park, W Circular Rd, Belfast BT13 3QH
+ARDS:
+  name: Ards
+  location: 70 South St, Newtownards BT23 4JU
+BALME:
+  name: Ballymena
+  location: 10 Old Ballymoney Rd Ballymena BT43 6LX
+BALWA:
+  name: Ballywalter
+  location: GGP7+GX Newtownards
+BALMO:
+  name: Ballymoney
+  location: 37A Church Street, Ballymoney, BT53 6HS
+BELFA:
+  name: Belfast
+  location: TBD
+BELMO:
+  name: Belmont
+  location: 16 Belmont Park Belfast BT4 3DU
+CAVEH:
+  name: Cavehill
+  location: 15 N Circular Rd, Belfast
+CLIFT:
+  name: Cliftonville
+  location: 23 Knutsford Dr, Belfast BT14 6LZ
+COMBR:
+  name: Comber
+  location: 13 Londonderry Ave, Comber, Newtownards BT23 5ES
+DOWNP:
+  name: Downpatrick
+  location: 87PM+C9Q Downpatrick
+DROMO:
+  name: Dromore
+  location: Holm Park, Lurgan Rd, Dromore BT25 1HL
+DUNBA:
+  name: Dunbarton
+  location: 54 Dunbarton St Gilford Craigavon BT63 6HJ
+EWART:
+  name: Ewarts
+  location: 15 Somerdale Park, Belfast, BT14 7HD
+FORTH:
+  name: Forthriver
+  location: 104 Woodvale Road, Belfast, BT13 3BU, Northern Ireland
+HILDE:
+  name: Hilden
+  location: GX88+VR Lisburn
+KNOCK:
+  name: CI-Knock
+  location: 91 Circular Rd, Belfast BT4 2GD
+LARNE:
+  name: Larne
+  location: 112 Glenarm Rd, Larne BT40 1DZ
+LIMAV:
+  name: Limvady
+  location: 54 Killane Rd, Limavady BT49 0TR
+LURGN:
+  name: Lurgan
+  location: The Pavilion, Lurgan Park, Lurgan, Co. Armagh. BT67 9BJ
+MAGHD:
+  name: Magheradroll
+  location: 24 Church Rd, Ballynahinch, Northern Ireland
+MALON: 
+  name: Malone
+  location: 240 Upper Malone Rd Dunmurry Belfast BT17 9GA
+MOSSL:
+  name: Mossley
+  location: 54.691641, -5.950702
+NBELF: 
+  name: North Belfast
+  location: TBD
+NICS:
+  name: NICS
+  location: The Pavilion Stormont Estate, Belfast BT4 3TA
+OLDBL:
+  name: Old Bleach
+  location: 7 Neillsbrook Park Randalstown Antrim BT41 3AE
+OWENB:
+  name: Owenbeg
+  location: 38 Stream St, Downpatrick, Northern Ireland
+PICKI:
+  name: Pickie
+  location: 17 Broadway, Bangor BT20 4TS
+PORTS:
+  name: Portstewart
+  location: The Warren, Old Coach Rd, Portstewart BT55 7HF
+PSNI: 
+  name: PSNI
+  location: TBD
+SAINT: 
+  name: Saintfield
+  location: 49 Crossgar Rd, Saintfield, Ballynahinch BT24 7JE
+SALIS:
+  name: Salisbury
+  location: 32 Salisbury Ave, Belfast BT15 5DZ
+SHAFT: 
+  name: Shaftesbury
+  location: 20 Annadale Ave, Belfast, BT7 3JH
+SHORT: 
+  name: Shorts
+  location: 411-403 Holywood Rd Belfast BT4 2LP
+UTRAN:
+  name: U Transport
+  location: 25 Lynda Ave, Newtownabbey BT37 0NX
+WHITEH:
+  name: Whitehead
+  location: TBD
+WILLO:
+  name: Willowfield
+  location: 20 Gibson Park Gardens, Belfast BT6 9GN
