@@ -2,4 +2,5 @@
 omit = 
 	tests/*
 	ggbowlscalendar/utils.py
-	
+relative_files = True
+source = ggbowlscalendar/
