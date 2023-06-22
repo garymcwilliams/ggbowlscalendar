@@ -199,7 +199,7 @@
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsoutdoorb",
-                "--year", "2022"
+                "--year", "2023"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
@@ -234,6 +234,22 @@
                 "ICAL_TEAM":"stcolmans",
                 "ICAL_YEAR":"2018-19"
             },
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
+            "name": "FallsOutdoorL1",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "python": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "fallsoutdoorl1",
+                "--year", "2023"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {},
             "envFile": "${workspaceFolder}/.env",
         },
         {

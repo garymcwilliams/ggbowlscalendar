@@ -7,6 +7,12 @@ teams:
   FALLSB:
     name: B
     location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
+  FALLSL1:
+    name: L1
+    location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
+  FALLSL2:
+    name: L2
+    location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
   FALLSMA:
     name: Midweek A
     location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
@@ -19,6 +25,9 @@ teams:
   ALBER: 
     name: Albert Foundry
     location: Paisley Park, W Circular Rd, Belfast BT13 3QH
+  ANTRL: 
+    name: Antrim Lawn
+    location: Allen Park Golf Centre, 45 Castle Road, Antrim, BT41 4NA
   ARDS:
     name: Ards
     location: 70 South St, Newtownards BT23 4JU
@@ -70,6 +79,9 @@ teams:
   LARNE:
     name: Larne
     location: 112 Glenarm Rd, Larne BT40 1DZ
+  LIMAV:
+    name: Limavady
+    location: 54 Killane Rd, Limavady BT49 0TR
   LURGN:
     name: Lurgan
     location: The Pavilion, Lurgan Park, Lurgan, Co. Armagh. BT67 9BJ

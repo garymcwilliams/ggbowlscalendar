@@ -24,40 +24,58 @@ matches:
 - away: EWART
   team: A
   date: '2023-05-20'
-  our_score: 0
-  opp_score: 0
+  our_score: 5
+  opp_score: 2
 - home: BALLW
   date: '2023-05-27'
-  our_score: 0
-  opp_score: 0
+  our_score: 6
+  opp_score: 1
 - home: BALLW
   label: 'PG Cup'
   date: '2023-06-01'
   start_time: '18:30'
-  our_score: 0
+  our_score: 1
   opp_score: 0
 - home: BALYO
   team: B
   label: 'Irish Cup'
   date: '2023-06-03'
   start_time: '13:00'
-  our_score: 0
+  newdate: '2023-06-03'
+  newtime: '12:00'
+  our_score: 1
   opp_score: 0
 - away: UTRAN
   team: A
   date: '2023-06-03'
   newdate: '2023-06-06'
   newtime: '18:30'
-  our_score: 0
-  opp_score: 0
+  our_score: 1
+  opp_score: 6
 - home: HILDE
   team: A
   date: '2023-06-10'
-  our_score: 0
+  our_score: 6
+  opp_score: 1
+- away: LARNE
+  team: B
+  label: 'Irish Cup'
+  date: '2023-06-17'
+  start_time: '17:30'
+  our_score: 1
   opp_score: 0
 - away: OLDBL
   team: B
   date: '2023-06-17'
+  newdate: 
+  newtime: '18:30'
+  our_score: 0
+  opp_score: 0
+- home: BELMO
+  team: B
+  label: 'PG Cup'
+  date: '2023-06-22'
+  start_time: '18:30'
   our_score: 0
   opp_score: 0
 - home: CLIFT
@@ -74,9 +92,17 @@ matches:
   date: '2023-07-08'
   our_score: 0
   opp_score: 0
+- home: LIMAV
+  team: B
+  label: 'Irish Cup'
+  date: '2023-07-22'
+  our_score: 0
+  opp_score: 0
 - away: LARNE
   team: B
   date: '2023-07-22'
+  newdate: '2023-07-25'
+  newtime: '18:30'
   our_score: 0
   opp_score: 0
 - home: EWART

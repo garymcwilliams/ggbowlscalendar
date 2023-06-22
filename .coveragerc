@@ -2,4 +2,7 @@
 omit = 
 	tests/*
 	ggbowlscalendar/utils.py
-	
+	ggbowlscalendar/events.py
+	ggbowlscalendar/match.py
+relative_files = True
+source = ggbowlscalendar/
