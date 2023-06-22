@@ -34,4 +34,3 @@ for `dev` dependencies use
 ```bash
 poetry add --dev pytest@latest
 ```
-
