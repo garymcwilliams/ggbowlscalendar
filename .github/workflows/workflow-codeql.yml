@@ -3,7 +3,7 @@ on:
   push:
     branches: 
     - main
-    - garymcwilliams/issue43]
+    - garymcwilliams/issue43
     paths:
     - '**.py'
     - '.github/workflows/**'
@@ -11,7 +11,7 @@ on:
   pull_request:
     branches:
     - main
-    - garymcwilliams/issue43]
+    - garymcwilliams/issue43
     paths:
     - '**.py'
     - '.github/workflows/**'
