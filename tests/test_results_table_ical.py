@@ -7,7 +7,7 @@ from ggbowlscalendar.league_results_manager import LeagueResultsManager
 from ggbowlscalendar.team_manager import TeamManager
 
 
-DATE1 = datetime.datetime.strptime("2023-04-22", '%Y-%m-%d')
+DATE_22APR2023 = datetime.datetime.strptime("2023-04-22", '%Y-%m-%d')
 UTCNOW = datetime.datetime.now(datetime.timezone.utc)
 
 
@@ -30,7 +30,7 @@ class TestResultsTableIcal:
                 [
                     {
                         'away': 'CLIFT',
-                        'date': DATE1,
+                        'date': DATE_22APR2023,
                         'our_score': 0.5,
                         'opp_score': 5.5,
                     },
@@ -74,7 +74,7 @@ class TestResultsTableIcal:
                 [
                     {
                         'home': 'CLIFT',
-                        'date': DATE1,
+                        'date': DATE_22APR2023,
                         'our_score': 1,
                         'opp_score': 6,
                     },
@@ -118,7 +118,7 @@ class TestResultsTableIcal:
                 [
                     {
                         'away': 'CLIFT',
-                        'date': DATE1,
+                        'date': DATE_22APR2023,
                         'our_score': 6,
                         'opp_score': 1,
                     },
@@ -162,7 +162,7 @@ class TestResultsTableIcal:
                 [
                     {
                         'home': 'CLIFT',
-                        'date': DATE1,
+                        'date': DATE_22APR2023,
                         'our_score': 6,
                         'opp_score': 1,
                     },
@@ -207,7 +207,7 @@ class TestResultsTableIcal:
                     {
                         'home': 'CLIFT',
                         'label': 'Irish Cup',
-                        'date': DATE1,
+                        'date': DATE_22APR2023,
                         'our_score': 6,
                         'opp_score': 1,
                     },
@@ -254,7 +254,7 @@ class TestResultsTableIcal:
                     {
                         'home': 'CLIFT',
                         'label': 'Irish Cup',
-                        'date': DATE1,
+                        'date': DATE_22APR2023,
                         'our_score': 0,
                         'opp_score': 0,
                     },
@@ -300,7 +300,7 @@ class TestResultsTableIcal:
                     {
                         'home': 'CLIFT',
                         'label': 'Irish Cup',
-                        'date': DATE1,
+                        'date': DATE_22APR2023,
                         'our_score': 0,
                         'opp_score': 0,
                     },
