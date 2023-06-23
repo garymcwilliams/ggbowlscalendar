@@ -76,7 +76,7 @@ matches:
   label: 'PG Cup'
   date: '2023-06-22'
   start_time: '18:30'
-  our_score: 0
+  our_score: 1
   opp_score: 0
 - home: CLIFT
   date: '2023-06-24'
@@ -96,6 +96,13 @@ matches:
   team: B
   label: 'Irish Cup'
   date: '2023-07-22'
+  our_score: 0
+  opp_score: 0
+- home: EWART
+  team: A
+  label: 'PG Cup'
+  date: '2023-07-18'
+  start_time: '18:30'
   our_score: 0
   opp_score: 0
 - away: LARNE
