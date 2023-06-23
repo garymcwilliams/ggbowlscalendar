@@ -345,3 +345,30 @@ class TestResultsTableIcal:
         ical_generator.generate_ical()
         ical_bytes = ical_generator.cal.to_ical()
         assert ical_bytes == ical_content.encode()
+
+    def test_no_results(self):
+        """
+        tests for no results provided
+        """
+
+        match_dict = {
+            'me': 'FALLSA',
+            'start_time': '14:00',
+            'day': 'Sat',
+            'duration': 3,
+            'matches':
+                [
+                ]
+        }
+
+        results_manager = LeagueResultsManager.from_dict(match_dict)
+
+        team_dict = {
+            'FALLSA': {'name': 'AAAA', 'location': 'AAA location'},
+            'CLIFT': {'name': 'clift', 'location': 'clift location'}
+        }
+
+        team_manager = TeamManager.from_dict(team_dict)
+
+        ical_generator = ResultsTableIcal(results_manager, team_manager)
+        ical_generator.generate_ical()
