@@ -3,23 +3,13 @@ Team League Results Management System
 """
 
 import datetime
-from pathlib import Path
 from typing import List
 
-import yaml
-
-from .utils import find_file
+from .utils import get_games_data
 
 
 TBD_DATA = "tbd"  # data value the represents TBD match date
 TBD_DISPLAY = "-date-TBD-"  # value to display in outpu for TBD match date
-
-
-def get_games_file(club, year) -> Path:
-    """
-    Get the matches Path for a given club/year.
-    """
-    return find_file(club, f"{club}_games_{year}.yml")
 
 
 class LeagueResult:
@@ -161,11 +151,7 @@ class LeagueResultsManager:
         Returns:
             LeagueResultsManager: The created LeagueResultsManager instance.
         """
-        file_path = get_games_file(team, year)
-
-        with open(file_path, "r", encoding="utf-8") as file:
-            data = yaml.safe_load(file)
-
+        data = get_games_data(team, year)
         return LeagueResultsManager.from_dict(data)
 
     @classmethod

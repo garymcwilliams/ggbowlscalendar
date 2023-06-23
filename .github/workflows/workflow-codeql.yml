@@ -3,14 +3,17 @@ on:
   push:
     branches: 
     - main
-    - garymcwilliams/issue43]
+    - garymcwilliams/issue43
     - garymcwilliams/issue43-main-merge
     paths:
     - '**.py'
     - '.github/workflows/**'
     - README.md
   pull_request:
-    branches: [main, garymcwilliams/issue43]
+    branches:
+    - main
+    - garymcwilliams/issue43
+    - garymcwilliams/issue43-main-merge
     paths:
     - '**.py'
     - '.github/workflows/**'

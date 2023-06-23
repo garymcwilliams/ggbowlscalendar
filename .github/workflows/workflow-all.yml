@@ -11,7 +11,10 @@ on:
     - '.github/workflows/**'
     - README.md
   pull_request:
-    branches: [main, garymcwilliams/issue43]
+    branches:
+    - main
+    - garymcwilliams/issue43
+    - garymcwilliams/issue43-main-merge
     paths:
     - '**.py'
     - '.coveragerc'
@@ -36,11 +39,7 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: "${{ matrix.python-version }}"
-    - name: Cache Poetry
-      uses: actions/cache@v3
-      with:
-        path: ~/.local
-        key: poetry-${{ matrix.poetry-version }}-${{ matrix.os }}-${{ matrix.python-version }}-v0
+        cache: 'poetry'
     - name: Install Poetry
       uses: snok/install-poetry@v1
       with:
@@ -72,8 +71,6 @@ jobs:
     - name: SonarCloud Scan
       if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.10'
       uses: sonarsource/sonarcloud-github-action@master
-#      with:
-#        projectBaseDir: ical
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}

@@ -3,19 +3,9 @@ Team League Results Management System
 
 """
 
-from pathlib import Path
 from typing import List
 
-import yaml
-
-from .utils import find_file
-
-
-def get_teams_file() -> Path:
-    """
-    Get the teams Path
-    """
-    return find_file(None, "teams.yml")
+from .utils import get_teams_data
 
 
 class Team:
@@ -58,12 +48,7 @@ class TeamManager:
         Returns:
             TeamManager: The created TeamManager instance.
         """
-        file_path = get_teams_file()
-        with open(file_path, "r", encoding="utf-8") as file:
-            data = yaml.safe_load(file)
-
-        print(data)
-
+        data = get_teams_data()
         return TeamManager.from_dict(data)
 
     @classmethod

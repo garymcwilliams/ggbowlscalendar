@@ -7,8 +7,10 @@ import json
 import os
 import sys
 import logging
-
 from pathlib import Path
+
+import yaml
+
 from envparse import env
 
 
@@ -72,3 +74,28 @@ def find_file(folder: str, filename: str) -> Path:
         print(f"Cannot find file: {file_path}")
         sys.exit(1)
     return file_path
+
+
+def get_teams_data() -> dict:
+    """
+    Get the teams Path
+    """
+    teams_path = find_file(None, "teams.yml")
+    return read_yaml_data(teams_path)
+
+
+def get_games_data(club, year) -> dict:
+    """
+    Get the matches Path for a given club/year.
+    """
+    games_path = find_file(club, f"{club}_games_{year}.yml")
+    return read_yaml_data(games_path)
+
+
+def read_yaml_data(yaml_path: Path) -> dict:
+    """
+    read the yaml from file into a dict
+    """
+    with open(yaml_path, "r", encoding="utf-8") as file:
+        data = yaml.safe_load(file)
+    return data
