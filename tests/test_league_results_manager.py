@@ -298,7 +298,7 @@ class TestLeagueResultsManager:
                      'date': datetime.datetime.strptime(DATE1, '%Y-%m-%d'),
                      'our_score': 0.0,
                      'opp_score': 0.0,
-                    },
+                     },
                 ]
         }
 

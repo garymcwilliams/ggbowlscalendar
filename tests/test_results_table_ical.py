@@ -3,11 +3,15 @@ test
 """
 import datetime
 from ggbowlscalendar.results_table_ical import ResultsTableIcal
-from ggbowlscalendar.league_results_manager import LeagueResultsManager
+from ggbowlscalendar.league_results_manager import (
+    LeagueResultsManager,
+    TBD_DATA
+)
 from ggbowlscalendar.team_manager import TeamManager
 
 
-DATE_22APR2023 = datetime.datetime.strptime("2023-04-22", '%Y-%m-%d')
+DATE_230422 = datetime.datetime.strptime("2023-04-22", '%Y-%m-%d')
+DATE_230430 = datetime.datetime.strptime("2023-04-30", '%Y-%m-%d')
 UTCNOW = datetime.datetime.now(datetime.timezone.utc)
 
 
@@ -30,7 +34,7 @@ class TestResultsTableIcal:
                 [
                     {
                         'away': 'CLIFT',
-                        'date': DATE_22APR2023,
+                        'date': DATE_230422,
                         'our_score': 0.5,
                         'opp_score': 5.5,
                     },
@@ -74,7 +78,7 @@ class TestResultsTableIcal:
                 [
                     {
                         'home': 'CLIFT',
-                        'date': DATE_22APR2023,
+                        'date': DATE_230422,
                         'our_score': 1,
                         'opp_score': 6,
                     },
@@ -118,7 +122,7 @@ class TestResultsTableIcal:
                 [
                     {
                         'away': 'CLIFT',
-                        'date': DATE_22APR2023,
+                        'date': DATE_230422,
                         'our_score': 6,
                         'opp_score': 1,
                     },
@@ -162,7 +166,7 @@ class TestResultsTableIcal:
                 [
                     {
                         'home': 'CLIFT',
-                        'date': DATE_22APR2023,
+                        'date': DATE_230422,
                         'our_score': 6,
                         'opp_score': 1,
                     },
@@ -207,7 +211,7 @@ class TestResultsTableIcal:
                     {
                         'home': 'CLIFT',
                         'label': 'Irish Cup',
-                        'date': DATE_22APR2023,
+                        'date': DATE_230422,
                         'our_score': 6,
                         'opp_score': 1,
                     },
@@ -254,7 +258,7 @@ class TestResultsTableIcal:
                     {
                         'home': 'CLIFT',
                         'label': 'Irish Cup',
-                        'date': DATE_22APR2023,
+                        'date': DATE_230422,
                         'our_score': 0,
                         'opp_score': 0,
                     },
@@ -287,7 +291,9 @@ class TestResultsTableIcal:
 
     def test_ical_generator(self):
         """
-        tests
+        Test ical generation.
+        NOTE, also tests for no-entry included if a match has been rescheduled
+        but there is no new date defined.
         """
 
         match_dict = {
@@ -299,8 +305,14 @@ class TestResultsTableIcal:
                 [
                     {
                         'home': 'CLIFT',
-                        'label': 'Irish Cup',
-                        'date': DATE_22APR2023,
+                        'date': DATE_230422,
+                        'our_score': 1,
+                        'opp_score': 6,
+                    },
+                    {
+                        'away': 'CLIFT',
+                        'date': DATE_230430,
+                        'newdate': TBD_DATA,
                         'our_score': 0,
                         'opp_score': 0,
                     },
@@ -314,6 +326,8 @@ class TestResultsTableIcal:
             'CLIFT': {'name': 'clift', 'location': 'clift location'}
         }
 
+        team_manager = TeamManager.from_dict(team_dict)
+
         dtstamp = UTCNOW.strftime('%Y%m%dT%H%M%SZ')
         ical_content = (
                         "BEGIN:VCALENDAR\r\n"
@@ -322,12 +336,12 @@ class TestResultsTableIcal:
                         "CALSCALE:GREGORIAN\r\n"
                         "X-WR-TIMEZONE:Europe/London\r\n"
                         "BEGIN:VEVENT\r\n"
-                        "SUMMARY:AAAA v (clift) home Irish Cup\r\n"
+                        "SUMMARY:AAAA L (1)(6) v clift home\r\n"
                         "DTSTART;VALUE=DATE-TIME:20230422T135000\r\n"
                         "DTEND;VALUE=DATE-TIME:20230422T170000\r\n"
                         f"DTSTAMP;VALUE=DATE-TIME:{dtstamp}\r\n"
-                        "UID:FALLSA-202304221400IrishCup@mc-williams.co.uk\r\n"
-                        "DESCRIPTION:home (clift)\r\n"
+                        "UID:FALLSA-202304221400@mc-williams.co.uk\r\n"
+                        "DESCRIPTION:L home (clift)\r\n"
                         "LOCATION:AAA location\r\n"
                         "PRIORITY:5\r\n"
                         "BEGIN:VALARM\r\n"
@@ -338,8 +352,6 @@ class TestResultsTableIcal:
                         "END:VEVENT\r\n"
                         "END:VCALENDAR\r\n"
                         )
-
-        team_manager = TeamManager.from_dict(team_dict)
 
         ical_generator = ResultsTableIcal(results_manager, team_manager)
         ical_generator.generate_ical()
