@@ -56,11 +56,12 @@ class LeagueResult:
         if self.not_played_yet():
             self.result = " "
         else:
-            self.result = (
-                "W" if our_score > opp_score else
-                "L" if our_score < opp_score else
-                "D"
-            )
+            if our_score > opp_score:
+                self.result = "W"
+            elif opp_score > our_score:
+                self.result = "L"
+            else:
+                self.result = "D"
 
     def not_played_yet(self) -> bool:
         """determine whether the match has already been played or not"""
