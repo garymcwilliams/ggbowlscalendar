@@ -55,7 +55,7 @@ def main() -> None:
     """
     setup_logging()
 
-    logger = logging.getLogger("__name__")
+    logger = logging.getLogger("__main__")
     logger.debug("================================ Running")
 
     parser = argparse.ArgumentParser(description="Process Bowls matches.")

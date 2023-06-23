@@ -67,7 +67,7 @@ class ResultsTableIcal:
                 f"{result.venue} "
                 f"{result.label}"
             ).rstrip()
-        self.logger.debug("summary='(%s)'", summary)
+        self.logger.debug("summary='%s'", summary)
         return summary
 
     def match_desc(self, result: LeagueResult, opp_team_details: dict) -> str:
