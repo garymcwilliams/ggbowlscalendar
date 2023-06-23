@@ -9,11 +9,6 @@ from icalendar.cal import Event
 
 from .league_results_manager import LeagueResultsManager, LeagueResult
 from .team_manager import TeamManager
-from .utils import write_file
-
-
-def _print_cal(self):
-    print(self.cal.to_ical())
 
 
 def combine_date_time(date: datetime, time: str) -> str:
@@ -87,8 +82,15 @@ class ResultsTableIcal:
             self.logger.debug("desc='%s' from='%s'", desc.strip(), desc)
         return desc.strip()
 
-    def generate_ical(self) -> None:
-        """ generate the ical content.  """
+    def generate_ical(self, now=datetime.utcnow()) -> None:
+        """
+        generate the ical content. The internal 'cal' property will contain
+        the generated ical events.
+        """
+
+        if not self.results_manager.results:
+            print("No results found.")
+            return
 
         self._create_header()
 
@@ -96,14 +98,7 @@ class ResultsTableIcal:
             opp_team_details = self.team_manager.get_team_details(
                 result.opp_id
             )
-
-            self._add_event(result, opp_team_details)
-
-        if not self.results_manager.results:
-            print("No results found.")
-        else:
-            write_file(self.results_manager.my_team_id, "2029",
-                       self.cal.to_ical())
+            self._add_event(result, opp_team_details, now)
 
     def _calendar_id(self, result: LeagueResult) -> str:
         """
@@ -141,8 +136,8 @@ class ResultsTableIcal:
         self.cal.add("calscale", "GREGORIAN")
         self.cal.add("X-WR-TIMEZONE", "Europe/London")
 
-    def _create_event(self, result: LeagueResult, opp_team_details: dict) \
-            -> Event:
+    def _create_event(self, result: LeagueResult, opp_team_details: dict,
+                      now: datetime) -> Event:
         match_start = result.match_date_time() - timedelta(minutes=10)
         match_end = result.match_date_time() + timedelta(
             hours=self.results_manager.duration)
@@ -160,7 +155,7 @@ class ResultsTableIcal:
         event.add("description", self.match_desc(result, opp_team_details))
         event.add("dtstart", match_start)
         event.add("dtend", match_end)
-        event.add("dtstamp", datetime.utcnow())
+        event.add("dtstamp", now)
         self.logger.debug(
             "event=%s:%s:'%s':'%s'", match_start, match_end,
             event.get("summary"), event.get("description")
@@ -174,7 +169,8 @@ class ResultsTableIcal:
 
         return event
 
-    def _add_event(self, result: LeagueResult, opp_team_details: dict) -> None:
+    def _add_event(self, result: LeagueResult, opp_team_details: dict,
+                   now: datetime) -> None:
         """
         Creates a calendar event for the given match
 
@@ -187,6 +183,6 @@ class ResultsTableIcal:
         if result.match_date_time() is None:
             return
 
-        event = self._create_event(result, opp_team_details)
+        event = self._create_event(result, opp_team_details, now)
 
         self.cal.add_component(event)

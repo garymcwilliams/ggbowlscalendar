@@ -46,9 +46,8 @@ def _mk_save_dir() -> Path:
     return newdir
 
 
-def write_file(club: str, year: str, content: bytes) -> None:
-    """Write the ics content to the created file."""
-    filename = f"{club}_{year}.ics"
+def write_ical_file(filename: str, content: bytes) -> None:
+    """Write the ics content to the named file. Create file if necessary"""
     newfile = _mk_save_dir() / filename
     newfile.write_bytes(content)
     logger = logging.getLogger(__name__)

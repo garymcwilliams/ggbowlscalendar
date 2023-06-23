@@ -7,7 +7,7 @@ containing the results and team details.
 
 Usage:
     python main.py --team <TEAM_NAME> --year <YEAR>
-    
+
 e.g.
     python main.py --team fallsoutdoora --year 2023
 
@@ -28,6 +28,7 @@ from ggbowlscalendar.league_results_manager import LeagueResultsManager
 from ggbowlscalendar.team_manager import TeamManager
 from ggbowlscalendar.results_table_printer import ResultsTablePrinter
 from ggbowlscalendar.results_table_ical import ResultsTableIcal
+from ggbowlscalendar.utils import write_ical_file
 
 
 def setup_logging(
@@ -73,6 +74,8 @@ def main() -> None:
     logger.debug("Generating ical")
     ical_generator = ResultsTableIcal(results_manager, teams_manager)
     ical_generator.generate_ical()
+    filename = f"{team}_{year}.ics"
+    write_ical_file(filename, ical_generator.cal.to_ical())
 
 
 if __name__ == "__main__":
