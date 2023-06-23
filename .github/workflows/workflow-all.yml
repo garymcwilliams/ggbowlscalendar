@@ -4,6 +4,7 @@ on:
     branches: 
     - main
     - garymcwilliams/issue43
+    - garymcwilliams/issue43-main-merge
     paths:
     - '**.py'
     - '.coveragerc'
@@ -13,6 +14,7 @@ on:
     branches:
     - main
     - garymcwilliams/issue43
+    - garymcwilliams/issue43-main-merge
     paths:
     - '**.py'
     - '.coveragerc'
