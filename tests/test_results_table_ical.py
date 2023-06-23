@@ -343,5 +343,5 @@ class TestResultsTableIcal:
 
         ical_generator = ResultsTableIcal(results_manager, team_manager)
         ical_generator.generate_ical()
-        bytes = ical_generator.cal.to_ical()
-        assert bytes == ical_content.encode()
+        ical_bytes = ical_generator.cal.to_ical()
+        assert ical_bytes == ical_content.encode()
