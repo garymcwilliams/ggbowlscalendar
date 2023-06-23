@@ -28,7 +28,11 @@ from ggbowlscalendar.league_results_manager import LeagueResultsManager
 from ggbowlscalendar.team_manager import TeamManager
 from ggbowlscalendar.results_table_printer import ResultsTablePrinter
 from ggbowlscalendar.results_table_ical import ResultsTableIcal
-from ggbowlscalendar.utils import write_ical_file
+from ggbowlscalendar.utils import (
+    write_ical_file,
+    get_games_data,
+    get_teams_data
+)
 
 
 def setup_logging(
@@ -64,8 +68,11 @@ def main() -> None:
     year = args.year if args.year is not None else env('ICAL_YEAR')
     logger.debug("using %s %s", team, year)
 
-    results_manager = LeagueResultsManager.from_yaml_file(team, year)
-    teams_manager = TeamManager.from_yaml()
+    games_data = get_games_data(team, year)
+    results_manager = LeagueResultsManager.from_dict(games_data)
+
+    teams_data = get_teams_data()
+    teams_manager = TeamManager.from_dict(teams_data)
 
     logger.debug("Printing")
     printer = ResultsTablePrinter(results_manager, teams_manager)

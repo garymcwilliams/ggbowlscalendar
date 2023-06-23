@@ -5,8 +5,6 @@ Team League Results Management System
 
 from typing import List
 
-from .utils import get_teams_data
-
 
 class Team:
     """Represents a team."""
@@ -36,20 +34,6 @@ class TeamManager:
             teams (List[Team]): The list of teams.
         """
         self.teams = teams
-
-    @classmethod
-    def from_yaml(cls) -> "TeamManager":
-        """
-        Create a TeamManager instance from a YAML file.
-
-        Args:
-            filename (str): The filename of the YAML file.
-
-        Returns:
-            TeamManager: The created TeamManager instance.
-        """
-        data = get_teams_data()
-        return TeamManager.from_dict(data)
 
     @classmethod
     def from_dict(cls, data: dict) -> "TeamManager":

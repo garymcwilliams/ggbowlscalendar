@@ -5,8 +5,6 @@ Team League Results Management System
 import datetime
 from typing import List
 
-from .utils import get_games_data
-
 
 TBD_DATA = "tbd"  # data value the represents TBD match date
 TBD_DISPLAY = "-date-TBD-"  # value to display in outpu for TBD match date
@@ -139,22 +137,6 @@ class LeagueResultsManager:
         self.results = results
 
     @classmethod
-    def from_yaml_file(cls, team: str, year: str) -> "LeagueResultsManager":
-        """
-        Create a LeagueResultsManager instance from a YAML file.
-
-        Args:
-            team (str): The team that is used for this league. This will
-            indicate which folder to look into the games.
-            year (str): The team year that is used for this league.
-
-        Returns:
-            LeagueResultsManager: The created LeagueResultsManager instance.
-        """
-        data = get_games_data(team, year)
-        return LeagueResultsManager.from_dict(data)
-
-    @classmethod
     def from_dict(cls, data: dict) -> "LeagueResultsManager":
         """
         Create a LeagueResultsManager instance from YAML data.
@@ -176,11 +158,9 @@ class LeagueResultsManager:
             if "home" in result_data:
                 venue = "home"
                 opp_id = result_data["home"]
-            elif "away" in result_data:
+            else:
                 venue = "away"
                 opp_id = result_data["away"]
-            else:
-                continue
 
             date = result_data.get("date")
             newdate = result_data.get("newdate")
