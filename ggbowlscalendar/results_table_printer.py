@@ -9,6 +9,20 @@ from .league_results_manager import (
 from .team_manager import TeamManager
 
 
+DISPLAY_WON = "[green]W :heavy_check_mark:[/]"
+DISPLAY_LOST = "[red]L[/]"
+DISPLAY_DREW = "D"
+DISPLAY_NOT_PLAYED = " "
+DISPLAY_RESULTS = {
+    'W': DISPLAY_WON,
+    'L': DISPLAY_LOST,
+    'D': DISPLAY_DREW,
+    ' ': DISPLAY_NOT_PLAYED
+}
+
+COLOURS = {'home': 'red', 'away': 'blue'}
+
+
 class ResultsTablePrinter:
     """Print results in a Table"""
 
@@ -89,14 +103,9 @@ class ResultsTablePrinter:
             date_pattern = f'{day_pattern} %d-%b %H:%M'
             date_display = result.match_date_time().strftime(date_pattern)
 
-        result_display = (
-            f"[green]{result.result} :heavy_check_mark:"
-            if result.result == "W"
-            else f"[red]{result.result}" if result.result == "L"
-            else result.result
-        )
-        colours = {'home': 'red', 'away': 'blue'}
-        venue = f"[{colours[result.venue]}]{result.venue}[/]"
+        result_display = DISPLAY_RESULTS[result.result]
+
+        venue = f"[{COLOURS[result.venue]}]{result.venue}[/]"
         self.table.add_row(
             result_display,
             venue,
