@@ -67,7 +67,7 @@ matches:
 - away: OLDBL
   team: B
   date: 2023-06-17
-  newdate: tbd
+  newdate: 2023-06-27
   newtime: '18:30'
   our_score: 0
   opp_score: 0
@@ -80,8 +80,8 @@ matches:
   opp_score: 0
 - home: CLIFT
   date: 2023-06-24
-  our_score: 0
-  opp_score: 0
+  our_score: 6
+  opp_score: 1
 - away: PICKI
   team: A
   date: 2023-07-01
