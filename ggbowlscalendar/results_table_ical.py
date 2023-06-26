@@ -51,20 +51,24 @@ class ResultsTableIcal:
         """Return match summary in pre-defined format"""
         opp_name = self._opp_name(result, opp_team_details)
         summary = None
+        if result.venue == 'home':
+            home_name = f"{self.my_team_details['name']}"
+            away_name = f"({opp_name})"
+        else:
+            home_name = f"({opp_name})"
+            away_name = f"{self.my_team_details['name']}"
+        match_names = f"{home_name} v {away_name}"
         if result.not_played_yet():
             summary = (
-                f"{self.my_team_details['name']} v "
-                f"({opp_name}) "
-                f"{result.venue} "
+                f"{match_names} "
                 f"{result.label}"
             ).rstrip()
         else:
             summary = (
-                f"{self.my_team_details['name']} "
+                f"{match_names} "
                 f"{result.result} "
                 f"({result.format_our_score()})"
-                f"({result.format_opp_score()}) v {opp_name} "
-                f"{result.venue} "
+                f"({result.format_opp_score()}) "
                 f"{result.label}"
             ).rstrip()
         self.logger.debug("summary='%s'", summary)

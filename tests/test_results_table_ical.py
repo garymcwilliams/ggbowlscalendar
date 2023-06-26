@@ -2,6 +2,8 @@
 test
 """
 import datetime
+
+import pytest
 from ggbowlscalendar.results_table_ical import ResultsTableIcal
 from ggbowlscalendar.league_results_manager import (
     LeagueResultsManager,
@@ -14,373 +16,241 @@ DATE_230422 = datetime.datetime.strptime("2023-04-22", '%Y-%m-%d')
 DATE_230430 = datetime.datetime.strptime("2023-04-30", '%Y-%m-%d')
 UTCNOW = datetime.datetime.now(datetime.timezone.utc)
 
+FALLSA = "FALLSA"
+FALLSA_NAME = "Falls A"
+FALLSA_LOC = f"{FALLSA_NAME} location"
+CLIFT = "CLIFT"
+CLIFT_NAME = "Cliftonville"
+CLIFT_NAME_BRACES = f"({CLIFT_NAME})"
+CLIFT_LOC = "Cliftonville location"
 
-class TestResultsTableIcal:
+TEAM_DICT = {
+    FALLSA: {'name': FALLSA_NAME, 'location': FALLSA_LOC},
+    CLIFT: {'name': CLIFT_NAME, 'location': CLIFT_LOC},
+}
+
+testdata = [
+    ("home", 6, 1, "W"),
+    ("home", 1, 6, "L"),
+    ("home", 3, 3, "D"),
+    ("home", 0, 0, " "),
+    ("away", 6, 1, "W"),
+    ("away", 1, 6, "L"),
+    ("away", 3, 3, "D"),
+    ("away", 0, 0, " "),
+]
+
+
+@pytest.mark.parametrize("venue,our_score,opp_score,expected_result", testdata)
+def test_result_event(venue: str,
+                      our_score: int,
+                      opp_score: int,
+                      expected_result: str):
     """
-    Tests
+    test all basic methods for results as ical events.
+
+    NOTE: ALSO check that TBD games don't get included in ical
     """
+    
+    match_dict = {
+        'me': FALLSA,
+        'start_time': '14:00',
+        'day': 'Sat',
+        'duration': 3,
+        'matches':
+            [
+                {
+                    venue: CLIFT,
+                    'label': 'Irish Cup',
+                    'date': DATE_230422,
+                    'our_score': our_score,
+                    'opp_score': opp_score,
+                },
+                {
+                    'away': 'CLIFT',
+                    'date': DATE_230430,
+                    'newdate': TBD_DATA,
+                    'our_score': 0,
+                    'opp_score': 0,
+                },
+            ]
+    }
 
-    def test_lost_away(self):
-        """
-        tests
-        """
+    results_manager = LeagueResultsManager.from_dict(match_dict)
 
-        match_dict = {
-            'me': 'FALLSA',
-            'start_time': '14:00',
-            'day': 'Sat',
-            'duration': 3,
-            'matches':
-                [
-                    {
-                        'away': 'CLIFT',
-                        'date': DATE_230422,
-                        'our_score': 0.5,
-                        'opp_score': 5.5,
-                    },
-                ]
-        }
+    team_manager = TeamManager.from_dict(TEAM_DICT)
 
-        results_manager = LeagueResultsManager.from_dict(match_dict)
+    if venue == 'home':
+        home_name = FALLSA_NAME
+        away_name = CLIFT_NAME_BRACES
+        location = FALLSA_LOC
+    else:
+        home_name = CLIFT_NAME_BRACES
+        away_name = FALLSA_NAME
+        location = CLIFT_LOC
+    match_names = f"{home_name} v {away_name}"
 
-        team_dict = {
-            'FALLSA': {'name': 'AAAA', 'location': 'AAA location'},
-            'CLIFT': {'name': 'clift', 'location': 'clift location'}
-        }
+    if our_score == 0 and opp_score == 0:
+        score_display = ""
+        description = f'{venue} {CLIFT_NAME_BRACES}'
+    else:
+        score_display = f"{expected_result} ({our_score})({opp_score}) "
+        description = f'{expected_result} {venue} {CLIFT_NAME_BRACES}'
 
-        team_manager = TeamManager.from_dict(team_dict)
+    ical_generator = ResultsTableIcal(results_manager, team_manager)
+    for result in results_manager.results:
+        opp_team_details = team_manager.get_team_details(
+            result.opp_id
+        )
 
-        ical_generator = ResultsTableIcal(results_manager, team_manager)
-        for result in results_manager.results:
-            opp_team_details = team_manager.get_team_details(
-                result.opp_id
-            )
-
-            event = ical_generator._create_event(result,
-                                                 opp_team_details,
-                                                 UTCNOW)
-            assert event.get('UID') == 'FALLSA-202304221400@mc-williams.co.uk'
-            assert event.get('LOCATION') == 'clift location'
-            assert event.get('SUMMARY') == 'AAAA L (0.5)(5.5) v clift away'
-            assert event.get('DESCRIPTION') == 'L away (clift)'
-
-    def test_lost_home(self):
-        """
-        tests
-        """
-
-        match_dict = {
-            'me': 'FALLSA',
-            'start_time': '14:00',
-            'day': 'Sat',
-            'duration': 3,
-            'matches':
-                [
-                    {
-                        'home': 'CLIFT',
-                        'date': DATE_230422,
-                        'our_score': 1,
-                        'opp_score': 6,
-                    },
-                ]
-        }
-
-        results_manager = LeagueResultsManager.from_dict(match_dict)
-
-        team_dict = {
-            'FALLSA': {'name': 'AAAA', 'location': 'AAA location'},
-            'CLIFT': {'name': 'clift', 'location': 'clift location'}
-        }
-
-        team_manager = TeamManager.from_dict(team_dict)
-
-        ical_generator = ResultsTableIcal(results_manager, team_manager)
-        for result in results_manager.results:
-            opp_team_details = team_manager.get_team_details(
-                result.opp_id
-            )
-
-            event = ical_generator._create_event(result,
-                                                 opp_team_details,
-                                                 UTCNOW)
-            assert event.get('UID') == 'FALLSA-202304221400@mc-williams.co.uk'
-            assert event.get('LOCATION') == 'AAA location'
-            assert event.get('SUMMARY') == 'AAAA L (1)(6) v clift home'
-            assert event.get('DESCRIPTION') == 'L home (clift)'
-
-    def test_won_away(self):
-        """
-        tests
-        """
-
-        match_dict = {
-            'me': 'FALLSA',
-            'start_time': '14:00',
-            'day': 'Sat',
-            'duration': 3,
-            'matches':
-                [
-                    {
-                        'away': 'CLIFT',
-                        'date': DATE_230422,
-                        'our_score': 6,
-                        'opp_score': 1,
-                    },
-                ]
-        }
-
-        results_manager = LeagueResultsManager.from_dict(match_dict)
-
-        team_dict = {
-            'FALLSA': {'name': 'AAAA', 'location': 'AAA location'},
-            'CLIFT': {'name': 'clift', 'location': 'clift location'}
-        }
-
-        team_manager = TeamManager.from_dict(team_dict)
-
-        ical_generator = ResultsTableIcal(results_manager, team_manager)
-        for result in results_manager.results:
-            opp_team_details = team_manager.get_team_details(
-                result.opp_id
-            )
-
-            event = ical_generator._create_event(result,
-                                                 opp_team_details,
-                                                 UTCNOW)
-            assert event.get('UID') == 'FALLSA-202304221400@mc-williams.co.uk'
-            assert event.get('LOCATION') == 'clift location'
-            assert event.get('SUMMARY') == 'AAAA W (6)(1) v clift away'
-            assert event.get('DESCRIPTION') == 'W away (clift)'
-
-    def test_won_home(self):
-        """
-        tests
-        """
-
-        match_dict = {
-            'me': 'FALLSA',
-            'start_time': '14:00',
-            'day': 'Sat',
-            'duration': 3,
-            'matches':
-                [
-                    {
-                        'home': 'CLIFT',
-                        'date': DATE_230422,
-                        'our_score': 6,
-                        'opp_score': 1,
-                    },
-                ]
-        }
-
-        results_manager = LeagueResultsManager.from_dict(match_dict)
-
-        team_dict = {
-            'FALLSA': {'name': 'AAAA', 'location': 'AAA location'},
-            'CLIFT': {'name': 'clift', 'location': 'clift location'}
-        }
-
-        team_manager = TeamManager.from_dict(team_dict)
-
-        ical_generator = ResultsTableIcal(results_manager, team_manager)
-        for result in results_manager.results:
-            opp_team_details = team_manager.get_team_details(
-                result.opp_id
-            )
-
-            event = ical_generator._create_event(result,
-                                                 opp_team_details,
-                                                 UTCNOW)
-            assert event.get('UID') == 'FALLSA-202304221400@mc-williams.co.uk'
-            assert event.get('LOCATION') == 'AAA location'
-            assert event.get('SUMMARY') == 'AAAA W (6)(1) v clift home'
-            assert event.get('DESCRIPTION') == 'W home (clift)'
-
-    def test_won_label(self):
-        """
-        tests
-        """
-
-        match_dict = {
-            'me': 'FALLSA',
-            'start_time': '14:00',
-            'day': 'Sat',
-            'duration': 3,
-            'matches':
-                [
-                    {
-                        'home': 'CLIFT',
-                        'label': 'Irish Cup',
-                        'date': DATE_230422,
-                        'our_score': 6,
-                        'opp_score': 1,
-                    },
-                ]
-        }
-
-        results_manager = LeagueResultsManager.from_dict(match_dict)
-
-        team_dict = {
-            'FALLSA': {'name': 'AAAA', 'location': 'AAA location'},
-            'CLIFT': {'name': 'clift', 'location': 'clift location'}
-        }
-
-        team_manager = TeamManager.from_dict(team_dict)
-
-        ical_generator = ResultsTableIcal(results_manager, team_manager)
-        for result in results_manager.results:
-            opp_team_details = team_manager.get_team_details(
-                result.opp_id
-            )
-
+        if result.newdate is None or result.newdate != TBD_DATA:
             event = ical_generator._create_event(result,
                                                  opp_team_details,
                                                  UTCNOW)
             assert event.get('UID') == \
-                'FALLSA-202304221400IrishCup@mc-williams.co.uk'
-            assert event.get('LOCATION') == 'AAA location'
-            assert event.get('SUMMARY') == \
-                'AAAA W (6)(1) v clift home Irish Cup'
-            assert event.get('DESCRIPTION') == 'W home (clift)'
+                f'{FALLSA}-202304221400IrishCup@mc-williams.co.uk'
+            assert event.get('LOCATION') == location
+            expected_summary = (
+                                f"{match_names} "
+                                f"{score_display}"
+                                "Irish Cup"
+                                )
+            assert event.get('SUMMARY') == expected_summary
+            assert event.get('DESCRIPTION') == description
 
-    def test_not_played_yet(self):
-        """
-        tests
-        """
+    dtstamp = UTCNOW.strftime('%Y%m%dT%H%M%SZ')
+    ical_content = (
+                    "BEGIN:VCALENDAR\r\n"
+                    "VERSION:2.0\r\n"
+                    "PRODID:-//Bowling Calendar//mc-williams.co.uk//\r\n"
+                    "CALSCALE:GREGORIAN\r\n"
+                    "X-WR-TIMEZONE:Europe/London\r\n"
+                    "BEGIN:VEVENT\r\n"
+                    f"SUMMARY:{expected_summary}\r\n"
+                    "DTSTART;VALUE=DATE-TIME:20230422T135000\r\n"
+                    "DTEND;VALUE=DATE-TIME:20230422T170000\r\n"
+                    f"DTSTAMP;VALUE=DATE-TIME:{dtstamp}\r\n"
+                    "UID:FALLSA-202304221400IrishCup@mc-williams.co.uk\r\n"
+                    f"DESCRIPTION:{description}\r\n"
+                    f"LOCATION:{location}\r\n"
+                    "PRIORITY:5\r\n"
+                    "BEGIN:VALARM\r\n"
+                    "ACTION:DISPLAY\r\n"
+                    "DESCRIPTION:Reminder\r\n"
+                    "TRIGGER:-PT1H\r\n"
+                    "END:VALARM\r\n"
+                    "END:VEVENT\r\n"
+                    "END:VCALENDAR\r\n"
+                    )
 
-        match_dict = {
-            'me': 'FALLSA',
-            'start_time': '14:00',
-            'day': 'Sat',
-            'duration': 3,
-            'matches':
-                [
-                    {
-                        'home': 'CLIFT',
-                        'label': 'Irish Cup',
-                        'date': DATE_230422,
-                        'our_score': 0,
-                        'opp_score': 0,
-                    },
-                ]
-        }
+    ical_generator.generate_ical()
+    ical_bytes = ical_generator.cal.to_ical()
+    assert ical_bytes == ical_content.encode()
 
-        results_manager = LeagueResultsManager.from_dict(match_dict)
 
-        team_dict = {
-            'FALLSA': {'name': 'AAAA', 'location': 'AAA location'},
-            'CLIFT': {'name': 'clift', 'location': 'clift location'}
-        }
+def test_result_newdate():
+    """
+    test newdate for results as ical events.
+    """
 
-        team_manager = TeamManager.from_dict(team_dict)
+    match_dict = {
+        'me': FALLSA,
+        'start_time': '14:00',
+        'day': 'Sat',
+        'duration': 3,
+        'matches':
+            [
+                {
+                    'home': CLIFT,
+                    'date': DATE_230422,
+                    'newdate': DATE_230430,
+                    'newtime': '18:30',
+                    'our_score': 6,
+                    'opp_score': 1,
+                },
+            ]
+    }
 
-        ical_generator = ResultsTableIcal(results_manager, team_manager)
-        for result in results_manager.results:
-            opp_team_details = team_manager.get_team_details(
-                result.opp_id
-            )
+    results_manager = LeagueResultsManager.from_dict(match_dict)
 
+    team_manager = TeamManager.from_dict(TEAM_DICT)
+
+    home_name = FALLSA_NAME
+    away_name = CLIFT_NAME_BRACES
+    location = FALLSA_LOC
+    match_names = f"{home_name} v {away_name}"
+
+    score_display = "W (6)(1)"
+    description = f'W home {CLIFT_NAME_BRACES}'
+
+    ical_generator = ResultsTableIcal(results_manager, team_manager)
+    for result in results_manager.results:
+        opp_team_details = team_manager.get_team_details(
+            result.opp_id
+        )
+
+        if result.newdate is None or result.newdate != TBD_DATA:
             event = ical_generator._create_event(result,
                                                  opp_team_details,
                                                  UTCNOW)
             assert event.get('UID') == \
-                'FALLSA-202304221400IrishCup@mc-williams.co.uk'
-            assert event.get('LOCATION') == 'AAA location'
-            assert event.get('SUMMARY') == 'AAAA v (clift) home Irish Cup'
-            assert event.get('DESCRIPTION') == 'home (clift)'
+                f'{FALLSA}-202304221400@mc-williams.co.uk'
+            assert event.get('LOCATION') == location
+            expected_summary = (
+                                f"{match_names} "
+                                f"{score_display}"
+                                )
+            assert event.get('SUMMARY') == expected_summary
+            assert event.get('DESCRIPTION') == description
 
-    def test_ical_generator(self):
-        """
-        Test ical generation.
-        NOTE, also tests for no-entry included if a match has been rescheduled
-        but there is no new date defined.
-        """
+    dtstamp = UTCNOW.strftime('%Y%m%dT%H%M%SZ')
+    ical_content = (
+                    "BEGIN:VCALENDAR\r\n"
+                    "VERSION:2.0\r\n"
+                    "PRODID:-//Bowling Calendar//mc-williams.co.uk//\r\n"
+                    "CALSCALE:GREGORIAN\r\n"
+                    "X-WR-TIMEZONE:Europe/London\r\n"
+                    "BEGIN:VEVENT\r\n"
+                    f"SUMMARY:{expected_summary}\r\n"
+                    "DTSTART;VALUE=DATE-TIME:20230430T182000\r\n"
+                    "DTEND;VALUE=DATE-TIME:20230430T213000\r\n"
+                    f"DTSTAMP;VALUE=DATE-TIME:{dtstamp}\r\n"
+                    "UID:FALLSA-202304221400@mc-williams.co.uk\r\n"
+                    f"DESCRIPTION:{description}\r\n"
+                    f"LOCATION:{location}\r\n"
+                    "PRIORITY:5\r\n"
+                    "BEGIN:VALARM\r\n"
+                    "ACTION:DISPLAY\r\n"
+                    "DESCRIPTION:Reminder\r\n"
+                    "TRIGGER:-PT1H\r\n"
+                    "END:VALARM\r\n"
+                    "END:VEVENT\r\n"
+                    "END:VCALENDAR\r\n"
+                    )
 
-        match_dict = {
-            'me': 'FALLSA',
-            'start_time': '14:00',
-            'day': 'Sat',
-            'duration': 3,
-            'matches':
-                [
-                    {
-                        'home': 'CLIFT',
-                        'date': DATE_230422,
-                        'our_score': 1,
-                        'opp_score': 6,
-                    },
-                    {
-                        'away': 'CLIFT',
-                        'date': DATE_230430,
-                        'newdate': TBD_DATA,
-                        'our_score': 0,
-                        'opp_score': 0,
-                    },
-                ]
-        }
+    ical_generator.generate_ical()
+    ical_bytes = ical_generator.cal.to_ical()
+    assert ical_bytes == ical_content.encode()
 
-        results_manager = LeagueResultsManager.from_dict(match_dict)
 
-        team_dict = {
-            'FALLSA': {'name': 'AAAA', 'location': 'AAA location'},
-            'CLIFT': {'name': 'clift', 'location': 'clift location'}
-        }
+def test_no_results():
+    """
+    tests for no results provided
+    """
 
-        team_manager = TeamManager.from_dict(team_dict)
+    match_dict = {
+        'me': 'FALLSA',
+        'start_time': '14:00',
+        'day': 'Sat',
+        'duration': 3,
+        'matches':
+            [
+            ]
+    }
 
-        dtstamp = UTCNOW.strftime('%Y%m%dT%H%M%SZ')
-        ical_content = (
-                        "BEGIN:VCALENDAR\r\n"
-                        "VERSION:2.0\r\n"
-                        "PRODID:-//Bowling Calendar//mc-williams.co.uk//\r\n"
-                        "CALSCALE:GREGORIAN\r\n"
-                        "X-WR-TIMEZONE:Europe/London\r\n"
-                        "BEGIN:VEVENT\r\n"
-                        "SUMMARY:AAAA L (1)(6) v clift home\r\n"
-                        "DTSTART;VALUE=DATE-TIME:20230422T135000\r\n"
-                        "DTEND;VALUE=DATE-TIME:20230422T170000\r\n"
-                        f"DTSTAMP;VALUE=DATE-TIME:{dtstamp}\r\n"
-                        "UID:FALLSA-202304221400@mc-williams.co.uk\r\n"
-                        "DESCRIPTION:L home (clift)\r\n"
-                        "LOCATION:AAA location\r\n"
-                        "PRIORITY:5\r\n"
-                        "BEGIN:VALARM\r\n"
-                        "ACTION:DISPLAY\r\n"
-                        "DESCRIPTION:Reminder\r\n"
-                        "TRIGGER:-PT1H\r\n"
-                        "END:VALARM\r\n"
-                        "END:VEVENT\r\n"
-                        "END:VCALENDAR\r\n"
-                        )
+    results_manager = LeagueResultsManager.from_dict(match_dict)
 
-        ical_generator = ResultsTableIcal(results_manager, team_manager)
-        ical_generator.generate_ical()
-        ical_bytes = ical_generator.cal.to_ical()
-        assert ical_bytes == ical_content.encode()
+    team_manager = TeamManager.from_dict(TEAM_DICT)
 
-    def test_no_results(self):
-        """
-        tests for no results provided
-        """
-
-        match_dict = {
-            'me': 'FALLSA',
-            'start_time': '14:00',
-            'day': 'Sat',
-            'duration': 3,
-            'matches':
-                [
-                ]
-        }
-
-        results_manager = LeagueResultsManager.from_dict(match_dict)
-
-        team_dict = {
-            'FALLSA': {'name': 'AAAA', 'location': 'AAA location'},
-            'CLIFT': {'name': 'clift', 'location': 'clift location'}
-        }
-
-        team_manager = TeamManager.from_dict(team_dict)
-
-        ical_generator = ResultsTableIcal(results_manager, team_manager)
-        ical_generator.generate_ical()
+    ical_generator = ResultsTableIcal(results_manager, team_manager)
+    ical_generator.generate_ical()
