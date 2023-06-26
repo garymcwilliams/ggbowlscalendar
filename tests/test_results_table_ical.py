@@ -51,7 +51,7 @@ def test_result_event(venue: str,
 
     NOTE: ALSO check that TBD games don't get included in ical
     """
-    
+
     match_dict = {
         'me': FALLSA,
         'start_time': '14:00',
