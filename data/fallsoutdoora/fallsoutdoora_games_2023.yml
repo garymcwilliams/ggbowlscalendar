@@ -69,8 +69,8 @@ matches:
   date: 2023-06-17
   newdate: 2023-06-27
   newtime: '18:30'
-  our_score: 0
-  opp_score: 0
+  our_score: 1
+  opp_score: 6
 - home: BELMO
   team: B
   label: 'PG Cup'
