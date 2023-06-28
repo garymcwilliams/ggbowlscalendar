@@ -94,7 +94,7 @@ def test_result_event(venue: str,
         score_display = ""
         description = f'{venue} {CLIFT_NAME_BRACES}'
     else:
-        score_display = f"{expected_result} ({our_score})({opp_score}) "
+        score_display = f"{expected_result} ({our_score} - {opp_score}) "
         description = f'{expected_result} {venue} {CLIFT_NAME_BRACES}'
 
     ical_generator = ResultsTableIcal(results_manager, team_manager)
@@ -180,7 +180,7 @@ def test_result_newdate():
     location = FALLSA_LOC
     match_names = f"{home_name} v {away_name}"
 
-    score_display = "W (6)(1)"
+    score_display = "W (6 - 1)"
     description = f'W home {CLIFT_NAME_BRACES}'
 
     ical_generator = ResultsTableIcal(results_manager, team_manager)

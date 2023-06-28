@@ -67,8 +67,8 @@ class ResultsTableIcal:
             summary = (
                 f"{match_names} "
                 f"{result.result} "
-                f"({result.format_our_score()})"
-                f"({result.format_opp_score()}) "
+                f"({result.format_our_score()} -"
+                f" {result.format_opp_score()}) "
                 f"{result.label}"
             ).rstrip()
         self.logger.debug("summary='%s'", summary)
