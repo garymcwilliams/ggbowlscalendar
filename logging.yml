@@ -30,7 +30,7 @@ loggers:
   ggbowlscalendar.utils:
     level: DEBUG
     handlers: [console,gary]
-    propagate: 1
+    propagate: no
   ggbowlscalendar.results_table_ical:
     level: DEBUG
     handlers: [console,gary]
