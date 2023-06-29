@@ -13,9 +13,12 @@ FALLSMB:
 GARY:
   name: Gary
   location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
-ALBERB: 
+ALBER: 
   name: Albert Foundry
   location: Paisley Park, W Circular Rd, Belfast BT13 3QH
+ANTRL: 
+  name: Antrim Lawn
+  location: Allen Park, 45 Castle Rd, Antrim BT41 4NA
 ARDS:
   name: Ards
   location: 70 South St, Newtownards BT23 4JU
