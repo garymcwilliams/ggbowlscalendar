@@ -3,7 +3,15 @@ Team League Results Management System
 
 """
 
+from dataclasses import dataclass
 from typing import List
+
+
+@dataclass
+class TeamData:
+    """basic Team data"""
+    name: str
+    location: str
 
 
 class Team:
@@ -54,7 +62,7 @@ class TeamManager:
 
         return cls(teams)
 
-    def get_team_details(self, team_id: str) -> dict:
+    def get_team_details(self, team_id: str) -> TeamData:
         """
         Get the details of a team.
 
@@ -67,5 +75,5 @@ class TeamManager:
         team = next((team for team in self.teams if team.team_id == team_id),
                     None)
         if team:
-            return {"name": team.name, "location": team.location}
-        return {"name": f"***{team_id}***", "location": "TBD"}
+            return TeamData(team.name, team.location)
+        return TeamData(f"***{team_id}***", "TBD")

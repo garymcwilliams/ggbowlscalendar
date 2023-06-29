@@ -6,7 +6,7 @@ from .league_results_manager import (
     LeagueResult,
     TBD_DISPLAY
 )
-from .team_manager import TeamManager
+from .team_manager import TeamManager, TeamData
 
 
 DISPLAY_WON = "[green]W :heavy_check_mark:[/]"
@@ -83,10 +83,10 @@ class ResultsTablePrinter:
 
     def add_match_to_table(self,
                            result: LeagueResult,
-                           opp: dict) -> None:
+                           opp: TeamData) -> None:
         """format this result as a line in the table"""
 
-        opp_name = opp['name']
+        opp_name = opp.name
         if opp_name.startswith("***"):
             opp_name = f"[red]{opp_name}[/red]"
         if result.sub_team:

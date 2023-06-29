@@ -8,7 +8,7 @@ from icalendar import Alarm, Calendar
 from icalendar.cal import Event
 
 from .league_results_manager import LeagueResultsManager, LeagueResult
-from .team_manager import TeamManager
+from .team_manager import TeamManager, TeamData
 
 
 def combine_date_time(date: datetime, time: str) -> str:
@@ -41,22 +41,24 @@ class ResultsTableIcal:
         self.cal = Calendar()
         self.logger = logging.getLogger(__name__)
 
-    def _opp_name(self, result: LeagueResult, opp_team_details: dict) -> str:
+    def _opp_name(self,
+                  result: LeagueResult,
+                  opp_team_details: TeamData) -> str:
         return (
-            f"{opp_team_details['name']} {result.sub_team}" if result.sub_team
-            else opp_team_details['name']
+            f"{opp_team_details.name} {result.sub_team}" if result.sub_team
+            else opp_team_details.name
         )
 
-    def summary(self, result: LeagueResult, opp_team_details: dict) -> str:
+    def summary(self, result: LeagueResult, opp_team_details: TeamData) -> str:
         """Return match summary in pre-defined format"""
         opp_name = self._opp_name(result, opp_team_details)
         summary = None
         if result.venue == 'home':
-            home_name = f"{self.my_team_details['name']}"
+            home_name = f"{self.my_team_details.name}"
             away_name = f"({opp_name})"
         else:
             home_name = f"({opp_name})"
-            away_name = f"{self.my_team_details['name']}"
+            away_name = f"{self.my_team_details.name}"
         match_names = f"{home_name} v {away_name}"
         if result.not_played_yet():
             summary = (
@@ -74,7 +76,9 @@ class ResultsTableIcal:
         self.logger.debug("summary='%s'", summary)
         return summary
 
-    def match_desc(self, result: LeagueResult, opp_team_details: dict) -> str:
+    def match_desc(self,
+                   result: LeagueResult,
+                   opp_team_details: TeamData) -> str:
         """Return match calendar description."""
         opp_name = self._opp_name(result, opp_team_details)
         desc = (
@@ -140,15 +144,15 @@ class ResultsTableIcal:
         self.cal.add("calscale", "GREGORIAN")
         self.cal.add("X-WR-TIMEZONE", "Europe/London")
 
-    def _create_event(self, result: LeagueResult, opp_team_details: dict,
+    def _create_event(self, result: LeagueResult, opp_team_details: TeamData,
                       now: datetime) -> Event:
         match_start = result.match_date_time() - timedelta(minutes=10)
         match_end = result.match_date_time() + timedelta(
             hours=self.results_manager.duration)
 
-        location = self.my_team_details.get("location") \
+        location = self.my_team_details.location \
             if result.is_home() \
-            else opp_team_details.get("location")
+            else opp_team_details.location
 
         event = Event()
         event["uid"] = self._calendar_id(result)
@@ -173,7 +177,7 @@ class ResultsTableIcal:
 
         return event
 
-    def _add_event(self, result: LeagueResult, opp_team_details: dict,
+    def _add_event(self, result: LeagueResult, opp_team_details: TeamData,
                    now: datetime) -> None:
         """
         Creates a calendar event for the given match

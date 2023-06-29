@@ -23,11 +23,11 @@ class TestTeamManager:
         }
 
         team_manager = TeamManager.from_dict(team_dict)
-        assert team_manager.get_team_details('FALLSA')['name'] == 'AAAA'
-        assert team_manager.get_team_details('FALLSA')['location'] \
+        assert team_manager.get_team_details('FALLSA').name == 'AAAA'
+        assert team_manager.get_team_details('FALLSA').location \
             == 'AAA location'
-        assert team_manager.get_team_details('CLIFT')['name'] == 'clift'
-        assert team_manager.get_team_details('CLIFT')['location'] \
+        assert team_manager.get_team_details('CLIFT').name == 'clift'
+        assert team_manager.get_team_details('CLIFT').location \
             == 'clift location'
 
     def test_unknown_team(self):
@@ -38,5 +38,5 @@ class TestTeamManager:
         }
 
         team_manager = TeamManager.from_dict(team_dict)
-        assert team_manager.get_team_details('XYZZY')['name'] == '***XYZZY***'
-        assert team_manager.get_team_details('XYZZY')['location'] == 'TBD'
+        assert team_manager.get_team_details('XYZZY').name == '***XYZZY***'
+        assert team_manager.get_team_details('XYZZY').location == 'TBD'
