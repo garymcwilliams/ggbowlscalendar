@@ -85,12 +85,12 @@ matches:
 - away: PICKI
   team: A
   date: '2023-07-01'
-  our_score: 0
-  opp_score: 0
+  our_score: 2
+  opp_score: 5
 - home: DUNBA
   team: B
   date: '2023-07-08'
-  our_score: 0
+  our_score: 7
   opp_score: 0
 - home: EWART
   team: A
