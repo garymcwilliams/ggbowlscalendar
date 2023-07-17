@@ -69,17 +69,17 @@ matches:
   date: 2023-06-29
   start_time: '18:30'
   our_score: 0
-  opp_score: 0
+  opp_score: 1
 - home: BELMO
   team: 'C'
   date: 2023-07-01
-  our_score: 0
-  opp_score: 0
+  our_score: 2
+  opp_score: 5
 - away: EWART
   team: 'B'
   date: 2023-07-08
-  our_score: 0
-  opp_score: 0
+  our_score: 2
+  opp_score: 5
 - away: ANTRL
   label: 'Irish Cup'
   date: 2023-07-22
