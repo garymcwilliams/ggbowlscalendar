@@ -39,6 +39,8 @@ matches:
 - home: EWART
   label: 'PG Cup'
   date: '2023-07-06'
+  newdate: '2023-07-23'
+  newtime: '14:00'
   our_score: 0
   opp_score: 0
 - away: WILLO
