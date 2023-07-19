@@ -105,32 +105,6 @@ class TestLeagueResultsManager:
         assert match.notes() == ""
         assert match.match_date_time() == combine_date_time(DATE1, "14:00")
 
-    def test_match_not_yet_played(self):
-        """
-        tests
-        """
-
-        match_dict = {
-            'me': 'FALLSA',
-            'start_time': '14:00',
-            'day': 'Sat',
-            'duration': 3,
-            'matches':
-                [
-                    {'away': 'CLIFT',
-                     'date': datetime.datetime.strptime(DATE1, '%Y-%m-%d'),
-                     'our_score': 0.0,
-                     'opp_score': 0.0,
-                    },
-                ]
-        }
-
-        results_manager = LeagueResultsManager.from_dict(match_dict)
-        match = results_manager.results[0]
-        assert match.result == ' '
-        assert match.format_our_score() is None
-        assert match.format_opp_score() is None
-
     def test_match_label(self):
         """
         tests
@@ -296,6 +270,37 @@ class TestLeagueResultsManager:
                 [
                     {'home': 'CLIFT',
                      'date': datetime.datetime.strptime(DATE1, '%Y-%m-%d'),
+                     'our_score': 0.0,
+                     'opp_score': 0.0,
+                     },
+                ]
+        }
+
+        results_manager = LeagueResultsManager.from_dict(match_dict)
+        match = results_manager.results[0]
+        assert match.is_home()
+        assert match.not_played_yet() is True
+        assert match.result == ' '
+        assert match.notes() == ""
+        assert match.format_our_score() is None
+        assert match.format_opp_score() is None
+        assert match.match_date_time() == combine_date_time(DATE1, "14:00")
+
+    def test_match_neutral_vanue(self):
+        """
+        tests a neutral venue location
+        """
+
+        match_dict = {
+            'me': 'FALLSA',
+            'start_time': '14:00',
+            'day': 'Sat',
+            'duration': 3,
+            'matches':
+                [
+                    {'home': 'CLIFT',
+                     'date': datetime.datetime.strptime(DATE1, '%Y-%m-%d'),
+                     'location': 'NEUTR',
                      'our_score': 0.0,
                      'opp_score': 0.0,
                      },

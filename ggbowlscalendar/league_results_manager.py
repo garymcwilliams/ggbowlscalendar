@@ -25,6 +25,7 @@ class LeagueResult:
         new_time: str = None,
         sub_team: str = None,
         label: str = None,
+        location: str = None,
     ):
         """
         Initialize a LeagueResult instance.
@@ -41,6 +42,7 @@ class LeagueResult:
             sub_team (str, optional): Defines if this is A/B/C team of club we
             are playing
             label (str, optional): a bunch of text that helps define the match.
+            location (str, optional): a location/venue for a neutral venue match.
         """
         self.venue = venue
         self.opp_id = opp_id
@@ -52,6 +54,7 @@ class LeagueResult:
         self.newdate = newdate
         self.new_time = new_time
         self.label = label
+        self.location = location
 
         if self.not_played_yet():
             self.result = " "
@@ -170,6 +173,7 @@ class LeagueResultsManager:
             opp_score = result_data.get("opp_score", 0)
             sub_team = result_data.get("team", None)
             label = result_data.get("label", "")
+            location = result_data.get("location", None)
             start_time = (
                 result_data["start_time"]
                 if "start_time" in result_data
@@ -178,7 +182,7 @@ class LeagueResultsManager:
 
             result = LeagueResult(venue, opp_id, date, start_time, our_score,
                                   opp_score, newdate, new_time, sub_team,
-                                  label)
+                                  label, location)
             matches.append(result)
 
         return cls(my_team_id, duration, default_day, matches)

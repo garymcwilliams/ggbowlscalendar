@@ -81,9 +81,13 @@ class ResultsTableIcal:
                    opp_team_details: TeamData) -> str:
         """Return match calendar description."""
         opp_name = self._opp_name(result, opp_team_details)
+        venue = result.venue
+        """if Neutral, change description of venue"""
+        if result.location:
+            venue = "neutral"
         desc = (
             f"{result.result} "
-            f"{result.venue} "
+            f"{venue} "
             f"({opp_name})"
         )
         if desc != desc.strip():
@@ -103,10 +107,7 @@ class ResultsTableIcal:
         self._create_header()
 
         for result in self.results_manager.results:
-            opp_team_details = self.team_manager.get_team_details(
-                result.opp_id
-            )
-            self._add_event(result, opp_team_details, now)
+            self._add_event(result, now)
 
     def _calendar_id(self, result: LeagueResult) -> str:
         """
@@ -144,15 +145,36 @@ class ResultsTableIcal:
         self.cal.add("calscale", "GREGORIAN")
         self.cal.add("X-WR-TIMEZONE", "Europe/London")
 
-    def _create_event(self, result: LeagueResult, opp_team_details: TeamData,
-                      now: datetime) -> Event:
+    def _find_location(self, result: LeagueResult,
+                       opp_team_details: TeamData) -> str:
+        """
+        find a location.
+        For a regular match, this will be the location for the home or away
+        team. For a Neutral Venue game, then we will look up the location
+        for the teamid set as the location for the match.
+        """
+        if result.location:
+            neutral_team_details = self.team_manager.get_team_details(
+                result.location
+            )
+            location = neutral_team_details.location
+            self.logger.debug("neutral=%s", location)
+        elif result.is_home():
+            location = self.my_team_details.location
+        else:
+            location = opp_team_details.location
+
+        return location
+
+    def _create_event(self, result: LeagueResult, now: datetime) -> Event:
         match_start = result.match_date_time() - timedelta(minutes=10)
         match_end = result.match_date_time() + timedelta(
             hours=self.results_manager.duration)
 
-        location = self.my_team_details.location \
-            if result.is_home() \
-            else opp_team_details.location
+        opp_team_details = self.team_manager.get_team_details(
+            result.opp_id
+        )
+        location = self._find_location(result, opp_team_details)
 
         event = Event()
         event["uid"] = self._calendar_id(result)
@@ -177,8 +199,7 @@ class ResultsTableIcal:
 
         return event
 
-    def _add_event(self, result: LeagueResult, opp_team_details: TeamData,
-                   now: datetime) -> None:
+    def _add_event(self, result: LeagueResult, now: datetime) -> None:
         """
         Creates a calendar event for the given match
 
@@ -191,6 +212,6 @@ class ResultsTableIcal:
         if result.match_date_time() is None:
             return
 
-        event = self._create_event(result, opp_team_details, now)
+        event = self._create_event(result, now)
 
         self.cal.add_component(event)
