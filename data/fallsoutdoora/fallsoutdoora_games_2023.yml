@@ -97,7 +97,7 @@ matches:
   label: 'PG Cup'
   date: 2023-07-18
   start_time: '18:30'
-  our_score: 0
+  our_score: 1
   opp_score: 0
 - home: LIMAV
   team: B
@@ -115,6 +115,14 @@ matches:
 - home: EWART
   team: A
   date: 2023-07-29
+  our_score: 0
+  opp_score: 0
+- home: DUNBA
+  team: A
+  label: 'PG Cup'
+  location: BELMO
+  date: 2023-08-10
+  start_time: '18:30'
   our_score: 0
   opp_score: 0
 - away: BALWA
