@@ -3,8 +3,6 @@ on:
   push:
     branches: 
     - main
-    - garymcwilliams/issue43
-    - garymcwilliams/issue43-main-merge
     paths:
     - '**.py'
     - '.coveragerc'
@@ -14,12 +12,11 @@ on:
   pull_request:
     branches:
     - main
-    - garymcwilliams/issue43
-    - garymcwilliams/issue43-main-merge
     paths:
     - '**.py'
     - '.coveragerc'
     - '.github/workflows/**'
+    - README.md
     - poetry.lock
 
 jobs:
@@ -28,7 +25,7 @@ jobs:
       fail-fast: false
       matrix:
         python-version: ["3.9", "3.10", "3.11"]
-        poetry-version: [1.4.2]
+        poetry-version: [1.5.2]
         os: [ubuntu-latest]
 #        os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}

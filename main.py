@@ -81,7 +81,7 @@ def main() -> None:
     logger.debug("Generating ical")
     ical_generator = ResultsTableIcal(results_manager, teams_manager)
     ical_generator.generate_ical()
-    filename = f"{team}_{year}-43.ics"
+    filename = f"{team}_{year}.ics"
     write_ical_file(filename, ical_generator.cal.to_ical())
 
 
