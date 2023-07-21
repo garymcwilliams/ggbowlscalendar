@@ -10,6 +10,7 @@ on:
     - '.coveragerc'
     - '.github/workflows/**'
     - README.md
+    - poetry.lock
   pull_request:
     branches:
     - main
@@ -19,6 +20,7 @@ on:
     - '**.py'
     - '.coveragerc'
     - '.github/workflows/**'
+    - poetry.lock
 
 jobs:
   ci:
