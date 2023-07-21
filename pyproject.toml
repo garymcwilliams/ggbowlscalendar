@@ -9,7 +9,6 @@ python = "^3.8"
 envparse = "^0.2.0"
 PyYAML = "^5.4.1"
 icalendar = "^4.0.7"
-strictyaml = "^1.4.0"
 rich = "^12.5.1"
 
 [tool.poetry.dev-dependencies]

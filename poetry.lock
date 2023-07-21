@@ -683,21 +683,6 @@ files = [
 ]
 
 [[package]]
-name = "strictyaml"
-version = "1.7.3"
-description = "Strict, typed YAML parser"
-category = "main"
-optional = false
-python-versions = ">=3.7.0"
-files = [
-    {file = "strictyaml-1.7.3-py3-none-any.whl", hash = "sha256:fb5c8a4edb43bebb765959e420f9b3978d7f1af88c80606c03fb420888f5d1c7"},
-    {file = "strictyaml-1.7.3.tar.gz", hash = "sha256:22f854a5fcab42b5ddba8030a0e4be51ca89af0267961c8d6cfa86395586c407"},
-]
-
-[package.dependencies]
-python-dateutil = ">=2.6.0"
-
-[[package]]
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
@@ -833,4 +818,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "53dd6242d9ec6d6fed6067445e6cba6b7715ba41784fb3998aa4b699aa23fbb6"
+content-hash = "ed81bb6cd59d27e96e8f1611d26d8fafb0754cb0e4ac17293438d87ad5161f9e"
