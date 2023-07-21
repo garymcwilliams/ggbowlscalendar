@@ -67,29 +67,42 @@ matches:
 - away: OLDBL
   team: B
   date: '2023-06-17'
-  newdate: 
+  newdate: '2023-06-27'
   newtime: '18:30'
-  our_score: 0
-  opp_score: 0
+  our_score: 1
+  opp_score: 6
 - home: BELMO
   team: B
   label: 'PG Cup'
   date: '2023-06-22'
   start_time: '18:30'
-  our_score: 0
+  our_score: 1
   opp_score: 0
 - home: CLIFT
   date: '2023-06-24'
-  our_score: 0
-  opp_score: 0
+  our_score: 6
+  opp_score: 1
 - away: PICKI
   team: A
   date: '2023-07-01'
-  our_score: 0
-  opp_score: 0
+  our_score: 2
+  opp_score: 5
 - home: DUNBA
   team: B
   date: '2023-07-08'
+  our_score: 7
+  opp_score: 0
+- home: EWART
+  team: A
+  label: 'PG Cup'
+  date: '2023-07-18'
+  start_time: '18:30'
+  our_score: 1
+  opp_score: 0
+- home: LIMAV
+  team: B
+  label: 'Irish Cup'
+  date: '2023-07-22'
   our_score: 0
   opp_score: 0
 - home: LIMAV
@@ -108,6 +121,13 @@ matches:
 - home: EWART
   team: A
   date: '2023-07-29'
+  our_score: 0
+  opp_score: 0
+- home: DUNBA
+  team: A
+  label: 'PG Cup'
+  date: '2023-08-10'
+  start_time: '18:30'
   our_score: 0
   opp_score: 0
 - away: BALLW

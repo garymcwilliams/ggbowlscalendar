@@ -19,4 +19,8 @@
     "python.languageServer": "Pylance",
     "editor.fontFamily": "Inconsolata, Consolas, 'Courier New', monospace",
     "editor.fontSize": 12,
+    "sonarlint.connectedMode.project": {
+        "connectionId": "GaryMcWilliams",
+        "projectKey": "garymcwilliams_ggbowlscalendar"
+    },
 }

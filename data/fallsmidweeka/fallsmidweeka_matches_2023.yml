@@ -41,12 +41,12 @@ matches:
   opp_score: 7
 - home: BELMO
   date: '2023-06-28'
-  our_score: 0
-  opp_score: 0
+  our_score: 4.5
+  opp_score: 2.5
 - away: COMBR
   date: '2023-07-05'
-  our_score: 0
-  opp_score: 0
+  our_score: 5
+  opp_score: 2
 - home: UTRAN
   team: 'A'
   date: '2023-07-26'

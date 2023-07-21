@@ -25,17 +25,17 @@ matches:
   opp_score: 6
 - home: CAVEH
   date: '2023-06-21'
-  our_score: 0
-  opp_score: 0
+  our_score: 2
+  opp_score: 5
 - away: BELMO
   team: 'B'
   date: '2023-06-28'
-  our_score: 0
-  opp_score: 0
+  our_score: 2
+  opp_score: 5
 - home: MAGHD
   date: '2023-07-05'
-  our_score: 0
-  opp_score: 0
+  our_score: 5
+  opp_score: 2
 - home: EWART
   label: 'PG Cup'
   date: '2023-07-06'
