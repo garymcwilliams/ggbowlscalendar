@@ -1,44 +1,56 @@
-name: GitHub CI
+name: GitHub CI with CodeCov and SQ
 on:
   push:
-#on:
-#  push:
-#    branches:
-#      - main
+    branches: 
+    - main
+    - garymcwilliams/issue43
+    - garymcwilliams/issue43-main-merge
+    paths:
+    - '**.py'
+    - '.coveragerc'
+    - '.github/workflows/**'
+    - README.md
+    - poetry.lock
   pull_request:
-    types: [opened, synchronize, reopened]
+    branches:
+    - main
+    - garymcwilliams/issue43
+    - garymcwilliams/issue43-main-merge
+    paths:
+    - '**.py'
+    - '.coveragerc'
+    - '.github/workflows/**'
+    - poetry.lock
 
 jobs:
   ci:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.9", "3.10"]
+        python-version: ["3.9", "3.10", "3.11"]
         poetry-version: [1.4.2]
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest]
 #        os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: ${{ matrix.poetry-version }}
+        virtualenvs-create: true
+        virtualenvs-in-project: true
     - name: Setup python
       uses: actions/setup-python@v4
       with:
         python-version: "${{ matrix.python-version }}"
-    - name: Cache Poetry
-      uses: actions/cache@v3
-      with:
-        path: ~/.local
-        key: poetry-${{ matrix.poetry-version }}-${{ matrix.os }}-${{ matrix.python-version }}-v0
-    - name: Install Poetry
-      uses: snok/install-poetry@v1
-      with:
-        version: ${{ matrix.poetry-version }}
-        virtualenvs-create: true
-        virtualenvs-in-project: true
+        cache: 'poetry'
     - name: Cache deps
       id: cache-deps
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: .venv
         key: pydeps-${{ hashFiles('**/poetry.lock') }}
@@ -48,52 +60,19 @@ jobs:
     - name: Install project dependencies
       run: poetry install --no-interaction
     - name: poetry in motion tests
-      run: poetry run pytest
-
-# Use a separate flow, as we only want to upload one set of codecov results
-  codecov:
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.10"]
-        poetry-version: [1.4.2]
-        os: [ubuntu-latest]
-    name: Codecov Workflow
-    runs-on: ${{ matrix.os }}
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: "${{ matrix.python-version }}"
-    - name: Cache Poetry
-      uses: actions/cache@v3
-      with:
-        path: ~/.local
-        key: poetry-${{ matrix.poetry-version }}-${{ matrix.os }}-${{ matrix.python-version }}-v0
-    - name: Install Poetry
-      uses: snok/install-poetry@v1
-      with:
-        version: ${{ matrix.poetry-version }}
-        virtualenvs-create: true
-        virtualenvs-in-project: true
-    - name: Cache deps
-      id: cache-deps
-      uses: actions/cache@v2
-      with:
-        path: .venv
-        key: pydeps-${{ hashFiles('**/poetry.lock') }}
-    - name: Install Poetry dependencies
-      if: steps.cache-deps.outputs.cache-hit != 'true'
-      run: poetry install --no-interaction --no-root
-    - name: Install project dependencies
-      run: poetry install --no-interaction
-    - name: poetry in motion tests
-      run: poetry run pytest
+      run: |
+        poetry run coverage run -m pytest --junitxml=coverage.xml
+        poetry run coverage xml -i
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1
+      if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.10'
+      uses: codecov/codecov-action@v3
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        file: ./coverage.xml
-        flags: unittests
+        files: ./coverage.xml
+        fail_ci_if_error: true
+    - name: SonarCloud Scan
+      if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.10'
+      uses: sonarsource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}

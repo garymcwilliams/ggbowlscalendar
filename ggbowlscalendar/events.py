@@ -175,7 +175,7 @@ class Events:
         """
         Creates a calendar event for the given match
 
-        :paran match: A Match object holding the match data
+        :param match: A Match object holding the match data
         """
         #    print(self.team_data)
         #    print(team_data)

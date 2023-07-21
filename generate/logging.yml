@@ -20,21 +20,13 @@ handlers:
     class: logging.handlers.RotatingFileHandler
     formatter: simple
     filename: logs/gary.log
-    maxBytes: 65536
+    maxBytes: 16384
     backupCount: 3
 loggers:
   __main__:
     level: DEBUG
     handlers: [console,gary]
-    propagate: 1
-  ggbowlscalendar.utils:
-    level: DEBUG
-    handlers: [console,gary]
     propagate: no
-  ggbowlscalendar.results_table_ical:
-    level: DEBUG
-    handlers: [console,gary]
-    propagate: 1
 root:
   level: DEBUG
   handlers: [console]

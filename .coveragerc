@@ -1,0 +1,9 @@
+[run]
+omit = 
+	tests/*
+	ggbowlscalendar/utils.py
+	ggbowlscalendar/results_table_printer.py
+	ggbowlscalendar/events.py
+	ggbowlscalendar/match.py
+relative_files = True
+source = ggbowlscalendar/

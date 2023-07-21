@@ -1,4 +1,4 @@
-# Bowls Calendar ![Python Test](https://github.com/garymcwilliams/ggbowlscalendar/workflows/Python%20Test/badge.svg) ![CodeQL](https://github.com/garymcwilliams/ggbowlscalendar/workflows/CodeQL/badge.svg)
+# Bowls Calendar [![GitHub CI](https://github.com/garymcwilliams/ggbowlscalendar/actions/workflows/workflow-all.yml/badge.svg?branch=garymcwilliams/issue43)](https://github.com/garymcwilliams/ggbowlscalendar/actions/workflows/workflow-all.yml) [![CodeQL](https://github.com/garymcwilliams/ggbowlscalendar/actions/workflows/workflow-codeql.yml/badge.svg?branch=garymcwilliams%2Fissue43)](https://github.com/garymcwilliams/ggbowlscalendar/actions/workflows/workflow-codeql.yml) [![codecov](https://codecov.io/github/garymcwilliams/ggbowlscalendar/branch/garymcwilliams/issue43/graph/badge.svg?token=EGNK0HBDQK)](https://codecov.io/github/garymcwilliams/ggbowlscalendar/tree/garymcwilliams%2Fissue43) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=garymcwilliams_ggbowlscalendar&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=garymcwilliams_ggbowlscalendar&branch=garymcwilliams%2Fissue43)
 
 ## Running
 
@@ -15,7 +15,7 @@ Select a Debug runtime (from Debug side window), e.g. `fallsindoor`
 
 ## Data Formats
 
-see link: ![icalendar-data](https://github.com/garymcwilliams/icalendar-data)
+see link: [![icalendar-data](https://github.com/garymcwilliams/icalendar-data)]
 
 ## Managing python poetry dependencies
 
