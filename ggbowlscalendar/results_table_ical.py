@@ -84,6 +84,7 @@ class ResultsTableIcal:
         venue = result.venue
         """if Neutral, change description of venue"""
         if result.location:
+            self.logger.debug("venue set to neutral")
             venue = "neutral"
         desc = (
             f"{result.result} "
@@ -92,6 +93,11 @@ class ResultsTableIcal:
         )
         if desc != desc.strip():
             self.logger.debug("desc='%s' from='%s'", desc.strip(), desc)
+        if result.is_away():
+            depart = result.match_date_time() - \
+                timedelta(minutes=opp_team_details.depart)
+            depart_time = datetime.strftime(depart, "%H:%M")
+            desc = desc + f", depart at:{depart_time}"
         return desc.strip()
 
     def generate_ical(self, now=datetime.utcnow()) -> None:
@@ -182,7 +188,9 @@ class ResultsTableIcal:
         event.add("priority", 5)
 
         event.add("summary", self.summary(result, opp_team_details))
+        ee = self.match_desc(result, opp_team_details)
         event.add("description", self.match_desc(result, opp_team_details))
+        dd = event.get("description")
         event.add("dtstart", match_start)
         event.add("dtend", match_end)
         event.add("dtstamp", now)

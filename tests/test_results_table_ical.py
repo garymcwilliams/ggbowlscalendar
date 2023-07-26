@@ -29,7 +29,7 @@ NEUTR_LOC = f"{NEUTR_NAME} location"
 
 TEAM_DICT = {
     FALLSA: {'name': FALLSA_NAME, 'location': FALLSA_LOC},
-    CLIFT: {'name': CLIFT_NAME, 'location': CLIFT_LOC},
+    CLIFT: {'name': CLIFT_NAME, 'location': CLIFT_LOC, 'depart': 30},
     NEUTR: {'name': NEUTR_NAME, 'location': NEUTR_LOC},
 }
 
@@ -101,6 +101,9 @@ def test_result_event(venue: str,
         score_display = f"{expected_result} ({our_score} - {opp_score}) "
         description = f'{expected_result} {venue} {CLIFT_NAME_BRACES}'
 
+    if venue == 'away':
+        description += ", depart at:13:30"
+
     ical_generator = ResultsTableIcal(results_manager, team_manager)
     for result in results_manager.results:
         if result.newdate is None or result.newdate != TBD_DATA:
@@ -144,6 +147,9 @@ def test_result_event(venue: str,
 
     ical_generator.generate_ical()
     ical_bytes = ical_generator.cal.to_ical()
+    with open("gary.txt", "wb") as binary_file:
+        # Write bytes to file
+        binary_file.write(ical_bytes)
     assert ical_bytes == ical_content.encode()
 
 
