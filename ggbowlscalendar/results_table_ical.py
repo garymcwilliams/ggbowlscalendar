@@ -76,6 +76,24 @@ class ResultsTableIcal:
         self.logger.debug("summary='%s'", summary)
         return summary
 
+    def departure_summary(self, result: LeagueResult,
+                          opp_team_details: TeamData) -> str:
+        """Return depature summary in pre-defined format"""
+        opp_name = self._opp_name(result, opp_team_details)
+        summary = None
+        if result.venue == 'home':
+            home_name = f"{self.my_team_details.name}"
+            away_name = f"({opp_name})"
+        else:
+            home_name = f"({opp_name})"
+            away_name = f"{self.my_team_details.name}"
+        match_names = f"{home_name} v {away_name}"
+        summary = (
+            f"{match_names} "
+        ).rstrip()
+        self.logger.debug("departure_summary='%s'", summary)
+        return summary
+
     def match_desc(self,
                    result: LeagueResult,
                    opp_team_details: TeamData) -> str:
@@ -84,6 +102,7 @@ class ResultsTableIcal:
         venue = result.venue
         """if Neutral, change description of venue"""
         if result.location:
+            self.logger.debug("set venue to neutral")
             venue = "neutral"
         desc = (
             f"{result.result} "
@@ -138,6 +157,13 @@ class ResultsTableIcal:
         self.logger.debug("uniqueid='%s'", unique)
         return unique
 
+    def _calendar_departure_id(self, result: LeagueResult) -> str:
+        """
+        Define a Unique ID for the departure.
+        """
+
+        return f"DEP-{self._calendar_id(result)}"
+
     def _create_header(self) -> None:
         """create the calendar header content."""
         self.cal.add("prodid", "-//Bowling Calendar//mc-williams.co.uk//")
@@ -165,6 +191,14 @@ class ResultsTableIcal:
             location = opp_team_details.location
 
         return location
+
+    def departure_date_time(self, match_start: datetime,
+                            departure_delta: int) -> datetime:
+        """
+        return the departure date & time
+        """
+        departure_start = match_start - timedelta(minutes=departure_delta)
+        return departure_start
 
     def _create_event(self, result: LeagueResult, now: datetime) -> Event:
         match_start = result.match_date_time() - timedelta(minutes=10)
@@ -195,7 +229,41 @@ class ResultsTableIcal:
         alarm.add("action", "DISPLAY")
         alarm.add("description", "Reminder")
         alarm.add("trigger", timedelta(hours=-1))
-        event.add_component(alarm)
+
+        return event
+
+    def _create_departure(self, result: LeagueResult, now: datetime) -> Event:
+        """calculate the departure date and time."""
+        opp_team_details = self.team_manager.get_team_details(
+            result.opp_id
+        )
+
+        match_start = result.match_date_time()
+        departure = self.departure_date_time(match_start,
+                                             opp_team_details.depart)
+        match_end = departure + timedelta(minutes=10)
+
+        location = self._find_location(result, opp_team_details)
+
+        event = Event()
+        event["uid"] = self._calendar_departure_id(result)
+        event["location"] = location
+        event.add("priority", 5)
+
+        event.add("summary", self.departure_summary(result, opp_team_details))
+        event.add("description", self.match_desc(result, opp_team_details))
+        event.add("dtstart", departure)
+        event.add("dtend", match_end)
+        event.add("dtstamp", now)
+        self.logger.debug(
+            "depart=%s:%s:'%s':'%s'", departure, match_end,
+            event.get("summary"), event.get("description")
+        )
+
+        alarm = Alarm()
+        alarm.add("action", "DISPLAY")
+        alarm.add("description", "Reminder")
+        alarm.add("trigger", timedelta(hours=-1))
 
         return event
 
@@ -213,5 +281,8 @@ class ResultsTableIcal:
             return
 
         event = self._create_event(result, now)
-
         self.cal.add_component(event)
+
+        if result.is_away():
+            departure = self._create_departure(result, now)
+            self.cal.add_component(departure)

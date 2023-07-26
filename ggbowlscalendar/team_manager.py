@@ -12,12 +12,14 @@ class TeamData:
     """basic Team data"""
     name: str
     location: str
+    depart: int
 
 
 class Team:
     """Represents a team."""
 
-    def __init__(self, team_id: str, name: str, location: str) -> None:
+    def __init__(self, team_id: str, name: str, location: str,
+                 depart: int) -> None:
         """
         Initialize a Team instance.
 
@@ -29,6 +31,7 @@ class Team:
         self.team_id = team_id
         self.name = name
         self.location = location
+        self.depart = depart
 
 
 class TeamManager:
@@ -57,7 +60,8 @@ class TeamManager:
         teams = []
         for team_id, team_data in data.items():
             team = Team(team_id=team_id, name=team_data["name"],
-                        location=team_data["location"])
+                        location=team_data["location"],
+                        depart=team_data.get("depart", 60))
             teams.append(team)
 
         return cls(teams)
@@ -75,5 +79,5 @@ class TeamManager:
         team = next((team for team in self.teams if team.team_id == team_id),
                     None)
         if team:
-            return TeamData(team.name, team.location)
-        return TeamData(f"***{team_id}***", "TBD")
+            return TeamData(team.name, team.location, team.depart)
+        return TeamData(f"***{team_id}***", "TBD", 0)
