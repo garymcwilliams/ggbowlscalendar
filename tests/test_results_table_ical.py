@@ -160,7 +160,7 @@ def test_result_neutral():
         'matches':
             [
                 {
-                    'home': CLIFT,
+                    'away': CLIFT,
                     'location': 'NEUTR',
                     'date': DATE_230422,
                     'newdate': DATE_230430,
@@ -175,8 +175,8 @@ def test_result_neutral():
 
     team_manager = TeamManager.from_dict(TEAM_DICT)
 
-    home_name = FALLSA_NAME
-    away_name = CLIFT_NAME_BRACES
+    away_name = FALLSA_NAME
+    home_name = CLIFT_NAME_BRACES
     location = NEUTR_LOC
     match_names = f"{home_name} v {away_name}"
 
@@ -220,11 +220,29 @@ def test_result_neutral():
                     "TRIGGER:-PT1H\r\n"
                     "END:VALARM\r\n"
                     "END:VEVENT\r\n"
+                    "BEGIN:VEVENT\r\n"
+                    f"SUMMARY:{match_names}\r\n"
+                    "DTSTART;VALUE=DATE-TIME:20230430T173000\r\n"
+                    "DTEND;VALUE=DATE-TIME:20230430T174000\r\n"
+                    f"DTSTAMP;VALUE=DATE-TIME:{dtstamp}\r\n"
+                    "UID:DEP-FALLSA-202304221400@mc-williams.co.uk\r\n"
+                    f"DESCRIPTION:{description}\r\n"
+                    f"LOCATION:{location}\r\n"
+                    "PRIORITY:5\r\n"
+                    "BEGIN:VALARM\r\n"
+                    "ACTION:DISPLAY\r\n"
+                    "DESCRIPTION:Reminder\r\n"
+                    "TRIGGER:-PT1H\r\n"
+                    "END:VALARM\r\n"
+                    "END:VEVENT\r\n"
                     "END:VCALENDAR\r\n"
                     )
 
     ical_generator.generate_ical()
     ical_bytes = ical_generator.cal.to_ical()
+    with open("gary.txt", "wb") as binary_file:
+        # Write bytes to file
+        binary_file.write(ical_bytes)
     assert ical_bytes == ical_content.encode()
 
 
