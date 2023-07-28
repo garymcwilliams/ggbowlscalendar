@@ -49,6 +49,7 @@ COMBR:
 DOWNP:
   name: Downpatrick
   location: 87PM+C9Q Downpatrick
+  depart: 60
 DROMO:
   name: Dromore
   location: Holm Park, Lurgan Rd, Dromore BT25 1HL
