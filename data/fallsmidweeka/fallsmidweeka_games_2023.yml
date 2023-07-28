@@ -51,6 +51,7 @@ matches:
 - home: UTRAN
   team: 'A'
   date: 2023-07-26
+  newdate: 2023-08-30
   our_score: 0
   opp_score: 0
 - home: SALIS
