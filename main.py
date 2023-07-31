@@ -16,30 +16,26 @@ You can also set the environment variables ICAL_TEAM and ICAL_YEAR
 to specify the parameters.
 """
 
+import argparse
 import logging
 import logging.config
 import os
-import argparse
 
 import yaml
 from envparse import env
 
 from ggbowlscalendar.league_results_manager import LeagueResultsManager
-from ggbowlscalendar.team_manager import TeamManager
-from ggbowlscalendar.results_table_printer import ResultsTablePrinter
 from ggbowlscalendar.results_table_ical import ResultsTableIcal
-from ggbowlscalendar.utils import (
-    write_ical_file,
-    get_games_data,
-    get_teams_data
-)
+from ggbowlscalendar.results_table_printer import ResultsTablePrinter
+from ggbowlscalendar.team_manager import TeamManager
+from ggbowlscalendar.utils import get_games_data, get_teams_data, write_ical_file
 
 
 def setup_logging(
-    default_path='logging.yml',
+    default_path="logging.yml",
     default_level=logging.INFO,
 ):
-    """Setup logging configuration """
+    """Setup logging configuration"""
     path = default_path
     if os.path.exists(path):
         with open(path, "rt", encoding="utf-8") as config:
@@ -64,8 +60,8 @@ def main() -> None:
 
     args = parser.parse_args()
 
-    team = args.team if args.team is not None else env('ICAL_TEAM')
-    year = args.year if args.year is not None else env('ICAL_YEAR')
+    team = args.team if args.team is not None else env("ICAL_TEAM")
+    year = args.year if args.year is not None else env("ICAL_YEAR")
     logger.debug("using %s %s", team, year)
 
     games_data = get_games_data(team, year)
@@ -81,7 +77,7 @@ def main() -> None:
     logger.debug("Generating ical")
     ical_generator = ResultsTableIcal(results_manager, teams_manager)
     ical_generator.generate_ical()
-    filename = f"{team}_{year}.ics"
+    filename = f"{team}_{year}-51.ics"
     write_ical_file(filename, ical_generator.cal.to_ical())
 
 
