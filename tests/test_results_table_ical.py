@@ -37,11 +37,9 @@ testdata = [
     ("home", 6, 1, "W"),
     ("home", 1, 6, "L"),
     ("home", 3, 3, "D"),
-    ("home", 0, 0, " "),
     ("away", 6, 1, "W"),
     ("away", 1, 6, "L"),
     ("away", 3, 3, "D"),
-    ("away", 0, 0, " "),
 ]
 
 
@@ -94,15 +92,8 @@ def test_result_event(venue: str,
         location = CLIFT_LOC
     match_names = f"{home_name} v {away_name}"
 
-    if our_score == 0 and opp_score == 0:
-        score_display = ""
-        description = f'{venue} {CLIFT_NAME_BRACES}'
-    else:
-        score_display = f"{expected_result} ({our_score} - {opp_score}) "
-        description = f'{expected_result} {venue} {CLIFT_NAME_BRACES}'
-
-    if venue == 'away':
-        description += ", depart at:13:30"
+    score_display = f"{expected_result} ({our_score} - {opp_score}) "
+    description = f'{expected_result} {venue} {CLIFT_NAME_BRACES}'
 
     ical_generator = ResultsTableIcal(results_manager, team_manager)
     for result in results_manager.results:
@@ -147,9 +138,87 @@ def test_result_event(venue: str,
 
     ical_generator.generate_ical()
     ical_bytes = ical_generator.cal.to_ical()
-    with open("gary.txt", "wb") as binary_file:
-        # Write bytes to file
-        binary_file.write(ical_bytes)
+    assert ical_bytes == ical_content.encode()
+
+
+def test_notplayedyet_event():
+    """
+    test all basic methods for results as ical events.
+
+    NOTE: ALSO check that TBD games don't get included in ical
+    """
+
+    match_dict = {
+        'me': FALLSA,
+        'start_time': '14:00',
+        'day': 'Sat',
+        'duration': 3,
+        'matches':
+            [
+                {
+                    'away': CLIFT,
+                    'label': 'Irish Cup',
+                    'date': DATE_230422,
+                    'our_score': 0,
+                    'opp_score': 0,
+                },
+            ]
+    }
+
+    results_manager = LeagueResultsManager.from_dict(match_dict)
+
+    team_manager = TeamManager.from_dict(TEAM_DICT)
+
+    home_name = CLIFT_NAME_BRACES
+    away_name = FALLSA_NAME
+    location = CLIFT_LOC
+    match_names = f"{home_name} v {away_name}"
+
+    description = f'away {CLIFT_NAME_BRACES}, depart at:13:30'
+    description_escaped = f'away {CLIFT_NAME_BRACES}\, depart at:13:30'
+
+    ical_generator = ResultsTableIcal(results_manager, team_manager)
+    for result in results_manager.results:
+        if result.newdate is None or result.newdate != TBD_DATA:
+            event = ical_generator._create_event(result,
+                                                 UTCNOW)
+            assert event.get('UID') == \
+                f'{FALLSA}-202304221400IrishCup@mc-williams.co.uk'
+            assert event.get('LOCATION') == location
+            expected_summary = (
+                                f"{match_names} "
+                                "Irish Cup"
+                                )
+            assert event.get('SUMMARY') == expected_summary
+            assert event.get('DESCRIPTION') == description
+
+    dtstamp = UTCNOW.strftime('%Y%m%dT%H%M%SZ')
+    ical_content = (
+                    "BEGIN:VCALENDAR\r\n"
+                    "VERSION:2.0\r\n"
+                    "PRODID:-//Bowling Calendar//mc-williams.co.uk//\r\n"
+                    "CALSCALE:GREGORIAN\r\n"
+                    "X-WR-TIMEZONE:Europe/London\r\n"
+                    "BEGIN:VEVENT\r\n"
+                    f"SUMMARY:{expected_summary}\r\n"
+                    "DTSTART;VALUE=DATE-TIME:20230422T135000\r\n"
+                    "DTEND;VALUE=DATE-TIME:20230422T170000\r\n"
+                    f"DTSTAMP;VALUE=DATE-TIME:{dtstamp}\r\n"
+                    "UID:FALLSA-202304221400IrishCup@mc-williams.co.uk\r\n"
+                    f"DESCRIPTION:{description_escaped}\r\n"
+                    f"LOCATION:{location}\r\n"
+                    "PRIORITY:5\r\n"
+                    "BEGIN:VALARM\r\n"
+                    "ACTION:DISPLAY\r\n"
+                    "DESCRIPTION:Reminder\r\n"
+                    "TRIGGER:-PT1H\r\n"
+                    "END:VALARM\r\n"
+                    "END:VEVENT\r\n"
+                    "END:VCALENDAR\r\n"
+                    )
+
+    ical_generator.generate_ical()
+    ical_bytes = ical_generator.cal.to_ical()
     assert ical_bytes == ical_content.encode()
 
 
