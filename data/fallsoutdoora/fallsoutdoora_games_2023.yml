@@ -115,8 +115,8 @@ matches:
 - home: EWART
   team: A
   date: 2023-07-29
-  our_score: 0
-  opp_score: 0
+  our_score: 6
+  opp_score: 1
 - home: DUNBA
   team: A
   label: 'PG Cup'
