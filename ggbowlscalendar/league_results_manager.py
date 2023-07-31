@@ -5,7 +5,6 @@ Team League Results Management System
 import datetime
 from typing import List
 
-
 TBD_DATA = "tbd"  # data value the represents TBD match date
 TBD_DISPLAY = "-date-TBD-"  # value to display in outpu for TBD match date
 
@@ -68,10 +67,7 @@ class LeagueResult:
 
     def not_played_yet(self) -> bool:
         """determine whether the match has already been played or not"""
-        return (
-                True if self.our_score == 0.0 and self.opp_score == 0.0
-                else False
-        )
+        return True if self.our_score == 0.0 and self.opp_score == 0.0 else False
 
     def match_date_time(self) -> datetime:
         """
@@ -83,13 +79,13 @@ class LeagueResult:
             self.label += TBD_DISPLAY
             return None
         time = self.new_time if self.new_time else self.time
-        match_time = datetime.datetime.strptime(time, '%H:%M').time()
+        match_time = datetime.datetime.strptime(time, "%H:%M").time()
         match_date_time = datetime.datetime.combine(match_date, match_time)
 
         return match_date_time
 
     def notes(self) -> str:
-        """ return any special notes for printing """
+        """return any special notes for printing"""
         notes = self.label
         return notes
 
@@ -103,10 +99,7 @@ class LeagueResult:
 
     def _format_score(self, score: float) -> str:
         """convert float to str, strip .0 if we have integer"""
-        return (
-                None if self.not_played_yet()
-                else f"{score:.1f}".rstrip('0').rstrip('.')
-        )
+        return None if self.not_played_yet() else f"{score:.1f}".rstrip("0").rstrip(".")
 
     def format_our_score(self) -> str:
         """convert our_score to output format"""
@@ -120,11 +113,13 @@ class LeagueResult:
 class LeagueResultsManager:
     """Manages a team league results."""
 
-    def __init__(self,
-                 my_team_id: str,
-                 duration: int,
-                 default_day: str,
-                 results: List[LeagueResult]) -> None:
+    def __init__(
+        self,
+        my_team_id: str,
+        duration: int,
+        default_day: str,
+        results: List[LeagueResult],
+    ) -> None:
         """
         Initialize a LeagueResultsManager instance.
 
@@ -180,9 +175,19 @@ class LeagueResultsManager:
                 else default_time
             )
 
-            result = LeagueResult(venue, opp_id, date, start_time, our_score,
-                                  opp_score, newdate, new_time, sub_team,
-                                  label, location)
+            result = LeagueResult(
+                venue,
+                opp_id,
+                date,
+                start_time,
+                our_score,
+                opp_score,
+                newdate,
+                new_time,
+                sub_team,
+                label,
+                location,
+            )
             matches.append(result)
 
         return cls(my_team_id, duration, default_day, matches)
