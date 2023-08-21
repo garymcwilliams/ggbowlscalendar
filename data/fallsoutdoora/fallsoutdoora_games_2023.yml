@@ -132,8 +132,8 @@ matches:
 - home: UTRAN
   team: A
   date: 2023-08-19
-  our_score: 0
-  opp_score: 0
+  our_score: 3
+  opp_score: 4
 - away: HILDE
   team: A
   date: 2023-08-26
