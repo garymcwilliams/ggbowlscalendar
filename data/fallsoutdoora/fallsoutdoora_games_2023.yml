@@ -137,10 +137,10 @@ matches:
 - away: HILDE
   team: A
   date: 2023-08-26
-  our_score: 0
+  our_score: 7
   opp_score: 0
 - home: OLDBL
   team: B
   date: 2023-09-02
-  our_score: 0
-  opp_score: 0
+  our_score: 1
+  opp_score: 6
