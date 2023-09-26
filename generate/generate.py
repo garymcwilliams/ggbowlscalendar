@@ -5,10 +5,10 @@ import logging
 import logging.config
 import os
 from datetime import date, timedelta
+
 import yaml
 from rich.console import Console
 from rich.table import Table
-
 
 console = Console()
 table = Table(show_header=True, header_style="bold magenta")
@@ -23,23 +23,23 @@ def print_header():
 
 def where_str(match_where: str):
     """print home/away in different colours"""
-    colours = {'home': 'red', 'away': 'blue'}
+    colours = {"home": "red", "away": "blue"}
     return f"[bold {colours[match_where]}]{match_where}[/]"
 
 
 def print_match(match_curdate: date, match_where: str, match_opp: str):
     """add a match row to table"""
-    date_pattern = '%a %d-%b'
+    date_pattern = "%a %d-%b"
     date_string = match_curdate.strftime(date_pattern)
     table.add_row(date_string, where_str(match_where), match_opp)
     logger.debug("(%s) (%s) (%-5s)", date_string, match_where, match_opp)
 
 
 def setup_logging(
-    default_path='logging.yml',
+    default_path="logging.yml",
     default_level=logging.INFO,
 ):
-    """Setup logging configuration """
+    """Setup logging configuration"""
     path = default_path
     if os.path.exists(path):
         with open(path, "rt", encoding="utf-8") as config:
@@ -82,14 +82,14 @@ for line in file:
         curdate = curdate + timedelta(days=int(delta))
         print_match(curdate, where, opp)
         matchdata.append(f"- {where}: {opp}")
-        matchdata.append(f"  date: '{curdate}'")
+        matchdata.append(f"  date: {curdate}")
         matchdata.append("  our_score: 0")
         matchdata.append("  opp_score: 0")
     MATCH_LINE += 1
 
 savefile = f"{FILENAME}.yml"
 logger.debug("Saving %s", savefile)
-with open(f"{savefile}", 'w', encoding="UTF-8") as yaml_file:
+with open(f"{savefile}", "w", encoding="UTF-8") as yaml_file:
     yaml_file.write(f"me: {me}\n")
     yaml_file.write(f"start_time: '{START_TIME}'\n")
     yaml_file.write(f"duration: {DURATION}\n")
