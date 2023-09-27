@@ -1,4 +1,9 @@
-# Bowls Calendar [![GitHub CI][workflow-all]] [![CodeQL][codeql]] [![codecov.io][codecov-image]][codecov-link] [![Quality Gate Status][sonar-image]][sonar-link]
+# Bowls Calendar
+
+[![All][all-image]][all-link]
+[![CodeQL][ql-image]][ql-link]
+[![codecov.io][codecov-image]][codecov-link]
+[![Quality Gate Status][sonar-image]][sonar-link]
 
 ## Running
 
@@ -35,9 +40,10 @@ for `dev` dependencies use
 poetry add --dev pytest@latest
 ```
 
-
-[workflow-all]: https://github.com/garymcwilliams/ggbowlscalendar/actions/workflows/workflow-all.yml/badge.svg?event=push
-[codeql]: https://github.com/garymcwilliams/ggbowlscalendar/actions/workflows/workflow-linkql.yml/badge.svg?event=push
+[all-image]: https://github.com/garymcwilliams/ggbowlscalendar/actions/workflows/workflow-all.yml/badge.svg?event=push
+[all-link]: https://github.com/garymcwilliams/ggbowlscalendar/actions/workflows/workflow-all.yml
+[ql-image]: https://github.com/garymcwilliams/ggbowlscalendar/actions/workflows/workflow-codeql.yml/badge.svg?event=push
+[ql-link]: https://github.com/garymcwilliams/ggbowlscalendar/actions/workflows/workflow-codeql.yml
 [codecov-image]: https://codecov.io/github/garymcwilliams/ggbowlscalendar/graph/badge.svg?token=EGNK0HBDQK
 [codecov-link]: https://codecov.io/github/garymcwilliams/ggbowlscalendar
 [sonar-image]: https://sonarcloud.io/api/project_badges/measure?project=garymcwilliams_ggbowlscalendar&metric=alert_status
