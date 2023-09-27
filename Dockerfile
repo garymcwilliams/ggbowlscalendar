@@ -1,4 +1,4 @@
-FROM python:latest as base
+FROM python:latest AS base
 
 ENV PYTHONFAULTHANDLER=1 \
     PYTHONHASHSEED=random \
@@ -6,7 +6,7 @@ ENV PYTHONFAULTHANDLER=1 \
 
 WORKDIR /app
 
-FROM base as builder
+FROM base AS builder
 
 ENV POETRY_HOME=/opt/poetry
 RUN curl -sSL https://install.python-poetry.org | python3 -
