@@ -20,7 +20,7 @@ Select a Debug runtime (from Debug side window), e.g. `fallsindoor`
 
 ## Data Formats
 
-see link: [![icalendar-data](https://github.com/garymcwilliams/icalendar-data)]
+see link: [Data Formats][data-formats]
 
 ## Managing python poetry dependencies
 
@@ -48,3 +48,4 @@ poetry add --dev pytest@latest
 [codecov-link]: https://codecov.io/github/garymcwilliams/ggbowlscalendar
 [sonar-image]: https://sonarcloud.io/api/project_badges/measure?project=garymcwilliams_ggbowlscalendar&metric=alert_status
 [sonar-link]: https://sonarcloud.io/summary/new_code?id=garymcwilliams_ggbowlscalendar
+[data-formats]: DataFormats.adoc
