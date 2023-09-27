@@ -7,17 +7,17 @@ authors = ["Gary McWilliams <gary.mcwilliams@verint.com>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 envparse = "^0.2.0"
-PyYAML = "^5.4.1"
-icalendar = "^4.0.7"
-rich = "^12.5.1"
+PyYAML = "^6.0.1"
+icalendar = "^4.1.1"
+rich = "^12.6.0"
 
 [tool.poetry.dev-dependencies]
-pylint = "^2.8.2"
+pylint = "^2.17.6"
 pylama = "^7.7.1"
-pytest = "^6.2.4"
+pytest = "^6.2.5"
+pytest-cov = "^2.12.1"
 rope = "^0.19.0"
-black = "^21.5b1"
-pytest-cov = "^2.12.0"
+black = "^21.12b0"
 
 [build-system]
 requires = ["poetry-core>=1.5.0"]
