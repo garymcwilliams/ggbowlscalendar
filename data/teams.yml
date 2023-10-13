@@ -1,3 +1,6 @@
+FALLS1:
+  name: Falls BZ
+  location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
 FALLSA:
   name: Falls A
   location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
@@ -226,3 +229,21 @@ WOODB:
 HOLYC:
   location: 40 Herbert St, Belfast BT14 7FH
   name: Holy Cross
+AFM:
+  location: unknown
+  name: AFM
+CARAV:
+  location: 20 N Circular Rd, Belfast BT15 5HB
+  name: Caravanners
+HIGHF:
+  location: Highfield Community Centre, High Grn, Belfast BT13 3SA
+  name: Highfield
+KINGH:
+  location: 13 Botanic Ave, Belfast BT7 1JG
+  name: Kinghan
+SYDEN:
+  location: J46G+4CJ Belfast
+  name: Sydenham
+YORKR:
+  location: unknown
+  name: York Road

@@ -1,0 +1,41 @@
+me: FALLS1
+start_time: '19:30'
+duration: 3
+matches:
+- home: SALIS
+  date: 2023-10-11
+  our_score: 0
+  opp_score: 0
+- away: HOLYC
+  date: 2023-10-17
+  newdate: 2023-10-24
+  our_score: 0
+  opp_score: 0
+- home: WILLO
+  date: 2023-10-25
+  our_score: 0
+  opp_score: 0
+- away: HIGHF
+  date: 2023-11-01
+  our_score: 0
+  opp_score: 0
+- home: SYDEN
+  date: 2023-11-08
+  our_score: 0
+  opp_score: 0
+- home: BELMO
+  date: 2023-11-15
+  our_score: 0
+  opp_score: 0
+- away: KINGH
+  date: 2023-11-23
+  our_score: 0
+  opp_score: 0
+- home: EWART
+  date: 2023-11-29
+  our_score: 0
+  opp_score: 0
+- away: CARAV
+  date: 2024-01-04
+  our_score: 0
+  opp_score: 0
