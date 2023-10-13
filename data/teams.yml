@@ -1,8 +1,8 @@
 FALLSA:
-  name: A
+  name: Falls A
   location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
 FALLSB:
-  name: B
+  name: Falls B
   location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
 FALLSMA:
   name: Midweek A
@@ -209,3 +209,20 @@ TOUR:
   name: Short Mat Tour
   location: Belfast Indoor Bowls Club, 115 Milltown Rd, Belfast BT8 7XP, UK
   start_time: '09:00'
+
+# Mullan indoor teams
+HANNA:
+  location: Musgrave Park, 7JB, Stockmans Ln, Belfast BT9, UK
+  name: Hannahstown
+STANN:
+  location: St Anne's Presbytery, Kingsway, Belfast BT10 0LF
+  name: St Anne's
+  start_time: '12:30'
+WOODB:
+  location: Horn Drive Community Centre, 44A Horn Dr, Belfast BT11 9GS, UK
+  name: Woodbourne
+
+# Belfast indoor teams
+HOLYC:
+  location: 40 Herbert St, Belfast BT14 7FH
+  name: Holy Cross

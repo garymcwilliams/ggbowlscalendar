@@ -93,7 +93,7 @@
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsindoor",
-                "--year", "2022-23"
+                "--year", "2023-24"
             ],
         },
         {
@@ -105,7 +105,7 @@
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsindoorb",
-                "--year", "2022-23"
+                "--year", "2023-24"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
