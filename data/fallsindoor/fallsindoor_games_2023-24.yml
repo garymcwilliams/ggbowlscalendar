@@ -4,20 +4,21 @@ duration: 3
 matches:
 - home: STANN
   date: 2023-10-12
-  our_score: 0
+  newdate: 2023-11-02
+  our_score: 11
   opp_score: 0
 - away: HANNA
   date: 2023-10-17
-  our_score: 0
-  opp_score: 0
+  our_score: 9
+  opp_score: 2
 - home: FALLSB
   date: 2023-10-26
-  our_score: 0
-  opp_score: 0
+  our_score: 9
+  opp_score: 2
 - away: WOODB
   date: 2023-11-06
-  our_score: 0
-  opp_score: 0
+  our_score: 4
+  opp_score: 7
 - away: STANN
   date: 2023-11-19
   start_time: '14:30'
