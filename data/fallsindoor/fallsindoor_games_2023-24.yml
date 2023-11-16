@@ -22,6 +22,7 @@ matches:
 - away: STANN
   date: 2023-11-19
   start_time: '14:30'
+  newtime: '19:30'
   our_score: 0
   opp_score: 0
 - home: HANNA
