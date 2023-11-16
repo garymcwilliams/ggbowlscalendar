@@ -12,12 +12,12 @@ matches:
   opp_score: 9
 - home: STANN
   date: 2023-11-09
-  our_score: 0
-  opp_score: 0
+  our_score: 7
+  opp_score: 4
 - away: HANNA
   date: 2023-11-14
-  our_score: 0
-  opp_score: 0
+  our_score: 4
+  opp_score: 7
 - away: WOODB
   date: 2023-11-27
   our_score: 0
