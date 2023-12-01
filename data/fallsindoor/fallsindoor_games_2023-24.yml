@@ -23,12 +23,12 @@ matches:
   date: 2023-11-19
   start_time: '14:30'
   newtime: '19:30'
-  our_score: 0
+  our_score: 11
   opp_score: 0
 - home: HANNA
   date: 2023-11-30
-  our_score: 0
-  opp_score: 0
+  our_score: 5
+  opp_score: 6
 - away: FALLSB
   date: 2023-12-07
   our_score: 0
