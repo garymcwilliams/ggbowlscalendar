@@ -25,13 +25,13 @@ matches:
 - home: FALLSA
   date: 2023-12-07
   our_score: 0
-  opp_score: 0
+  opp_score: 11
 - away: STANN
   date: 2023-12-10
-  our_score: 0
-  opp_score: 0
+  our_score: 9
+  opp_score: 2
 - home: HANNA
   date: 2023-12-21
   newdate: 2023-12-12
-  our_score: 0
-  opp_score: 0
+  our_score: 2
+  opp_score: 9
