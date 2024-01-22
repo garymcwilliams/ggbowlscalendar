@@ -47,6 +47,7 @@ matches:
   opp_score: 0
 - away: AGHAG
   date: 2024-01-18
+  newdate: 2024-01-29
   our_score: 0
   opp_score: 0
 - home: HILDE
@@ -59,6 +60,11 @@ matches:
   opp_score: 0
 - home: PRIES
   date: 2024-02-15
+  our_score: 0
+  opp_score: 0
+- away: AGHAG
+  label: Cup
+  date: 2024-02-16
   our_score: 0
   opp_score: 0
 - home: ANNAH
