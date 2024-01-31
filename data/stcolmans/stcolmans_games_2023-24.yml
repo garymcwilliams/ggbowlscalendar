@@ -45,7 +45,7 @@ matches:
   date: 2024-01-11
   our_score: 0
   opp_score: 0
-- home: AGHAG
+- away: AGHAG
   date: 2024-01-18
   newdate: 2024-02-12
   our_score: 0
@@ -56,7 +56,7 @@ matches:
   opp_score: 0
 - home: AGHAG
   label: Cup
-  date: 2024-02-29
+  date: 2024-01-29
   our_score: 1
   opp_score: 0
 - away: BALLI
