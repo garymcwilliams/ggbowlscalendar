@@ -18,6 +18,7 @@ matches:
   date: 2023-11-14
   our_score: 4
   opp_score: 7
+
 - away: WOODB
   date: 2023-11-27
   our_score: 9
@@ -54,5 +55,28 @@ matches:
 - home: WOODB
   label: Devine Cup
   date: 2024-02-15
+  our_score: 0
+  opp_score: 0
+
+- home: HANNA
+  label: Devine Cup
+  date: 2024-02-22
+  our_score: 0
+  opp_score: 0
+- away: STANN
+  label: Devine Cup
+  date: 2024-03-03
+  our_score: 0
+  opp_score: 0
+- home: FALLSA
+  label: Devine Cup
+  date: 2024-03-14
+  newdate: 2024-03-07
+  our_score: 0
+  opp_score: 0
+- away: WOODB
+  label: Devine Cup
+  date: 2024-03-18
+  newdate: 2024-03-11
   our_score: 0
   opp_score: 0
