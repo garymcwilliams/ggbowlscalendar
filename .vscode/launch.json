@@ -37,7 +37,7 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
-            "name": "FallsBelfast1",
+            "name": "FallsBelfast",
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
@@ -46,22 +46,6 @@
             "args": [
                 "--team", "fallsbelfast",
                 "--year", "2023-24"
-            ],
-            "cwd": "${workspaceFolder}",
-            "console": "integratedTerminal",
-            "env": {},
-            "envFile": "${workspaceFolder}/.env",
-        },
-        {
-            "name": "FallsBelfast2",
-            "type": "python",
-            "request": "launch",
-            "stopOnEntry": false,
-            "python": "${command:python.interpreterPath}",
-            "program": "${workspaceFolder}/main.py",
-            "args": [
-                "--team", "fallsbelfast2",
-                "--year", "2022-23"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
