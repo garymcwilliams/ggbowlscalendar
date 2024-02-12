@@ -288,7 +288,6 @@ def test_result_newdate():
 
     ical_generator.generate_ical()
     ical_bytes = ical_generator.cal.to_ical()
-    sys.stdout.buffer.write(ical_bytes)
     assert ical_bytes == ical_content.encode()
 
 
