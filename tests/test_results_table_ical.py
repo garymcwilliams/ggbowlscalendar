@@ -3,7 +3,6 @@ test
 """
 
 import datetime
-import sys
 
 import pytest
 
