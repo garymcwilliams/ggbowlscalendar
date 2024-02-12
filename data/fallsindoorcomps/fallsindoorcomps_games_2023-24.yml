@@ -1,0 +1,57 @@
+me: CLUBCOMP
+start_time: '19:10'
+duration: 1
+matches:
+- home: 'Club Prelim'
+  date: 2024-02-13
+  our_score: 0
+  opp_score: 0
+- home: 'Club Triples 16'
+  date: 2024-02-19
+  our_score: 0
+  opp_score: 0
+- home: 'Club Open 16'
+  date: 2024-02-20
+  our_score: 0
+  opp_score: 0
+- home: 'Club Pairs 16'
+  date: 2024-02-27
+  our_score: 0
+  opp_score: 0
+- home: 'Club Mens and Ladies QF'
+  date: 2024-02-28
+  our_score: 0
+  opp_score: 0
+- home: 'Club Triples QF'
+  date: 2024-03-04
+  our_score: 0
+  opp_score: 0
+- home: 'Club Open QF'
+  date: 2024-03-05
+  our_score: 0
+  opp_score: 0
+- home: 'Club Pairs QF'
+  date: 2024-03-05
+  start_time: '20:30'
+  our_score: 0
+- home: 'Club Mens and Ladies SF'
+  date: 2024-03-12
+  our_score: 0
+  opp_score: 0
+- home: 'Club Open SF'
+  date: 2024-03-18
+  our_score: 0
+  opp_score: 0
+- home: 'Club Pairs SF'
+  date: 2024-03-18
+  start_time: '20:30'
+  our_score: 0
+  opp_score: 0
+- home: 'Club Triples SF'
+  date: 2024-03-19
+  our_score: 0
+  opp_score: 0
+- home: 'Club Finals Night'
+  date: 2024-03-21
+  our_score: 0
+  opp_score: 0

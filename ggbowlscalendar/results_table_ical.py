@@ -4,16 +4,17 @@ Generate ical for all matches
 
 import logging
 from datetime import datetime, timedelta
+
 from icalendar import Alarm, Calendar
 from icalendar.cal import Event
 
-from .league_results_manager import LeagueResultsManager, LeagueResult
-from .team_manager import TeamManager, TeamData
+from .league_results_manager import LeagueResult, LeagueResultsManager
+from .team_manager import TeamData, TeamManager
 
 
 def combine_date_time(date: datetime, time: str) -> str:
     """combine date and time, into a predefine text fotmat"""
-    calc_time = datetime.strptime(time, '%H:%M').time()
+    calc_time = datetime.strptime(time, "%H:%M").time()
     id_time = datetime.combine(date, calc_time)
     return datetime.strftime(id_time, "%Y%m%d%H%M")
 
@@ -21,9 +22,9 @@ def combine_date_time(date: datetime, time: str) -> str:
 class ResultsTableIcal:
     """generate ical entries for results"""
 
-    def __init__(self,
-                 results_manager: LeagueResultsManager,
-                 team_manager: TeamManager) -> None:
+    def __init__(
+        self, results_manager: LeagueResultsManager, team_manager: TeamManager
+    ) -> None:
         """
         Setup data for generating the ical entries
 
@@ -41,55 +42,52 @@ class ResultsTableIcal:
         self.cal = Calendar()
         self.logger = logging.getLogger(__name__)
 
-    def _opp_name(self,
-                  result: LeagueResult,
-                  opp_team_details: TeamData) -> str:
-        return (
-            f"{opp_team_details.name} {result.sub_team}" if result.sub_team
-            else opp_team_details.name
-        )
+    def _opp_name(self, result: LeagueResult, opp_team_details: TeamData) -> str:
+        if opp_team_details.name.startswith("Club"):
+            return result.opp_id
+        else:
+            return (
+                f"{opp_team_details.name} {result.sub_team}"
+                if result.sub_team
+                else opp_team_details.name
+            )
 
     def summary(self, result: LeagueResult, opp_team_details: TeamData) -> str:
         """Return match summary in pre-defined format"""
         opp_name = self._opp_name(result, opp_team_details)
         summary = None
-        if result.venue == 'home':
-            home_name = f"{self.my_team_details.name}"
-            away_name = f"({opp_name})"
+        if opp_name.startswith("Club"):
+            match_names = result.opp_id
+            summary = match_names
         else:
-            home_name = f"({opp_name})"
-            away_name = f"{self.my_team_details.name}"
-        match_names = f"{home_name} v {away_name}"
-        if result.not_played_yet():
-            summary = (
-                f"{match_names} "
-                f"{result.label}"
-            ).rstrip()
-        else:
-            summary = (
-                f"{match_names} "
-                f"{result.result} "
-                f"({result.format_our_score()} -"
-                f" {result.format_opp_score()}) "
-                f"{result.label}"
-            ).rstrip()
+            if result.venue == "home":
+                home_name = f"{self.my_team_details.name}"
+                away_name = f"({opp_name})"
+            else:
+                home_name = f"({opp_name})"
+                away_name = f"{self.my_team_details.name}"
+            match_names = f"{home_name} v {away_name}"
+            if result.not_played_yet():
+                summary = (f"{match_names} " f"{result.label}").rstrip()
+            else:
+                summary = (
+                    f"{match_names} "
+                    f"{result.result} "
+                    f"({result.format_our_score()} -"
+                    f" {result.format_opp_score()}) "
+                    f"{result.label}"
+                ).rstrip()
         self.logger.debug("summary='%s'", summary)
         return summary
 
-    def match_desc(self,
-                   result: LeagueResult,
-                   opp_team_details: TeamData) -> str:
+    def match_desc(self, result: LeagueResult, opp_team_details: TeamData) -> str:
         """Return match calendar description."""
         opp_name = self._opp_name(result, opp_team_details)
         venue = result.venue
         """if Neutral, change description of venue"""
         if result.location:
             venue = "neutral"
-        desc = (
-            f"{result.result} "
-            f"{venue} "
-            f"({opp_name})"
-        )
+        desc = f"{result.result} " f"{venue} " f"({opp_name})"
         if desc != desc.strip():
             self.logger.debug("desc='%s' from='%s'", desc.strip(), desc)
         return desc.strip()
@@ -122,10 +120,7 @@ class ResultsTableIcal:
         for any label used in the match.
         """
 
-        label = (
-            f"{result.label.replace(' ','')}" if result.label is not None
-            else ""
-        )
+        label = f"{result.label.replace(' ','')}" if result.label is not None else ""
 
         id_time = combine_date_time(result.date, result.time)
 
@@ -145,8 +140,7 @@ class ResultsTableIcal:
         self.cal.add("calscale", "GREGORIAN")
         self.cal.add("X-WR-TIMEZONE", "Europe/London")
 
-    def _find_location(self, result: LeagueResult,
-                       opp_team_details: TeamData) -> str:
+    def _find_location(self, result: LeagueResult, opp_team_details: TeamData) -> str:
         """
         find a location.
         For a regular match, this will be the location for the home or away
@@ -154,9 +148,7 @@ class ResultsTableIcal:
         for the teamid set as the location for the match.
         """
         if result.location:
-            neutral_team_details = self.team_manager.get_team_details(
-                result.location
-            )
+            neutral_team_details = self.team_manager.get_team_details(result.location)
             location = neutral_team_details.location
             self.logger.debug("neutral=%s", location)
         elif result.is_home():
@@ -169,11 +161,10 @@ class ResultsTableIcal:
     def _create_event(self, result: LeagueResult, now: datetime) -> Event:
         match_start = result.match_date_time() - timedelta(minutes=10)
         match_end = result.match_date_time() + timedelta(
-            hours=self.results_manager.duration)
-
-        opp_team_details = self.team_manager.get_team_details(
-            result.opp_id
+            hours=self.results_manager.duration
         )
+
+        opp_team_details = self.team_manager.get_team_details(result.opp_id)
         location = self._find_location(result, opp_team_details)
 
         event = Event()
@@ -187,8 +178,11 @@ class ResultsTableIcal:
         event.add("dtend", match_end)
         event.add("dtstamp", now)
         self.logger.debug(
-            "event=%s:%s:'%s':'%s'", match_start, match_end,
-            event.get("summary"), event.get("description")
+            "event=%s:%s:'%s':'%s'",
+            match_start,
+            match_end,
+            event.get("summary"),
+            event.get("description"),
         )
 
         alarm = Alarm()

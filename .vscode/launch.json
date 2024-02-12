@@ -97,6 +97,18 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
+            "name": "FallsIndoorComps",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "python": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "fallsindoorcomps",
+                "--year", "2023-24"
+            ],
+        },
+        {
             "name": "FallsMidweekA",
             "type": "python",
             "request": "launch",

@@ -1,10 +1,11 @@
 """
 test
 """
+
 from ggbowlscalendar.team_manager import TeamManager
 
-DATE_230402 = '2023-04-22'
-DATE_230430 = '2023-04-30'
+DATE_230402 = "2023-04-22"
+DATE_230430 = "2023-04-30"
 
 
 class TestTeamManager:
@@ -18,25 +19,35 @@ class TestTeamManager:
         """
 
         team_dict = {
-            'FALLSA': {'name': 'AAAA', 'location': 'AAA location'},
-            'CLIFT': {'name': 'clift', 'location': 'clift location'}
+            "FALLSA": {"name": "AAAA", "location": "AAA location"},
+            "CLIFT": {"name": "clift", "location": "clift location"},
         }
 
         team_manager = TeamManager.from_dict(team_dict)
-        assert team_manager.get_team_details('FALLSA').name == 'AAAA'
-        assert team_manager.get_team_details('FALLSA').location \
-            == 'AAA location'
-        assert team_manager.get_team_details('CLIFT').name == 'clift'
-        assert team_manager.get_team_details('CLIFT').location \
-            == 'clift location'
+        assert team_manager.get_team_details("FALLSA").name == "AAAA"
+        assert team_manager.get_team_details("FALLSA").location == "AAA location"
+        assert team_manager.get_team_details("CLIFT").name == "clift"
+        assert team_manager.get_team_details("CLIFT").location == "clift location"
 
     def test_unknown_team(self):
         """test unknown team process"""
         team_dict = {
-            'FALLSA': {'name': 'AAAA', 'location': 'AAA location'},
-            'CLIFT': {'name': 'clift', 'location': 'clift location'}
+            "FALLSA": {"name": "AAAA", "location": "AAA location"},
+            "CLIFT": {"name": "clift", "location": "clift location"},
         }
 
         team_manager = TeamManager.from_dict(team_dict)
-        assert team_manager.get_team_details('XYZZY').name == '***XYZZY***'
-        assert team_manager.get_team_details('XYZZY').location == 'TBD'
+        assert team_manager.get_team_details("XYZZY").name == "***XYZZY***"
+        assert team_manager.get_team_details("XYZZY").location == "TBD"
+
+    def test_clubcomp_team(self):
+        """test club competition process"""
+        team_dict = {
+            "FALLSA": {"name": "AAAA", "location": "AAA location"},
+            "CLIFT": {"name": "clift", "location": "clift location"},
+            "CLUBCOMP": {"name": "Club Competition", "location": "falls location"},
+        }
+
+        team_manager = TeamManager.from_dict(team_dict)
+        assert team_manager.get_team_details("Club Pairs").name == "Club Competition"
+        assert team_manager.get_team_details("Club Pairs").location == "falls location"

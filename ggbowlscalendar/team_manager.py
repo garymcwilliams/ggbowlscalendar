@@ -10,6 +10,7 @@ from typing import List
 @dataclass
 class TeamData:
     """basic Team data"""
+
     name: str
     location: str
 
@@ -56,8 +57,9 @@ class TeamManager:
         """
         teams = []
         for team_id, team_data in data.items():
-            team = Team(team_id=team_id, name=team_data["name"],
-                        location=team_data["location"])
+            team = Team(
+                team_id=team_id, name=team_data["name"], location=team_data["location"]
+            )
             teams.append(team)
 
         return cls(teams)
@@ -72,8 +74,12 @@ class TeamManager:
         Returns:
             dict: The team details.
         """
-        team = next((team for team in self.teams if team.team_id == team_id),
-                    None)
+
+        the_team_id = team_id
+        # special case for internal club comps
+        if the_team_id.startswith("Club"):
+            the_team_id = "CLUBCOMP"
+        team = next((team for team in self.teams if team.team_id == the_team_id), None)
         if team:
             return TeamData(team.name, team.location)
         return TeamData(f"***{team_id}***", "TBD")

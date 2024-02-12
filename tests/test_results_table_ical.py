@@ -1,19 +1,18 @@
 """
 test
 """
+
 import datetime
+import sys
 
 import pytest
+
+from ggbowlscalendar.league_results_manager import TBD_DATA, LeagueResultsManager
 from ggbowlscalendar.results_table_ical import ResultsTableIcal
-from ggbowlscalendar.league_results_manager import (
-    LeagueResultsManager,
-    TBD_DATA
-)
 from ggbowlscalendar.team_manager import TeamManager
 
-
-DATE_230422 = datetime.datetime.strptime("2023-04-22", '%Y-%m-%d')
-DATE_230430 = datetime.datetime.strptime("2023-04-30", '%Y-%m-%d')
+DATE_230422 = datetime.datetime.strptime("2023-04-22", "%Y-%m-%d")
+DATE_230430 = datetime.datetime.strptime("2023-04-30", "%Y-%m-%d")
 UTCNOW = datetime.datetime.now(datetime.timezone.utc)
 
 FALLSA = "FALLSA"
@@ -26,11 +25,16 @@ CLIFT_LOC = f"{CLIFT_NAME} location"
 NEUTR = "NEUTR"
 NEUTR_NAME = "Neutral"
 NEUTR_LOC = f"{NEUTR_NAME} location"
+CLUBCOMP = "CLUBCOMP"
+CLUBCOMP_NAME = "Club Competition"
+CLUBCOMP_LOC = "Club location"
+CLUB_PAIRS = "Club Pairs"
 
 TEAM_DICT = {
-    FALLSA: {'name': FALLSA_NAME, 'location': FALLSA_LOC},
-    CLIFT: {'name': CLIFT_NAME, 'location': CLIFT_LOC},
-    NEUTR: {'name': NEUTR_NAME, 'location': NEUTR_LOC},
+    FALLSA: {"name": FALLSA_NAME, "location": FALLSA_LOC},
+    CLIFT: {"name": CLIFT_NAME, "location": CLIFT_LOC},
+    NEUTR: {"name": NEUTR_NAME, "location": NEUTR_LOC},
+    CLUBCOMP: {"name": CLUBCOMP_NAME, "location": CLUBCOMP_LOC},
 }
 
 testdata = [
@@ -46,10 +50,7 @@ testdata = [
 
 
 @pytest.mark.parametrize("venue,our_score,opp_score,expected_result", testdata)
-def test_result_event(venue: str,
-                      our_score: int,
-                      opp_score: int,
-                      expected_result: str):
+def test_result_event(venue: str, our_score: int, opp_score: int, expected_result: str):
     """
     test all basic methods for results as ical events.
 
@@ -57,34 +58,33 @@ def test_result_event(venue: str,
     """
 
     match_dict = {
-        'me': FALLSA,
-        'start_time': '14:00',
-        'day': 'Sat',
-        'duration': 3,
-        'matches':
-            [
-                {
-                    venue: CLIFT,
-                    'label': 'Irish Cup',
-                    'date': DATE_230422,
-                    'our_score': our_score,
-                    'opp_score': opp_score,
-                },
-                {
-                    'away': 'CLIFT',
-                    'date': DATE_230430,
-                    'newdate': TBD_DATA,
-                    'our_score': 0,
-                    'opp_score': 0,
-                },
-            ]
+        "me": FALLSA,
+        "start_time": "14:00",
+        "day": "Sat",
+        "duration": 3,
+        "matches": [
+            {
+                venue: CLIFT,
+                "label": "Irish Cup",
+                "date": DATE_230422,
+                "our_score": our_score,
+                "opp_score": opp_score,
+            },
+            {
+                "away": "CLIFT",
+                "date": DATE_230430,
+                "newdate": TBD_DATA,
+                "our_score": 0,
+                "opp_score": 0,
+            },
+        ],
     }
 
     results_manager = LeagueResultsManager.from_dict(match_dict)
 
     team_manager = TeamManager.from_dict(TEAM_DICT)
 
-    if venue == 'home':
+    if venue == "home":
         home_name = FALLSA_NAME
         away_name = CLIFT_NAME_BRACES
         location = FALLSA_LOC
@@ -96,51 +96,47 @@ def test_result_event(venue: str,
 
     if our_score == 0 and opp_score == 0:
         score_display = ""
-        description = f'{venue} {CLIFT_NAME_BRACES}'
+        description = f"{venue} {CLIFT_NAME_BRACES}"
     else:
         score_display = f"{expected_result} ({our_score} - {opp_score}) "
-        description = f'{expected_result} {venue} {CLIFT_NAME_BRACES}'
+        description = f"{expected_result} {venue} {CLIFT_NAME_BRACES}"
 
     ical_generator = ResultsTableIcal(results_manager, team_manager)
     for result in results_manager.results:
         if result.newdate is None or result.newdate != TBD_DATA:
-            event = ical_generator._create_event(result,
-                                                 UTCNOW)
-            assert event.get('UID') == \
-                f'{FALLSA}-202304221400IrishCup@mc-williams.co.uk'
-            assert event.get('LOCATION') == location
-            expected_summary = (
-                                f"{match_names} "
-                                f"{score_display}"
-                                "Irish Cup"
-                                )
-            assert event.get('SUMMARY') == expected_summary
-            assert event.get('DESCRIPTION') == description
+            event = ical_generator._create_event(result, UTCNOW)
+            assert (
+                event.get("UID") == f"{FALLSA}-202304221400IrishCup@mc-williams.co.uk"
+            )
+            assert event.get("LOCATION") == location
+            expected_summary = f"{match_names} " f"{score_display}" "Irish Cup"
+            assert event.get("SUMMARY") == expected_summary
+            assert event.get("DESCRIPTION") == description
 
-    dtstamp = UTCNOW.strftime('%Y%m%dT%H%M%SZ')
+    dtstamp = UTCNOW.strftime("%Y%m%dT%H%M%SZ")
     ical_content = (
-                    "BEGIN:VCALENDAR\r\n"
-                    "VERSION:2.0\r\n"
-                    "PRODID:-//Bowling Calendar//mc-williams.co.uk//\r\n"
-                    "CALSCALE:GREGORIAN\r\n"
-                    "X-WR-TIMEZONE:Europe/London\r\n"
-                    "BEGIN:VEVENT\r\n"
-                    f"SUMMARY:{expected_summary}\r\n"
-                    "DTSTART;VALUE=DATE-TIME:20230422T135000\r\n"
-                    "DTEND;VALUE=DATE-TIME:20230422T170000\r\n"
-                    f"DTSTAMP;VALUE=DATE-TIME:{dtstamp}\r\n"
-                    "UID:FALLSA-202304221400IrishCup@mc-williams.co.uk\r\n"
-                    f"DESCRIPTION:{description}\r\n"
-                    f"LOCATION:{location}\r\n"
-                    "PRIORITY:5\r\n"
-                    "BEGIN:VALARM\r\n"
-                    "ACTION:DISPLAY\r\n"
-                    "DESCRIPTION:Reminder\r\n"
-                    "TRIGGER:-PT1H\r\n"
-                    "END:VALARM\r\n"
-                    "END:VEVENT\r\n"
-                    "END:VCALENDAR\r\n"
-                    )
+        "BEGIN:VCALENDAR\r\n"
+        "VERSION:2.0\r\n"
+        "PRODID:-//Bowling Calendar//mc-williams.co.uk//\r\n"
+        "CALSCALE:GREGORIAN\r\n"
+        "X-WR-TIMEZONE:Europe/London\r\n"
+        "BEGIN:VEVENT\r\n"
+        f"SUMMARY:{expected_summary}\r\n"
+        "DTSTART;VALUE=DATE-TIME:20230422T135000\r\n"
+        "DTEND;VALUE=DATE-TIME:20230422T170000\r\n"
+        f"DTSTAMP;VALUE=DATE-TIME:{dtstamp}\r\n"
+        "UID:FALLSA-202304221400IrishCup@mc-williams.co.uk\r\n"
+        f"DESCRIPTION:{description}\r\n"
+        f"LOCATION:{location}\r\n"
+        "PRIORITY:5\r\n"
+        "BEGIN:VALARM\r\n"
+        "ACTION:DISPLAY\r\n"
+        "DESCRIPTION:Reminder\r\n"
+        "TRIGGER:-PT1H\r\n"
+        "END:VALARM\r\n"
+        "END:VEVENT\r\n"
+        "END:VCALENDAR\r\n"
+    )
 
     ical_generator.generate_ical()
     ical_bytes = ical_generator.cal.to_ical()
@@ -153,22 +149,21 @@ def test_result_neutral():
     """
 
     match_dict = {
-        'me': FALLSA,
-        'start_time': '14:00',
-        'day': 'Sat',
-        'duration': 3,
-        'matches':
-            [
-                {
-                    'home': CLIFT,
-                    'location': 'NEUTR',
-                    'date': DATE_230422,
-                    'newdate': DATE_230430,
-                    'newtime': '18:30',
-                    'our_score': 6,
-                    'opp_score': 1,
-                },
-            ]
+        "me": FALLSA,
+        "start_time": "14:00",
+        "day": "Sat",
+        "duration": 3,
+        "matches": [
+            {
+                "home": CLIFT,
+                "location": "NEUTR",
+                "date": DATE_230422,
+                "newdate": DATE_230430,
+                "newtime": "18:30",
+                "our_score": 6,
+                "opp_score": 1,
+            },
+        ],
     }
 
     results_manager = LeagueResultsManager.from_dict(match_dict)
@@ -181,47 +176,42 @@ def test_result_neutral():
     match_names = f"{home_name} v {away_name}"
 
     score_display = "W (6 - 1)"
-    description = f'W neutral {CLIFT_NAME_BRACES}'
+    description = f"W neutral {CLIFT_NAME_BRACES}"
 
     ical_generator = ResultsTableIcal(results_manager, team_manager)
     for result in results_manager.results:
         if result.newdate is None or result.newdate != TBD_DATA:
-            event = ical_generator._create_event(result,
-                                                 UTCNOW)
-            assert event.get('UID') == \
-                f'{FALLSA}-202304221400@mc-williams.co.uk'
-            assert event.get('LOCATION') == location
-            expected_summary = (
-                                f"{match_names} "
-                                f"{score_display}"
-                                )
-            assert event.get('SUMMARY') == expected_summary
-            assert event.get('DESCRIPTION') == description
+            event = ical_generator._create_event(result, UTCNOW)
+            assert event.get("UID") == f"{FALLSA}-202304221400@mc-williams.co.uk"
+            assert event.get("LOCATION") == location
+            expected_summary = f"{match_names} " f"{score_display}"
+            assert event.get("SUMMARY") == expected_summary
+            assert event.get("DESCRIPTION") == description
 
-    dtstamp = UTCNOW.strftime('%Y%m%dT%H%M%SZ')
+    dtstamp = UTCNOW.strftime("%Y%m%dT%H%M%SZ")
     ical_content = (
-                    "BEGIN:VCALENDAR\r\n"
-                    "VERSION:2.0\r\n"
-                    "PRODID:-//Bowling Calendar//mc-williams.co.uk//\r\n"
-                    "CALSCALE:GREGORIAN\r\n"
-                    "X-WR-TIMEZONE:Europe/London\r\n"
-                    "BEGIN:VEVENT\r\n"
-                    f"SUMMARY:{expected_summary}\r\n"
-                    "DTSTART;VALUE=DATE-TIME:20230430T182000\r\n"
-                    "DTEND;VALUE=DATE-TIME:20230430T213000\r\n"
-                    f"DTSTAMP;VALUE=DATE-TIME:{dtstamp}\r\n"
-                    "UID:FALLSA-202304221400@mc-williams.co.uk\r\n"
-                    f"DESCRIPTION:{description}\r\n"
-                    f"LOCATION:{location}\r\n"
-                    "PRIORITY:5\r\n"
-                    "BEGIN:VALARM\r\n"
-                    "ACTION:DISPLAY\r\n"
-                    "DESCRIPTION:Reminder\r\n"
-                    "TRIGGER:-PT1H\r\n"
-                    "END:VALARM\r\n"
-                    "END:VEVENT\r\n"
-                    "END:VCALENDAR\r\n"
-                    )
+        "BEGIN:VCALENDAR\r\n"
+        "VERSION:2.0\r\n"
+        "PRODID:-//Bowling Calendar//mc-williams.co.uk//\r\n"
+        "CALSCALE:GREGORIAN\r\n"
+        "X-WR-TIMEZONE:Europe/London\r\n"
+        "BEGIN:VEVENT\r\n"
+        f"SUMMARY:{expected_summary}\r\n"
+        "DTSTART;VALUE=DATE-TIME:20230430T182000\r\n"
+        "DTEND;VALUE=DATE-TIME:20230430T213000\r\n"
+        f"DTSTAMP;VALUE=DATE-TIME:{dtstamp}\r\n"
+        "UID:FALLSA-202304221400@mc-williams.co.uk\r\n"
+        f"DESCRIPTION:{description}\r\n"
+        f"LOCATION:{location}\r\n"
+        "PRIORITY:5\r\n"
+        "BEGIN:VALARM\r\n"
+        "ACTION:DISPLAY\r\n"
+        "DESCRIPTION:Reminder\r\n"
+        "TRIGGER:-PT1H\r\n"
+        "END:VALARM\r\n"
+        "END:VEVENT\r\n"
+        "END:VCALENDAR\r\n"
+    )
 
     ical_generator.generate_ical()
     ical_bytes = ical_generator.cal.to_ical()
@@ -234,21 +224,20 @@ def test_result_newdate():
     """
 
     match_dict = {
-        'me': FALLSA,
-        'start_time': '14:00',
-        'day': 'Sat',
-        'duration': 3,
-        'matches':
-            [
-                {
-                    'home': CLIFT,
-                    'date': DATE_230422,
-                    'newdate': DATE_230430,
-                    'newtime': '18:30',
-                    'our_score': 6,
-                    'opp_score': 1,
-                },
-            ]
+        "me": FALLSA,
+        "start_time": "14:00",
+        "day": "Sat",
+        "duration": 3,
+        "matches": [
+            {
+                "home": CLIFT,
+                "date": DATE_230422,
+                "newdate": DATE_230430,
+                "newtime": "18:30",
+                "our_score": 6,
+                "opp_score": 1,
+            },
+        ],
     }
 
     results_manager = LeagueResultsManager.from_dict(match_dict)
@@ -261,50 +250,116 @@ def test_result_newdate():
     match_names = f"{home_name} v {away_name}"
 
     score_display = "W (6 - 1)"
-    description = f'W home {CLIFT_NAME_BRACES}'
+    description = f"W home {CLIFT_NAME_BRACES}"
 
     ical_generator = ResultsTableIcal(results_manager, team_manager)
     for result in results_manager.results:
         if result.newdate is None or result.newdate != TBD_DATA:
-            event = ical_generator._create_event(result,
-                                                 UTCNOW)
-            assert event.get('UID') == \
-                f'{FALLSA}-202304221400@mc-williams.co.uk'
-            assert event.get('LOCATION') == location
-            expected_summary = (
-                                f"{match_names} "
-                                f"{score_display}"
-                                )
-            assert event.get('SUMMARY') == expected_summary
-            assert event.get('DESCRIPTION') == description
+            event = ical_generator._create_event(result, UTCNOW)
+            assert event.get("UID") == f"{FALLSA}-202304221400@mc-williams.co.uk"
+            assert event.get("LOCATION") == location
+            expected_summary = f"{match_names} " f"{score_display}"
+            assert event.get("SUMMARY") == expected_summary
+            assert event.get("DESCRIPTION") == description
 
-    dtstamp = UTCNOW.strftime('%Y%m%dT%H%M%SZ')
+    dtstamp = UTCNOW.strftime("%Y%m%dT%H%M%SZ")
     ical_content = (
-                    "BEGIN:VCALENDAR\r\n"
-                    "VERSION:2.0\r\n"
-                    "PRODID:-//Bowling Calendar//mc-williams.co.uk//\r\n"
-                    "CALSCALE:GREGORIAN\r\n"
-                    "X-WR-TIMEZONE:Europe/London\r\n"
-                    "BEGIN:VEVENT\r\n"
-                    f"SUMMARY:{expected_summary}\r\n"
-                    "DTSTART;VALUE=DATE-TIME:20230430T182000\r\n"
-                    "DTEND;VALUE=DATE-TIME:20230430T213000\r\n"
-                    f"DTSTAMP;VALUE=DATE-TIME:{dtstamp}\r\n"
-                    "UID:FALLSA-202304221400@mc-williams.co.uk\r\n"
-                    f"DESCRIPTION:{description}\r\n"
-                    f"LOCATION:{location}\r\n"
-                    "PRIORITY:5\r\n"
-                    "BEGIN:VALARM\r\n"
-                    "ACTION:DISPLAY\r\n"
-                    "DESCRIPTION:Reminder\r\n"
-                    "TRIGGER:-PT1H\r\n"
-                    "END:VALARM\r\n"
-                    "END:VEVENT\r\n"
-                    "END:VCALENDAR\r\n"
-                    )
+        "BEGIN:VCALENDAR\r\n"
+        "VERSION:2.0\r\n"
+        "PRODID:-//Bowling Calendar//mc-williams.co.uk//\r\n"
+        "CALSCALE:GREGORIAN\r\n"
+        "X-WR-TIMEZONE:Europe/London\r\n"
+        "BEGIN:VEVENT\r\n"
+        f"SUMMARY:{expected_summary}\r\n"
+        "DTSTART;VALUE=DATE-TIME:20230430T182000\r\n"
+        "DTEND;VALUE=DATE-TIME:20230430T213000\r\n"
+        f"DTSTAMP;VALUE=DATE-TIME:{dtstamp}\r\n"
+        "UID:FALLSA-202304221400@mc-williams.co.uk\r\n"
+        f"DESCRIPTION:{description}\r\n"
+        f"LOCATION:{location}\r\n"
+        "PRIORITY:5\r\n"
+        "BEGIN:VALARM\r\n"
+        "ACTION:DISPLAY\r\n"
+        "DESCRIPTION:Reminder\r\n"
+        "TRIGGER:-PT1H\r\n"
+        "END:VALARM\r\n"
+        "END:VEVENT\r\n"
+        "END:VCALENDAR\r\n"
+    )
 
     ical_generator.generate_ical()
     ical_bytes = ical_generator.cal.to_ical()
+    sys.stdout.buffer.write(ical_bytes)
+    assert ical_bytes == ical_content.encode()
+
+
+def test_result_clubcomp():
+    """
+    test special processing for club comps
+    """
+
+    match_dict = {
+        "me": CLUBCOMP,
+        "start_time": "14:00",
+        "day": "Sat",
+        "duration": 1,
+        "matches": [
+            {
+                "home": CLUB_PAIRS,
+                "date": DATE_230422,
+                "our_score": 0,
+                "opp_score": 0,
+            },
+        ],
+    }
+
+    results_manager = LeagueResultsManager.from_dict(match_dict)
+
+    team_manager = TeamManager.from_dict(TEAM_DICT)
+
+    location = CLUBCOMP_LOC
+
+    description = f"home ({CLUB_PAIRS})"
+    expected_summary = CLUB_PAIRS
+
+    ical_generator = ResultsTableIcal(results_manager, team_manager)
+    for result in results_manager.results:
+        if result.newdate is None or result.newdate != TBD_DATA:
+            event = ical_generator._create_event(result, UTCNOW)
+            assert event.get("UID") == f"{CLUBCOMP}-202304221400@mc-williams.co.uk"
+            assert event.get("LOCATION") == location
+            assert event.get("SUMMARY") == expected_summary
+            assert event.get("DESCRIPTION") == description
+
+    dtstamp = UTCNOW.strftime("%Y%m%dT%H%M%SZ")
+    ical_content = (
+        "BEGIN:VCALENDAR\r\n"
+        "VERSION:2.0\r\n"
+        "PRODID:-//Bowling Calendar//mc-williams.co.uk//\r\n"
+        "CALSCALE:GREGORIAN\r\n"
+        "X-WR-TIMEZONE:Europe/London\r\n"
+        "BEGIN:VEVENT\r\n"
+        f"SUMMARY:{expected_summary}\r\n"
+        "DTSTART;VALUE=DATE-TIME:20230422T135000\r\n"
+        "DTEND;VALUE=DATE-TIME:20230422T150000\r\n"
+        f"DTSTAMP;VALUE=DATE-TIME:{dtstamp}\r\n"
+        "UID:CLUBCOMP-202304221400@mc-williams.co.uk\r\n"
+        f"DESCRIPTION:{description}\r\n"
+        f"LOCATION:{location}\r\n"
+        "PRIORITY:5\r\n"
+        "BEGIN:VALARM\r\n"
+        "ACTION:DISPLAY\r\n"
+        "DESCRIPTION:Reminder\r\n"
+        "TRIGGER:-PT1H\r\n"
+        "END:VALARM\r\n"
+        "END:VEVENT\r\n"
+        "END:VCALENDAR\r\n"
+    )
+
+    ical_generator.generate_ical()
+    ical_bytes = ical_generator.cal.to_ical()
+    with open("gaz.txt", "wb") as f:
+        f.write(ical_bytes)
     assert ical_bytes == ical_content.encode()
 
 
@@ -314,13 +369,11 @@ def test_no_results():
     """
 
     match_dict = {
-        'me': 'FALLSA',
-        'start_time': '14:00',
-        'day': 'Sat',
-        'duration': 3,
-        'matches':
-            [
-            ]
+        "me": "FALLSA",
+        "start_time": "14:00",
+        "day": "Sat",
+        "duration": 3,
+        "matches": [],
     }
 
     results_manager = LeagueResultsManager.from_dict(match_dict)
