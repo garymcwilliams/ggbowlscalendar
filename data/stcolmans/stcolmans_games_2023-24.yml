@@ -48,6 +48,7 @@ matches:
 - away: AGHAG
   date: 2024-01-18
   newdate: 2024-02-13
+  start_time: '20:15'
   our_score: 0
   opp_score: 0
 - home: HILDE
@@ -61,8 +62,8 @@ matches:
   opp_score: 0
 - away: BALLI
   date: 2024-01-31
-  our_score: 0
-  opp_score: 0
+  our_score: 1.5
+  opp_score: 5.5
 - home: PRIES
   date: 2024-02-15
   our_score: 0
@@ -73,6 +74,7 @@ matches:
   opp_score: 0
 - away: LOGHA
   date: 2024-02-29
+  start_time: '19:30'
   label: Charity Plate
   our_score: 0
   opp_score: 0
