@@ -81,5 +81,7 @@ class TeamManager:
             the_team_id = "CLUBCOMP"
         team = next((team for team in self.teams if team.team_id == the_team_id), None)
         if team:
+            # TODO: check if the team has it's own default start_time to use
+            # for matches
             return TeamData(team.name, team.location)
         return TeamData(f"***{team_id}***", "TBD")
