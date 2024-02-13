@@ -71,6 +71,11 @@ matches:
   date: 2024-02-22
   our_score: 0
   opp_score: 0
+- away: LOGHA
+  date: 2024-02-29
+  label: Charity Plate
+  our_score: 0
+  opp_score: 0
 - away: ROCK
   date: 2024-02-26
   our_score: 0
