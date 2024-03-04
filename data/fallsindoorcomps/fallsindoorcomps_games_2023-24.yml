@@ -8,7 +8,7 @@ matches:
   opp_score: 0
 - home: 'Club Triples 16'
   date: 2024-02-19
-  newdate: 2024-02-27
+  newdate: 2024-03-04
   our_score: 0
   opp_score: 0
 - home: 'Club Open 16'
@@ -17,39 +17,49 @@ matches:
   opp_score: 0
 - home: 'Club Pairs 16'
   date: 2024-02-27
+  newdate: 2024-03-05
   our_score: 0
   opp_score: 0
 - home: 'Club Mens and Ladies QF'
   date: 2024-02-28
+  newdate: 2024-03-12
+  newtime: '20:10'
   our_score: 0
   opp_score: 0
 - home: 'Club Triples QF'
   date: 2024-03-04
+  newtime: '20:10'
   our_score: 0
   opp_score: 0
 - home: 'Club Open QF'
   date: 2024-03-05
+  newdate: 2024-03-12
   our_score: 0
   opp_score: 0
 - home: 'Club Pairs QF'
   date: 2024-03-05
   start_time: '20:30'
+  newtime: '21:10'
   our_score: 0
 - home: 'Club Mens and Ladies SF'
   date: 2024-03-12
+  newdate: 2024-03-18
   our_score: 0
   opp_score: 0
 - home: 'Club Open SF'
   date: 2024-03-18
+  newdate: 2024-03-19
   our_score: 0
   opp_score: 0
 - home: 'Club Pairs SF'
   date: 2024-03-18
   start_time: '20:30'
+  newtime: '20:10'
   our_score: 0
   opp_score: 0
 - home: 'Club Triples SF'
   date: 2024-03-19
+  newtime: '20:00'
   our_score: 0
   opp_score: 0
 - home: 'Club Finals Night'
