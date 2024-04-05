@@ -119,7 +119,7 @@
             "console": "integratedTerminal",
             "env": {
                 "ICAL_TEAM": "fallsmidweeka",
-                "ICAL_YEAR": "2022"
+                "ICAL_YEAR": "2024"
             },
             "envFile": "${workspaceFolder}/.env",
         },
@@ -134,7 +134,7 @@
             "console": "integratedTerminal",
             "env": {
                 "ICAL_TEAM": "fallsmidweekb",
-                "ICAL_YEAR": "2023"
+                "ICAL_YEAR": "2024"
             },
             "envFile": "${workspaceFolder}/.env",
         },
