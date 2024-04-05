@@ -31,12 +31,15 @@ ARDS:
 BALME:
   name: Ballymena
   location: 10 Old Ballymoney Rd Ballymena BT43 6LX
-BALWA:
-  name: Ballywalter
-  location: GGP7+GX Newtownards
+BALML:
+  name: Balmoral
+  location: TBD
 BALMO:
   name: Ballymoney
   location: 37A Church Street, Ballymoney, BT53 6HS
+BALWA:
+  name: Ballywalter
+  location: GGP7+GX Newtownards
 BELFA:
   name: Belfast
   location: TBD

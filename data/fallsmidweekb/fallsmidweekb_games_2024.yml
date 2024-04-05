@@ -1,0 +1,62 @@
+me: FALLSMB
+start_time: '18:30'
+duration: 3
+matches:
+- away: SHAFT
+  date: 2024-05-08
+  our_score: 0
+  opp_score: 0
+- home: UTRAN
+  team: B
+  date: 2024-05-15
+  our_score: 0
+  opp_score: 0
+- away: BALML
+  date: 2024-05-22
+  our_score: 0
+  opp_score: 0
+- home: KNOCK
+  date: 2024-05-29
+  our_score: 0
+  opp_score: 0
+- away: NICS
+  date: 2024-06-05
+  our_score: 0
+  opp_score: 0
+- home: FORTH
+  date: 2024-06-12
+  our_score: 0
+  opp_score: 0
+- away: CAVEH
+  date: 2024-06-19
+  our_score: 0
+  opp_score: 0
+- home: BELMO
+  date: 2024-06-26
+  our_score: 0
+  opp_score: 0
+- away: MAGHD
+  date: 2024-07-03
+  our_score: 0
+  opp_score: 0
+- away: SHAFT
+  date: 2024-07-04
+  label: Midweek Cup
+  our_score: 0
+  opp_score: 0
+- home: WILLO
+  date: 2024-07-10
+  our_score: 0
+  opp_score: 0
+- home: DOWNP
+  date: 2024-07-17
+  our_score: 0
+  opp_score: 0
+- away: COMBR
+  date: 2024-07-24
+  our_score: 0
+  opp_score: 0
+- home: OWENB
+  date: 2024-08-07
+  our_score: 0
+  opp_score: 0
