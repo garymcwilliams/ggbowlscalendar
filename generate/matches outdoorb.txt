@@ -1,0 +1,17 @@
+FALLSB
+fallsoutdoorb_games_2024
+3
+2024, 04, 27
+14:00
+home UTRAN 0
+away BALML 7
+home COMBE 10
+home CAVEH 11
+away ALBER 7
+away EWART 7
+home PICKI 7
+away OWENB 7
+away HILDE 7
+home SAINT 7
+home KNOCK 14
+away UTRAN 7
