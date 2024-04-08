@@ -179,7 +179,7 @@
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsoutdoora",
-                "--year", "2023"
+                "--year", "2024"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
@@ -195,7 +195,7 @@
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsoutdoorb",
-                "--year", "2023"
+                "--year", "2024"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",

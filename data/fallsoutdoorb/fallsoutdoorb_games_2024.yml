@@ -1,0 +1,75 @@
+me: FALLSB
+start_time: '14:00'
+duration: 3
+matches:
+- home: UTRAN
+  team: B
+  date: 2024-04-27
+  our_score: 0
+  opp_score: 0
+- away: BALML
+  team: B
+  date: 2024-05-04
+  our_score: 0
+  opp_score: 0
+- home: COMBR
+  date: 2024-05-14
+  start_time: '18:30'
+  our_score: 0
+  opp_score: 0
+- home: CAVEH
+  team: A
+  date: 2024-05-25
+  our_score: 0
+  opp_score: 0
+- away: BALME
+  label: PG Junior Cup
+  date: 2024-05-30
+  start_time: '18:30'
+  our_score: 0
+  opp_score: 0
+- home: CAVEH
+  label: IBA Junior Cup
+  date: 2024-06-01
+  our_score: 0
+  opp_score: 0
+- away: ALBER
+  date: 2024-06-01
+  newdate: 2024-06-04
+  start_time: '18:30'
+  our_score: 0
+  opp_score: 0
+- away: EWART
+  team: B
+  date: 2024-06-08
+  our_score: 0
+  opp_score: 0
+- home: PICKI
+  team: B
+  date: 2024-06-15
+  our_score: 0
+  opp_score: 0
+- away: OWENB
+  date: 2024-06-22
+  our_score: 0
+  opp_score: 0
+- away: HILDE
+  team: B
+  date: 2024-06-29
+  our_score: 0
+  opp_score: 0
+- home: SAINT
+  date: 2024-07-06
+  our_score: 0
+  opp_score: 0
+- home: KNOCK
+  team: B
+  date: 2024-07-20
+  our_score: 0
+  opp_score: 0
+- away: UTRAN
+  team: C
+  date: 2024-07-27
+  start_time: '17:30'
+  our_score: 0
+  opp_score: 0
