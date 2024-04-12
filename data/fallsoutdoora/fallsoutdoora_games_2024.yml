@@ -64,7 +64,7 @@ matches:
   date: 2024-06-29
   our_score: 0
   opp_score: 0
-- away: BALML
+- away: PICKI
   team: A
   date: 2024-07-20
   our_score: 0
@@ -74,8 +74,8 @@ matches:
   date: 2024-07-27
   our_score: 0
   opp_score: 0
-- away: PICKI
-  team: A
+- away: OLDBL
+  team: B
   date: 2024-08-10
   our_score: 0
   opp_score: 0
@@ -88,18 +88,18 @@ matches:
   date: 2024-08-24
   our_score: 0
   opp_score: 0
-- away: HILDE
-  team: A
+- home: DUNBA
+  team: B
   date: 2024-08-31
   our_score: 0
   opp_score: 0
-- home: DUNBA
-  team: B
+- away: HILDE
+  team: A
   date: 2024-09-07
   our_score: 0
   opp_score: 0
-- away: OLDBL
-  team: B
+- away: BALML
+  team: A
   date: 2024-09-14
   our_score: 0
   opp_score: 0
