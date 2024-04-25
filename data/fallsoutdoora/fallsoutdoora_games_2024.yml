@@ -5,6 +5,7 @@ matches:
 - away: KNOCK
   team: A
   date: 2024-04-27
+  start_time: '13:00'
   our_score: 0
   opp_score: 0
 - home: BALML
