@@ -5,8 +5,8 @@ matches:
 - home: UTRAN
   team: B
   date: 2024-04-27
-  our_score: 0
-  opp_score: 0
+  our_score: 6
+  opp_score: 1
 - away: BALML
   team: B
   date: 2024-05-04
