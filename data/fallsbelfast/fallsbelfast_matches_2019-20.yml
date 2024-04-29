@@ -9,7 +9,7 @@ matches:
   opp_score: 0
 - home: CLIFT
   date: '2019-10-16'
-  newdate: 
+  newdate:
   our_score: 0
   opp_score: 0
 - home: KINGH
@@ -38,7 +38,7 @@ matches:
   opp_score: 7
 - away: AFM
   date: '2020-01-15'
-  newdate: 
+  newdate:
   our_score: 0
   opp_score: 0
 - away: CARAV
@@ -47,7 +47,7 @@ matches:
   opp_score: 0
 - away: STBRI
   date: '2020-01-30'
-  newdate: 
+  newdate:
   our_score: 0
   opp_score: 0
 - home: AFM

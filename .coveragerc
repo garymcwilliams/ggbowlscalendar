@@ -1,5 +1,5 @@
 [run]
-omit = 
+omit =
 	tests/*
 	ggbowlscalendar/utils.py
 	ggbowlscalendar/results_table_printer.py
