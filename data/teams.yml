@@ -19,10 +19,10 @@ CLUBCOMP:
 GARY:
   name: Gary
   location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
-ALBER: 
+ALBER:
   name: Albert Foundry
   location: Paisley Park, W Circular Rd, Belfast BT13 3QH
-ANTRL: 
+ANTRL:
   name: Antrim Lawn
   location: Allen Park, 45 Castle Rd, Antrim BT41 4NA
 ARDS:
@@ -91,13 +91,13 @@ LURGN:
 MAGHD:
   name: Magheradroll
   location: 24 Church Rd, Ballynahinch, Northern Ireland
-MALON: 
+MALON:
   name: Malone
   location: 240 Upper Malone Rd Dunmurry Belfast BT17 9GA
 MOSSL:
   name: Mossley
   location: 54.691641, -5.950702
-NBELF: 
+NBELF:
   name: North Belfast
   location: TBD
 NICS:
@@ -115,19 +115,19 @@ PICKI:
 PORTS:
   name: Portstewart
   location: The Warren, Old Coach Rd, Portstewart BT55 7HF
-PSNI: 
+PSNI:
   name: PSNI
   location: TBD
-SAINT: 
+SAINT:
   name: Saintfield
   location: 49 Crossgar Rd, Saintfield, Ballynahinch BT24 7JE
 SALIS:
   name: Salisbury
   location: 32 Salisbury Ave, Belfast BT15 5DZ
-SHAFT: 
+SHAFT:
   name: Shaftesbury
   location: 20A Annadale Ave, Belfast, BT7 3JH
-SHORT: 
+SHORT:
   name: Shorts
   location: 411-403 Holywood Rd Belfast BT4 2LP
 UTRAN:

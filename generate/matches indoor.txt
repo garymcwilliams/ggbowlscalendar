@@ -5,7 +5,7 @@ fallsindoor_matches_2022-23
 19:30
 home HANNA 4
 home STANN 7
-away WOODB 11 
+away WOODB 11
 home WOODB 10
 home STANN 7
 home FALLB 7
