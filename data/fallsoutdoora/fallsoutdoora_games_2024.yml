@@ -6,8 +6,8 @@ matches:
   team: A
   date: 2024-04-27
   start_time: '13:00'
-  our_score: 0
-  opp_score: 0
+  our_score: 6
+  opp_score: 1
 - home: BALML
   team: A
   date: 2024-05-04
