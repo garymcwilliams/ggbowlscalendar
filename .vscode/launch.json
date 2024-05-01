@@ -6,7 +6,7 @@
     "configurations": [
         {
             "name": "StadiumTuesday",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
@@ -22,7 +22,7 @@
         },
         {
             "name": "Competitions",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
@@ -38,7 +38,7 @@
         },
         {
             "name": "FallsBelfast",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
@@ -54,7 +54,7 @@
         },
         {
             "name": "FallsCompAnnette",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
@@ -70,7 +70,7 @@
         },
         {
             "name": "FallsIndoor",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
@@ -82,7 +82,7 @@
         },
         {
             "name": "FallsIndoorB",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
@@ -98,7 +98,7 @@
         },
         {
             "name": "FallsIndoorComps",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
@@ -110,7 +110,7 @@
         },
         {
             "name": "FallsMidweekA",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
@@ -125,7 +125,7 @@
         },
         {
             "name": "FallsMidweekB",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
@@ -140,7 +140,7 @@
         },
         {
             "name": "OutdoorComp",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
@@ -156,7 +156,7 @@
         },
         {
             "name": "FallsOutdoorA-New",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
@@ -172,7 +172,7 @@
         },
         {
             "name": "FallsOutdoorA",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
@@ -188,7 +188,7 @@
         },
         {
             "name": "FallsOutdoorB",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
@@ -204,7 +204,7 @@
         },
         {
             "name": "StColmans",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
@@ -219,7 +219,7 @@
         },
         {
             "name": "StColmansEnv",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
@@ -234,7 +234,7 @@
         },
         {
             "name": "FallsOutdoorL1",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
@@ -250,13 +250,13 @@
         },
         {
             "name": "Python: Current File",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "program": "${file}"
         },
         {
             "name": "PyTest",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
@@ -270,7 +270,7 @@
         },
         {
             "name": "PyTest Coverage",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
