@@ -4,8 +4,8 @@ duration: 3
 matches:
 - away: HILDE
   date: 2024-05-01
-  our_score: 0
-  opp_score: 0
+  our_score: 1
+  opp_score: 6
 - home: OLDBL
   date: 2024-05-08
   our_score: 0
