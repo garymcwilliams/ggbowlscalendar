@@ -6,14 +6,34 @@ matches:
   label: PG Fours
   date: 2024-05-03
   our_score: 0
-  opp_score: 1
+  opp_score: 0
+- home: D Rouse
+  label: Open Singles
+  date: 2024-05-26
+  our_score: 0
+  opp_score: 0
+- home: J McGettrick
+  label: Club 4-bowl Pairs
+  date: 2024-06-02
+  our_score: 0
+  opp_score: 0
 - away: UTRAN
   label: PG Pairs
   date: 2024-06-03
   our_score: 0
   opp_score: 0
+- home: TBD
+  label: Club 2-bowl Pairs
+  date: 2024-06-16
+  our_score: 0
+  opp_score: 0
 - home: UTRAN
   label: PG Senior Fours
   date: 2024-07-02
+  our_score: 0
+  opp_score: 0
+- home: TBD
+  label: Club Triples
+  date: 2024-07-21
   our_score: 0
   opp_score: 0
