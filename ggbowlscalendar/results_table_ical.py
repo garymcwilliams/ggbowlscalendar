@@ -55,6 +55,8 @@ class ResultsTableIcal:
     def summary(self, result: LeagueResult, opp_team_details: TeamData) -> str:
         """Return match summary in pre-defined format"""
         opp_name = self._opp_name(result, opp_team_details)
+        if opp_name.startswith("***"):
+            opp_name = opp_name.replace("*", "")
         summary = None
         if opp_name.startswith("Club"):
             match_names = result.opp_id
