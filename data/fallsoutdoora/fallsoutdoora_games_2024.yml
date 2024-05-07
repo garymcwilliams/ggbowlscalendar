@@ -11,8 +11,8 @@ matches:
 - home: BALML
   team: A
   date: 2024-05-04
-  our_score: 0
-  opp_score: 0
+  our_score: 1
+  opp_score: 6
 - away: MOSSL
   team: A
   date: 2024-05-14
