@@ -5,15 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "StadiumTuesday",
+            "name": "FallsOutdoorA",
             "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
-                "--team", "stadiumtuesday",
-                "--year", "2021-22"
+                "--team", "fallsoutdoora",
+                "--year", "2024"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
@@ -21,92 +21,20 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
-            "name": "Competitions",
+            "name": "FallsOutdoorB",
             "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
-                "--team", "competitions",
-                "--year", "2019-20"
+                "--team", "fallsoutdoorb",
+                "--year", "2024"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "env": {},
             "envFile": "${workspaceFolder}/.env",
-        },
-        {
-            "name": "FallsBelfast",
-            "type": "debugpy",
-            "request": "launch",
-            "stopOnEntry": false,
-            "python": "${command:python.interpreterPath}",
-            "program": "${workspaceFolder}/main.py",
-            "args": [
-                "--team", "fallsbelfast",
-                "--year", "2023-24"
-            ],
-            "cwd": "${workspaceFolder}",
-            "console": "integratedTerminal",
-            "env": {},
-            "envFile": "${workspaceFolder}/.env",
-        },
-        {
-            "name": "FallsCompAnnette",
-            "type": "debugpy",
-            "request": "launch",
-            "stopOnEntry": false,
-            "python": "${command:python.interpreterPath}",
-            "program": "${workspaceFolder}/main.py",
-            "args": [
-                "--team", "fallscompannette",
-                "--year", "2019"
-            ],
-            "cwd": "${workspaceFolder}",
-            "console": "integratedTerminal",
-            "env": {},
-            "envFile": "${workspaceFolder}/.env",
-        },
-        {
-            "name": "FallsIndoor",
-            "type": "debugpy",
-            "request": "launch",
-            "stopOnEntry": false,
-            "python": "${command:python.interpreterPath}",
-            "program": "${workspaceFolder}/main.py",
-            "args": [
-                "--team", "fallsindoor",
-                "--year", "2023-24"
-            ],
-        },
-        {
-            "name": "FallsIndoorB",
-            "type": "debugpy",
-            "request": "launch",
-            "stopOnEntry": false,
-            "python": "${command:python.interpreterPath}",
-            "program": "${workspaceFolder}/main.py",
-            "args": [
-                "--team", "fallsindoorb",
-                "--year", "2023-24"
-            ],
-            "cwd": "${workspaceFolder}",
-            "console": "integratedTerminal",
-            "env": {},
-            "envFile": "${workspaceFolder}/.env",
-        },
-        {
-            "name": "FallsIndoorComps",
-            "type": "debugpy",
-            "request": "launch",
-            "stopOnEntry": false,
-            "python": "${command:python.interpreterPath}",
-            "program": "${workspaceFolder}/main.py",
-            "args": [
-                "--team", "fallsindoorcomps",
-                "--year", "2023-24"
-            ],
         },
         {
             "name": "FallsMidweekA",
@@ -155,15 +83,15 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
-            "name": "FallsOutdoorA-New",
+            "name": "FallsBelfast",
             "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
-                "--team", "fallsoutdoora",
-                "--year", "2023"
+                "--team", "fallsbelfast",
+                "--year", "2023-24"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
@@ -171,15 +99,27 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
-            "name": "FallsOutdoorA",
+            "name": "FallsIndoor",
             "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
-                "--team", "fallsoutdoora",
-                "--year", "2024"
+                "--team", "fallsindoor",
+                "--year", "2023-24"
+            ],
+        },
+        {
+            "name": "FallsIndoorB",
+            "type": "debugpy",
+            "request": "launch",
+            "stopOnEntry": false,
+            "python": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "fallsindoorb",
+                "--year", "2023-24"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
@@ -187,20 +127,16 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
-            "name": "FallsOutdoorB",
+            "name": "FallsIndoorComps",
             "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
-                "--team", "fallsoutdoorb",
-                "--year", "2024"
+                "--team", "fallsindoorcomps",
+                "--year", "2023-24"
             ],
-            "cwd": "${workspaceFolder}",
-            "console": "integratedTerminal",
-            "env": {},
-            "envFile": "${workspaceFolder}/.env",
         },
         {
             "name": "StColmans",
@@ -230,22 +166,6 @@
                 "ICAL_TEAM":"stcolmans",
                 "ICAL_YEAR":"2018-19"
             },
-            "envFile": "${workspaceFolder}/.env",
-        },
-        {
-            "name": "FallsOutdoorL1",
-            "type": "debugpy",
-            "request": "launch",
-            "stopOnEntry": false,
-            "python": "${command:python.interpreterPath}",
-            "program": "${workspaceFolder}/main.py",
-            "args": [
-                "--team", "fallsoutdoorl1",
-                "--year", "2023"
-            ],
-            "cwd": "${workspaceFolder}",
-            "console": "integratedTerminal",
-            "env": {},
             "envFile": "${workspaceFolder}/.env",
         },
         {
