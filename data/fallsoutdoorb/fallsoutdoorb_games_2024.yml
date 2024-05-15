@@ -15,8 +15,8 @@ matches:
 - home: COMBR
   date: 2024-05-14
   start_time: '18:30'
-  our_score: 0
-  opp_score: 0
+  our_score: 5
+  opp_score: 2
 - home: CAVEH
   team: A
   date: 2024-05-25
