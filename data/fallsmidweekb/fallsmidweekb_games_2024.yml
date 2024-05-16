@@ -5,12 +5,12 @@ matches:
 - away: SHAFT
   date: 2024-05-08
   our_score: 0
-  opp_score: 0
+  opp_score: 7
 - home: UTRAN
   team: B
   date: 2024-05-15
-  our_score: 0
-  opp_score: 0
+  our_score: 5
+  opp_score: 2
 - away: BALML
   date: 2024-05-22
   our_score: 0
