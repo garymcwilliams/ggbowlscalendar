@@ -8,12 +8,12 @@ matches:
   opp_score: 6
 - home: OLDBL
   date: 2024-05-08
-  our_score: 0
-  opp_score: 0
+  our_score: 2
+  opp_score: 5
 - away: EWART
   date: 2024-05-15
-  our_score: 0
-  opp_score: 0
+  our_score: 1
+  opp_score: 6
 - home: LARNE
   date: 2024-05-22
   our_score: 0
