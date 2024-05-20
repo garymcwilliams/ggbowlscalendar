@@ -22,7 +22,7 @@ matches:
 - home: DUNGI
   label: IBA Inter Cup
   date: 2024-05-18
-  our_score: 0
+  our_score: 1
   opp_score: 0
 - home: PICKI
   team: A
@@ -40,11 +40,19 @@ matches:
   opp_score: 0
 - away: BALWA
   date: 2024-05-25
+  newtime: "11:00"
+  our_score: 0
+  opp_score: 0
+- away: HILDE
+  label: IBA Inter Cup
+  date: 2024-06-01
   our_score: 0
   opp_score: 0
 - home: EWART
   team: A
   date: 2024-06-01
+  newdate: 2024-06-04
+  newtime: "18:30"
   our_score: 0
   opp_score: 0
 - home: HILDE
