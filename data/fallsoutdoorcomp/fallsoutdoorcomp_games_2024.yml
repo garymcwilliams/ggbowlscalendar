@@ -12,7 +12,7 @@ matches:
   date: 2024-05-26
   newdate: 2024-05-19
   newtime: '12:00'
-  our_score: 0
+  our_score: 1
   opp_score: 0
 - home: J McGettrick
   label: Club 4-bowl Pairs
@@ -32,6 +32,11 @@ matches:
 - home: UTRAN
   label: PG Senior Fours
   date: 2024-07-02
+  our_score: 0
+  opp_score: 0
+- home: P McEwan
+  label: Open Singles
+  date: 2024-07-07
   our_score: 0
   opp_score: 0
 - home: TBD
