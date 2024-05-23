@@ -29,8 +29,8 @@ matches:
   date: 2024-05-18
   newdate: 2024-05-21
   start_time: '18:30'
-  our_score: 0
-  opp_score: 0
+  our_score: 5
+  opp_score: 2
 - home: EWART
   team: A
   label: PG Senior Cup
