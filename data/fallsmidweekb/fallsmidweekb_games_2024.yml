@@ -13,8 +13,8 @@ matches:
   opp_score: 2
 - away: BALML
   date: 2024-05-22
-  our_score: 0
-  opp_score: 0
+  our_score: 1
+  opp_score: 6
 - home: KNOCK
   date: 2024-05-29
   our_score: 0
