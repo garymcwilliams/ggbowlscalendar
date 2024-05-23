@@ -20,6 +20,7 @@ matches:
 - home: CAVEH
   team: A
   date: 2024-05-25
+  newtime: "12:00"
   our_score: 0
   opp_score: 0
 - away: BALME
