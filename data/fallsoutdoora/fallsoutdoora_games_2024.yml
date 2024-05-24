@@ -36,7 +36,7 @@ matches:
   label: PG Senior Cup
   date: 2024-05-23
   start_time: '18:30'
-  our_score: 0
+  our_score: 1
   opp_score: 0
 - away: BALWA
   date: 2024-05-25
@@ -46,6 +46,7 @@ matches:
 - away: HILDE
   label: IBA Inter Cup
   date: 2024-06-01
+  start_time: "13:00"
   our_score: 0
   opp_score: 0
 - home: EWART
