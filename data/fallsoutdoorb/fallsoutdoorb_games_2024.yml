@@ -21,8 +21,8 @@ matches:
   team: A
   date: 2024-05-25
   newtime: "12:00"
-  our_score: 0
-  opp_score: 0
+  our_score: 3.5
+  opp_score: 3.5
 - away: BALME
   label: PG Junior Cup
   date: 2024-05-30
