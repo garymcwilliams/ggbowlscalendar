@@ -17,8 +17,8 @@ matches:
   opp_score: 6
 - home: KNOCK
   date: 2024-05-29
-  our_score: 0
-  opp_score: 0
+  our_score: 4
+  opp_score: 3
 - away: NICS
   date: 2024-06-05
   our_score: 0
