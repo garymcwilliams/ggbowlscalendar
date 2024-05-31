@@ -28,7 +28,7 @@ matches:
   date: 2024-05-30
   start_time: '18:30'
   our_score: 0
-  opp_score: 0
+  opp_score: 1
 - home: CAVEH
   label: IBA Junior Cup
   date: 2024-06-01
