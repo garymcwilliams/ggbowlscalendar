@@ -45,9 +45,16 @@ matches:
   date: 2024-06-08
   our_score: 0
   opp_score: 0
+- away: PSNI
+  label: IBA Junior Cup
+  date: 2024-06-15
+  our_score: 0
+  opp_score: 0
 - home: PICKI
   team: B
   date: 2024-06-15
+  newdate: 2024-06-18
+  newtime: "18:30"
   our_score: 0
   opp_score: 0
 - away: OWENB
