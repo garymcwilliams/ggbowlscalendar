@@ -19,10 +19,17 @@ matches:
   date: 2024-06-02
   newdate: 2024-05-31
   our_score: 0
-  opp_score: 0
-- away: UTRAN
+  opp_score: 1
+- away: T Higgins
+  location: UTRAN
   label: PG Pairs
   date: 2024-06-03
+  our_score: 1
+  opp_score: 0
+- home: B Prunty
+  location: GARY
+  label: PG Pairs
+  date: 2024-06-10
   our_score: 0
   opp_score: 0
 - home: Garvan Mitchell
