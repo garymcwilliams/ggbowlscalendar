@@ -53,8 +53,8 @@ matches:
   date: 2024-06-01
   newdate: 2024-06-04
   newtime: "18:30"
-  our_score: 0
-  opp_score: 0
+  our_score: 6
+  opp_score: 1
 - home: HILDE
   team: A
   date: 2024-06-08
