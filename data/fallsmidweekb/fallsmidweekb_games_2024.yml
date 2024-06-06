@@ -21,8 +21,8 @@ matches:
   opp_score: 3
 - away: NICS
   date: 2024-06-05
-  our_score: 0
-  opp_score: 0
+  our_score: 6
+  opp_score: 1
 - home: FORTH
   date: 2024-06-12
   our_score: 0
