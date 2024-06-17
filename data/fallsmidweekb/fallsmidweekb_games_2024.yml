@@ -25,8 +25,8 @@ matches:
   opp_score: 1
 - home: FORTH
   date: 2024-06-12
-  our_score: 0
-  opp_score: 0
+  our_score: 6
+  opp_score: 1
 - away: CAVEH
   date: 2024-06-19
   our_score: 0
