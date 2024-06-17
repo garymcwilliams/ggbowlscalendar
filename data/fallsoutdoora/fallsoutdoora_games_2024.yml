@@ -58,13 +58,13 @@ matches:
 - home: HILDE
   team: A
   date: 2024-06-08
-  our_score: 0
-  opp_score: 0
+  our_score: 6
+  opp_score: 1
 - away: DUNBA
   team: B
   date: 2024-06-15
   our_score: 0
-  opp_score: 0
+  opp_score: 7
 - home: OLDBL
   team: B
   date: 2024-06-22
