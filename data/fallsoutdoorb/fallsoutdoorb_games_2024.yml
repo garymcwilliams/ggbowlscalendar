@@ -43,13 +43,13 @@ matches:
 - away: EWART
   team: B
   date: 2024-06-08
-  our_score: 0
-  opp_score: 0
+  our_score: 5.5
+  opp_score: 1.5
 - away: PSNI
   label: IBA Junior Cup
   date: 2024-06-15
   our_score: 0
-  opp_score: 0
+  opp_score: 1
 - home: PICKI
   team: B
   date: 2024-06-15
