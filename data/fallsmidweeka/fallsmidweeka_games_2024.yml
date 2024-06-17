@@ -29,8 +29,8 @@ matches:
 - away: PICKI
   team: A
   date: 2024-06-12
-  our_score: 0
-  opp_score: 0
+  our_score: 2
+  opp_score: 5
 - home: DUNBA
   date: 2024-06-19
   our_score: 0
