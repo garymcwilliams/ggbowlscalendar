@@ -55,17 +55,17 @@ matches:
   date: 2024-06-15
   newdate: 2024-06-18
   newtime: "18:30"
-  our_score: 0
-  opp_score: 0
+  our_score: 2
+  opp_score: 5
 - away: OWENB
   date: 2024-06-22
   our_score: 0
-  opp_score: 0
+  opp_score: 7
 - away: HILDE
   team: B
   date: 2024-06-29
-  our_score: 0
-  opp_score: 0
+  our_score: 5
+  opp_score: 2
 - home: SAINT
   date: 2024-07-06
   our_score: 0
