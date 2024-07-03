@@ -29,12 +29,12 @@ matches:
   opp_score: 1
 - away: CAVEH
   date: 2024-06-19
-  our_score: 0
-  opp_score: 0
+  our_score: 5
+  opp_score: 2
 - home: BELMO
   date: 2024-06-26
-  our_score: 0
-  opp_score: 0
+  our_score: 1
+  opp_score: 6
 - away: MAGHD
   date: 2024-07-03
   our_score: 0
