@@ -35,19 +35,24 @@ matches:
 - home: Garvan Mitchell
   label: Club 2-bowl Pairs
   date: 2024-06-16
-  our_score: 0
+  our_score: 1
   opp_score: 0
 - home: D McCartney (UTRAN)
   label: PG Senior Fours
   date: 2024-07-02
-  our_score: 0
+  our_score: 1
   opp_score: 0
 - home: P McEwan
   label: Open Singles
   date: 2024-07-07
   our_score: 0
   opp_score: 0
-- home: TBD
+- home: C Mulholland (DUNBA)
+  label: PG Senior Fours
+  date: 2024-07-15
+  our_score: 0
+  opp_score: 0
+- home: Joe McCallum
   label: Club Triples
   date: 2024-07-21
   our_score: 0
