@@ -78,6 +78,8 @@ matches:
 - away: PICKI
   team: A
   date: 2024-07-20
+  newdate: 2024-07-23
+  newtime: "18:30"
   our_score: 0
   opp_score: 0
 - home: MOSSL
