@@ -34,12 +34,12 @@ matches:
 - home: DUNBA
   date: 2024-06-19
   our_score: 0
-  opp_score: 0
+  opp_score: 7
 - away: BELMO
   team: A
   date: 2024-06-26
-  our_score: 0
-  opp_score: 0
+  our_score: 2
+  opp_score: 5
 - home: ARDS
   date: 2024-07-03
   our_score: 0
