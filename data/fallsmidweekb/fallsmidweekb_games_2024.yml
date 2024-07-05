@@ -37,13 +37,13 @@ matches:
   opp_score: 6
 - away: MAGHD
   date: 2024-07-03
-  our_score: 0
-  opp_score: 0
+  our_score: 1.5
+  opp_score: 5.5
 - away: SHAFT
   date: 2024-07-04
   label: Midweek Cup
   our_score: 0
-  opp_score: 0
+  opp_score: 1
 - home: WILLO
   date: 2024-07-10
   our_score: 0
