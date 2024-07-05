@@ -42,12 +42,12 @@ matches:
   opp_score: 5
 - home: ARDS
   date: 2024-07-03
-  our_score: 0
-  opp_score: 0
+  our_score: 5
+  opp_score: 2
 - home: WILLO
   label: Midweek Cup
   date: 2024-07-04
-  our_score: 0
+  our_score: 1
   opp_score: 0
 - away: UTRAN
   team: A
@@ -60,6 +60,11 @@ matches:
   opp_score: 0
 - home: BALME
   date: 2024-07-24
+  our_score: 0
+  opp_score: 0
+- home: DUNBA
+  label: Midweek Cup
+  date: 2024-07-25
   our_score: 0
   opp_score: 0
 - home: BALWA
