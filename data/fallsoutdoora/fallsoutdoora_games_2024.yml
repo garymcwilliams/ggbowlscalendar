@@ -75,6 +75,12 @@ matches:
   date: 2024-06-29
   our_score: 7
   opp_score: 0
+- away: NICS
+  label: PG Senior Cup
+  date: 2024-07-18
+  start_time: '18:30'
+  our_score: 0
+  opp_score: 0
 - away: PICKI
   team: A
   date: 2024-07-20
