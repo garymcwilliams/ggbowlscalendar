@@ -56,8 +56,8 @@ matches:
   opp_score: 1
 - away: SALIS
   date: 2024-07-17
-  our_score: 0
-  opp_score: 0
+  our_score: 5
+  opp_score: 2
 - home: BALME
   date: 2024-07-24
   our_score: 0
