@@ -56,3 +56,4 @@ There are additional optional entries available: +
 `newdate`:: If a match date is changed, then add the new date. Keeping the original date means that the `ICS` unique key remains the same and the match is moved within the calendar rather than duplicated.
 - Additionally, if a match is to be re-arranged, but no date has been set then `newdate` can be left empty. In this case, the match will not be added to the calendar.
 `newtime`:: If a match time is changed, then add the new time.
+`location` :: If match is at a neutral venue, then add the location of the match (must be an existing TEAM venue)
