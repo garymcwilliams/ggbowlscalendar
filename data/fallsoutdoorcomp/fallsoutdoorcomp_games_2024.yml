@@ -20,13 +20,13 @@ matches:
   newdate: 2024-05-31
   our_score: 0
   opp_score: 1
-- away: T Higgins (UTRAN)
+- away: T Higgins UTRAN
   location: UTRAN
   label: PG Pairs
   date: 2024-06-03
   our_score: 1
   opp_score: 0
-- home: B Prunty (DUNBA)
+- home: B Prunty DUNBA
   location: GARY
   label: PG Pairs
   date: 2024-06-10
@@ -37,17 +37,17 @@ matches:
   date: 2024-06-16
   our_score: 1
   opp_score: 0
-- home: D McCartney (UTRAN)
+- home: D McCartney UTRAN
   label: PG Senior Fours
   date: 2024-07-02
   our_score: 1
   opp_score: 0
 - home: P McEwan
-  label: Open Singles (W/O)
+  label: Open Singles - W/O
   date: 2024-07-07
   our_score: 1
   opp_score: 0
-- home: C Mulholland (DUNBA)
+- home: C Mulholland - DUNBA
   label: PG Senior Fours
   date: 2024-07-15
   our_score: 0
