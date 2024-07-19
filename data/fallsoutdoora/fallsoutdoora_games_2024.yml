@@ -79,7 +79,7 @@ matches:
   label: PG Senior Cup
   date: 2024-07-18
   start_time: '18:30'
-  our_score: 0
+  our_score: 1
   opp_score: 0
 - away: PICKI
   team: A
@@ -91,6 +91,14 @@ matches:
 - home: MOSSL
   team: A
   date: 2024-07-27
+  our_score: 0
+  opp_score: 0
+- away: BELMO
+  team: A
+  location: ARDS
+  label: PG Senior Cup
+  date: 2024-08-06
+  start_time: '18:30'
   our_score: 0
   opp_score: 0
 - away: OLDBL
