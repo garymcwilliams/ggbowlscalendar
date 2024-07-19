@@ -43,17 +43,23 @@ matches:
   our_score: 1
   opp_score: 0
 - home: P McEwan
-  label: Open Singles
+  label: Open Singles (W/O)
   date: 2024-07-07
-  our_score: 0
+  our_score: 1
   opp_score: 0
 - home: C Mulholland (DUNBA)
   label: PG Senior Fours
   date: 2024-07-15
   our_score: 0
-  opp_score: 0
+  opp_score: 1
 - home: Joe McCallum
   label: Club Triples
   date: 2024-07-21
+  newdate: 2024-07-19
+  our_score: 0
+  opp_score: 0
+- home: TBD
+  label: Club 2-bowl Pairs
+  date: 2024-08-11
   our_score: 0
   opp_score: 0
