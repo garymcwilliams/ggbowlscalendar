@@ -60,8 +60,8 @@ matches:
   opp_score: 2
 - home: BALME
   date: 2024-07-24
-  our_score: 0
-  opp_score: 0
+  our_score: 6
+  opp_score: 1
 - home: DUNBA
   label: Midweek Cup
   date: 2024-07-25
