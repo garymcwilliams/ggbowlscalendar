@@ -68,16 +68,16 @@ matches:
   opp_score: 2
 - home: SAINT
   date: 2024-07-06
-  our_score: 0
-  opp_score: 0
+  our_score: 1
+  opp_score: 6
 - home: KNOCK
   team: B
   date: 2024-07-20
-  our_score: 0
+  our_score: 7
   opp_score: 0
 - away: UTRAN
   team: C
   date: 2024-07-27
   start_time: '17:30'
-  our_score: 0
-  opp_score: 0
+  our_score: 1
+  opp_score: 6
