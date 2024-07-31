@@ -56,10 +56,11 @@ matches:
   label: Club Triples
   date: 2024-07-21
   newdate: 2024-07-19
-  our_score: 0
+  our_score: 1
   opp_score: 0
-- home: TBD
+- home: P Sloane
   label: Club 2-bowl Pairs
   date: 2024-08-11
+  newdate: 2024-07-31
   our_score: 0
   opp_score: 0
