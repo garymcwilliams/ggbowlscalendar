@@ -86,13 +86,13 @@ matches:
   date: 2024-07-20
   newdate: 2024-07-23
   newtime: "18:30"
-  our_score: 0
-  opp_score: 0
+  our_score: 6
+  opp_score: 1
 - home: MOSSL
   team: A
   date: 2024-07-27
-  our_score: 0
-  opp_score: 0
+  our_score: 5
+  opp_score: 2
 - away: BELMO
   team: A
   location: ARDS
@@ -104,6 +104,8 @@ matches:
 - away: OLDBL
   team: B
   date: 2024-08-10
+  newdate: 2024-08-13
+  newtime: '18:30'
   our_score: 0
   opp_score: 0
 - home: BALWA
