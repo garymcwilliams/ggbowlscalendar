@@ -54,8 +54,8 @@ matches:
   opp_score: 1.5
 - away: COMBR
   date: 2024-07-24
-  our_score: 0
-  opp_score: 0
+  our_score: 2.5
+  opp_score: 4.5
 - home: OWENB
   date: 2024-08-07
   our_score: 0
