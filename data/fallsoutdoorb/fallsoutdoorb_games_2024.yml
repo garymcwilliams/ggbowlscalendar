@@ -83,8 +83,8 @@ matches:
   opp_score: 6
 - away: CAVEH
   date: 2024-08-10
-  our_score: 0
-  opp_score: 0
+  our_score: 5
+  opp_score: 2
 - home: BALML
   team: B
   date: 2024-08-24
