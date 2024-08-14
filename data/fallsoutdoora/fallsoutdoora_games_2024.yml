@@ -106,8 +106,8 @@ matches:
   date: 2024-08-10
   newdate: 2024-08-13
   newtime: '18:30'
-  our_score: 0
-  opp_score: 0
+  our_score: 5
+  opp_score: 2
 - home: BALWA
   date: 2024-08-17
   our_score: 0
