@@ -120,6 +120,8 @@ matches:
 - home: DUNBA
   team: B
   date: 2024-08-31
+  newdate: 2024-09-03
+  newtime: "18:30"
   our_score: 0
   opp_score: 0
 - away: HILDE
