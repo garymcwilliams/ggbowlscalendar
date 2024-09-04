@@ -122,8 +122,8 @@ matches:
   date: 2024-08-31
   newdate: 2024-09-03
   newtime: "18:30"
-  our_score: 0
-  opp_score: 0
+  our_score: 6
+  opp_score: 1
 - away: HILDE
   team: A
   date: 2024-09-07
