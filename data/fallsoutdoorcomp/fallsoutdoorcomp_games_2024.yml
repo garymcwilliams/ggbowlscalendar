@@ -73,5 +73,10 @@ matches:
   label: Club 2-bowl Pairs
   date: 2024-08-30
   newdate: 2024-08-28
-  our_score: 0
+  our_score: 1
   opp_score: 0
+- home: Roger McCall
+  label: Club Triples
+  date: 2024-09-02
+  our_score: 0
+  opp_score: 1
