@@ -127,10 +127,10 @@ matches:
 - away: HILDE
   team: A
   date: 2024-09-07
-  our_score: 0
-  opp_score: 0
+  our_score: 6
+  opp_score: 1
 - away: BALML
   team: A
   date: 2024-09-14
-  our_score: 0
-  opp_score: 0
+  our_score: 1
+  opp_score: 6
