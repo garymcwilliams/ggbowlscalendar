@@ -1,0 +1,36 @@
+me: FALLSB
+start_time: '19:30'
+duration: 3
+matches:
+- away: WOODB
+  date: 2024-09-30
+  our_score: 0
+  opp_score: 0
+- home: STANN
+  date: 2024-10-17
+  our_score: 0
+  opp_score: 0
+- away: HANNA
+  date: 2024-10-22
+  our_score: 0
+  opp_score: 0
+- home: FALLSA
+  date: 2024-10-31
+  our_score: 0
+  opp_score: 0
+- home: WOODB
+  date: 2024-11-07
+  our_score: 0
+  opp_score: 0
+- away: STANN
+  date: 2024-11-17
+  our_score: 0
+  opp_score: 0
+- home: HANNA
+  date: 2024-11-28
+  our_score: 0
+  opp_score: 0
+- away: FALLSA
+  date: 2024-12-05
+  our_score: 0
+  opp_score: 0

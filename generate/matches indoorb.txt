@@ -1,20 +1,13 @@
-FALLB
-fallsindoorb_matches_2022-23
+FALLSB
+fallsindoorb_games_2024-25
 3
-2022, 10, 16
+2024, 09, 30
 19:30
-away STANN 0
-away WOODB 8
-home HANNA 17
-home HOLYC 7
-away HOLYC 5
-away FALLA 9
-home WOODB 7
-home STANN 7
-home FALLA 28
-away HANNA 7
-home STANN 7
+away WOODB 0
+home STANN 17
 away HANNA 5
-home HOLYC 9
-away WOODB 4
-home FALLA 10
+home FALLSA 9
+home WOODB 0
+away STANN 17
+home HANNA 5
+away FALLSA 9
