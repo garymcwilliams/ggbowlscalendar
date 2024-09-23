@@ -107,7 +107,7 @@
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsindoor",
-                "--year", "2023-24"
+                "--year", "2024-25"
             ],
         },
         {
