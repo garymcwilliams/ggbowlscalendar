@@ -147,7 +147,7 @@
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "stcolmans",
-                "--year", "2023-24"
+                "--year", "2024-25"
             ],
             "cwd": "${workspaceFolder}",
             "env": {},
