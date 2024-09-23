@@ -108,12 +108,12 @@ matches:
 - home: UTRAN
   team: C
   date: 2024-09-07
-  our_score: 0
-  opp_score: 0
+  our_score: 5.5
+  opp_score: 1.5
 - home: EWART
   team: B
   date: 2024-09-14
   newdate: 2024-09-11
-  our_score: 0
-  opp_score: 0
+  our_score: 1
+  opp_score: 6
 
