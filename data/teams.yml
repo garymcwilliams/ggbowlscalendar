@@ -230,10 +230,11 @@ HANNA:
 STANN:
   location: St Anne's Presbytery, Kingsway, Belfast BT10 0LF
   name: St Anne's
-  start_time: '12:30'
+  start_time: '19:00'
 WOODB:
   location: Horn Drive Community Centre, 44A Horn Dr, Belfast BT11 9GS, UK
   name: Woodbourne
+  start_time: '19:00'
 
 # Belfast indoor teams
 HOLYC:
