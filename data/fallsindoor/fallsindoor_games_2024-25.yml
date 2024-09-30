@@ -20,6 +20,7 @@ matches:
   opp_score: 0
 - away: STANN
   date: 2024-11-03
+  start_time: '19:00'
   our_score: 0
   opp_score: 0
 - home: HANNA
@@ -28,6 +29,7 @@ matches:
   opp_score: 0
 - away: WOODB
   date: 2024-11-25
+  start_time: '19:00'
   our_score: 0
   opp_score: 0
 - home: FALLSB
