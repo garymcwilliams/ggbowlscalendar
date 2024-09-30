@@ -4,6 +4,7 @@ duration: 3
 matches:
 - away: WOODB
   date: 2024-09-30
+  start_time: '19:00'
   our_score: 0
   opp_score: 0
 - home: STANN
@@ -24,6 +25,8 @@ matches:
   opp_score: 0
 - away: STANN
   date: 2024-11-17
+  newdate: 2024-11-21
+  newtime: '19:00'
   our_score: 0
   opp_score: 0
 - home: HANNA
