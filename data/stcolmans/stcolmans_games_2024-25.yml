@@ -4,20 +4,21 @@ duration: 3
 matches:
 - home: BALLI
   date: 2024-10-03
-  our_score: 0
-  opp_score: 0
+  our_score: 0.5
+  opp_score: 6.5
 - away: SLOAN
   date: 2024-10-10
-  our_score: 0
-  opp_score: 0
+  our_score: 1
+  opp_score: 6
 - away: STJOS
   date: 2024-10-14
-  our_score: 0
-  opp_score: 0
+  our_score: 5.5
+  opp_score: 1.5
 - home: ROCK
   date: 2024-10-31
-  our_score: 0
-  opp_score: 0
+  newdate: 2024-10-21
+  our_score: 5
+  opp_score: 2
 - away: PRIES
   date: 2024-11-05
   our_score: 0
