@@ -1,0 +1,42 @@
+me: FALLS1
+start_time: '19:30'
+duration: 3
+matches:
+- away: SALIS
+  date: 2024-10-09
+  our_score: 0
+  opp_score: 0
+- home: HIGHF
+  date: 2024-10-16
+  our_score: 0
+  opp_score: 0
+- away: HOLYC
+  date: 2024-10-22
+  our_score: 0
+  opp_score: 0
+- home: WILLO
+  team: B
+  date: 2024-10-30
+  our_score: 0
+  opp_score: 0
+- home: EWART
+  date: 2024-11-06
+  our_score: 0
+  opp_score: 0
+- away: CARAV
+  date: 2024-11-14
+  our_score: 0
+  opp_score: 0
+- home: WILLO
+  team: A
+  date: 2024-11-20
+  our_score: 0
+  opp_score: 0
+- away: BELMO
+  date: 2024-11-26
+  our_score: 0
+  opp_score: 0
+- home: SYDEN
+  date: 2024-12-04
+  our_score: 0
+  opp_score: 0
