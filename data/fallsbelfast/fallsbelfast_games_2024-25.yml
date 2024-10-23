@@ -12,8 +12,8 @@ matches:
   opp_score: 0
 - away: HOLYC
   date: 2024-10-22
-  our_score: 0
-  opp_score: 0
+  our_score: 1
+  opp_score: 6
 - home: WILLO
   team: B
   date: 2024-10-30
