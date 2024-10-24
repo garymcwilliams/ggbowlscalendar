@@ -199,6 +199,9 @@ STCLA:
 STCOL:
   location: St. Colman's Church, 111 Queensway, Lisburn, County Antrim BT27
   name: St Colmans
+STCLD:
+  location: St. Colman's Church Hall, 141 Kingsway, Dunmurry, Belfast BT17 9NJ
+  name: St Colmans Dunmurry
 STJOS:
   location: St. Patrick?s Church, Chapel Hill, Lisburn BT28 1BW, UK
   name: St Joseph's
