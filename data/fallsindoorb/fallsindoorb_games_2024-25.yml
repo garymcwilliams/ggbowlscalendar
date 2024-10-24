@@ -17,6 +17,7 @@ matches:
   opp_score: 0
 - home: FALLSA
   date: 2024-10-31
+  newtime: "19:00"
   our_score: 0
   opp_score: 0
 - home: WOODB
