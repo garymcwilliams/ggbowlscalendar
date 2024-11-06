@@ -21,11 +21,13 @@ matches:
   opp_score: 2
 - away: PRIES
   date: 2024-11-05
+  start_time: "20:00"
   our_score: 0
   opp_score: 0
 - home: STCLD
   label: Charity Cup
   date: 2024-11-07
+  start_time: "19:30"
   our_score: 0
   opp_score: 0
 - home: ANNAH
