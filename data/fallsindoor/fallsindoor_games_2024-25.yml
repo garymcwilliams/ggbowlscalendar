@@ -38,3 +38,43 @@ matches:
   date: 2024-12-05
   our_score: 0
   opp_score: 0
+- home: FALLSB
+  label: 'Devine Cup'
+  date: 2024-12-12
+  our_score: 0
+  opp_score: 0
+- away: WOODB
+  label: 'Devine Cup'
+  date: 2025-01-06
+  our_score: 0
+  opp_score: 0
+- home: STANN
+  label: 'Devine Cup'
+  date: 2025-01-23
+  our_score: 0
+  opp_score: 0
+- away: HANNA
+  label: 'Devine Cup'
+  date: 2025-01-28
+  our_score: 0
+  opp_score: 0
+- away: FALLSB
+  label: 'Devine Cup'
+  date: 2025-02-06
+  our_score: 0
+  opp_score: 0
+- home: WOODB
+  label: 'Devine Cup'
+  date: 2025-02-13
+  our_score: 0
+  opp_score: 0
+- away: STANN
+  label: 'Devine Cup'
+  date: 2025-02-23
+  our_score: 0
+  opp_score: 0
+- home: HANNA
+  label: 'Devine Cup'
+  date: 2025-03-06
+  our_score: 0
+  opp_score: 0
