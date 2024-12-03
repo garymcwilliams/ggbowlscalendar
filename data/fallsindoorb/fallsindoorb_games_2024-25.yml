@@ -26,7 +26,7 @@ matches:
   opp_score: 0
 - away: STANN
   date: 2024-11-17
-  newdate: 2024-11-21
+  newdate: 2024-12-12
   newtime: '19:00'
   our_score: 0
   opp_score: 0
@@ -41,6 +41,7 @@ matches:
 - away: FALLSA
   label: 'Devine Cup'
   date: 2024-12-12
+  newdate: 2024-12-09
   our_score: 0
   opp_score: 0
 - home: STANN
