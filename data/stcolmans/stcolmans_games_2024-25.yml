@@ -42,6 +42,12 @@ matches:
   date: 2025-01-08
   our_score: 0
   opp_score: 0
+- home: STCLD
+  label: Charity Cup
+  date: 2025-01-09
+  start_time: "19:30"
+  our_score: 0
+  opp_score: 0
 - home: SLOAN
   date: 2025-01-16
   our_score: 0
