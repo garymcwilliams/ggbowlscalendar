@@ -67,6 +67,7 @@ matches:
 - away: STANN
   label: 'Devine Cup'
   date: 2025-02-13
+  start_time: "19:00"
   our_score: 0
   opp_score: 0
 - home: HANNA
@@ -77,5 +78,6 @@ matches:
 - away: WOODB
   label: 'Devine Cup'
   date: 2025-03-03
+  start_time: "19:00"
   our_score: 0
   opp_score: 0
