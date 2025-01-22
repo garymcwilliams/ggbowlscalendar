@@ -47,6 +47,7 @@ matches:
 - home: STANN
   label: 'Devine Cup'
   date: 2025-01-09
+  newdate: 2025-01-28
   our_score: 0
   opp_score: 0
 - away: HANNA
