@@ -29,13 +29,14 @@ matches:
   date: 2024-11-07
   start_time: "19:30"
   our_score: 0
-  opp_score: 0
+  opp_score: 1
 - home: ANNAH
   date: 2024-11-14
   our_score: 0
   opp_score: 0
 - away: SOLDI
   date: 2024-12-11
+  newdate: 2025-01-20
   our_score: 0
   opp_score: 0
 - away: BALLI
@@ -46,7 +47,7 @@ matches:
   label: Charity Cup
   date: 2025-01-09
   start_time: "19:30"
-  our_score: 0
+  our_score: 1
   opp_score: 0
 - home: SLOAN
   date: 2025-01-16
