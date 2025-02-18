@@ -69,11 +69,13 @@ matches:
 - home: WOODB
   label: 'Devine Cup'
   date: 2025-02-13
+  newdate: 2025-02-24
   our_score: 0
   opp_score: 0
 - away: STANN
   label: 'Devine Cup'
   date: 2025-02-23
+  newdate: 2025-03-02
   start_time: "19:00"
   our_score: 0
   opp_score: 0
