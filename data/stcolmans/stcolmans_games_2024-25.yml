@@ -36,7 +36,7 @@ matches:
   opp_score: 0
 - away: SOLDI
   date: 2024-12-11
-  newdate: 2025-01-20
+  newdate: 2025-03-12
   our_score: 0
   opp_score: 7
 - away: BALLI
@@ -78,9 +78,11 @@ matches:
 - home: ROCK
   label: Charity Cup
   date: 2025-02-27
+  newdate: 2025-03-24
   our_score: 0
   opp_score: 0
 - home: SOLDI
   date: 2025-03-13
+  newdate: 2025-01-20
   our_score: 0
   opp_score: 0
