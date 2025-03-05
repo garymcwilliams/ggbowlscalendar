@@ -82,3 +82,8 @@ matches:
   start_time: "19:00"
   our_score: 0
   opp_score: 0
+- home: STANN
+  label: 'Devine Cup'
+  date: 2025-03-13
+  our_score: 0
+  opp_score: 0
