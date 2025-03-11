@@ -193,6 +193,7 @@ SLOAN:
 SOLDI:
   location: 53 Soldierstown Rd, Aghalee, Craigavon
   name: Soldierstown
+  start_time: '20:15'
 STCLA:
   location: 55 Chapel Rd, Glenavy, Crumlin BT29 4LX
   name: St Clares
