@@ -37,6 +37,7 @@ matches:
 - away: SOLDI
   date: 2024-12-11
   newdate: 2025-03-12
+  start_time: '20:15'
   our_score: 0
   opp_score: 7
 - away: BALLI
