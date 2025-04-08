@@ -1,0 +1,65 @@
+me: FALLSMA
+start_time: '18:30'
+duration: 3
+matches:
+- home: BALML
+  date: 2025-04-30
+  our_score: 0
+  opp_score: 0
+- away: MOSSL
+  date: 2025-05-07
+  our_score: 0
+  opp_score: 0
+- home: WILLO
+  date: 2025-05-14
+  our_score: 0
+  opp_score: 0
+- home: EWART
+  date: 2025-05-28
+  our_score: 0
+  opp_score: 0
+- home: BALWA
+  label: NIPGL Cup
+  date: 2025-05-29
+  our_score: 0
+  opp_score: 0
+- away: SALIS
+  date: 2025-06-04
+  our_score: 0
+  opp_score: 0
+- home: HILDE
+  date: 2025-06-11
+  our_score: 0
+  opp_score: 0
+- home: ARDS
+  date: 2025-06-18
+  our_score: 0
+  opp_score: 0
+- away: OLDBL
+  date: 2025-06-25
+  our_score: 0
+  opp_score: 0
+- home: UTBC
+  date: 2025-07-02
+  our_score: 0
+  opp_score: 0
+- away: LARNE
+  date: 2025-07-16
+  our_score: 0
+  opp_score: 0
+- home: BELMO
+  date: 2025-07-23
+  our_score: 0
+  opp_score: 0
+- away: PICKI
+  date: 2025-07-30
+  our_score: 0
+  opp_score: 0
+- home: BALWA
+  date: 2025-08-06
+  our_score: 0
+  opp_score: 0
+- away: DUNBA
+  date: 2025-08-13
+  our_score: 0
+  opp_score: 0
