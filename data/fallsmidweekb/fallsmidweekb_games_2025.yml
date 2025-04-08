@@ -1,0 +1,63 @@
+me: FALLSMB
+start_time: '18:30'
+duration: 3
+matches:
+- home: KNOCK
+  date: 2025-05-07
+  our_score: 0
+  opp_score: 0
+- away: COMBR
+  date: 2025-05-14
+  our_score: 0
+  opp_score: 0
+- home: FORTH
+  date: 2025-05-21
+  our_score: 0
+  opp_score: 0
+- away: CLIFT
+  date: 2025-05-28
+  our_score: 0
+  opp_score: 0
+- home: OWENB
+  label: NIPGL Cup
+  date: 2025-05-29
+  our_score: 0
+  opp_score: 0
+- home: CAVEH
+  date: 2025-06-04
+  our_score: 0
+  opp_score: 0
+- away: NICS
+  date: 2025-06-11
+  our_score: 0
+  opp_score: 0
+- away: OWENB
+  date: 2025-06-18
+  our_score: 0
+  opp_score: 0
+- home: UTBC
+  team: B
+  date: 2025-06-25
+  our_score: 0
+  opp_score: 0
+- away: DOWNP
+  date: 2025-07-02
+  our_score: 0
+  opp_score: 0
+- home: BELMO
+  team: B
+  date: 2025-07-16
+  our_score: 0
+  opp_score: 0
+- away: SHAFT
+  date: 2025-07-23
+  our_score: 0
+  opp_score: 0
+- home: BALME
+  date: 2025-07-30
+  our_score: 0
+  opp_score: 0
+- away: MAGHD
+  date: 2025-08-06
+  our_score: 0
+  opp_score: 0
