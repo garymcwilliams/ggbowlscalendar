@@ -17,6 +17,13 @@ matches:
   date: 2025-05-10
   our_score: 0
   opp_score: 0
+- away: DUNBA
+  team: A
+  label: NIPGL Cup
+  date: 2025-05-15
+  start_time: "18:30"
+  our_score: 0
+  opp_score: 0
 - home: ARDS
   team: A
   date: 2025-05-17
@@ -38,6 +45,7 @@ matches:
   opp_score: 0
 - away: SALIS
   date: 2025-06-10
+  start_time: "18:30"
   our_score: 0
   opp_score: 0
 - home: BELMO
