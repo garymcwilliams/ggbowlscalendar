@@ -130,6 +130,9 @@ SHAFT:
 SHORT:
   name: Shorts
   location: 411-403 Holywood Rd Belfast BT4 2LP
+UTBC:
+  name: U Transport
+  location: 11 Lynda Ave, Newtownabbey BT37 0NX
 UTRAN:
   name: U Transport
   location: 11 Lynda Ave, Newtownabbey BT37 0NX
