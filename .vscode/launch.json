@@ -98,6 +98,21 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
+            "name": "FallsLadiesJ1",
+            "type": "debugpy",
+            "request": "launch",
+            "stopOnEntry": false,
+            "python": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {
+                "ICAL_TEAM": "fallsladiesj1",
+                "ICAL_YEAR": "2025"
+            },
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
             "name": "FallsBelfast",
             "type": "debugpy",
             "request": "launch",
