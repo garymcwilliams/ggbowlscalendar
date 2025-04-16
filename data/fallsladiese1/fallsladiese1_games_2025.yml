@@ -3,6 +3,7 @@ start_time: '19:00'
 duration: 3
 matches:
 - home: HILDE
+  team: E3
   date: 2025-05-12
   our_score: 0
   opp_score: 0
@@ -15,6 +16,7 @@ matches:
   our_score: 0
   opp_score: 0
 - home: HILDE
+  team: E2
   date: 2025-06-02
   our_score: 0
   opp_score: 0
@@ -23,6 +25,7 @@ matches:
   our_score: 0
   opp_score: 0
 - home: HILDE
+  team: E1
   date: 2025-06-16
   our_score: 0
   opp_score: 0
@@ -31,6 +34,7 @@ matches:
   our_score: 0
   opp_score: 0
 - away: HILDE
+  team: E3
   date: 2025-06-30
   our_score: 0
   opp_score: 0
@@ -43,6 +47,7 @@ matches:
   our_score: 0
   opp_score: 0
 - away: HILDE
+  team: E2
   date: 2025-08-04
   our_score: 0
   opp_score: 0
@@ -51,6 +56,7 @@ matches:
   our_score: 0
   opp_score: 0
 - away: HILDE
+  team: E1
   date: 2025-08-18
   our_score: 0
   opp_score: 0
