@@ -83,7 +83,7 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
-            "name": "FallsLadiesA1",
+            "name": "FallsLadiesS1",
             "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
@@ -92,7 +92,7 @@
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "env": {
-                "ICAL_TEAM": "fallsladiesa1",
+                "ICAL_TEAM": "fallsladiess1",
                 "ICAL_YEAR": "2025"
             },
             "envFile": "${workspaceFolder}/.env",
