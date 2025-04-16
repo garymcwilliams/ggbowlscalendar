@@ -1,0 +1,65 @@
+me: FALLSLA1
+start_time: '14:30'
+duration: 3
+matches:
+- away: PICKI
+  date: 2025-05-01
+  our_score: 0
+  opp_score: 0
+- home: EWART
+  date: 2025-05-08
+  our_score: 0
+  opp_score: 0
+- away: UTBC
+  date: 2025-05-15
+  our_score: 0
+  opp_score: 0
+- away: KNOCK
+  date: 2025-05-22
+  our_score: 0
+  opp_score: 0
+- home: LARNE
+  date: 2025-05-29
+  our_score: 0
+  opp_score: 0
+- away: MOSSL
+  date: 2025-06-05
+  our_score: 0
+  opp_score: 0
+- home: NICS
+  date: 2025-06-12
+  our_score: 0
+  opp_score: 0
+- home: UTBC
+  date: 2025-06-19
+  our_score: 0
+  opp_score: 0
+- away: EWART
+  date: 2025-07-03
+  our_score: 0
+  opp_score: 0
+- home: PICKI
+  date: 2025-07-10
+  our_score: 0
+  opp_score: 0
+- away: NICS
+  label: Stylux Cup
+  date: 2025-07-28
+  our_score: 0
+  opp_score: 0
+- home: MOSSL
+  date: 2025-07-31
+  our_score: 0
+  opp_score: 0
+- away: LARNE
+  date: 2025-08-14
+  our_score: 0
+  opp_score: 0
+- home: KNOCK
+  date: 2025-08-21
+  our_score: 0
+  opp_score: 0
+- away: NICS
+  date: 2025-08-28
+  our_score: 0
+  opp_score: 0
