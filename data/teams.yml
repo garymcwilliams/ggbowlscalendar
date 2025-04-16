@@ -13,6 +13,9 @@ FALLSMA:
 FALLSMB:
   name: Midweek B
   location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
+FALLSLE1:
+  name: Falls E1
+  location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
 FALLSLS1:
   name: Falls
   location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
@@ -82,6 +85,9 @@ EWART:
 FORTH:
   name: Forthriver
   location: 104a Woodvale Road, Belfast, BT13 3BU, Northern Ireland
+GILNA:
+  name: Gilnahirk
+  location: TBD
 HILDE:
   name: Hilden
   location: GX88+VR Lisburn
