@@ -13,14 +13,14 @@ FALLSMA:
 FALLSMB:
   name: Midweek B
   location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
-FALLSLA1:
-  name: Ladies Snr
+FALLSLS1:
+  name: Falls
   location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
 FALLSLJ1:
-  name: Ladies J1
+  name: Falls J1
   location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
 FALLSLJ2:
-  name: Ladies J2
+  name: Falls J2
   location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
 CLUBCOMP:
   name: Club Competition
