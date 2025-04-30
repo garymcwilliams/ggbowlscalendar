@@ -28,6 +28,12 @@ FALLSLJ1:
 FALLSLJ2:
   name: Falls J2
   location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
+FALLSV1:
+  name: Falls V1
+  location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
+FALLSV2:
+  name: Falls V2
+  location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
 CLUBCOMP:
   name: Club Competition
   location: Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom
