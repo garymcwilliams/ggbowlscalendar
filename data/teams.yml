@@ -76,6 +76,9 @@ COMBR:
 CURRA:
   name: Curran
   location: TBD
+DIVIS:
+  name: Divis
+  location: TBD
 DOWNP:
   name: Downpatrick
   location: 87PM+C9Q Downpatrick
@@ -96,6 +99,9 @@ FORTH:
   location: 104a Woodvale Road, Belfast, BT13 3BU, Northern Ireland
 GILNA:
   name: Gilnahirk
+  location: TBD
+GLENG:
+  name: Glengormley
   location: TBD
 HILDE:
   name: Hilden
