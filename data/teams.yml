@@ -61,6 +61,9 @@ BELFA:
 BELMO:
   name: Belmont
   location: 16 Belmont Park Belfast BT4 3DU
+CARIF:
+  name: Carrickfergus
+  location: TBD
 CAVEH:
   name: Cavehill
   location: 15 N Circular Rd, Belfast
@@ -70,6 +73,9 @@ CLIFT:
 COMBR:
   name: Comber
   location: 13 Londonderry Ave, Comber, Newtownards BT23 5ES
+CURRA:
+  name: Curran
+  location: TBD
 DOWNP:
   name: Downpatrick
   location: 87PM+C9Q Downpatrick
@@ -157,7 +163,7 @@ UTBC:
 UTRAN:
   name: U Transport
   location: 11 Lynda Ave, Newtownabbey BT37 0NX
-WHITEH:
+WHITE:
   name: Whitehead
   location: TBD
 WILLO:

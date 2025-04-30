@@ -1,0 +1,21 @@
+FALLSV1
+fallsvets1_games_2025
+3
+2025, 04, 28
+13:30
+away WHITE 0
+home BALME 7
+away CURRA 7
+home OLDBL 7
+away UTBC 7
+home LARNE 7
+away CARIF 7
+home MOSSL 7
+home WHITE 14
+away BALME 21
+home CURRA 7
+away OLDBL 7
+home UTBC 7
+away LARNE 7
+away CARIF 7
+home MOSSL 7
