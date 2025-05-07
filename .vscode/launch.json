@@ -75,7 +75,7 @@
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsoutdoorcomp",
-                "--year", "2024"
+                "--year", "2025"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
