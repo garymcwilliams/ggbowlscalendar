@@ -2,6 +2,11 @@ me: GARY
 start_time: '18:30'
 duration: 3
 matches:
+- away: LARNE
+  label: D McRandal 4s
+  date: 2025-05-16
+  our_score: 0
+  opp_score: 0
 - home: R Morgan
   label: Open Singles
   date: 2025-05-25
