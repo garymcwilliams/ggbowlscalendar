@@ -29,6 +29,8 @@ matches:
 - away: BALML
   team: B
   date: 2025-05-17
+  newdate: 2025-05-20
+  newtime: '18:30'
   our_score: 0
   opp_score: 0
 - away: BELMO
