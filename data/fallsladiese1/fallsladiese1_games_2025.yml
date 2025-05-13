@@ -2,65 +2,49 @@ me: FALLSLE1
 start_time: '19:00'
 duration: 3
 matches:
-- home: HILDE
-  team: E3
+- home: FALLSLE2
   date: 2025-05-12
   our_score: 0
   opp_score: 0
-- away: KNOCK
+- away: HILDE
+  team: E3
   date: 2025-05-19
   our_score: 0
   opp_score: 0
-- away: EWART
-  date: 2025-05-26
-  our_score: 0
-  opp_score: 0
-- home: HILDE
-  team: E2
+- home: EWART
   date: 2025-06-02
   our_score: 0
   opp_score: 0
-- away: FALLSLE2
+- away: GILNA
   date: 2025-06-09
   our_score: 0
   opp_score: 0
-- home: HILDE
+- home: KNOCK
   team: E1
   date: 2025-06-16
   our_score: 0
   opp_score: 0
-- home: GILNA
+- away: HILDE
+  team: E2
   date: 2025-06-23
   our_score: 0
   opp_score: 0
-- away: HILDE
-  team: E3
+- home: HILDE
+  team: E1
   date: 2025-06-30
   our_score: 0
   opp_score: 0
-- home: KNOCK
-  date: 2025-07-21
+- away: KNOCK
+  team: E2
+  date: 2025-07-07
   our_score: 0
   opp_score: 0
-- home: EWART
+- away: FALLSLE2
   date: 2025-07-28
   our_score: 0
   opp_score: 0
 - away: HILDE
-  team: E2
+  team: E3
   date: 2025-08-04
-  our_score: 0
-  opp_score: 0
-- home: FALLSLE2
-  date: 2025-08-11
-  our_score: 0
-  opp_score: 0
-- away: HILDE
-  team: E1
-  date: 2025-08-18
-  our_score: 0
-  opp_score: 0
-- away: GILNA
-  date: 2025-08-25
   our_score: 0
   opp_score: 0
