@@ -34,11 +34,11 @@ matches:
   our_score: 0
   opp_score: 0
 - away: BELMO
-  team: D
+  team: D (bye)
   label: NIPGL Cup
   date: 2025-05-22
   start_time: "18:30"
-  our_score: 0
+  our_score: 1
   opp_score: 0
 - away: HILDE
   team: B
@@ -53,6 +53,12 @@ matches:
 - home: BELMO
   team: C
   date: 2025-06-10
+  start_time: "18:30"
+  our_score: 0
+  opp_score: 0
+- home: TBD
+  label: NIPGL Cup
+  date: 2025-06-12
   start_time: "18:30"
   our_score: 0
   opp_score: 0
