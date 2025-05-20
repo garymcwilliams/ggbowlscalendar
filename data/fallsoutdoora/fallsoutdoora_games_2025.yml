@@ -23,7 +23,7 @@ matches:
   date: 2025-05-15
   start_time: "18:30"
   our_score: 0
-  opp_score: 0
+  opp_score: 1
 - home: ARDS
   team: A
   date: 2025-05-17
@@ -36,9 +36,11 @@ matches:
 - home: DUNBA
   team: A
   date: 2025-05-31
+  newdate: 2025-06-03
+  newtime: "18:30"
   our_score: 0
   opp_score: 0
-- home: TBD
+- home: SYDEN
   label: Irish Cup
   date: 2025-06-07
   our_score: 0
