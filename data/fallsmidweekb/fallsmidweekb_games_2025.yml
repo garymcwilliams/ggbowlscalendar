@@ -22,7 +22,7 @@ matches:
   team: (bye)
   label: NIPGL Cup
   date: 2025-05-29
-  our_score: 1
+  our_score: 0
   opp_score: 0
 - home: CAVEH
   date: 2025-06-04
@@ -58,7 +58,7 @@ matches:
   date: 2025-07-30
   our_score: 0
   opp_score: 0
-- home: TBD
+- home: ARDS
   label: NIPGL Cup
   date: 2025-07-31
   our_score: 0
