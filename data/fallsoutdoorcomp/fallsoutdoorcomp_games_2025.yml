@@ -6,16 +6,11 @@ matches:
   label: D McRandal 4s
   date: 2025-05-16
   our_score: 0
-  opp_score: 0
+  opp_score: 1
 - home: R Morgan
   label: Open Singles
   date: 2025-05-25
-  our_score: 0
-  opp_score: 0
-- home: TBD
-  label: 2 Bowl Pairs
-  date: 2025-06-15
-  our_score: 0
+  our_score: 1
   opp_score: 0
 - home: P Sloane
   label: 4 Bowl Pairs
@@ -25,11 +20,23 @@ matches:
 - home: J McVeigh
   label: Triples
   date: 2025-06-08
+  newdate: 2025-06-02
   our_score: 0
   opp_score: 0
-- away: S Kirkwood
-  label: PG Pairs
+- home: G Mitchell
+  label: 2 Bowl Pairs
+  date: 2025-06-15
+  our_score: 0
+  opp_score: 0
+- away: OLDBL
+  label: S Kirkwood PG Pairs
   date: 2025-06-16
+  our_score: 0
+  opp_score: 0
+- away: UTRAN
+  label: PG 55 Pairs
+  date: 2025-06-29
+  start_time: '09:30'
   our_score: 0
   opp_score: 0
 - home: M Trew
