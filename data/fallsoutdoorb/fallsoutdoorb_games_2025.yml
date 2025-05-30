@@ -48,6 +48,7 @@ matches:
 - away: ROEVL
   label: Irish Cup
   date: 2025-06-07
+  newtime: "17:30"
   our_score: 0
   opp_score: 0
 - home: BELMO
@@ -56,7 +57,7 @@ matches:
   start_time: "18:30"
   our_score: 0
   opp_score: 0
-- home: TBD
+- home: BALML
   label: NIPGL Cup
   date: 2025-06-12
   start_time: "18:30"
