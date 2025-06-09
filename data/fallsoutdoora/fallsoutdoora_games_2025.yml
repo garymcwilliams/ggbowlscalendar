@@ -58,6 +58,8 @@ matches:
 - home: UTBC
   team: A
   date: 2025-06-21
+  newdate: 2025-06-24
+  newtime: '18:30'
   our_score: 0
   opp_score: 0
 - home: OLDBL
