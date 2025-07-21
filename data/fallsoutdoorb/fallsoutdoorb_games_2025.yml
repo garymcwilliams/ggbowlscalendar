@@ -93,6 +93,12 @@ matches:
   date: 2025-07-19
   our_score: 0
   opp_score: 0
+- home: DOWNP
+  label: NIPGL Cup
+  date: 2025-07-24
+  start_time: "18:30"
+  our_score: 0
+  opp_score: 0
 - home: BALML
   team: B
   date: 2025-07-26
