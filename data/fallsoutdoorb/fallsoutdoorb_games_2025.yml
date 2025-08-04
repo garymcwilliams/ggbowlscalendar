@@ -107,6 +107,7 @@ matches:
 - away: PSNI
   date: 2025-08-07
   label: NIPGL Cup
+  location: ARDS
   start_time: "18:30"
   our_score: 0
   opp_score: 0
