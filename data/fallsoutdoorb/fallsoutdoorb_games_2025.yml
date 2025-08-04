@@ -104,6 +104,12 @@ matches:
   date: 2025-07-26
   our_score: 0
   opp_score: 0
+- away: PSNI
+  date: 2025-08-07
+  label: NIPGL Cup
+  start_time: "18:30"
+  our_score: 0
+  opp_score: 0
 - home: HILDE
   team: B
   date: 2025-08-09
