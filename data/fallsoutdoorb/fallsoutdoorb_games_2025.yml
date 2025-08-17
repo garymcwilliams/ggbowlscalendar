@@ -67,6 +67,8 @@ matches:
   opp_score: 0
 - away: COMBR
   date: 2025-06-14
+  newdate: 2025-08-19
+  newtime: "18:30"
   our_score: 0
   opp_score: 0
 - away: KNOCK
