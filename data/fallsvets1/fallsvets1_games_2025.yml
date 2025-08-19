@@ -58,11 +58,11 @@ matches:
   date: 2025-08-18
   our_score: 0
   opp_score: 0
-- away: CARIF
+- home: CARIF
   date: 2025-08-25
   our_score: 0
   opp_score: 0
-- home: MOSSL
+- away: MOSSL
   date: 2025-09-01
   our_score: 0
   opp_score: 0
