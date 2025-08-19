@@ -132,6 +132,12 @@ matches:
   date: 2025-08-30
   our_score: 0
   opp_score: 0
+- away: ARDS
+  label: NIPGL Cup
+  date: 2025-08-03
+  start_time: "18:30"
+  our_score: 0
+  opp_score: 0
 - home: KNOCK
   team: B
   date: 2025-09-06
