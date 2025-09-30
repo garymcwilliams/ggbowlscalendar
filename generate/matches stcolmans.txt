@@ -1,19 +1,21 @@
 STCOL
-stcolmans_games_2024-25
+stcolmans_games_2025-26
 3
-2024, 10, 03
+2025, 10, 02
 20:00
-home BALLI 0
-away SLOAN 7
-away STJOS 4
-home ROCK 17
-away PRIES 5
-home ANNAH 9
-away SOLDI 27
-away BALLI 28
-home SLOAN 8
-home STJOS 7
-away ROCK 4
-home PRIES 17
+home BALLP 0
 away ANNAH 6
-home SOLDI 22
+away SOLDI 7
+home PRIES 8
+away HILDE 7
+away ROCK 4
+home STJOS 17
+away BALLI 6
+away BALLP 26
+home ANNAH 10
+home SOLDI 7
+away PRIES 8
+home HILDE 6
+home ROCK 7
+away STJOS 4
+home BALLI 10

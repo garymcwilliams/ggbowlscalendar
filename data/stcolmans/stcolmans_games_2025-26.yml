@@ -2,88 +2,67 @@ me: STCOL
 start_time: '20:00'
 duration: 3
 matches:
-- home: BALLI
-  date: 2024-10-03
-  our_score: 0.5
-  opp_score: 6.5
-- away: SLOAN
-  date: 2024-10-10
-  our_score: 1
-  opp_score: 6
-- away: STJOS
-  date: 2024-10-14
-  our_score: 5.5
-  opp_score: 1.5
-- home: ROCK
-  date: 2024-10-31
-  newdate: 2024-10-21
-  our_score: 5
-  opp_score: 2
-- away: PRIES
-  date: 2024-11-05
-  start_time: "20:00"
+- home: BALLP
+  date: 2025-10-02
   our_score: 0
   opp_score: 0
-- home: STCLD
-  label: Charity Cup
-  date: 2024-11-07
-  start_time: "19:30"
-  our_score: 0
-  opp_score: 1
-- home: ANNAH
-  date: 2024-11-14
+- away: ANNAH
+  date: 2025-10-08
   our_score: 0
   opp_score: 0
 - away: SOLDI
-  date: 2024-12-11
-  newdate: 2025-03-12
-  start_time: '20:15'
-  our_score: 0
-  opp_score: 7
-- away: BALLI
-  date: 2025-01-08
-  our_score: 0
-  opp_score: 7
-- home: STCLD
-  label: Charity Cup
-  date: 2025-01-09
-  start_time: "19:30"
-  our_score: 1
-  opp_score: 0
-- home: SLOAN
-  date: 2025-01-16
-  our_score: 5.5
-  opp_score: 1.5
-- home: STJOS
-  date: 2025-01-23
-  our_score: 6
-  opp_score: 1
-- away: ROCK
-  date: 2025-01-27
+  date: 2025-10-15
   our_score: 0
   opp_score: 0
 - home: PRIES
-  date: 2025-02-13
+  date: 2025-11-06
   our_score: 0
   opp_score: 0
-- home: STMAR
-  label: Charity Cup
-  date: 2025-02-17
-  start_time: "19:30"
-  our_score: 1
-  opp_score: 0
-- away: ANNAH
-  date: 2025-02-19
+- away: HILDE
+  date: 2025-11-13
   our_score: 0
   opp_score: 0
-- home: ROCK
-  label: Charity Cup
-  date: 2025-02-27
-  newdate: 2025-03-24
+- away: ROCK
+  date: 2025-11-24
+  our_score: 0
+  opp_score: 0
+- home: STJOS
+  date: 2025-12-04
+  our_score: 0
+  opp_score: 0
+- away: BALLI
+  date: 2025-12-10
+  our_score: 0
+  opp_score: 0
+- away: BALLP
+  date: 2026-01-05
+  our_score: 0
+  opp_score: 0
+- home: ANNAH
+  date: 2026-01-15
   our_score: 0
   opp_score: 0
 - home: SOLDI
-  date: 2025-03-13
-  newdate: 2025-01-20
+  date: 2026-01-22
+  our_score: 0
+  opp_score: 0
+- away: PRIES
+  date: 2026-02-13
+  our_score: 0
+  opp_score: 0
+- home: HILDE
+  date: 2026-02-19
+  our_score: 0
+  opp_score: 0
+- home: ROCK
+  date: 2026-02-26
+  our_score: 0
+  opp_score: 0
+- away: STJOS
+  date: 2026-03-02
+  our_score: 0
+  opp_score: 0
+- home: BALLI
+  date: 2026-03-12
   our_score: 0
   opp_score: 0

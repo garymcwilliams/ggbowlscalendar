@@ -53,7 +53,7 @@
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "stcolmans",
-                "--year", "2024-25"
+                "--year", "2025-26"
             ],
             "cwd": "${workspaceFolder}",
             "env": {},
