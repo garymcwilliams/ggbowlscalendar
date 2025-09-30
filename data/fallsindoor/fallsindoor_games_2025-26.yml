@@ -23,6 +23,7 @@ matches:
   opp_score: 0
 - away: FALLSB
   date: 2025-11-06
+  start_time: '19:30'
   our_score: 0
   opp_score: 0
 - home: WOODB
