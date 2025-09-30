@@ -1,13 +1,13 @@
 FALLSA
-fallsindoor_matches_2024-25
+fallsindoor_matches_2025-26
 3
-2024, 10, 03
-19:30
-home STANN 0
-away HANNA 5
-home WOODB 16
+2024, 10, 02
+19:00
+home FALLSB 0
+away WOODB 7
+home STANN 10
+home HANNA 14
 away FALLSB 7
+home WOODB 7
 away STANN 3
-home HANNA 11
-away WOODB 11
-home FALLSB 10
+away HANNA 12
