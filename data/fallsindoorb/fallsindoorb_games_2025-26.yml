@@ -1,89 +1,41 @@
 me: FALLSB
-start_time: '19:30'
+start_time: '19:00'
 duration: 3
 matches:
-- away: WOODB
-  date: 2024-09-30
-  start_time: '19:00'
-  our_score: 0
-  opp_score: 0
-- home: STANN
-  date: 2024-10-17
-  our_score: 0
-  opp_score: 0
-- away: HANNA
-  date: 2024-10-22
-  our_score: 0
-  opp_score: 0
-- home: FALLSA
-  date: 2024-10-31
-  newtime: "19:00"
-  our_score: 0
-  opp_score: 0
-- home: WOODB
-  date: 2024-11-07
-  our_score: 0
-  opp_score: 0
-- away: STANN
-  date: 2024-11-17
-  newdate: 2024-12-12
-  newtime: '19:00'
+- away: FALLSA
+  date: 2025-10-02
+  start_time: '19:30'
   our_score: 0
   opp_score: 0
 - home: HANNA
-  date: 2024-11-28
-  our_score: 0
-  opp_score: 0
-- away: FALLSA
-  date: 2024-12-05
-  our_score: 0
-  opp_score: 0
-- away: FALLSA
-  label: 'Devine Cup'
-  date: 2024-12-12
-  newdate: 2024-12-09
-  our_score: 0
-  opp_score: 0
-- home: STANN
-  label: 'Devine Cup'
-  date: 2025-01-09
-  newdate: 2025-01-28
-  our_score: 0
-  opp_score: 0
-- away: HANNA
-  label: 'Devine Cup'
-  date: 2025-01-14
-  our_score: 0
-  opp_score: 0
-- home: WOODB
-  label: 'Devine Cup'
-  date: 2025-01-30
-  our_score: 0
-  opp_score: 0
-- home: FALLSA
-  label: 'Devine Cup'
-  date: 2025-02-06
-  our_score: 0
-  opp_score: 0
-- away: STANN
-  label: 'Devine Cup'
-  date: 2025-02-13
-  start_time: "19:00"
-  our_score: 0
-  opp_score: 0
-- home: HANNA
-  label: 'Devine Cup'
-  date: 2025-02-20
+  date: 2025-10-09
+  start_time: '19:30'
   our_score: 0
   opp_score: 0
 - away: WOODB
-  label: 'Devine Cup'
-  date: 2025-03-03
-  start_time: "19:00"
+  date: 2025-10-13
   our_score: 0
   opp_score: 0
 - home: STANN
-  label: 'Devine Cup'
-  date: 2025-03-13
+  date: 2025-10-23
+  start_time: '19:30'
+  our_score: 0
+  opp_score: 0
+- home: FALLSA
+  date: 2025-11-06
+  start_time: '19:30'
+  our_score: 0
+  opp_score: 0
+- away: HANNA
+  date: 2025-11-11
+  our_score: 0
+  opp_score: 0
+- home: WOODB
+  date: 2025-11-20
+  start_time: '19:30'
+  our_score: 0
+  opp_score: 0
+- away: STANN
+  date: 2025-11-23
   our_score: 0
   opp_score: 0

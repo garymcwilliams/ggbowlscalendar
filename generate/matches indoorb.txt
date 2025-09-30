@@ -1,13 +1,13 @@
 FALLSB
-fallsindoorb_games_2024-25
+fallsindoorb_games_2025-26
 3
-2024, 09, 30
-19:30
-away WOODB 0
-home STANN 17
+2025, 10, 02
+19:00
+away FALLSA 0
+home HANNA 7
+away WOODB 4
+home STANN 10
+home FALLSA 14
 away HANNA 5
-home FALLSA 9
-home WOODB 0
-away STANN 17
-home HANNA 5
-away FALLSA 9
+home WOODB 10
+away STANN 3
