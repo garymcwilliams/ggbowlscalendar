@@ -1,0 +1,40 @@
+me: FALLS1
+start_time: '20:00'
+duration: 3
+matches:
+- away: SYDEN
+  date: 2025-10-09
+  our_score: 0
+  opp_score: 0
+- home: BELMO
+  date: 2025-10-15
+  our_score: 0
+  opp_score: 0
+- away: WILLO
+  date: 2025-10-22
+  our_score: 0
+  opp_score: 0
+- home: CAVEH
+  date: 2025-11-05
+  our_score: 0
+  opp_score: 0
+- away: EWART
+  date: 2025-11-12
+  our_score: 0
+  opp_score: 0
+- home: CASTN
+  date: 2025-11-19
+  our_score: 0
+  opp_score: 0
+- home: HOLYC
+  date: 2025-11-26
+  our_score: 0
+  opp_score: 0
+- away: HIGHF
+  date: 2025-12-03
+  our_score: 0
+  opp_score: 0
+- home: SALIS
+  date: 2025-12-10
+  our_score: 0
+  opp_score: 0

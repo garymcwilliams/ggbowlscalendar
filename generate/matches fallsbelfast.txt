@@ -1,14 +1,14 @@
 FALLS1
-fallsbelfast_games_2024-25
+fallsbelfast_games_2025-26
 3
-2024, 10, 09
+2025, 10, 09
 20:00
-away SALIS 0
-home HIGHF 7
-away HOLYC 6
-home WILLO 8
-home EWART 7
-away CARAV 8
-home WILLO 6
-away BELMO 6
-home SYDEN 8
+away SYDEN 0
+home BELMO 6
+away WILLO 7
+home CAVEH 7
+away EWART 7
+home CASTN 7
+home HOLYC 7
+away HIGHF 7
+home SALIS 7

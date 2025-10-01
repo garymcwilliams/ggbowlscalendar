@@ -33,16 +33,20 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
-            "name": "FallsIndoorComps",
+            "name": "FallsBelfast",
             "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
-                "--team", "fallsindoorcomps",
-                "--year", "2023-24"
+                "--team", "fallsbelfast",
+                "--year", "2025-26"
             ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
         },
         {
             "name": "StColmans",
@@ -58,6 +62,18 @@
             "cwd": "${workspaceFolder}",
             "env": {},
             "envFile": "${workspaceFolder}/.env",
+        },
+        {
+            "name": "FallsIndoorComps",
+            "type": "debugpy",
+            "request": "launch",
+            "stopOnEntry": false,
+            "python": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "fallsindoorcomps",
+                "--year", "2023-24"
+            ],
         },
         {
             "name": "FallsOutdoorA",
@@ -240,22 +256,6 @@
                 "ICAL_TEAM": "fallsvets2",
                 "ICAL_YEAR": "2025"
             },
-            "envFile": "${workspaceFolder}/.env",
-        },
-        {
-            "name": "FallsBelfast",
-            "type": "debugpy",
-            "request": "launch",
-            "stopOnEntry": false,
-            "python": "${command:python.interpreterPath}",
-            "program": "${workspaceFolder}/main.py",
-            "args": [
-                "--team", "fallsbelfast",
-                "--year", "2024-25"
-            ],
-            "cwd": "${workspaceFolder}",
-            "console": "integratedTerminal",
-            "env": {},
             "envFile": "${workspaceFolder}/.env",
         },
         {
