@@ -266,6 +266,10 @@ LISBU:
     BT28 2NT
   name: Lisburn Zone
   start_time: '14:00'
+MIDAN:
+  location: XM7R+JQ Ballymena
+  name: Mid Antrim
+  start_time: '14:00'
 MIDDN:
   location: F8G6+3M Balloo, Newtownards
   name: Mid Down

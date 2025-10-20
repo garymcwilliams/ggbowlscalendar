@@ -1,0 +1,9 @@
+me: COMP
+start_time: '19:30'
+duration: 3
+matches:
+- away: MIDAN
+  date: 2025-10-25
+  start_time: '14:00'
+  our_score: 0
+  opp_score: 0
