@@ -12,6 +12,7 @@ matches:
   opp_score: 0
 - away: SOLDI
   date: 2025-10-15
+  start_time: '20:15'
   our_score: 0
   opp_score: 0
 - home: PRIES
@@ -36,6 +37,7 @@ matches:
   opp_score: 0
 - away: BALLP
   date: 2026-01-05
+  start_time: '19:30'
   our_score: 0
   opp_score: 0
 - home: ANNAH
@@ -48,6 +50,7 @@ matches:
   opp_score: 0
 - away: PRIES
   date: 2026-02-13
+  start_time: '19:30'
   our_score: 0
   opp_score: 0
 - home: HILDE
