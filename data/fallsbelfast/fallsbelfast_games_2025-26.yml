@@ -8,6 +8,7 @@ matches:
   opp_score: 0
 - home: BELMO
   date: 2025-10-15
+  start_time: '20:00'
   our_score: 0
   opp_score: 0
 - away: WILLO
