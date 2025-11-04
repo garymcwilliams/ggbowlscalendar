@@ -4,6 +4,7 @@ duration: 3
 matches:
 - away: SYDEN
   date: 2025-10-09
+  newdate: 2025-11-06
   our_score: 0
   opp_score: 0
 - home: BELMO
