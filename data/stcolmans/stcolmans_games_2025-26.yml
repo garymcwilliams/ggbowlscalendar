@@ -15,6 +15,11 @@ matches:
   start_time: '20:15'
   our_score: 0
   opp_score: 0
+- home: ANNAP
+  label: Charity Cup
+  date: 2025-10-30
+  our_score: 1
+  opp_score: 0
 - home: PRIES
   date: 2025-11-06
   our_score: 0
