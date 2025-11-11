@@ -185,6 +185,9 @@ WILLO:
   name: Willowfield
   location: 20 Gibson Park Gardens, Belfast BT6 9GN
   depart: 40
+WPOIN:
+  name: Warrenpoint
+  location: TBD
 
 # Lisburn Shortmat Teams
 AGHAG:
@@ -317,3 +320,11 @@ SYDEN:
 YORKR:
   location: unknown
   name: York Road
+
+# Belfast stadium teams
+STADIUM:
+  location: 115 Milltown Rd, Castlereagh, Belfast BT8 7XP
+  name: Finaghy
+BIBC:
+  location: TBD
+  name: BIBC

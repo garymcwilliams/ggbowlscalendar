@@ -1,0 +1,40 @@
+me: STADIUM
+start_time: '14:00'
+duration: 3
+matches:
+- home: BIBC
+  date: 2025-10-04
+  our_score: 0
+  opp_score: 0
+- home: SHAFT
+  date: 2025-10-18
+  our_score: 0
+  opp_score: 0
+- home: KNOCK
+  date: 2025-11-15
+  our_score: 0
+  opp_score: 0
+- home: WPOIN
+  date: 2025-11-29
+  our_score: 0
+  opp_score: 0
+- home: NICS
+  date: 2025-12-20
+  our_score: 0
+  opp_score: 0
+- home: BIBC
+  date: 2026-01-10
+  our_score: 0
+  opp_score: 0
+- home: SHAFT
+  date: 2026-02-07
+  our_score: 0
+  opp_score: 0
+- home: KNOCK
+  date: 2026-02-21
+  our_score: 0
+  opp_score: 0
+- home: WPOIN
+  date: 2026-03-21
+  our_score: 0
+  opp_score: 0

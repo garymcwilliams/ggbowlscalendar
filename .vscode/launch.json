@@ -64,6 +64,21 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
+            "name": "Stadium",
+            "type": "debugpy",
+            "request": "launch",
+            "stopOnEntry": false,
+            "python": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "stadium",
+                "--year", "2025-26"
+            ],
+            "cwd": "${workspaceFolder}",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
             "name": "Competitions",
             "type": "debugpy",
             "request": "launch",
