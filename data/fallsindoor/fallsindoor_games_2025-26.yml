@@ -43,6 +43,7 @@ matches:
 - home: FALLSB
   label: 'Devine Cup'
   date: 2025-12-11
+  newdate: 2025-12-09
   start_time: '19:30'
   our_score: 0
   opp_score: 0
