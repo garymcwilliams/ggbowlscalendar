@@ -61,6 +61,7 @@ matches:
 - home: STANN
   label: 'Devine Cup'
   date: 2026-01-29
+  newdate: 2026-01-28
   start_time: '19:30'
   our_score: 0
   opp_score: 0
