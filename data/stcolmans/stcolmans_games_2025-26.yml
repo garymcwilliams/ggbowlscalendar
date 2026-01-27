@@ -54,6 +54,11 @@ matches:
   date: 2026-01-22
   our_score: 0
   opp_score: 0
+- away: LOGHA
+  label: Charity Shield
+  date: 2026-01-29
+  our_score: 0
+  opp_score: 0
 - away: PRIES
   date: 2026-02-13
   start_time: '19:30'
