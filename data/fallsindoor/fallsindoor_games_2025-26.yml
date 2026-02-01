@@ -68,18 +68,21 @@ matches:
 - away: FALLSB
   label: 'Devine Cup'
   date: 2026-02-05
+  newdate: 2026-02-10
   start_time: '19:30'
   our_score: 0
   opp_score: 0
 - home: WOODB
   label: 'Devine Cup'
   date: 2026-02-12
+  newdate: 2026-02-17
   start_time: '19:30'
   our_score: 0
   opp_score: 0
 - away: STANN
   label: 'Devine Cup'
   date: 2026-02-22
+  newdate: 2026-03-01
   our_score: 0
   opp_score: 0
 - home: HANNA
