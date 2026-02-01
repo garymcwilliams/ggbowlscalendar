@@ -65,6 +65,7 @@ matches:
   opp_score: 0
 - home: FALLSA
   date: 2026-02-05
+  newdate: 2026-02-10
   start_time: '19:30'
   our_score: 0
   opp_score: 0
