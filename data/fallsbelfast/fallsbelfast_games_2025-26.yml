@@ -58,3 +58,8 @@ matches:
   date: 2026-02-12
   our_score: 0
   opp_score: 0
+- home: WILLO
+  label: 'Cup'
+  date: 2026-02-18
+  our_score: 0
+  opp_score: 0
