@@ -61,5 +61,6 @@ matches:
 - home: WILLO
   label: 'Cup'
   date: 2026-02-18
+  newtime: '20:00'
   our_score: 0
   opp_score: 0
