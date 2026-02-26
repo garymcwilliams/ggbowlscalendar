@@ -12,8 +12,10 @@
             "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
-                "--team", "fallsindoor",
-                "--year", "2025-26"
+                "--team",
+                "fallsindoor",
+                "--year",
+                "2025"
             ],
         },
         {
@@ -24,8 +26,10 @@
             "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
-                "--team", "fallsindoorb",
-                "--year", "2025-26"
+                "--team",
+                "fallsindoorb",
+                "--year",
+                "2025"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
@@ -40,8 +44,10 @@
             "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
-                "--team", "fallsbelfast",
-                "--year", "2025-26"
+                "--team",
+                "fallsbelfast",
+                "--year",
+                "2025"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
@@ -56,8 +62,10 @@
             "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
-                "--team", "stcolmans",
-                "--year", "2025-26"
+                "--team",
+                "stcolmans",
+                "--year",
+                "2025"
             ],
             "cwd": "${workspaceFolder}",
             "env": {},
@@ -71,8 +79,10 @@
             "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
-                "--team", "stadium",
-                "--year", "2025-26"
+                "--team",
+                "stadium",
+                "--year",
+                "2025"
             ],
             "cwd": "${workspaceFolder}",
             "env": {},
@@ -86,8 +96,10 @@
             "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
-                "--team", "competitions",
-                "--year", "2025-26"
+                "--team",
+                "competitions",
+                "--year",
+                "2025"
             ],
             "cwd": "${workspaceFolder}",
             "env": {},
@@ -101,8 +113,10 @@
             "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
-                "--team", "fallsindoorcomps",
-                "--year", "2023-24"
+                "--team",
+                "fallsindoorcomps",
+                "--year",
+                "2023"
             ],
         },
         {
@@ -113,8 +127,10 @@
             "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
-                "--team", "fallsoutdoora",
-                "--year", "2026"
+                "--team",
+                "fallsoutdoora",
+                "--year",
+                "2026"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
@@ -129,8 +145,10 @@
             "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
-                "--team", "fallsoutdoorb",
-                "--year", "2026"
+                "--team",
+                "fallsoutdoorb",
+                "--year",
+                "2026"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
@@ -175,8 +193,10 @@
             "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
-                "--team", "fallsoutdoorcomp",
-                "--year", "2025"
+                "--team",
+                "fallsoutdoorcomp",
+                "--year",
+                "2025"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
@@ -298,8 +318,8 @@
             "args": [],
             "cwd": "${workspaceFolder}",
             "env": {
-                "ICAL_TEAM":"stcolmans",
-                "ICAL_YEAR":"2018-19"
+                "ICAL_TEAM": "stcolmans",
+                "ICAL_YEAR": "2018"
             },
             "envFile": "${workspaceFolder}/.env",
         },

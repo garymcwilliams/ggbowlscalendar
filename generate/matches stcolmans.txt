@@ -1,5 +1,5 @@
 STCOL
-stcolmans_games_2025-26
+stcolmans
 3
 2025, 10, 02
 20:00
@@ -11,6 +11,7 @@ away HILDE 7
 away ROCK 4
 home STJOS 17
 away BALLI 6
+
 away BALLP 26
 home ANNAH 10
 home SOLDI 7

@@ -1,23 +1,24 @@
 FALLSA
-fallsoutdoora_games_2024
+fallsoutdoora
 3
-2024, 04, 27
+2026, 04, 25
 14:00
-away KNOCK 0
-home BALML 7
-away MOSSL 7
-home PICKI 7
+away KNOCK-A 0
+home BALML-A 7
+away MOSSL-A 7
+home PICKI-A 7
 away BALWA 7
-home EWART 7
-home HILDE 7
-away DUNBA 7
-home OLDBL 7
-home KNOCK 7
-away BALML 21
-home MOSSL 7
-away PICKI 14
-home BALWA 7
-away EWART 7
-away HILDE 7
-home DUNBA 7
-away OLDBL 7
+home EWART-A 7
+home HILDE-A 7
+away DUNBA-A 7
+home OLDBL-A 7
+
+home KNOCK-A 7
+away BALML-A 21
+home MOSSL-A 7
+away PICKI-A 14
+home BALWA-A 7
+away EWART-A 7
+away HILDE-A 7
+home DUNBA-A 7
+away OLDBL-A 7
