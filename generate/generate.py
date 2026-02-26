@@ -2,6 +2,7 @@
 
 import sys
 import logging
+import logging.config
 from dataclasses import dataclass
 from datetime import date, timedelta
 from pathlib import Path
@@ -38,15 +39,25 @@ class Schedule:
 # Logging
 # ---------------------------------------------------------------------------
 
+LOGGING_CONFIG_FILE: str = "logging.yml"
+
+
 def setup_logging() -> logging.Logger:
-    log_dir = Path("logs")
-    log_dir.mkdir(exist_ok=True)
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s  %(levelname)-8s  %(message)s",
-        datefmt="%Y-%m-%d %H:%M:%S",
-        handlers=[logging.FileHandler(log_dir / "generate.log", encoding="utf-8")],
-    )
+    config_path = Path(LOGGING_CONFIG_FILE)
+    if config_path.exists():
+        import yaml
+        with open(config_path, 'r', encoding='utf-8') as f:
+            config = yaml.safe_load(f)
+        logging.config.dictConfig(config)
+    else:
+        log_dir = Path("logs")
+        log_dir.mkdir(exist_ok=True)
+        logging.basicConfig(
+            level=logging.INFO,
+            format="%(asctime)s  %(levelname)-8s  %(message)s",
+            datefmt="%Y-%m-%d %H:%M:%S",
+            handlers=[logging.FileHandler(log_dir / "generate.log", encoding="utf-8")],
+        )
     return logging.getLogger(__name__)
 
 

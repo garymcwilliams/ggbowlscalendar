@@ -16,16 +16,16 @@ handlers:
     level: INFO
     formatter: brief
     stream: ext://sys.stdout
-  gary:
+  generate:
     class: logging.handlers.RotatingFileHandler
     formatter: simple
-    filename: logs/gary.log
+    filename: logs/generate.log
     maxBytes: 16384
     backupCount: 3
 loggers:
   __main__:
     level: DEBUG
-    handlers: [console,gary]
+    handlers: [console,generate]
     propagate: no
 root:
   level: DEBUG
