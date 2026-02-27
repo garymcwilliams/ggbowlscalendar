@@ -3,7 +3,7 @@ Generate ical for all matches
 """
 
 import logging
-from datetime import datetime, timedelta
+from datetime import datetime as dt, timedelta, timezone
 
 from icalendar import Alarm, Calendar
 from icalendar.cal import Event
@@ -12,11 +12,11 @@ from .league_results_manager import LeagueResult, LeagueResultsManager
 from .team_manager import TeamData, TeamManager
 
 
-def combine_date_time(date: datetime, time: str) -> str:
+def combine_date_time(date: dt, time: str) -> str:
     """combine date and time, into a predefine text fotmat"""
-    calc_time = datetime.strptime(time, "%H:%M").time()
-    id_time = datetime.combine(date, calc_time)
-    return datetime.strftime(id_time, "%Y%m%d%H%M")
+    calc_time = dt.strptime(time, "%H:%M").time()
+    id_time = dt.combine(date, calc_time)
+    return dt.strftime(id_time, "%Y%m%d%H%M")
 
 
 class ResultsTableIcal:
@@ -57,7 +57,6 @@ class ResultsTableIcal:
         opp_name = self._opp_name(result, opp_team_details)
         if opp_name.startswith("***"):
             opp_name = opp_name.replace("*", "")
-        summary = None
         if opp_name.startswith("Club"):
             match_names = result.opp_id
             summary = match_names
@@ -86,7 +85,7 @@ class ResultsTableIcal:
         """Return match calendar description."""
         opp_name = self._opp_name(result, opp_team_details)
         venue = result.venue
-        """if Neutral, change description of venue"""
+        # If neutral venue, change description
         if result.location:
             venue = "neutral"
         desc = f"{result.result} " f"{venue} " f"({opp_name})"
@@ -94,11 +93,14 @@ class ResultsTableIcal:
             self.logger.debug("desc='%s' from='%s'", desc.strip(), desc)
         return desc.strip()
 
-    def generate_ical(self, now=datetime.utcnow()) -> None:
+    def generate_ical(self, now: dt | None = None) -> None:
         """
         generate the ical content. The internal 'cal' property will contain
         the generated ical events.
         """
+
+        if now is None:
+            now = dt.now(timezone.utc)
 
         if not self.results_manager.results:
             print("No results found.")
@@ -160,9 +162,10 @@ class ResultsTableIcal:
 
         return location
 
-    def _create_event(self, result: LeagueResult, now: datetime) -> Event:
-        match_start = result.match_date_time() - timedelta(minutes=10)
-        match_end = result.match_date_time() + timedelta(
+    def _create_event(self, result: LeagueResult, now: dt) -> Event:
+        match_dt = result.match_date_time()
+        match_start = match_dt - timedelta(minutes=10)
+        match_end = match_dt + timedelta(
             hours=self.results_manager.duration
         )
 
@@ -195,15 +198,12 @@ class ResultsTableIcal:
 
         return event
 
-    def _add_event(self, result: LeagueResult, now: datetime) -> None:
+    def _add_event(self, result: LeagueResult, now: dt) -> None:
         """
         Creates a calendar event for the given match
 
         :param match: A Match object holding the match data
         """
-        #    print(self.team_data)
-        #    print(team_data)
-
         # If match has no new date, then do not add to calendar
         if result.match_date_time() is None:
             return

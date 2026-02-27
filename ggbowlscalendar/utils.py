@@ -22,23 +22,10 @@ def savedir() -> Path:
     Return a Path object for the savedir. If env ICAL_OUTPUT is set then use
     that, otherwise find the default dropbox path
     """
-    if os.getenv("ICAL_OUTPUT") is not None:
-        return Path(os.getenv("ICAL_OUTPUT"))
-
-    try:
-        if os.getenv("LOCALAPPDATA") is not None:
-            path = Path(os.getenv("LOCALAPPDATA")) / "Dropbox" / "info.json"
-        elif os.getenv("APPDATA") is not None:
-            path = Path(os.getenv("APPDATA")) / "Dropbox" / "info.json"
-        else:
-            print("Could not find dropbox path")
-
-        with open(str(path), "r", encoding="utf-8") as file_content:
-            j = json.load(file_content)
-        return Path(j["personal"]["path"]).absolute()
-    except FileNotFoundError:
-        print("info.json NotFound")
-
+    ical_output = os.getenv("ICAL_OUTPUT")
+    if ical_output is None:
+        raise EnvironmentError("ICAL_OUTPUT environment variable is not set")
+    return Path(ical_output)
 
 def _mk_save_dir() -> Path:
     newdir = Path(savedir() / "Apps" / "icalendar")
@@ -75,7 +62,7 @@ def find_file(filename: str, folder: str = None) -> Path:
 
     if not file_path.exists():
         LOGGER.error("Cannot find file: %s", file_path)
-        sys.exit(1)
+        raise FileNotFoundError(f"Cannot find file: {file_path}")
     return file_path
 
 
