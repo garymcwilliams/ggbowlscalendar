@@ -42,7 +42,7 @@ def print_results(league: League, registry: TeamRegistry) -> None:
 
 def _build_table(league: League, registry: TeamRegistry) -> Table:
     table = Table(show_header=True, header_style="bold magenta")
-    date_hdr_time = league.default_time.strftime("%H-%M")
+    date_hdr_time = league.default_time.strftime("%H:%M")
     for col in ("R", "Venue", "Us", "Opp", "Opponent", f"Date       {date_hdr_time}", "Note"):
         table.add_column(col)
 

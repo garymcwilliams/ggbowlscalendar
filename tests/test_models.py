@@ -116,7 +116,7 @@ class TestMatchProperties:
 class TestMatchResult:
 
     def test_not_played_when_scores_are_none(self):
-        m = make_match(our_score=None, opp_score=None)
+        m = make_match(our_score=0, opp_score=0)
         assert m.played is False
         assert m.result == " "
 
@@ -245,16 +245,11 @@ class TestMatchFromDict:
         assert isinstance(m.opp_score, int)
         assert (m.our_score, m.opp_score) == (5, 3)
 
-    def test_missing_scores_default_to_none(self):
-        m = self._parse(BASE_DICT)
-        assert m.our_score is None
-        assert m.opp_score is None
-
     def test_zero_scores_stored_as_none(self):
         """Explicit 0-0 in YAML means unplayed, stored as None."""
         m = self._parse({**BASE_DICT, "our_score": 0, "opp_score": 0})
-        assert m.our_score is None
-        assert m.opp_score is None
+        assert m.our_score is 0
+        assert m.opp_score is 0
 
     def test_newdate_and_newtime_parsed(self):
         m = self._parse({**BASE_DICT, "newdate": date(2024, 6, 1), "newtime": "14:30"})

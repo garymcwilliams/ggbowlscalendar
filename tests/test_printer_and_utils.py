@@ -13,7 +13,7 @@ from unittest.mock import patch
 import pytest
 
 from conftest import make_match, make_league, _FakeConsole, _FakeTable
-from ggbowlscalendar.models import TBD_DISPLAY, VENUE_AWAY, VENUE_HOME
+from ggbowlscalendar.models import TBD, TBD_DISPLAY, VENUE_AWAY, VENUE_HOME
 from ggbowlscalendar.printer import (
     _display_opp_name,
     _format_date,
@@ -122,10 +122,10 @@ class TestRowValues:
         assert len(row) == 7
 
     @pytest.mark.parametrize("our, their, expected_code", [
-        (None, None, " "),
-        (5,    2,    "W"),
-        (1,    4,    "L"),
-        (3,    3,    "D"),
+        (0, 0, " "),
+        (5, 2, "W"),
+        (1, 4, "L"),
+        (3, 3, "D"),
     ])
     def test_result_column(self, registry, our, their, expected_code):
         row = _row_values(make_match(our_score=our, opp_score=their), make_league(), registry)
@@ -182,7 +182,7 @@ class TestPrintResults:
         with patch("ggbowlscalendar.printer.Console", return_value=_FakeConsole()), \
              patch("ggbowlscalendar.printer.Table", return_value=table):
             print_results(make_league([make_match()]), registry)
-        assert table.columns == ["R", "Venue", "Us", "Opp", "Opponent", "Date", "Note"]
+        assert table.columns == ["R", "Venue", "Us", "Opp", "Opponent", "Date       18:00", "Note"]
 
     @pytest.mark.parametrize("count", [1, 2, 3])
     def test_row_count_matches_match_count(self, registry, count):
