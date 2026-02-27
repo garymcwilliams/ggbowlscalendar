@@ -2,7 +2,10 @@
 Team League Results Management System
 """
 
-import datetime
+from datetime import datetime as dt
+from datetime import time as dt_time
+from datetime import date as dt_date
+from datetime import timedelta
 from typing import List
 
 
@@ -17,15 +20,15 @@ class LeagueResult:
         self,
         venue: str,
         opp_id: str,
-        date: datetime,
+        date: dt_date,
         time: str,
         our_score: int,
         opp_score: int,
-        newdate: str = None,
-        new_time: str = None,
-        sub_team: str = None,
-        label: str = None,
-        location: str = None,
+        newdate: dt_date | None = None,
+        new_time: str | None = None,
+        sub_team: str | None = None,
+        label: str = "",
+        location: str | None = None,
     ):
         """
         Initialize a LeagueResult instance.
@@ -33,7 +36,7 @@ class LeagueResult:
         Args:
             venue (str): The venue associated with the result.
             opp_id (str): The ID of the opponent team.
-            date (datetime): The original date of the match.
+            date (dt_date): The original date of the match.
             time (str): The original time of the match.
             our_score (int): The score of our team.
             opp_score (int): The score of the opponent team.
@@ -68,25 +71,19 @@ class LeagueResult:
 
     def not_played_yet(self) -> bool:
         """determine whether the match has already been played or not"""
-        return (
-                True if self.our_score == 0.0 and self.opp_score == 0.0
-                else False
-        )
+        return self.our_score == 0.0 and self.opp_score == 0.0
 
-    def match_date_time(self) -> datetime:
+    def match_date_time(self) -> dt_date | None:
         """
         return the match date & time, allowing newdate to overide the default
         if that has been provided.
         """
         match_date = self.newdate if self.newdate else self.date
-        if self.newdate == TBD_DATA:
-            self.label += TBD_DISPLAY
+        if match_date == TBD_DATA:
             return None
         time = self.new_time if self.new_time else self.time
-        match_time = datetime.datetime.strptime(time, '%H:%M').time()
-        match_date_time = datetime.datetime.combine(match_date, match_time)
-
-        return match_date_time
+        match_time = dt.strptime(time, '%H:%M').time()
+        return dt.combine(match_date, match_time)
 
     def notes(self) -> str:
         """ return any special notes for printing """
@@ -101,14 +98,14 @@ class LeagueResult:
         """is match played away?"""
         return self.venue == "away"
 
-    def _format_score(self, score: float) -> str:
+    def _format_score(self, score: float) -> str | None:
         """convert float to str, strip .0 if we have integer"""
         return (
                 None if self.not_played_yet()
                 else f"{score:.1f}".rstrip('0').rstrip('.')
         )
 
-    def format_our_score(self) -> str:
+    def format_our_score(self) -> str | None:
         """convert our_score to output format"""
         return self._format_score(self.our_score)
 
@@ -135,8 +132,8 @@ class LeagueResultsManager:
             results (List[LeagueResult]): The list of league results.
         """
 
-        self.my_team_id = my_team_id
-        self.duration = duration
+        self.my_team_id : str = my_team_id
+        self.duration : int = duration
         self.default_day = default_day
         self.results = results
 
@@ -174,11 +171,7 @@ class LeagueResultsManager:
             sub_team = result_data.get("team", None)
             label = result_data.get("label", "")
             location = result_data.get("location", None)
-            start_time = (
-                result_data["start_time"]
-                if "start_time" in result_data
-                else default_time
-            )
+            start_time = result_data.get("start_time", default_time)
 
             result = LeagueResult(venue, opp_id, date, start_time, our_score,
                                   opp_score, newdate, new_time, sub_team,

@@ -52,7 +52,7 @@ class ResultsTablePrinter:
         self.print_match_table()
 
         if not self.results_manager.results:
-            print("No results found.")
+            self.console.print("No results found.")
 
     def _print_table_header(self) -> None:
         """print the header row"""
@@ -69,12 +69,8 @@ class ResultsTablePrinter:
         work out if this match is being played on the regular/normal day for
         this team
         """
-        if (
-            result.match_date_time()
-            and result.match_date_time().strftime("%a") != self.default_day
-        ):
-            return True
-        return False
+        match_date_time = result.match_date_time()
+        return bool(match_date_time and match_date_time.strftime("%a") != self.default_day)
 
     def add_match_to_table(self, result: LeagueResult, opp: TeamData) -> None:
         """format this result as a line in the table"""
