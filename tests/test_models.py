@@ -115,12 +115,14 @@ class TestMatchProperties:
 
 class TestMatchResult:
 
-    def test_not_played_when_scores_are_none(self):
-        m = make_match(our_score=0, opp_score=0)
-        assert m.played is False
-        assert m.result == " "
+    def test_zero_zero_is_unplayed(self):
+        """0-0 is the unplayed sentinel — a genuine 0-0 result is impossible in bowls."""
+        assert make_match(our_score=0, opp_score=0).played is False
 
-    def test_played_when_both_scores_present(self, played_win):
+    def test_zero_zero_result_is_space(self):
+        assert make_match(our_score=0, opp_score=0).result == " "
+
+    def test_nonzero_scores_are_played(self, played_win):
         assert played_win.played is True
 
     def test_win(self, played_win):
@@ -132,16 +134,11 @@ class TestMatchResult:
     def test_draw(self, played_draw):
         assert played_draw.result == "D"
 
-    def test_zero_zero_is_unplayed(self):
-        """0-0 is the unplayed sentinel — a genuine 0-0 result is impossible in bowls."""
-        m = make_match(our_score=0, opp_score=0)
-        assert m.played is False
-        assert m.result == " "
-
     @pytest.mark.parametrize("our, their, expected", [
         (5, 2, "W"),
         (1, 4, "L"),
         (3, 3, "D"),
+        (0, 0, " "),
     ])
     def test_result_codes(self, our, their, expected):
         assert make_match(our_score=our, opp_score=their).result == expected
@@ -153,15 +150,16 @@ class TestMatchResult:
 
 class TestScoreDisplay:
 
-    def test_unplayed_returns_none_pair(self):
-        assert make_match().score_display() == (None, None)
+    def test_unplayed_returns_empty_string_pair(self):
+        assert make_match(our_score=0, opp_score=0).score_display() == ("", "")
 
     def test_played_returns_string_pair(self, played_win):
         assert played_win.score_display() == ("5", "2")
 
-    def test_zero_zero_returns_none_pair(self):
-        """0-0 means unplayed, so score_display returns (None, None)."""
-        assert make_match(our_score=0, opp_score=0).score_display() == (None, None)
+    def test_score_display_is_string_type(self, played_win):
+        our, their = played_win.score_display()
+        assert isinstance(our, str)
+        assert isinstance(their, str)
 
 
 # ===========================================================================
@@ -214,7 +212,7 @@ class TestMatchScheduling:
 # _match_from_dict
 # ===========================================================================
 
-BASE_DICT = {"home": "OPP1", "date": date(2024, 5, 14)}
+BASE_DICT = {"home": "OPP1", "date": date(2024, 5, 14), "our_score": 0, "opp_score": 0}
 DEFAULT_TIME = time(18, 0)
 
 
@@ -229,7 +227,7 @@ class TestMatchFromDict:
         assert m.opp_id == "OPP1"
 
     def test_away_venue(self):
-        m = self._parse({"away": "OPP2", "date": date(2024, 6, 1)})
+        m = self._parse({"away": "OPP2", "date": date(2024, 6, 1), "our_score": 0, "opp_score": 0})
         assert m.venue == VENUE_AWAY
         assert m.opp_id == "OPP2"
 
@@ -245,11 +243,11 @@ class TestMatchFromDict:
         assert isinstance(m.opp_score, int)
         assert (m.our_score, m.opp_score) == (5, 3)
 
-    def test_zero_scores_stored_as_none(self):
-        """Explicit 0-0 in YAML means unplayed, stored as None."""
-        m = self._parse({**BASE_DICT, "our_score": 0, "opp_score": 0})
-        assert m.our_score is 0
-        assert m.opp_score is 0
+    def test_zero_zero_scores_mean_unplayed(self):
+        m = self._parse(BASE_DICT)
+        assert m.our_score == 0
+        assert m.opp_score == 0
+        assert m.played is False
 
     def test_newdate_and_newtime_parsed(self):
         m = self._parse({**BASE_DICT, "newdate": date(2024, 6, 1), "newtime": "14:30"})
@@ -282,7 +280,7 @@ LEAGUE_DICT = {
     "start_time": "18:00",
     "day": "Tue",
     "matches": [
-        {"home": "OPP1", "date": date(2024, 5, 14)},
+        {"home": "OPP1", "date": date(2024, 5, 14), "our_score": 0, "opp_score": 0},
         {"away": "OPP2", "date": date(2024, 5, 21), "our_score": 4, "opp_score": 2},
     ],
 }
@@ -299,11 +297,11 @@ class TestLeagueFromDict:
     def test_default_day(self):
         assert League.from_dict(LEAGUE_DICT).default_day == "Tue"
 
-    def test_match_count(self):
-        assert len(League.from_dict(LEAGUE_DICT).matches) == 2
-
     def test_default_time_stored_on_league(self):
         assert League.from_dict(LEAGUE_DICT).default_time == time(18, 0)
+
+    def test_match_count(self):
+        assert len(League.from_dict(LEAGUE_DICT).matches) == 2
 
     def test_default_time_propagated_to_matches(self):
         assert League.from_dict(LEAGUE_DICT).matches[0].start_time == time(18, 0)

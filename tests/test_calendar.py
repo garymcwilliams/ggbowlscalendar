@@ -137,8 +137,8 @@ class TestBuildSummary:
 class TestBuildDescription:
 
     @pytest.mark.parametrize("venue, our, their, expected", [
-        (VENUE_HOME, 0, 0, "home (Opponents FC)"),
-        (VENUE_AWAY, 3, 1, "W away (Opponents FC)"),
+        (VENUE_HOME, 0,    0,   "home (Opponents FC)"),
+        (VENUE_AWAY, 3,    1,   "W away (Opponents FC)"),
     ])
     def test_description_format(self, venue, our, their, expected):
         m = make_match(venue=venue, our_score=our, opp_score=their)

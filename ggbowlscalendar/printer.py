@@ -5,7 +5,7 @@ Console table display for league results.
 from __future__ import annotations
 
 import logging
-from datetime import datetime as dt, time
+from datetime import time
 
 from rich.console import Console
 from rich.table import Table
@@ -64,8 +64,8 @@ def _row_values(
     return (
         _RESULT_DISPLAY[match.result],
         venue_markup,
-        our or "",
-        their or "",
+        our,
+        their,
         opp_name,
         _format_date(match, league.default_day, league.default_time),
         match.notes(),

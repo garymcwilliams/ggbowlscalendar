@@ -78,7 +78,7 @@ class Match:
     opp_id: str          # opponent team ID (key into TeamRegistry)
     date: date           # original scheduled date
     start_time: time     # original scheduled time
-    our_score: int = 0   # None = not yet played
+    our_score: int = 0   # 0-0 means not yet played
     opp_score: int = 0
     rescheduled_date: Optional[date] = None   # overrides date when set
     rescheduled_time: Optional[time] = None   # overrides start_time when set
@@ -94,12 +94,10 @@ class Match:
     def played(self) -> bool:
         """True if the match has been played.
 
-        A score of 0-0 means the match has not yet been played, as a genuine
-        0-0 result is not possible in bowls.
+        Both scores are always present; 0-0 is the unplayed sentinel since a
+        genuine 0-0 result is not possible in bowls.
         """
-        return (
-            not (self.our_score == 0 and self.opp_score == 0)
-        )
+        return not (self.our_score == 0 and self.opp_score == 0)
 
     @property
     def result(self) -> str:
@@ -147,10 +145,10 @@ class Match:
         """
         return datetime.combine(self.date, self.start_time)
 
-    def score_display(self) -> tuple[Optional[str], Optional[str]]:
-        """Return (our_score_str, opp_score_str), or (None, None) if unplayed."""
+    def score_display(self) -> tuple[str, str]:
+        """Return (our_score_str, opp_score_str), or ('', '') if unplayed."""
         if not self.played:
-            return None, None
+            return "", ""
         return str(self.our_score), str(self.opp_score)
 
     def notes(self) -> str:
@@ -213,25 +211,15 @@ def _match_from_dict(data: dict, default_time: time) -> Match:
     else:
         venue, opp_id = VENUE_AWAY, data["away"]
 
-    our_score_raw = data.get("our_score")
-    opp_score_raw = data.get("opp_score")
-
     raw_new_time = data.get("newtime")
-
-    # Treat absent scores and explicit 0-0 the same way — both mean unplayed.
-    # A genuine 0-0 result is not possible in bowls, so 0 is the unplayed sentinel.
-    def _parse_score(raw) -> int:
-        if raw is None:
-            return 0
-        return int(raw)
 
     return Match(
         venue=venue,
         opp_id=opp_id,
         date=data["date"],
         start_time=_parse_time(data.get("start_time", default_time)),
-        our_score=_parse_score(our_score_raw),
-        opp_score=_parse_score(opp_score_raw),
+        our_score=int(data["our_score"]),
+        opp_score=int(data["opp_score"]),
         rescheduled_date=data.get("newdate"),
         rescheduled_time=_parse_time(raw_new_time) if raw_new_time else None,
         sub_team=data.get("team"),
