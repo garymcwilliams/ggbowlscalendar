@@ -1,15 +1,16 @@
 me: STCOL
+day: Thu
 start_time: '20:00'
 duration: 3
 matches:
 - home: BALLP
   date: 2025-10-02
-  our_score: 0
+  our_score: 1
   opp_score: 0
 - away: ANNAH
   date: 2025-10-08
   our_score: 0
-  opp_score: 0
+  opp_score: 1
 - away: SOLDI
   date: 2025-10-15
   start_time: '20:15'
@@ -58,7 +59,7 @@ matches:
   label: Charity Shield
   date: 2026-01-29
   our_score: 0
-  opp_score: 0
+  opp_score: 1
 - away: PRIES
   date: 2026-02-13
   start_time: '19:30'

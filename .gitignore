@@ -8,3 +8,4 @@ generate/matches.txt
 generate/*.yml
 .coverage
 coverage.xml
+*:Zone.Identifier
