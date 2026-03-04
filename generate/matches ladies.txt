@@ -1,0 +1,19 @@
+FALLSS1
+fallsladiess1
+3
+2026, 04, 30
+14:30
+away LARNE 0
+home UTRAN 7
+home PICKI 7
+away MOSSL 7
+away KNOCK 7
+home NICS 7
+away EWART 7
+home LARNE 7
+away NICS 14
+away PICKI 7
+home MOSSL 21
+home KNOCK 7
+away UTRAN 14
+home EWART 7

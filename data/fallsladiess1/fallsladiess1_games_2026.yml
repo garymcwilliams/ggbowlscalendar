@@ -1,0 +1,61 @@
+me: FALLSS1
+start_time: '14:30'
+day: Thu
+duration: 3
+matches:
+- away: LARNE
+  date: 2026-04-30
+  our_score: 0
+  opp_score: 0
+- home: UTRAN
+  date: 2026-05-07
+  our_score: 0
+  opp_score: 0
+- home: PICKI
+  date: 2026-05-14
+  our_score: 0
+  opp_score: 0
+- away: MOSSL
+  date: 2026-05-21
+  our_score: 0
+  opp_score: 0
+- away: KNOCK
+  date: 2026-05-28
+  our_score: 0
+  opp_score: 0
+- home: NICS
+  date: 2026-06-04
+  our_score: 0
+  opp_score: 0
+- away: EWART
+  date: 2026-06-11
+  our_score: 0
+  opp_score: 0
+- home: LARNE
+  date: 2026-06-18
+  our_score: 0
+  opp_score: 0
+- away: NICS
+  date: 2026-07-02
+  our_score: 0
+  opp_score: 0
+- away: PICKI
+  date: 2026-07-09
+  our_score: 0
+  opp_score: 0
+- home: MOSSL
+  date: 2026-07-30
+  our_score: 0
+  opp_score: 0
+- home: KNOCK
+  date: 2026-08-06
+  our_score: 0
+  opp_score: 0
+- away: UTRAN
+  date: 2026-08-20
+  our_score: 0
+  opp_score: 0
+- home: EWART
+  date: 2026-08-27
+  our_score: 0
+  opp_score: 0
