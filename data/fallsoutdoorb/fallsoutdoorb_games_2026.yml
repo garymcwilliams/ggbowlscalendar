@@ -25,9 +25,17 @@ matches:
   date: 2026-05-12
   our_score: 0
   opp_score: 0
+- home: CASTR
+  label: Irish Cup
+  date: 2026-05-16
+  start_time: '17:30'
+  our_score: 0
+  opp_score: 0
 - away: HILDE
   team: B
   date: 2026-05-16
+  newdate: 2026-05-19
+  newtime: '18:30'
   our_score: 0
   opp_score: 0
 - home: EWART
