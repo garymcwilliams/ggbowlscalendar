@@ -4,13 +4,19 @@ Bowls Calendar Generator
 Usage:
     python main.py --team <team-name> --year <year>
 
+Arguments can also be supplied via environment variables:
+    ICAL_TEAM   equivalent to --team
+    ICAL_YEAR   equivalent to --year
+
 Example:
     python main.py --team fallsindoor --year 2024
+    ICAL_TEAM=fallsindoor ICAL_YEAR=2024 python main.py
 """
 
 import argparse
 import logging
 import logging.config
+import os
 import sys
 from pathlib import Path
 
@@ -37,21 +43,40 @@ def _setup_logging() -> None:
 
 def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Generate a bowls club iCalendar (.ics) file from match data."
+        description="Generate a bowls club iCalendar (.ics) file from match data.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=(
+            "Each argument can also be set via an environment variable:\n"
+            "  --team  →  ICAL_TEAM\n"
+            "  --year  →  ICAL_YEAR\n"
+        ),
     )
     parser.add_argument(
         "--team",
-        required=True,
+        default=os.getenv("ICAL_TEAM"),
         metavar="TEAM_NAME",
-        help="Team name used to locate the games YAML file (e.g. 'fallsindoor').",
+        help="Team name used to locate the games YAML file (e.g. 'fallsindoor'). "
+             "Falls back to $ICAL_TEAM if not supplied.",
     )
     parser.add_argument(
         "--year",
-        required=True,
+        default=os.getenv("ICAL_YEAR"),
         metavar="YEAR",
-        help="Season year (e.g. '2024').",
+        help="Season year (e.g. '2024'). Falls back to $ICAL_YEAR if not supplied.",
     )
-    return parser.parse_args()
+
+    args = parser.parse_args()
+
+    missing = [
+        flag
+        for flag, value in (("--team (or $ICAL_TEAM)", args.team),
+                             ("--year (or $ICAL_YEAR)", args.year))
+        if not value
+    ]
+    if missing:
+        parser.error("the following arguments are required: " + ", ".join(missing))
+
+    return args
 
 
 def main() -> None:
