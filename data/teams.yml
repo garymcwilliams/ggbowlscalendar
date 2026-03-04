@@ -70,6 +70,9 @@ BELMO:
 CARIF:
   name: Carrickfergus
   location: TBD
+CASTL:
+  name: Castle
+  location: Ward Park, 1 Castle Park Rd, Bangor BT20 3AG
 CASTN:
   name: Castleton
   location: TBD
