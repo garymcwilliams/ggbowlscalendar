@@ -1,84 +1,82 @@
 me: FALLSB
-start_time: '19:00'
+day: Thu
+start_time: '19:30'
 duration: 3
 matches:
 - away: FALLSA
   date: 2025-10-02
-  start_time: '19:30'
   our_score: 0
   opp_score: 0
 - home: HANNA
   date: 2025-10-09
   newdate: 2025-10-07
-  start_time: '19:30'
   our_score: 0
   opp_score: 0
 - away: WOODB
   date: 2025-10-13
+  start_time: '19:00'
   our_score: 0
   opp_score: 0
 - home: STANN
   date: 2025-10-23
-  start_time: '19:30'
   our_score: 0
   opp_score: 0
 - home: FALLSA
   date: 2025-11-06
   newdate: 2025-11-04
-  start_time: '19:30'
   our_score: 0
   opp_score: 0
 - away: HANNA
   date: 2025-11-11
+  start_time: '19:00'
   our_score: 0
   opp_score: 0
 - home: WOODB
   date: 2025-11-20
-  start_time: '19:30'
   our_score: 0
   opp_score: 0
 - away: STANN
   date: 2025-11-23
+  start_time: '19:00'
   newdate: 2025-12-04
   our_score: 0
   opp_score: 0
 - away: FALLSA
   label: 'Devine Cup'
   date: 2025-12-11
+  start_time: '19:00'
   newdate: 2025-12-09
-  start_time: '19:30'
   our_score: 0
   opp_score: 0
 - home: STANN
   date: 2026-01-08
-  start_time: '19:30'
   our_score: 0
   opp_score: 0
 - away: HANNA
   date: 2026-01-13
+  start_time: '19:00'
   our_score: 0
   opp_score: 0
 - home: WOODB
   date: 2026-01-22
-  start_time: '19:30'
   our_score: 0
   opp_score: 0
 - home: FALLSA
   date: 2026-02-05
   newdate: 2026-02-10
-  start_time: '19:30'
   our_score: 0
   opp_score: 0
 - away: STANN
   date: 2026-02-08
+  start_time: '19:00'
   our_score: 0
   opp_score: 0
 - home: HANNA
   date: 2026-02-19
-  start_time: '19:30'
   our_score: 0
   opp_score: 0
 - away: WOODB
   date: 2026-03-02
+  start_time: '19:00'
   our_score: 0
   opp_score: 0

@@ -217,11 +217,17 @@
             "stopOnEntry": false,
             "python": "${command:python.interpreterPath}",
             "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team",
+                "fallsladiess1",
+                "--year",
+                "2026"
+            ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "env": {
                 "ICAL_TEAM": "fallsladiess1",
-                "ICAL_YEAR": "2025"
+                "ICAL_YEAR": "2026"
             },
             "envFile": "${workspaceFolder}/.env",
         },
@@ -236,7 +242,7 @@
             "console": "integratedTerminal",
             "env": {
                 "ICAL_TEAM": "fallsladiesj1",
-                "ICAL_YEAR": "2025"
+                "ICAL_YEAR": "2026"
             },
             "envFile": "${workspaceFolder}/.env",
         },
@@ -251,7 +257,7 @@
             "console": "integratedTerminal",
             "env": {
                 "ICAL_TEAM": "fallsladiesj2",
-                "ICAL_YEAR": "2025"
+                "ICAL_YEAR": "2026"
             },
             "envFile": "${workspaceFolder}/.env",
         },

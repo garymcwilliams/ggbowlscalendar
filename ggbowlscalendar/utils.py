@@ -1,91 +1,74 @@
 """
-Created on 13 Feb 2019
-
-@author: gmcwilliams
+File and path utilities for the bowls calendar generator.
 """
-import json
-import os
-import sys
+
 import logging
+import os
 from pathlib import Path
 
 import yaml
-
 from envparse import env
-
 
 LOGGER = logging.getLogger(__name__)
 
 
-def savedir() -> Path:
+def get_output_dir() -> Path:
     """
-    Return a Path object for the savedir. If env ICAL_OUTPUT is set then use
-    that, otherwise find the default dropbox path
+    Return the directory where .ics files will be written.
+
+    Reads ICAL_OUTPUT from the environment. Raises EnvironmentError if unset.
     """
     ical_output = os.getenv("ICAL_OUTPUT")
-    if ical_output is None:
-        raise EnvironmentError("ICAL_OUTPUT environment variable is not set")
-    return Path(ical_output)
-
-def _mk_save_dir() -> Path:
-    newdir = Path(savedir() / "Apps" / "icalendar")
-
-    if not newdir.exists():
-        newdir.mkdir(parents=True)
-
-    return newdir
+    if not ical_output:
+        raise EnvironmentError(
+            "ICAL_OUTPUT environment variable is not set. "
+            "Set it to the directory where .ics files should be saved."
+        )
+    output_dir = Path(ical_output) / "Apps" / "icalendar"
+    output_dir.mkdir(parents=True, exist_ok=True)
+    return output_dir
 
 
 def write_ical_file(filename: str, content: bytes) -> None:
-    """Write the ics content to the named file. Create file if necessary"""
-    newfile = _mk_save_dir() / filename
-    newfile.write_bytes(content)
-    LOGGER.info("saved:%s", newfile)
+    """Write *content* to *filename* inside the configured output directory."""
+    dest = get_output_dir() / filename
+    dest.write_bytes(content)
+    LOGGER.info("Saved: %s", dest)
 
 
-def find_file(filename: str, folder: str = None) -> Path:
+def find_data_file(filename: str, subfolder: str | None = None) -> Path:
     """
-    Get a file path. The base dir will be read from env var ICAL_DATAPATH.
-    If ICAL_DATAPATH is not set then the value from the .env file will be used.
-    If folder is provided it will be added to the Path.
+    Locate a data file under ICAL_DATAPATH (from env or .env file).
+
+    Args:
+        filename:  The file name, e.g. "teams.yml".
+        subfolder: Optional sub-directory under ICAL_DATAPATH.
+
+    Raises:
+        FileNotFoundError: If the file does not exist.
     """
     env.read_envfile()
+    base = Path(env.str("ICAL_DATAPATH"))
+    path = base / subfolder / filename if subfolder else base / filename
 
-    if folder is None:
-        LOGGER.debug("find_file=%s", filename)
-        data_path = Path(env.str("ICAL_DATAPATH"))
-    else:
-        LOGGER.debug("find_file=%s in %s", filename, folder)
-        data_path = Path(env.str("ICAL_DATAPATH"), folder)
+    LOGGER.debug("find_data_file: %s", path)
 
-    file_path = Path(data_path, filename)
-
-    if not file_path.exists():
-        LOGGER.error("Cannot find file: %s", file_path)
-        raise FileNotFoundError(f"Cannot find file: {file_path}")
-    return file_path
+    if not path.exists():
+        raise FileNotFoundError(f"Data file not found: {path}")
+    return path
 
 
-def get_teams_data() -> dict:
-    """
-    Get the teams Path
-    """
-    teams_path = find_file("teams.yml")
-    return read_yaml_data(teams_path)
+def load_yaml(path: Path) -> dict:
+    """Read and parse a YAML file, returning a dict."""
+    with open(path, encoding="utf-8") as fh:
+        return yaml.safe_load(fh)
 
 
-def get_games_data(club, year) -> dict:
-    """
-    Get the matches Path for a given club/year.
-    """
-    games_path = find_file(f"{club}_games_{year}.yml", club)
-    return read_yaml_data(games_path)
+def load_teams_data() -> dict:
+    """Load teams.yml from the configured data path."""
+    return load_yaml(find_data_file("teams.yml"))
 
 
-def read_yaml_data(yaml_path: Path) -> dict:
-    """
-    read the yaml from file into a dict
-    """
-    with open(yaml_path, "r", encoding="utf-8") as file:
-        data = yaml.safe_load(file)
-    return data
+def load_games_data(club: str, year: int | str) -> dict:
+    """Load the games YAML for *club* and *year*."""
+    return load_yaml(find_data_file(f"{club}_games_{year}.yml", subfolder=club))

@@ -32,6 +32,7 @@ class Schedule:
     output_filename: str
     duration: int
     start_time: str
+    start_day: str
     matches: list[Match]
 
 
@@ -135,7 +136,7 @@ def load_schedule(input_path: str, logger: logging.Logger) -> Schedule:
         team_suffix = f"  [team: {team}]" if team else ""
         logger.info(f"  match: {m.date.strftime('%Y-%m-%d')}  {m.venue:<4}  {club}{team_suffix}")
 
-    return Schedule(me, output_filename, duration, start_time, matches)
+    return Schedule(me, output_filename, duration, start_time, start_date.strftime('%a'), matches)
 
 
 # ---------------------------------------------------------------------------
@@ -147,6 +148,7 @@ def build_yaml(schedule: Schedule) -> str:
     lines: list[str] = [
         f"me: {schedule.me}",
         f"start_time: '{schedule.start_time}'",
+        f"day: {schedule.start_day}",
         f"duration: {schedule.duration}",
         "matches:",
     ]
