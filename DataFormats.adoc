@@ -28,7 +28,8 @@ each `team` entry then has the following values
 
 [source,yaml,indent=0]
 ----
-me: FALLSIA
+me: FALLSA
+day: Thu
 start_time: '19:30'
 duration: 3
 matches:
@@ -40,6 +41,8 @@ matches:
 
 [horizontal]
 `me`:: refers to "my team" from the list of teams in the `teams` file.
+`day`:: is the day of the week that matches are normally played on
+`duration`:: is the duration of matches in hours
 `start_time`:: is the default start time for matches in this league
 - optional, if not provided, every match must include a start time
 
@@ -57,3 +60,4 @@ There are additional optional entries available: +
 - Additionally, if a match is to be re-arranged, but no date has been set then `newdate` can be left empty. In this case, the match will not be added to the calendar.
 `newtime`:: If a match time is changed, then add the new time.
 `location` :: If match is at a neutral venue, then add the location of the match (must be an existing TEAM venue)
+`start_time`:: If the match starts at a different time to the default start time for the league, then add that here. This will override any default start time for the home team.

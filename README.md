@@ -28,7 +28,7 @@ see link: [Data Formats][data-formats]
 poetry update
 ```
 
-To update depd in `pyproject.yaml`, for each listed package run
+To update deps in `pyproject.yaml`, for each listed package run
 
 ```bash
 poetry add pylint@latest
