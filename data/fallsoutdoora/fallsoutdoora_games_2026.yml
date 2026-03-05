@@ -19,6 +19,7 @@ matches:
   opp_score: 0
 - home: CASTL
   date: 2026-05-16
+  start_time: '13:00'
   label: Irish Cup
   our_score: 0
   opp_score: 0

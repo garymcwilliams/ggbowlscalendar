@@ -30,7 +30,7 @@ matches:
 - home: CASTR
   label: Irish Cup
   date: 2026-05-16
-  start_time: '17:30'
+  start_time: '17:00'
   our_score: 0
   opp_score: 0
 - away: HILDE
