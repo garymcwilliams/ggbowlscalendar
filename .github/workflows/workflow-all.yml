@@ -58,15 +58,14 @@ jobs:
       run: poetry install --no-interaction
     - name: poetry in motion tests
       run: |
-        poetry run coverage run -m pytest --junitxml=coverage.xml
+        poetry run coverage run -m pytest --junitxml=junit.xml
         poetry run coverage xml -i
-    - name: Upload coverage to Codecov
+    - name: Upload test results to Codecov
       if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.14'
-      uses: codecov/codecov-action@v3
+      # if: ${{ !cancelled() }}
+      uses: codecov/test-results-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        files: ./coverage.xml
-        fail_ci_if_error: true
     - name: SonarCloud Scan
       if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.14'
       uses: sonarsource/sonarqube-scan-action@master
