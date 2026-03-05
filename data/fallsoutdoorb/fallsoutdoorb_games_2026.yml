@@ -23,6 +23,7 @@ matches:
 - home: BALML
   team: B
   date: 2026-05-12
+  start_time: '18:30'
   our_score: 0
   opp_score: 0
 - home: CASTR
@@ -67,6 +68,7 @@ matches:
 - home: KNOCK
   team: B
   date: 2026-06-30
+  start_time: '18:30'
   our_score: 0
   opp_score: 0
 - home: DOWNP
