@@ -1,5 +1,6 @@
 me: FALLSMA
 start_time: '18:30'
+day: Wed
 duration: 3
 matches:
 - away: BALML
@@ -53,10 +54,10 @@ matches:
   our_score: 0
   opp_score: 0
 - away: BALME
-  date: 2026-08-05
+  date: 2026-08-12
   our_score: 0
   opp_score: 0
 - home: DUNBA
-  date: 2026-08-12
+  date: 2026-08-19
   our_score: 0
   opp_score: 0
