@@ -71,4 +71,4 @@ def load_teams_data() -> dict:
 
 def load_games_data(club: str, year: int | str) -> dict:
     """Load the games YAML for *club* and *year*."""
-    return load_yaml(find_data_file(f"{club}_games_{year}.yml", subfolder=club))
+    return load_yaml(find_data_file(f"{club}_games_{year}.yml", subfolder=str(year)))
