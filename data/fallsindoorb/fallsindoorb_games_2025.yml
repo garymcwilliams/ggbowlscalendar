@@ -80,3 +80,9 @@ matches:
   start_time: '19:00'
   our_score: 0
   opp_score: 0
+- away: STANN
+  label: 'Devine Cup'
+  date: 2026-03-15
+  start_time: '19:00'
+  our_score: 0
+  opp_score: 0
