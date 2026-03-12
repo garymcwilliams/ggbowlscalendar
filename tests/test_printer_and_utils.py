@@ -182,7 +182,7 @@ class TestPrintResults:
         with patch("ggbowlscalendar.printer.Console", return_value=_FakeConsole()), \
              patch("ggbowlscalendar.printer.Table", return_value=table):
             print_results(make_league([make_match()]), registry)
-        assert table.columns == ["R", "Venue", "Us", "Opp", "Opponent", "Date       18:00", "Note"]
+        assert table.columns == ["R", "Venue", "Us", "Opp", "Opponent", "Tue Date   18:00", "Note"]
 
     @pytest.mark.parametrize("count", [1, 2, 3])
     def test_row_count_matches_match_count(self, registry, count):
