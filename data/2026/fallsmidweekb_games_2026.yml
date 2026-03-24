@@ -49,6 +49,11 @@ matches:
   date: 2026-07-22
   our_score: 0
   opp_score: 0
+- home: DUNBA
+  label: Midweek Cup
+  date: 2026-07-23
+  our_score: 0
+  opp_score: 0
 - away: BALWA
   date: 2026-07-29
   our_score: 0
