@@ -76,6 +76,12 @@ matches:
   opp_score: 0
 - home: EWART
   team: A
+  label: Senior Cup
+  date: 2026-07-27
+  our_score: 0
+  opp_score: 0
+- home: EWART
+  team: A
   date: 2026-08-01
   our_score: 0
   opp_score: 0
