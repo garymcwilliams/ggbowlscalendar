@@ -35,6 +35,11 @@ matches:
   date: 2026-06-24
   our_score: 0
   opp_score: 0
+- home: MOSSL
+  label: Midweek Cup
+  date: 2026-06-25
+  our_score: 0
+  opp_score: 0
 - away: UTRAN
   team: A
   date: 2026-07-01
