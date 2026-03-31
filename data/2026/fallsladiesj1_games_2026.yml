@@ -46,6 +46,11 @@ matches:
   date: 2026-06-25
   our_score: 0
   opp_score: 0
+- away: BELMO
+  label: Hazel Getty Cup
+  date: 2026-06-29
+  our_score: 0
+  opp_score: 0
 - home: MAGHD
   date: 2026-07-02
   our_score: 0
