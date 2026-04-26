@@ -1,0 +1,24 @@
+FALLSV2
+fallsvets2
+3
+2026, 04, 20
+13:30
+home GLENG-North 7
+away BALME-3 7
+home FORTHR-2 7
+away EWART 7
+home GLENG-South 7
+away ALBERT 7
+home DIVIS 7
+away ANTRL-2 7
+home UTBC-3 7
+
+away GLENG-North 7
+home BALME-3 21
+away FORTHR-2 7
+home EWART 7
+away GLENG-South 7
+home ALBERT 7
+away DIVIS 7
+home ANTRL-2 7
+away UTBC-3 7
