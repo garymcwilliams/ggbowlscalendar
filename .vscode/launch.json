@@ -187,7 +187,7 @@
             "console": "integratedTerminal",
             "env": {
                 "ICAL_TEAM": "fallsvets1",
-                "ICAL_YEAR": "2025"
+                "ICAL_YEAR": "2026"
             },
             "envFile": "${workspaceFolder}/.env",
         },
