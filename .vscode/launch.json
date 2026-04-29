@@ -157,7 +157,7 @@
             "console": "integratedTerminal",
             "env": {
                 "ICAL_TEAM": "fallsladiese1",
-                "ICAL_YEAR": "2025"
+                "ICAL_YEAR": "2026"
             },
             "envFile": "${workspaceFolder}/.env",
         },
@@ -172,7 +172,7 @@
             "console": "integratedTerminal",
             "env": {
                 "ICAL_TEAM": "fallsladiese2",
-                "ICAL_YEAR": "2025"
+                "ICAL_YEAR": "2026"
             },
             "envFile": "${workspaceFolder}/.env",
         },

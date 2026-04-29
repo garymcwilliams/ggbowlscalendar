@@ -1,0 +1,22 @@
+FALLSLE1
+fallsladiese1
+3
+2026, 04, 27
+18:30
+away EWART 7
+home KNOCK 7
+away HILDE-1 7
+home HILDE-2 7
+away GILNA 7
+home MALON 7
+away HILDE-3 7
+home FALLSLE2 14
+
+home EWART 7
+away KNOCK 14
+home HILDE-1 7
+away HILDE-2 7
+home GILNA 7
+away MALON 7
+home HILDE-3 7
+away FALLSLE2 14
