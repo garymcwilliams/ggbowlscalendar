@@ -113,13 +113,17 @@ class TestBuildSummary:
         m = make_match(venue=venue, our_score=our, opp_score=their)
         assert _build_summary(m, "Opponents FC", "My Bowls Club") == expected
 
-    def test_label_included_when_unplayed(self):
+    def test_label_separator_when_unplayed(self):
         m = make_match(label="Cup Semi")
-        assert "Cup Semi" in _build_summary(m, "Opponents FC", "My Bowls Club")
+        assert _build_summary(m, "Opponents FC", "My Bowls Club") == "My Bowls Club v (Opponents FC) - Cup Semi"
 
-    def test_label_included_when_played(self):
+    def test_label_separator_when_played(self):
         m = make_match(our_score=2, opp_score=1, label="Final")
-        assert "Final" in _build_summary(m, "Opponents FC", "My Bowls Club")
+        assert _build_summary(m, "Opponents FC", "My Bowls Club") == "My Bowls Club v (Opponents FC) W (2 - 1) - Final"
+
+    def test_no_label_no_separator(self):
+        m = make_match()
+        assert " - " not in _build_summary(m, "Opponents FC", "My Bowls Club")
 
     def test_no_trailing_whitespace_without_label(self):
         s = _build_summary(make_match(), "Opponents FC", "My Bowls Club")

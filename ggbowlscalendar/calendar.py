@@ -128,10 +128,10 @@ def _build_summary(match: Match, opp_name: str, my_team_name: str) -> str:
     names = f"{home} v {away}"
 
     if not match.played:
-        return f"{names} {match.label}".rstrip()
+        return f"{names}{f' - {match.label}' if match.label else ''}".rstrip()
 
     our, their = match.score_display()
-    return f"{names} {match.result} ({our} - {their}) {match.label}".rstrip()
+    return f"{names} {match.result} ({our} - {their}){f' - {match.label}' if match.label else ''}".rstrip()
 
 
 def _build_description(match: Match, opp_name: str) -> str:
