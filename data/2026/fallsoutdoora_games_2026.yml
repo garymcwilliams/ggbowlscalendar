@@ -50,9 +50,16 @@ matches:
   date: 2026-06-13
   our_score: 0
   opp_score: 0
+- away: CARIF
+  date: 2026-06-20
+  label: Irish Cup
+  our_score: 0
+  opp_score: 0
 - away: UTRAN
   team: A
   date: 2026-06-20
+  newdate: 2026-06-23
+  newtime: '18:30'
   our_score: 0
   opp_score: 0
 - home: KNOCK
