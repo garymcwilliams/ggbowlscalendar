@@ -49,9 +49,16 @@ matches:
   date: 2026-05-30
   our_score: 0
   opp_score: 0
+- home: DERRY
+  team: B
+  date: 2026-06-06
+  our_score: 0
+  opp_score: 0
 - home: UTRAN
   team: C
   date: 2026-06-06
+  newdate: 2026-06-09
+  newtime: '18:30'
   our_score: 0
   opp_score: 0
 - away: COMBR
