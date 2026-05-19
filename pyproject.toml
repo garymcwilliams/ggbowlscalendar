@@ -11,7 +11,7 @@ PyYAML = "^6.0.3"
 icalendar = "^7.0.2"
 rich = "^14.3.3"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 pylint = "^4.0.5"
 pylama = "^7.7.1"
 pytest = "^8.2.0"
