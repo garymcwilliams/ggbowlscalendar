@@ -20,6 +20,6 @@
         "connectionId": "GaryMcWilliams",
         "projectKey": "garymcwilliams_ggbowlscalendar"
     },
-    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "python-envs.defaultEnvManager": "ms-python.python:venv",
     "python-envs.defaultPackageManager": "ms-python.python:pip",
 }
