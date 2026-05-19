@@ -10,6 +10,7 @@
 ### command line
 
 ```bash
+poetry env activate
 cd src
 python main.py --team <team name> --year <year>
 ```

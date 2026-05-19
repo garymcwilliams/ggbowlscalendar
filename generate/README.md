@@ -5,7 +5,7 @@
 Simplest way to run this is to do
 
 ``` bash
-poetry shell
+poetry env activate
 cd generate
 ./generate.py
 ```
@@ -14,7 +14,7 @@ cd generate
 
 Create a file called `matches.txt`, from one of the samples. This is a simple line based file, with the following structure:
 
-line 1: is the `me:` data for the `yaml` file.
+line 1: is the `me:` data for the `yaml` file. This value must exist in `teams.yml`.
 line 2: is the name of the base `yaml` file to be created. this will be appended with '_games_' plus the YEAR from line 4.
 line 3: is the default `duration` for a match of this team
 line 4: is the `starting date` for the first league match
