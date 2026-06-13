@@ -12,7 +12,7 @@
             "console": "integratedTerminal"
         },
         {
-            "name": "FallsOutdoorA",
+            "name": "A Outdoor",
             "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
@@ -30,7 +30,7 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
-            "name": "FallsOutdoorB",
+            "name": "B Outdoor",
             "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
@@ -48,7 +48,7 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
-            "name": "FallsMidweekA",
+            "name": "MWA",
             "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
@@ -63,7 +63,7 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
-            "name": "FallsMidweekB",
+            "name": "MWB",
             "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
@@ -96,7 +96,7 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
-            "name": "FallsLadiesS1",
+            "name": "S1 Ladies",
             "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
@@ -117,7 +117,7 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
-            "name": "FallsLadiesJ1",
+            "name": "J1 Ladies",
             "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
@@ -132,7 +132,7 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
-            "name": "FallsLadiesJ2",
+            "name": "J2 Ladies",
             "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
@@ -147,7 +147,7 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
-            "name": "FallsLadiesE1",
+            "name": "E1 Ladies",
             "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
@@ -162,7 +162,7 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
-            "name": "FallsLadiesE2",
+            "name": "E2 Ladies",
             "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
@@ -177,7 +177,7 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
-            "name": "FallsVets1",
+            "name": "Vets1",
             "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
@@ -192,7 +192,7 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
-            "name": "FallsVets2",
+            "name": "Vets2",
             "type": "debugpy",
             "request": "launch",
             "stopOnEntry": false,
