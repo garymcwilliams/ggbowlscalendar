@@ -67,8 +67,16 @@ matches:
   date: 2026-06-27
   our_score: 0
   opp_score: 0
+- home: BALME
+  team: B
+  date: 2026-07-04
+  label: Irish Cup
+  our_score: 0
+  opp_score: 0
 - away: BALWA
   date: 2026-07-04
+  newdate: 2026-07-07
+  newtime: '18:30'
   our_score: 0
   opp_score: 0
 - home: MOSSL
