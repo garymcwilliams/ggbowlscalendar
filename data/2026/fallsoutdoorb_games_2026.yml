@@ -90,6 +90,7 @@ matches:
   opp_score: 0
 - home: DOWNP
   date: 2026-07-04
+  newtime: '17:00'
   our_score: 0
   opp_score: 0
 - away: BELMO

@@ -70,6 +70,7 @@ matches:
 - home: BALME
   team: B
   date: 2026-07-04
+  newtime: '13:00'
   label: Irish Cup
   our_score: 0
   opp_score: 0
