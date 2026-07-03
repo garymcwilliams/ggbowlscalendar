@@ -55,6 +55,12 @@ matches:
   our_score: 0
   opp_score: 0
 - home: PICKI
+  label: Midweek Cup
+  date: 2026-07-23
+  newdate: 2026-07-21
+  our_score: 0
+  opp_score: 0
+- home: PICKI
   date: 2026-07-29
   our_score: 0
   opp_score: 0
