@@ -119,6 +119,13 @@ matches:
   date: 2026-08-15
   our_score: 0
   opp_score: 0
+- home: KNOCK
+  team: B
+  label: PG Junior Cup
+  date: 2026-08-20
+  start_time: '18:30'
+  our_score: 0
+  opp_score: 0
 - away: UTRAN
   team: C
   date: 2026-08-22
