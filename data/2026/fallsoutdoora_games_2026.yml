@@ -102,6 +102,13 @@ matches:
   date: 2026-08-01
   our_score: 0
   opp_score: 0
+- home: DUNBA
+  team: B
+  label: Senior Cup
+  date: 2026-08-10
+  start_time: '18:30'
+  our_score: 0
+  opp_score: 0
 - away: BALME
   team: B
   date: 2026-08-15
