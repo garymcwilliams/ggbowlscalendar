@@ -41,6 +41,12 @@ for `dev` dependencies use
 poetry add --dev pytest@latest
 ```
 
+## Updating poetry itself
+
+```bash
+poetry self update
+```
+
 [all-image]: https://github.com/garymcwilliams/ggbowlscalendar/actions/workflows/workflow-all.yml/badge.svg?event=push
 [all-link]: https://github.com/garymcwilliams/ggbowlscalendar/actions/workflows/workflow-all.yml
 [ql-image]: https://github.com/garymcwilliams/ggbowlscalendar/actions/workflows/workflow-codeql.yml/badge.svg?event=push

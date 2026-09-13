@@ -1,0 +1,32 @@
+STADIUM
+tue-stadium
+2
+2026, 09, 08
+19:00
+home KMagennis 7
+home RMorgan 7
+home DMoore 7
+home KMorrison 7
+home JLeonard 7
+home TMcAuley 7
+home JDowney 7
+home TRoberts 7
+home TWilson 7
+home LDickey 7
+home DCaldwell 7
+home CCaldwell 7
+home CBoyle 7
+home CBell 7
+home IORourke 7
+home KMagennis 14
+home RMorgan 7
+home DMoore 7
+home KMorrison 7
+home JLeonard 7
+home TMcAuley 7
+home JDowney 7
+home TRoberts 7
+home TWilson 7
+home LDickey 7
+home DCaldwell 7
+home CCaldwell 7
