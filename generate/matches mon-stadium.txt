@@ -1,5 +1,5 @@
 STADIUM
-stadium-mon
+mon-stadium
 2
 2026, 09, 07
 11:30
@@ -13,7 +13,7 @@ home SSwift 7
 home AMatthews 7
 home PGrahame 7
 home JGourley 7
-home SEachus 21
+home SEachus 7
 home AShaw 7
 home JMcMullen 7
 home CCostley 7
