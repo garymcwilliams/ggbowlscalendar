@@ -1,0 +1,35 @@
+me: STADIUM
+start_time: '14:00'
+day: Sat
+duration: 2
+matches:
+- home: Belmont
+  date: 2026-09-26
+  our_score: 0
+  opp_score: 0
+- home: BIBC
+  date: 2026-10-31
+  our_score: 0
+  opp_score: 0
+- home: SHAFT
+  team: Eagles
+  date: 2026-11-14
+  our_score: 0
+  opp_score: 0
+- home: SHAFT
+  team: Orcas
+  date: 2026-12-12
+  our_score: 0
+  opp_score: 0
+- home: NICS
+  date: 2027-01-02
+  our_score: 0
+  opp_score: 0
+- home: LISNA
+  date: 2027-01-16
+  our_score: 0
+  opp_score: 0
+- home: BELMO
+  date: 2027-02-13
+  our_score: 0
+  opp_score: 0
