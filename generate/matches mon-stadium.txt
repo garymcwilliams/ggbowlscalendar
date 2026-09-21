@@ -1,0 +1,32 @@
+STADIUM
+mon-stadium
+2
+2026, 09, 07
+11:30
+home JStewart 7
+home GBurn 7
+home WSweetlove 7
+home JHagan 7
+home DEvans 7
+home MKerr 7
+home SSwift 7
+home AMatthews 7
+home PGrahame 7
+home JGourley 7
+home SEachus 7
+home AShaw 7
+home JMcMullen 7
+home CCostley 7
+home IMcIntyre 7
+home AThompson 14
+home ASweeney 7
+home JStewart 7
+home GBurn 7
+home WSweetlove 7
+home JHagan 7
+home DEvans 7
+home MKerr 7
+home SSwift 7
+home AMatthews 7
+home PGrahame 7
+home JGourley 7

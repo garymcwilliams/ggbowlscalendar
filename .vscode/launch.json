@@ -12,6 +12,40 @@
             "console": "integratedTerminal"
         },
         {
+            "name": "Mon Stadium",
+            "type": "debugpy",
+            "request": "launch",
+            "stopOnEntry": false,
+            "python": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team",
+                "mon-stadium",
+                "--year",
+                "2026"
+            ],
+            "cwd": "${workspaceFolder}",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
+            "name": "Tue Stadium",
+            "type": "debugpy",
+            "request": "launch",
+            "stopOnEntry": false,
+            "python": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team",
+                "tue-stadium",
+                "--year",
+                "2026"
+            ],
+            "cwd": "${workspaceFolder}",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
             "name": "A Outdoor",
             "type": "debugpy",
             "request": "launch",
@@ -266,23 +300,6 @@
             "args": [
                 "--team",
                 "stcolmans",
-                "--year",
-                "2025"
-            ],
-            "cwd": "${workspaceFolder}",
-            "env": {},
-            "envFile": "${workspaceFolder}/.env",
-        },
-        {
-            "name": "Stadium",
-            "type": "debugpy",
-            "request": "launch",
-            "stopOnEntry": false,
-            "python": "${command:python.interpreterPath}",
-            "program": "${workspaceFolder}/main.py",
-            "args": [
-                "--team",
-                "stadium",
                 "--year",
                 "2025"
             ],
