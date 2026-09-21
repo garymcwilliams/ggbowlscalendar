@@ -4,10 +4,18 @@
 
 Simplest way to run this is to do
 
+On bash
 ``` bash
 poetry env activate
 cd generate
 ./generate.py
+```
+
+On Windows / Powershell
+``` bash
+poetry env activate
+cd generate
+python ./generate.py
 ```
 
 ## Configuration
