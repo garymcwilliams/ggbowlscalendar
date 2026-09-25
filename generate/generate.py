@@ -3,6 +3,7 @@
 import sys
 import logging
 import logging.config
+import calendar
 from dataclasses import dataclass
 from datetime import date, timedelta
 from pathlib import Path
@@ -197,7 +198,7 @@ def print_table(schedule: Schedule) -> None:
     table.add_column("Venue")
     table.add_column("Opponent")
 
-    normal_weekday = schedule.matches[0].date.weekday()
+    normal_weekday: int = list(calendar.day_abbr).index(schedule.start_day)
 
     for m in schedule.matches:
         table.add_row(
