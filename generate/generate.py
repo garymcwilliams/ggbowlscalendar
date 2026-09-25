@@ -26,6 +26,7 @@ class Match:
     venue: str
     opponent: str
     date: date
+    start_time: str | None = None
 
 
 @dataclass
@@ -96,12 +97,13 @@ def parse_header(lines: list[str]) -> tuple[str, str, int, date, str]:
 def parse_match_line(line: str, current_date: date) -> Match:
     """Parse a single match line and return a Match with its calculated date."""
     parts = line.split()
-    if len(parts) != 3:
-        raise ValueError(f"Invalid match line (expected 3 fields): '{line}'")
+    if len(parts) not in (3, 4):
+        raise ValueError(f"Invalid match line (expected 3 or 4 fields): '{line}'")
     venue = parts[0].lower()
     opponent = parts[1]
     delta = int(parts[2])
-    return Match(venue=venue, opponent=opponent, date=current_date + timedelta(days=delta))
+    start_time: str | None = parts[3] if len(parts) == 4 else None
+    return Match(venue=venue, opponent=opponent, date=current_date + timedelta(days=delta), start_time=start_time)
 
 
 def parse_matches(lines: list[str], start_date: date) -> list[Match]:
@@ -136,7 +138,8 @@ def load_schedule(input_path: str, logger: logging.Logger) -> Schedule:
     for m in matches:
         club, team = parse_opponent(m.opponent)
         team_suffix = f"  [team: {team}]" if team else ""
-        logger.info(f"  match: {m.date.strftime('%Y-%m-%d')}  {m.venue:<4}  {club}{team_suffix}")
+        time_suffix = f"  [start_time: {m.start_time}]" if m.start_time else ""
+        logger.info(f"  match: {m.date.strftime('%Y-%m-%d')}  {m.venue:<4}  {club}{team_suffix}{time_suffix}")
 
     return Schedule(me, output_filename, duration, start_time, start_date.strftime('%a'), matches)
 
@@ -160,6 +163,8 @@ def build_yaml(schedule: Schedule) -> str:
         if team:
             lines.append(f"  team: {team}")
         lines.append(f"  date: {m.date.strftime('%Y-%m-%d')}")
+        if m.start_time:
+            lines.append(f"  start_time: '{m.start_time}'")
         lines.append("  our_score: 0")
         lines.append("  opp_score: 0")
     return "\n".join(lines) + "\n"
