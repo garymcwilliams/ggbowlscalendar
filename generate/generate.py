@@ -14,6 +14,7 @@ from rich.table import Table
 console = Console()
 
 DEFAULT_INPUT_FILE: str = "matches.txt"
+DEFAULT_OUTPUT_DIR: Path = Path(__file__).parent / ".." / "data"
 
 
 # ---------------------------------------------------------------------------
@@ -159,19 +160,28 @@ def build_yaml(schedule: Schedule) -> str:
         if team:
             lines.append(f"  team: {team}")
         lines.append(f"  date: {m.date.strftime('%Y-%m-%d')}")
-        lines.append(f"  our_score: 0")
-        lines.append(f"  opp_score: 0")
+        lines.append("  our_score: 0")
+        lines.append("  opp_score: 0")
     return "\n".join(lines) + "\n"
 
 
-def write_yaml(schedule: Schedule, logger: logging.Logger) -> None:
+def resolve_output_path(schedule: Schedule, output_dir: Path | None = None) -> Path:
+    """Return the full output path, creating the directory if needed."""
+    year: str = schedule.output_filename.split('_')[-1].replace('.yml', '')
+    base_dir: Path = (output_dir or DEFAULT_OUTPUT_DIR) / year
+    base_dir.mkdir(parents=True, exist_ok=True)
+    return base_dir / schedule.output_filename
+
+
+def write_yaml(schedule: Schedule, logger: logging.Logger, output_dir: Path | None = None) -> None:
     """Write the YAML file and display the match table."""
+    output_path: Path = resolve_output_path(schedule, output_dir)
     yaml_str = build_yaml(schedule)
-    with open(schedule.output_filename, 'w', encoding='utf-8') as f:
+    with open(output_path, 'w', encoding='utf-8') as f:
         f.write(yaml_str)
-    logger.info(f"  output written: {schedule.output_filename}")
+    logger.info(f"  output written: {output_path}")
     print_table(schedule)
-    console.print(f"\nWritten to [green]{schedule.output_filename}[/green]")
+    console.print(f"\nWritten to [green]{output_path}[/green]")
 
 
 # ---------------------------------------------------------------------------
@@ -215,14 +225,16 @@ def print_table(schedule: Schedule) -> None:
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    if len(sys.argv) > 2:
-        print(f"Usage: python generate.py [input.txt]  (default: {DEFAULT_INPUT_FILE})")
-        sys.exit(1)
-
-    input_file: str = sys.argv[1] if len(sys.argv) == 2 else DEFAULT_INPUT_FILE
+    import argparse
+    parser = argparse.ArgumentParser(description="Generate a YAML schedule from a matches input file.")
+    parser.add_argument("input_file", nargs="?", default=DEFAULT_INPUT_FILE,
+                        help=f"Input file (default: {DEFAULT_INPUT_FILE})")
+    parser.add_argument("--output-dir", type=Path, default=None,
+                        help=f"Output directory base (default: {DEFAULT_OUTPUT_DIR}/<year>)")
+    args = parser.parse_args()
 
     logger = setup_logging()
-    logger.info(f"--- Generating from input: {input_file} ---")
+    logger.info(f"--- Generating from input: {args.input_file} ---")
 
-    schedule = load_schedule(input_file, logger)
-    write_yaml(schedule, logger)
+    schedule = load_schedule(args.input_file, logger)
+    write_yaml(schedule, logger, args.output_dir)
