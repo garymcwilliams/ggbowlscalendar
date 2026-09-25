@@ -60,6 +60,24 @@
             ],
         },
         {
+            "name": "FallsBelfast",
+            "type": "debugpy",
+            "request": "launch",
+            "stopOnEntry": false,
+            "python": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team",
+                "fallsbelfast",
+                "--year",
+                "2026"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
             "name": "A Outdoor",
             "type": "debugpy",
             "request": "launch",
@@ -264,24 +282,6 @@
             "args": [
                 "--team",
                 "fallsindoorb",
-                "--year",
-                "2025"
-            ],
-            "cwd": "${workspaceFolder}",
-            "console": "integratedTerminal",
-            "env": {},
-            "envFile": "${workspaceFolder}/.env",
-        },
-        {
-            "name": "FallsBelfast",
-            "type": "debugpy",
-            "request": "launch",
-            "stopOnEntry": false,
-            "python": "${command:python.interpreterPath}",
-            "program": "${workspaceFolder}/main.py",
-            "args": [
-                "--team",
-                "fallsbelfast",
                 "--year",
                 "2025"
             ],

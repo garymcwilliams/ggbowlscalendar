@@ -1,0 +1,49 @@
+me: FALLS1
+start_time: '20:00'
+day: Wed
+duration: 3
+matches:
+- away: BELMO
+  date: 2026-10-06
+  our_score: 0
+  opp_score: 0
+- home: DUNDO
+  date: 2026-10-14
+  our_score: 0
+  opp_score: 0
+- away: CAVEH
+  date: 2026-10-22
+  our_score: 0
+  opp_score: 0
+- home: CASTN
+  date: 2026-11-04
+  our_score: 0
+  opp_score: 0
+- away: HIGHF
+  date: 2026-11-18
+  our_score: 0
+  opp_score: 0
+- away: EWART
+  date: 2026-11-25
+  our_score: 0
+  opp_score: 0
+- home: SYDEN
+  date: 2026-12-09
+  our_score: 0
+  opp_score: 0
+- away: SALIS
+  date: 2026-12-17
+  our_score: 0
+  opp_score: 0
+- home: BIBC
+  date: 2027-01-13
+  our_score: 0
+  opp_score: 0
+- away: HOLYC
+  date: 2027-01-19
+  our_score: 0
+  opp_score: 0
+- home: UTBC
+  date: 2027-01-27
+  our_score: 0
+  opp_score: 0
