@@ -46,6 +46,20 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
+            "name": "FallsIndoor",
+            "type": "debugpy",
+            "request": "launch",
+            "stopOnEntry": false,
+            "python": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team",
+                "fallsindoor",
+                "--year",
+                "2026"
+            ],
+        },
+        {
             "name": "A Outdoor",
             "type": "debugpy",
             "request": "launch",
@@ -239,20 +253,6 @@
                 "ICAL_YEAR": "2026"
             },
             "envFile": "${workspaceFolder}/.env",
-        },
-        {
-            "name": "FallsIndoor",
-            "type": "debugpy",
-            "request": "launch",
-            "stopOnEntry": false,
-            "python": "${command:python.interpreterPath}",
-            "program": "${workspaceFolder}/main.py",
-            "args": [
-                "--team",
-                "fallsindoor",
-                "--year",
-                "2025"
-            ],
         },
         {
             "name": "FallsIndoorB",

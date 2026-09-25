@@ -1,0 +1,53 @@
+me: FALLSA
+start_time: '19:00'
+day: Thu
+duration: 3
+matches:
+- away: WOODB
+  date: 2026-10-05
+  our_score: 0
+  opp_score: 0
+- home: HANNA
+  date: 2026-10-15
+  our_score: 0
+  opp_score: 0
+- away: STANN
+  date: 2026-10-25
+  our_score: 0
+  opp_score: 0
+- home: WOODB
+  date: 2026-11-05
+  our_score: 0
+  opp_score: 0
+- away: HANNA
+  date: 2026-11-10
+  our_score: 0
+  opp_score: 0
+- home: STANN
+  date: 2026-11-19
+  our_score: 0
+  opp_score: 0
+- home: WOODB
+  date: 2027-01-14
+  our_score: 0
+  opp_score: 0
+- away: HANNA
+  date: 2027-01-19
+  our_score: 0
+  opp_score: 0
+- home: STANN
+  date: 2027-01-28
+  our_score: 0
+  opp_score: 0
+- away: WOODB
+  date: 2027-02-08
+  our_score: 0
+  opp_score: 0
+- home: HANNA
+  date: 2027-02-18
+  our_score: 0
+  opp_score: 0
+- away: STANN
+  date: 2027-02-25
+  our_score: 0
+  opp_score: 0
