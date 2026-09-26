@@ -95,6 +95,23 @@
             "envFile": "${workspaceFolder}/.env",
         },
         {
+            "name": "StColmans",
+            "type": "debugpy",
+            "request": "launch",
+            "stopOnEntry": false,
+            "python": "${command:python.interpreterPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team",
+                "stcolmans",
+                "--year",
+                "2026"
+            ],
+            "cwd": "${workspaceFolder}",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+        },
+        {
             "name": "A Outdoor",
             "type": "debugpy",
             "request": "launch",
@@ -304,23 +321,6 @@
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
-            "env": {},
-            "envFile": "${workspaceFolder}/.env",
-        },
-        {
-            "name": "StColmans",
-            "type": "debugpy",
-            "request": "launch",
-            "stopOnEntry": false,
-            "python": "${command:python.interpreterPath}",
-            "program": "${workspaceFolder}/main.py",
-            "args": [
-                "--team",
-                "stcolmans",
-                "--year",
-                "2025"
-            ],
-            "cwd": "${workspaceFolder}",
             "env": {},
             "envFile": "${workspaceFolder}/.env",
         },

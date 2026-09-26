@@ -1,22 +1,20 @@
 STCOL
 stcolmans
 3
-2025, 10, 02
+2026, 10, 01
 20:00
-home BALLP 0
-away ANNAH 6
-away SOLDI 7
-home PRIES 8
-away HILDE 7
-away ROCK 4
-home STJOS 17
-away BALLI 6
+away SLOAN 7
+away STCLA 6
+home SUFFO 15
+home DERVL 7
+away AGHAG 7 20:15
+home STMAR 14
+home BALLP 7
 
-away BALLP 26
-home ANNAH 10
-home SOLDI 7
-away PRIES 8
-home HILDE 6
-home ROCK 7
-away STJOS 4
-home BALLI 10
+home SLOAN 35
+home STCLA 7
+away SUFFO 7 19:30
+away DERVL 7
+home AGHAG 14
+away STMAR 7
+away BALLP 7 19:30

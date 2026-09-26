@@ -3,6 +3,7 @@
 import sys
 import logging
 import logging.config
+import calendar
 from dataclasses import dataclass
 from datetime import date, timedelta
 from pathlib import Path
@@ -13,6 +14,7 @@ from rich.table import Table
 console = Console()
 
 DEFAULT_INPUT_FILE: str = "matches.txt"
+DEFAULT_OUTPUT_DIR: Path = Path(__file__).parent / ".." / "data"
 
 
 # ---------------------------------------------------------------------------
@@ -24,6 +26,7 @@ class Match:
     venue: str
     opponent: str
     date: date
+    start_time: str | None = None
 
 
 @dataclass
@@ -94,12 +97,13 @@ def parse_header(lines: list[str]) -> tuple[str, str, int, date, str]:
 def parse_match_line(line: str, current_date: date) -> Match:
     """Parse a single match line and return a Match with its calculated date."""
     parts = line.split()
-    if len(parts) != 3:
-        raise ValueError(f"Invalid match line (expected 3 fields): '{line}'")
+    if len(parts) not in (3, 4):
+        raise ValueError(f"Invalid match line (expected 3 or 4 fields): '{line}'")
     venue = parts[0].lower()
     opponent = parts[1]
     delta = int(parts[2])
-    return Match(venue=venue, opponent=opponent, date=current_date + timedelta(days=delta))
+    start_time: str | None = parts[3] if len(parts) == 4 else None
+    return Match(venue=venue, opponent=opponent, date=current_date + timedelta(days=delta), start_time=start_time)
 
 
 def parse_matches(lines: list[str], start_date: date) -> list[Match]:
@@ -134,7 +138,8 @@ def load_schedule(input_path: str, logger: logging.Logger) -> Schedule:
     for m in matches:
         club, team = parse_opponent(m.opponent)
         team_suffix = f"  [team: {team}]" if team else ""
-        logger.info(f"  match: {m.date.strftime('%Y-%m-%d')}  {m.venue:<4}  {club}{team_suffix}")
+        time_suffix = f"  [start_time: {m.start_time}]" if m.start_time else ""
+        logger.info(f"  match: {m.date.strftime('%Y-%m-%d')}  {m.venue:<4}  {club}{team_suffix}{time_suffix}")
 
     return Schedule(me, output_filename, duration, start_time, start_date.strftime('%a'), matches)
 
@@ -158,19 +163,30 @@ def build_yaml(schedule: Schedule) -> str:
         if team:
             lines.append(f"  team: {team}")
         lines.append(f"  date: {m.date.strftime('%Y-%m-%d')}")
-        lines.append(f"  our_score: 0")
-        lines.append(f"  opp_score: 0")
+        if m.start_time:
+            lines.append(f"  start_time: '{m.start_time}'")
+        lines.append("  our_score: 0")
+        lines.append("  opp_score: 0")
     return "\n".join(lines) + "\n"
 
 
-def write_yaml(schedule: Schedule, logger: logging.Logger) -> None:
+def resolve_output_path(schedule: Schedule, output_dir: Path | None = None) -> Path:
+    """Return the full output path, creating the directory if needed."""
+    year: str = schedule.output_filename.split('_')[-1].replace('.yml', '')
+    base_dir: Path = (output_dir or DEFAULT_OUTPUT_DIR) / year
+    base_dir.mkdir(parents=True, exist_ok=True)
+    return base_dir / schedule.output_filename
+
+
+def write_yaml(schedule: Schedule, logger: logging.Logger, output_dir: Path | None = None) -> None:
     """Write the YAML file and display the match table."""
+    output_path: Path = resolve_output_path(schedule, output_dir)
     yaml_str = build_yaml(schedule)
-    with open(schedule.output_filename, 'w', encoding='utf-8') as f:
+    with open(output_path, 'w', encoding='utf-8') as f:
         f.write(yaml_str)
-    logger.info(f"  output written: {schedule.output_filename}")
+    logger.info(f"  output written: {output_path}")
     print_table(schedule)
-    console.print(f"\nWritten to [green]{schedule.output_filename}[/green]")
+    console.print(f"\nWritten to [green]{output_path}[/green]")
 
 
 # ---------------------------------------------------------------------------
@@ -197,7 +213,7 @@ def print_table(schedule: Schedule) -> None:
     table.add_column("Venue")
     table.add_column("Opponent")
 
-    normal_weekday = schedule.matches[0].date.weekday()
+    normal_weekday: int = list(calendar.day_abbr).index(schedule.start_day)
 
     for m in schedule.matches:
         table.add_row(
@@ -214,14 +230,16 @@ def print_table(schedule: Schedule) -> None:
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    if len(sys.argv) > 2:
-        print(f"Usage: python generate.py [input.txt]  (default: {DEFAULT_INPUT_FILE})")
-        sys.exit(1)
-
-    input_file: str = sys.argv[1] if len(sys.argv) == 2 else DEFAULT_INPUT_FILE
+    import argparse
+    parser = argparse.ArgumentParser(description="Generate a YAML schedule from a matches input file.")
+    parser.add_argument("input_file", nargs="?", default=DEFAULT_INPUT_FILE,
+                        help=f"Input file (default: {DEFAULT_INPUT_FILE})")
+    parser.add_argument("--output-dir", type=Path, default=None,
+                        help=f"Output directory base (default: {DEFAULT_OUTPUT_DIR}/<year>)")
+    args = parser.parse_args()
 
     logger = setup_logging()
-    logger.info(f"--- Generating from input: {input_file} ---")
+    logger.info(f"--- Generating from input: {args.input_file} ---")
 
-    schedule = load_schedule(input_file, logger)
-    write_yaml(schedule, logger)
+    schedule = load_schedule(args.input_file, logger)
+    write_yaml(schedule, logger, args.output_dir)
