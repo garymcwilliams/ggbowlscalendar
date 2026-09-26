@@ -54,7 +54,7 @@ jobs:
 
       - name: Run tests
         run: |
-          poetry run pytest \
+          poetry run coverage run -m pytest \
             --junitxml=junit.xml \
             --cov=. \
             --cov-report=xml:coverage.xml
