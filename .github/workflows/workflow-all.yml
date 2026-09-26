@@ -25,9 +25,9 @@ jobs:
       fail-fast: false
       matrix:
         python-version: ["3.11", "3.12", "3.13", "3.14"]
-        poetry-version: [1.8.2]
-        os: [ubuntu-latest]
-#        os: [ubuntu-latest, macos-latest, windows-latest]
+        poetry-version: [2.4.1]
+        os: [ubuntu-26.04]
+#        os: [ubuntu-26.04, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout
@@ -41,7 +41,7 @@ jobs:
         virtualenvs-create: true
         virtualenvs-in-project: true
     - name: Setup python
-      uses: actions/setup-python@v6
+      uses: actions/setup-python@v7
       with:
         python-version: "${{ matrix.python-version }}"
         cache: 'poetry'
@@ -61,13 +61,14 @@ jobs:
         poetry run coverage run -m pytest --junitxml=junit.xml
         poetry run coverage xml -i
     - name: Upload test results to Codecov
-      if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.14'
+      if: matrix.os == 'ubuntu-26.04' && matrix.python-version == '3.14'
       # if: ${{ !cancelled() }}
-      uses: codecov/test-results-action@v1
+      uses: codecov/codecov-action@v5
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
+        report_type: test_results
     - name: SonarCloud Scan
-      if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.14'
+      if: matrix.os == 'ubuntu-26.04' && matrix.python-version == '3.14'
       uses: sonarsource/sonarqube-scan-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
