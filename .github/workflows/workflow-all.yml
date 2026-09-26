@@ -43,7 +43,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -73,7 +73,7 @@ jobs:
       # duplicate Codecov coverage reports.
       - name: Upload coverage to Codecov
         if: ${{ !cancelled() && matrix.python-version == '3.14' && matrix.os == 'ubuntu-24.04' }}
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage.xml
@@ -81,7 +81,7 @@ jobs:
       # Upload JUnit test results from Python 3.14 only.
       - name: Upload test results to Codecov
         if: ${{ !cancelled() && matrix.python-version == '3.14' && matrix.os == 'ubuntu-24.04' }}
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./junit.xml
@@ -90,7 +90,7 @@ jobs:
       # Run SonarCloud once rather than once per Python version.
       - name: SonarCloud Scan
         if: ${{ !cancelled() && matrix.python-version == '3.14' && matrix.os == 'ubuntu-24.04' }}
-        uses: sonarsource/sonarqube-scan-action@v5
+        uses: sonarsource/sonarqube-scan-action@v8
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
