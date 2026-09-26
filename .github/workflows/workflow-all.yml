@@ -8,6 +8,7 @@ on:
     - '.coveragerc'
     - '.github/workflows/**'
     - README.md
+    - pyproject.toml
     - poetry.lock
   pull_request:
     branches:
@@ -17,7 +18,15 @@ on:
     - '.coveragerc'
     - '.github/workflows/**'
     - README.md
+    - pyproject.toml
     - poetry.lock
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   ci:
@@ -50,7 +59,7 @@ jobs:
       uses: actions/cache@v5
       with:
         path: .venv
-        key: pydeps-${{ hashFiles('**/poetry.lock') }}
+        key: pydeps-${{ matrix.os }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
     - name: Install Poetry dependencies
       if: steps.cache-deps.outputs.cache-hit != 'true'
       run: poetry install --no-interaction --no-root
@@ -61,15 +70,14 @@ jobs:
         poetry run coverage run -m pytest --junitxml=junit.xml
         poetry run coverage xml -i
     - name: Upload test results to Codecov
-      if: matrix.os == 'ubuntu-26.04' && matrix.python-version == '3.14'
-      # if: ${{ !cancelled() }}
+      if: ${{ !cancelled() && matrix.os == 'ubuntu-26.04' && matrix.python-version == '3.14' }}
       uses: codecov/codecov-action@v5
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         report_type: test_results
     - name: SonarCloud Scan
-      if: matrix.os == 'ubuntu-26.04' && matrix.python-version == '3.14'
-      uses: sonarsource/sonarqube-scan-action@master
+      if: ${{ !cancelled() && matrix.os == 'ubuntu-26.04' && matrix.python-version == '3.14' }}
+      uses: sonarsource/sonarqube-scan-action@v5
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
