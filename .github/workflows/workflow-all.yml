@@ -112,5 +112,4 @@ jobs:
         if: ${{ !cancelled() && matrix.os == 'ubuntu-24.04' && matrix.python-version == '3.14' }}
         uses: sonarsource/sonarqube-scan-action@v5
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
