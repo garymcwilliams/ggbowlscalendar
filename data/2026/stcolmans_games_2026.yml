@@ -55,6 +55,7 @@ matches:
   opp_score: 0
 - away: STMAR
   date: 2027-02-18
+  start_time: '19:30'
   our_score: 0
   opp_score: 0
 - away: BALLP

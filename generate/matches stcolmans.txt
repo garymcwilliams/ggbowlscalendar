@@ -16,5 +16,5 @@ home STCLA 7
 away SUFFO 7 19:30
 away DERVL 7
 home AGHAG 14
-away STMAR 7
+away STMAR 7 19:30
 away BALLP 7 19:30
