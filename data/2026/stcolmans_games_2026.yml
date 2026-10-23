@@ -5,6 +5,7 @@ duration: 3
 matches:
 - away: SLOAN
   date: 2026-10-08
+  newdate: 2026-10-22
   our_score: 0
   opp_score: 0
 - away: STCLA
